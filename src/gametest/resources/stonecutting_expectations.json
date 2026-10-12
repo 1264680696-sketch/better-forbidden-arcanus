@@ -1,0 +1,158 @@
+[
+  {
+    "input": "forbidden_arcanus:darkstone",
+    "output": "forbidden_arcanus:polished_darkstone"
+  },
+  {
+    "input": "forbidden_arcanus:darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_bricks"
+  },
+  {
+    "input": "forbidden_arcanus:darkstone",
+    "output": "forbidden_arcanus:chiseled_polished_darkstone"
+  },
+  {
+    "input": "forbidden_arcanus:darkstone",
+    "output": "forbidden_arcanus:cracked_polished_darkstone_bricks"
+  },
+  {
+    "input": "forbidden_arcanus:darkstone",
+    "output": "forbidden_arcanus:tiled_polished_darkstone_bricks"
+  },
+  {
+    "input": "forbidden_arcanus:darkstone",
+    "output": "forbidden_arcanus:darkstone_slab"
+  },
+  {
+    "input": "forbidden_arcanus:darkstone",
+    "output": "forbidden_arcanus:darkstone_stairs"
+  },
+  {
+    "input": "forbidden_arcanus:darkstone",
+    "output": "forbidden_arcanus:darkstone_wall"
+  },
+  {
+    "input": "forbidden_arcanus:darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_slab"
+  },
+  {
+    "input": "forbidden_arcanus:darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_stairs"
+  },
+  {
+    "input": "forbidden_arcanus:darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_wall"
+  },
+  {
+    "input": "forbidden_arcanus:darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_brick_slab"
+  },
+  {
+    "input": "forbidden_arcanus:darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_brick_stairs"
+  },
+  {
+    "input": "forbidden_arcanus:darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_brick_wall"
+  },
+  {
+    "input": "forbidden_arcanus:darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_button"
+  },
+  {
+    "input": "forbidden_arcanus:darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_pressure_plate"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_bricks"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone",
+    "output": "forbidden_arcanus:chiseled_polished_darkstone"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone",
+    "output": "forbidden_arcanus:cracked_polished_darkstone_bricks"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone",
+    "output": "forbidden_arcanus:tiled_polished_darkstone_bricks"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_slab"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_stairs"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_wall"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_brick_slab"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_brick_stairs"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_brick_wall"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_button"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone",
+    "output": "forbidden_arcanus:polished_darkstone_pressure_plate"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone_bricks",
+    "output": "forbidden_arcanus:chiseled_polished_darkstone"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone_bricks",
+    "output": "forbidden_arcanus:cracked_polished_darkstone_bricks"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone_bricks",
+    "output": "forbidden_arcanus:tiled_polished_darkstone_bricks"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone_bricks",
+    "output": "forbidden_arcanus:polished_darkstone_brick_slab"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone_bricks",
+    "output": "forbidden_arcanus:polished_darkstone_brick_stairs"
+  },
+  {
+    "input": "forbidden_arcanus:polished_darkstone_bricks",
+    "output": "forbidden_arcanus:polished_darkstone_brick_wall"
+  },
+  {
+    "input": "forbidden_arcanus:arcane_polished_darkstone",
+    "output": "forbidden_arcanus:chiseled_arcane_polished_darkstone"
+  },
+  {
+    "input": "forbidden_arcanus:arcane_polished_darkstone",
+    "output": "forbidden_arcanus:arcane_polished_darkstone_pillar"
+  },
+  {
+    "input": "forbidden_arcanus:arcane_polished_darkstone",
+    "output": "forbidden_arcanus:arcane_polished_darkstone_slab"
+  },
+  {
+    "input": "forbidden_arcanus:arcane_polished_darkstone",
+    "output": "forbidden_arcanus:arcane_polished_darkstone_stairs"
+  },
+  {
+    "input": "forbidden_arcanus:arcane_polished_darkstone",
+    "output": "forbidden_arcanus:arcane_polished_darkstone_wall"
+  }
+]

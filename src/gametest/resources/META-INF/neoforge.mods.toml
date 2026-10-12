@@ -1,0 +1,13 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="All Rights Reserved"
+[[mods]]
+modId="bfa_tests"
+version="1"
+displayName="BFA Development Tests"
+[[dependencies.bfa_tests]]
+modId="better_forbidden_arcanus"
+type="required"
+versionRange="[0.1.0]"
+ordering="AFTER"
+side="BOTH"

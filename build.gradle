@@ -1,0 +1,74 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+    id 'idea'
+}
+
+version = mod_version
+group = mod_group_id
+base { archivesName = mod_id }
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+sourceSets {
+    gametest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+configurations {
+    runtimeClasspath.extendsFrom localRuntime
+    gametestImplementation.extendsFrom implementation
+    gametestRuntimeOnly.extendsFrom localRuntime
+}
+
+dependencies {
+    // Runtime dependencies are deliberately not embedded in the addon jar.
+    localRuntime fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+neoForge {
+    version = project.neo_version
+    addModdingDependenciesTo(sourceSets.gametest)
+    mods {
+        "${mod_id}" { sourceSet sourceSets.main }
+        bfa_tests { sourceSet sourceSets.gametest }
+    }
+    runs {
+        client {
+            client()
+            gameDirectory = project.file('runs/client')
+            loadedMods = [mods."${mod_id}"]
+        }
+        server {
+            server()
+            programArgument '--nogui'
+            gameDirectory = project.file('runs/server')
+            loadedMods = [mods."${mod_id}"]
+        }
+        clientSmoke {
+            client()
+            sourceSet = sourceSets.gametest
+            gameDirectory = project.file('runs/client-smoke')
+            loadedMods = [mods."${mod_id}", mods.bfa_tests]
+            systemProperty 'bfa.clientSmokeTest', 'true'
+        }
+        gameTestServer {
+            type = 'gameTestServer'
+            sourceSet = sourceSets.gametest
+            gameDirectory = project.file('runs/gametest')
+            loadedMods = [mods."${mod_id}", mods.bfa_tests]
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'bfa_tests'
+        }
+        configureEach { logLevel = org.slf4j.event.Level.INFO }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+tasks.withType(ProcessResources).configureEach { filteringCharset = 'UTF-8' }
+tasks.named('processResources', ProcessResources).configure {
+    inputs.property 'mod_version', project.mod_version
+    filesMatching('META-INF/neoforge.mods.toml') { expand mod_version: project.mod_version }
+}
+tasks.named('jar', Jar).configure {
+    manifest.attributes('Implementation-Version': project.mod_version)
+}

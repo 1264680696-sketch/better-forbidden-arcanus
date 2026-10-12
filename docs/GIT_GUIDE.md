@@ -1,0 +1,63 @@
+# 从本地代码到 GitHub
+
+## 先理解四个概念
+
+- 工作区：你正在编辑的源码文件。
+- 暂存区：准备放入下一次提交的文件。
+- 提交（commit）：一次有说明的本地版本快照。
+- GitHub：托管远程 Git 仓库的网站；本地提交不会自动上传。
+
+本项目已初始化为独立仓库，主分支是 `main`。作者名和邮箱仅配置在项目 `.git/config`，不会修改全局设置。
+
+## 每次改完一个功能
+
+在项目根目录运行：
+
+```powershell
+git status
+git diff
+.\scripts\dev.ps1 build
+.\scripts\dev.ps1 runGameTestServer
+git add src scripts build.gradle gradle.properties README.md CHANGELOG.md docs
+git diff --cached
+git commit -m "feat: 简洁说明本次完成的功能"
+```
+
+首次提交应包含 Gradle Wrapper、settings.gradle、.gitignore 等工程文件。后续按实际修改选择暂存范围；`git diff` 查看未暂存变化，`git diff --cached` 查看即将提交的变化。
+
+`.gitignore` 已排除 `libs/*.jar`、构建输出、缓存和测试存档。这些文件不上传。不要把整个 Minecraft 实例当源码仓库上传。
+
+提交前确保 `git diff --check` 没有空白错误。提交失败时先看错误信息；不要为了通过提交而删除未知文件或覆盖别人改动。
+
+## 第一次上传 GitHub
+
+1. 登录 GitHub，创建一个名为 `better-forbidden-arcanus` 的空仓库。
+2. 创建时不要另外生成 README、.gitignore 或许可证，本地已经有这些文件。
+3. 复制 GitHub 给出的仓库 HTTPS 地址，用真实地址替换下面的占位值。
+
+```powershell
+git remote add origin https://github.com/YOUR_ACCOUNT/better-forbidden-arcanus.git
+git remote -v
+git push -u origin main
+```
+
+按 Git Credential Manager 弹出的流程登录 GitHub。不要把密码或访问令牌写入源码、README 或命令文件。之后使用 `git push` 上传新提交。
+
+如果已经配置 origin，用 `git remote -v` 先确认，不重复添加；更换远程地址使用 `git remote set-url origin <真实地址>`。
+
+## 发布更新
+
+采用 `主版本.次版本.修订版本`：小修复可发布 0.1.1，新增一组功能可发布 0.2.0；Minecraft 兼容目标单独写在 Release 说明中。
+
+```powershell
+# 修改 mod_version 和更新日志，完成构建/测试后：
+git add gradle.properties CHANGELOG.md src docs
+git commit -m "release: 0.1.1"
+git tag -a v0.1.1 -m "Release 0.1.1"
+git push
+git push origin v0.1.1
+```
+
+在 GitHub Releases 中选择这个标签，填写更新内容与游戏/前置版本，上传 `build/libs` 中对应版本的附属 JAR。源码提交、版本标签、Release 和安装 JAR 是不同对象。
+
+首版未自动创建远程仓库或上传；待用户提供真实 GitHub 仓库地址后再完成远程配置与推送。

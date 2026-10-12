@@ -1,0 +1,9 @@
+.gradle/
+.gradle-user-home/
+build/
+runs/
+libs/*.jar
+.idea/
+*.iml
+scripts/__pycache__/
+local.properties
