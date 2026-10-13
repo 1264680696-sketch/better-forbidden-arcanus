@@ -27,7 +27,13 @@ public final class ClientSmokeTest {
                     throw new IllegalStateException("Invalid eternal soul texture or animation: " + name);
                 }
             }
-            com.mojang.logging.LogUtils.getLogger().info("BFA_CLIENT_SMOKE_PASS: title screen and three animated textures loaded");
+            var language = net.minecraft.locale.Language.getInstance();
+            if (!language.has("curios.identifier.relic")) throw new IllegalStateException("Missing relic slot name");
+            for (var item : dev.betterforbiddenarcanus.RelicCurio.items()) {
+                String path = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item).getPath();
+                if (!language.has("tooltip.better_forbidden_arcanus.relic." + path)) throw new IllegalStateException("Missing relic description: " + path);
+            }
+            com.mojang.logging.LogUtils.getLogger().info("BFA_CLIENT_SMOKE_PASS: title screen, animated textures and relic descriptions loaded");
             Minecraft.getInstance().stop();
         }
     }

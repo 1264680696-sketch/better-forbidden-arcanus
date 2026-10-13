@@ -52,10 +52,10 @@ git push -u origin main
 ```powershell
 # 修改 mod_version 和更新日志，完成构建/测试后：
 git add gradle.properties CHANGELOG.md src docs
-git commit -m "release: 0.2.0"
-git tag -a v0.2.0 -m "Release 0.2.0"
+git commit -m "release: 0.3.0"
+git tag -a v0.3.0 -m "Release 0.3.0"
 git push
-git push origin v0.2.0
+git push origin v0.3.0
 ```
 
 在 GitHub Releases 中选择这个标签，填写更新内容与游戏/前置版本，上传 `build/libs` 中对应版本的附属 JAR。源码提交、版本标签、Release 和安装 JAR 是不同对象。

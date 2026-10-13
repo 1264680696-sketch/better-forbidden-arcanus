@@ -1,6 +1,24 @@
 # 更好的禁忌与奥秘
 
-Minecraft 1.21.1 / NeoForge 21.1.251 / Forbidden and Arcanus 2.6.1 附属，版本 0.2.0。
+Minecraft 1.21.1 / NeoForge 21.1.251 / Forbidden and Arcanus 2.6.1 附属，版本 0.3.0。
+
+## 提尔盔甲与遗物
+
+装备任意一件战神提尔盔甲，普通猪灵会按穿戴金装备的规则对待玩家；主动挑衅仍会激怒它们，猪灵蛮兵沿用原规则。每件盔甲增加游泳速度，四件平均分配加成，全套的稳定泳速达到相同条件下海豚的恩惠效果的 1.25 倍；同时获得海豚的恩惠时仍保持这个目标，不再次重复放大。支持冲刺和深海探索者。盔甲物品描述不添加这些效果。
+
+Curios 新增“遗物”栏，初始 1 个槽位，接受原 Mod 的七种增强遗物，同种只允许装备一个。原有锻造炉与炽炉增强器用途保留；只有实际装备在遗物栏中的物品才提供下列效果：
+
+| 遗物 | 装备效果 |
+|---|---|
+| 神圣契约 | 对亡灵生物伤害 +25%；生命严格低于当前最大生命的 20% 时获得生命恢复 I |
+| 诅咒契约 | 最大生命值 -20%；由玩家归属的伤害 +40%，包括近战、箭矢与魔法伤害 |
+| 待盈新月 | 有昼夜的维度在夜晚获得夜视、速度 I、跳跃提升 I；每秒额外恢复 2 点玩家辉光，遵守原有储量上限 |
+| 基本元素 | 增加 2 个遗物槽位，即总计 3 个；卸下时额外槽的物品返还背包，背包满时由 Curios 掉落在地上 |
+| 工匠遗物 | 持工具时攻击伤害、攻击速度、挖掘速度 +20%；穿戴盔甲时护甲值、护甲韧性、抗击退 +20%；耐久和附魔等级不变 |
+| 绯红之石 | 按实际造成的生命损失获得 10% 吸血，不计过量伤害；副手试管采血和玩家攻击供给附近锻造炉的血液 +50%，不放大储存血液的转移量 |
+| 灵魂绯红之石 | 可装备，暂未增加装备能力 |
+
+不同遗物的伤害倍率相乘：神圣契约与诅咒契约同时装备，对亡灵为 1.25×1.4=1.75 倍。吸血不由被取消、完全格挡或未造成生命损失的攻击触发。移除遗物会撤销其属性与自行给予的状态，不删除更长或更强的外来药水效果。新增能力写入遗物的中英文描述。
 
 ## 炽炉与灵魂扩展
 
@@ -46,15 +64,16 @@ Minecraft 1.21.1 / NeoForge 21.1.251 / Forbidden and Arcanus 2.6.1 附属，版�
 - NeoForge 21.1.251。
 - Forbidden and Arcanus 2.6.1。
 - 原 Mod 的必需依赖 Valhelsia Core；本项目测试使用 1.1.5。
+- Curios API，开发版本为 `9.5.1+1.21.1`（本版必需依赖）。
 
-将 `build/libs/better_forbidden_arcanus-0.2.0.jar` 放入游戏实例的 `mods` 目录。升级时只保留一个版本的附属 JAR；不要移除原 Mod。
+将 `build/libs/better_forbidden_arcanus-0.3.0.jar` 放入游戏实例的 `mods` 目录。升级时只保留一个版本的附属 JAR；不要移除原 Mod 或 Curios。
 
 ## 从源码构建
 
 在项目目录中打开 PowerShell：
 
 ```powershell
-# 仅首次运行：从当前实例复制两个开发依赖到 libs。
+# 首次运行或从旧版升级：从当前实例复制三个开发依赖到 libs。
 .\scripts\setup-dev.ps1
 
 # 开发脚本使用 JDK 21，并将 Gradle 缓存放在项目内。
@@ -75,9 +94,11 @@ Minecraft 1.21.1 / NeoForge 21.1.251 / Forbidden and Arcanus 2.6.1 附属，版�
 ## 文件怎么分工
 
 - `src/main/java`：Mod 入口、物品与创造栏注册、蝙蝠汤组件，以及限定目标的 Mixin。
+- `RelicCurio`／`RelicEffects`／`TyrArmor`：原物品 Curios 接入、遗物效果和提尔盔甲行为。
 - `src/main/resources/data/better_forbidden_arcanus`：新增切石／炽炉配方、灵魂 Tag、仪式和残留物类型。
 - `src/main/resources/data/forbidden_arcanus`：覆盖汤配方、蝙蝠翼掉落表、灵魂绑定仪式，以及追加炽炉灵魂 Tag。
 - `src/main/resources/assets/better_forbidden_arcanus`：物品模型、动画贴图和中英文名称。
+- `data/better_forbidden_arcanus/curios` 与 `data/curios/tags/item/relic.json`：玩家遗物槽与可装备物品清单。
 - `src/gametest`：独立测试 Mod；不进入发行 JAR。
 - `scripts/generate_resources.py`：生成配方与掉落资源。
 - `scripts/verify_resources.py`：与原 JAR 对照检查配方、范围、重复和掉落规则。

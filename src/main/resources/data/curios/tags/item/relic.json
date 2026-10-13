@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "forbidden_arcanus:divine_pact",
+    "forbidden_arcanus:maledictus_pact",
+    "forbidden_arcanus:crescent_moon",
+    "forbidden_arcanus:elementarium",
+    "forbidden_arcanus:artisan_relic",
+    "forbidden_arcanus:crimson_stone",
+    "forbidden_arcanus:soul_crimson_stone"
+  ]
+}

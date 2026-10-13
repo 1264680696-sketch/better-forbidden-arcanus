@@ -7,7 +7,7 @@ modId="better_forbidden_arcanus"
 version="${mod_version}"
 displayName="更好的禁忌与奥秘"
 authors="起始的蓝"
-description='''为禁忌与奥秘添加切石机配方，改良蝙蝠汤与炽炉，并扩展灵魂仪式和永恒灵魂。'''
+description='''改良禁忌与奥秘的配方、蝙蝠汤与炽炉，扩展灵魂、提尔盔甲及 Curios 遗物。'''
 
 [[mixins]]
 config="better_forbidden_arcanus.mixins.json"
@@ -17,6 +17,13 @@ modId="minecraft"
 type="required"
 versionRange="[1.21.1]"
 ordering="NONE"
+side="BOTH"
+
+[[dependencies.better_forbidden_arcanus]]
+modId="curios"
+type="required"
+versionRange="[9.5.1,10)"
+ordering="AFTER"
 side="BOTH"
 
 [[dependencies.better_forbidden_arcanus]]

@@ -11,5 +11,6 @@ public final class BetterForbiddenArcanus {
         SoulItems.ITEMS.register(modBus);
         SoulItems.TABS.register(modBus);
         modBus.addListener(BatSoupComponents::modifyDefaults);
+        modBus.addListener(RelicCurio::setup);
     }
 }

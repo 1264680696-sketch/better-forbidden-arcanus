@@ -76,4 +76,17 @@ with zipfile.ZipFile(next((ROOT / 'libs').glob('*forbidden_arcanus-2.6.1.jar')))
         assert image[25] == 6, 'Textures must preserve RGBA transparency'
         assert json.loads((textures / f'eternal_{base}.png.mcmeta').read_text()) == json.loads(jar.read(f'assets/forbidden_arcanus/textures/item/{base}.png.mcmeta'))
         assert not any('eternal_' in str(r.get('result', {})) for r in effective.values()), 'Eternal souls must remain creative-only'
-print('PASS: stonecutting, soup, loot, Clibano soul extraction, rituals, animated eternal textures')
+    slot = json.loads((DATA / 'better_forbidden_arcanus/curios/slots/relic.json').read_text())
+    assert slot['size'] == 1 and slot['validators'] == ['curios:tag'] and not slot['add_cosmetic']
+    entity_slots = json.loads((DATA / 'better_forbidden_arcanus/curios/entities/player.json').read_text())
+    assert entity_slots == {'entities': ['minecraft:player'], 'slots': ['relic']}
+    relics = json.loads((DATA / 'curios/tags/item/relic.json').read_text())['values']
+    assert len(relics) == len(set(relics)) == 7
+    for locale in ('zh_cn', 'en_us'):
+        lang = json.loads((ROOT / f'src/main/resources/assets/better_forbidden_arcanus/lang/{locale}.json').read_text(encoding='utf-8'))
+        assert 'curios.identifier.relic' in lang
+        for item_id in relics:
+            assert 'tooltip.better_forbidden_arcanus.relic.' + item_id.split(':')[1] in lang
+        assert '+20%' in lang['tooltip.better_forbidden_arcanus.relic.artisan_relic']
+        assert not any(key.startswith('tooltip.better_forbidden_arcanus') and 'tyr' in key for key in lang)
+print('PASS: recipe resources, loot, soul textures, relic slots and descriptions')
