@@ -12,6 +12,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse, parse_qs
 import webbrowser
 import zipfile
+from functools import lru_cache
 
 HERE = Path(__file__).resolve().parent
 PROJECT = HERE.parent.parent
@@ -22,7 +23,121 @@ BOOK = RESOURCES / 'data' / NAMESPACE / 'patchouli_books/forbidden_arcanus/book.
 CONTENT = RESOURCES / 'assets' / NAMESPACE / 'patchouli_books/forbidden_arcanus/en_us'
 SAFE_ID = re.compile(r'[a-z0-9_-]+(?:/[a-z0-9_-]+)*\Z')
 RESOURCE_ID = re.compile(r'[a-z0-9_.-]+:[a-z0-9_./-]+\Z')
-TOKEN = secrets.token_urlsafe(32)
+TOKEN = os.environ.get('BFA_GUIDE_EDITOR_TOKEN') or secrets.token_urlsafe(32)
+ASSET_CACHE = PROJECT / '.gradle-user-home/caches/neoformruntime/assets'
+
+
+@lru_cache(maxsize=1)
+def asset_index():
+    index = ASSET_CACHE / 'indexes/17.json'
+    return json.loads(index.read_text())['objects'] if index.is_file() else {}
+
+
+def cached_asset(name):
+    info = asset_index().get(name)
+    if info:
+        path = ASSET_CACHE / 'objects' / info['hash'][:2] / info['hash']
+        if path.is_file():
+            return path.read_bytes()
+    return None
+
+
+@lru_cache(maxsize=1)
+def resource_jars():
+    paths = list((PROJECT / 'libs').glob('*.jar')) + list((PROJECT.parent.parent / 'mods').glob('*.jar'))
+    vanilla = PROJECT / 'build/moddev/artifacts/neoforge-21.1.251.jar'
+    if vanilla.is_file():
+        paths.append(vanilla)
+    client = PROJECT / '.gradle-user-home/caches/neoformruntime/artifacts/minecraft_1.21.1_client.jar'
+    if client.is_file():
+        paths.append(client)
+    return tuple(dict.fromkeys(paths))
+
+
+@lru_cache(maxsize=1024)
+def jar_resource(path):
+    for jar in resource_jars():
+        try:
+            with zipfile.ZipFile(jar) as archive:
+                try:
+                    return archive.read(path)
+                except KeyError:
+                    pass
+        except zipfile.BadZipFile:
+            continue
+    return cached_asset(path.removeprefix('assets/')) if path.startswith('assets/') else None
+
+
+def resource(path):
+    local = RESOURCES / path
+    return local.read_bytes() if local.is_file() else jar_resource(path)
+
+
+def resource_parts(resource_id):
+    if not RESOURCE_ID.fullmatch(resource_id) or '..' in resource_id:
+        raise ValueError('资源 ID 不正确。')
+    return resource_id.split(':', 1)
+
+
+@lru_cache(maxsize=8)
+def names(namespace):
+    raw = resource(f'assets/{namespace}/lang/zh_cn.json') or resource(f'assets/{namespace}/lang/en_us.json')
+    return json.loads(raw) if raw else {}
+
+
+def item_name(item_id):
+    namespace, path = resource_parts(item_id)
+    lang = names(namespace)
+    return lang.get(f'item.{namespace}.{path}', lang.get(f'block.{namespace}.{path}', item_id))
+
+
+def crafting_recipe(recipe_id):
+    namespace, path = resource_parts(recipe_id)
+    raw = resource(f'data/{namespace}/recipe/{path}.json')
+    if not raw:
+        return {'error': '本地资源中未找到该配方。'}
+    recipe = json.loads(raw)
+    kind = recipe.get('type')
+    if kind not in ('minecraft:crafting_shaped', 'minecraft:crafting_shapeless'):
+        return {'error': '此配方类型请在游戏中预览。'}
+
+    def ingredient(value):
+        if isinstance(value, list):
+            return ingredient(value[0]) if value else ''
+        return value.get('item', '#' + value['tag'] if value.get('tag') else '') if isinstance(value, dict) else ''
+
+    grid = [''] * 9
+    if kind == 'minecraft:crafting_shapeless':
+        for index, entry in enumerate(recipe.get('ingredients', [])[:9]):
+            grid[index] = ingredient(entry)
+    else:
+        for row, line in enumerate(recipe.get('pattern', [])[:3]):
+            for col, key in enumerate(line[:3]):
+                grid[row * 3 + col] = ingredient(recipe.get('key', {}).get(key, {}))
+    result = recipe.get('result', {})
+    if isinstance(result, str):
+        result = {'id': result}
+    item = result.get('id', result.get('item', 'minecraft:air'))
+    title = item_name(item)
+    if result.get('components', {}).get('patchouli:book') == BOOK_ID:
+        title = json.loads(BOOK.read_text(encoding='utf-8-sig'))['name']
+    return {'grid': grid, 'output': item, 'count': result.get('count', 1), 'name': title,
+            'shapeless': kind == 'minecraft:crafting_shapeless'}
+
+
+@lru_cache(maxsize=1)
+def unicode_glyphs():
+    """Minecraft's locally cached Unifont bitmaps; not copied into the project."""
+    raw = cached_asset('minecraft/font/unifont.zip')
+    glyphs = {}
+    if raw:
+        with zipfile.ZipFile(io.BytesIO(raw)) as archive:
+            for filename in archive.namelist():
+                if filename.endswith('.hex'):
+                    for line in archive.read(filename).decode('ascii').splitlines():
+                        code, pixels = line.split(':', 1)
+                        glyphs[chr(int(code, 16))] = pixels
+    return glyphs
 
 
 def files():
@@ -147,21 +262,12 @@ def texture(resource_id):
     namespace, name = resource_id.split(':', 1)
     candidates = [f'assets/{namespace}/textures/item/{name}.png',
                   f'assets/{namespace}/textures/block/{name}.png']
-    jars = list((PROJECT / 'libs').glob('*.jar'))
-    instance = PROJECT.parent.parent
-    jars += list((instance / 'mods').glob('*.jar'))
     for candidate in candidates:
-        local = RESOURCES / candidate
-        if local.is_file():
-            return local.read_bytes()
-    for jar in dict.fromkeys(jars):
-        try:
-            with zipfile.ZipFile(jar) as archive:
-                for candidate in candidates:
-                    if candidate in archive.namelist():
-                        return archive.read(candidate)
-        except zipfile.BadZipFile:
-            continue
+        raw = resource(candidate)
+        if raw:
+            return raw
+    if resource_id == 'patchouli:guide_book':
+        return resource('assets/patchouli/textures/item/book_brown.png')
     return None
 
 
@@ -203,6 +309,20 @@ class Handler(BaseHTTPRequestHandler):
             if route.path == '/api/icon':
                 icon = texture(parse_qs(route.query).get('id', [''])[0])
                 return self.send(icon or b'', 200 if icon else 404, 'image/png')
+            if route.path == '/api/texture':
+                namespace, path = resource_parts(parse_qs(route.query).get('id', [''])[0])
+                if not path.startswith('textures/') or not path.endswith('.png'):
+                    return self.send({'error': '仅支持资源中的 PNG 贴图。'}, 400)
+                raw = resource(f'assets/{namespace}/{path}')
+                return self.send(raw or b'', 200 if raw else 404, 'image/png')
+            if route.path == '/api/recipe':
+                return self.send(crafting_recipe(parse_qs(route.query).get('id', [''])[0]))
+            if route.path == '/api/glyphs':
+                chars = parse_qs(route.query).get('chars', [''])[0]
+                if len(chars) > 4096:
+                    return self.send({'error': '一次最多查询 4096 个字形。'}, 400)
+                glyphs = unicode_glyphs()
+                return self.send({char: glyphs[char] for char in set(chars) if char in glyphs})
             names = {'/': 'index.html', '/style.css': 'style.css', '/app.js': 'app.js'}
             if route.path in names:
                 name = names[route.path]
