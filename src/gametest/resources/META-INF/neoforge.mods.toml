@@ -8,6 +8,6 @@ displayName="BFA Development Tests"
 [[dependencies.bfa_tests]]
 modId="better_forbidden_arcanus"
 type="required"
-versionRange="[0.1.0]"
+versionRange="[${mod_version}]"
 ordering="AFTER"
 side="BOTH"

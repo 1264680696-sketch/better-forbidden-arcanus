@@ -1,0 +1,12 @@
+{
+  "name": {
+    "translate": "residue.better_forbidden_arcanus.soulless_sand"
+  },
+  "combine_info": {
+    "required_amount": 1,
+    "result": {
+      "count": 1,
+      "id": "forbidden_arcanus:soulless_sand"
+    }
+  }
+}

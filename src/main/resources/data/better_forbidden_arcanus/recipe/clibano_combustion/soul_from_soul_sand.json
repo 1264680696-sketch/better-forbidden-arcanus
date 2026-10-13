@@ -1,0 +1,18 @@
+{
+  "type": "forbidden_arcanus:clibano_combustion",
+  "category": "misc",
+  "cooking_time": 100,
+  "experience": 0,
+  "fire_type": "soul_fire",
+  "ingredients": {
+    "item": "minecraft:soul_sand"
+  },
+  "result": {
+    "count": 1,
+    "id": "forbidden_arcanus:soul"
+  },
+  "residue": {
+    "type": "better_forbidden_arcanus:soulless_sand",
+    "chance": 1.0
+  }
+}

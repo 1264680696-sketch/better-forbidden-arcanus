@@ -7,7 +7,10 @@ modId="better_forbidden_arcanus"
 version="${mod_version}"
 displayName="更好的禁忌与奥秘"
 authors="起始的蓝"
-description='''为禁忌与奥秘添加切石机配方，并改良蝙蝠翼掉落和蝙蝠汤。'''
+description='''为禁忌与奥秘添加切石机配方，改良蝙蝠汤与炽炉，并扩展灵魂仪式和永恒灵魂。'''
+
+[[mixins]]
+config="better_forbidden_arcanus.mixins.json"
 
 [[dependencies.better_forbidden_arcanus]]
 modId="minecraft"

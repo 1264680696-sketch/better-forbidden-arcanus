@@ -1,0 +1,29 @@
+{
+  "forge_tier": 2,
+  "duration": 500,
+  "essences": {
+    "aureal": 100,
+    "souls": 10,
+    "blood": 250,
+    "experience": 0
+  },
+  "inputs": [
+    {
+      "amount": 4,
+      "ingredient": {
+        "item": "forbidden_arcanus:corrupti_dust"
+      }
+    }
+  ],
+  "main_ingredient": {
+    "tag": "better_forbidden_arcanus:soul"
+  },
+  "magic_circle": "forbidden_arcanus:create_item",
+  "result": {
+    "type": "forbidden_arcanus:create_item",
+    "result_item": {
+      "count": 1,
+      "id": "forbidden_arcanus:corrupt_soul"
+    }
+  }
+}

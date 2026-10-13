@@ -2,6 +2,7 @@
 import json
 from pathlib import Path
 import zipfile
+import struct
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'src/main/resources/data'
@@ -15,10 +16,11 @@ with zipfile.ZipFile(next((ROOT / 'libs').glob('*forbidden_arcanus-2.6.1.jar')))
         value = json.loads(path.read_text(encoding='utf-8'))
         if '/recipe/' in key:
             effective[key] = value
-        assert 'soulless' not in key, 'Cancelled sandstone edits must not ship'
+        assert '/recipe/' not in key or 'soulless' not in key, 'Do not add sandstone recipes'
     expected = json.loads((ROOT / 'src/gametest/resources/stonecutting_expectations.json').read_text())
     assert len(expected) == 39
-    added = [d for n, d in effective.items() if n.startswith('data/better_forbidden_arcanus/recipe/')]
+    added = [d for n, d in effective.items() if n.startswith('data/better_forbidden_arcanus/recipe/')
+             and d.get('type') == 'minecraft:stonecutting']
     assert len(added) == 36
     bases = {'darkstone', 'polished_darkstone', 'polished_darkstone_bricks', 'arcane_polished_darkstone'}
     for recipe in added:
@@ -46,4 +48,32 @@ with zipfile.ZipFile(next((ROOT / 'libs').glob('*forbidden_arcanus-2.6.1.jar')))
     original_loot = json.loads(jar.read('data/forbidden_arcanus/loot_table/entities/additions/bat_wing_addition.json'))
     assert pool['functions'][1] == original_loot['pools'][0]['functions'][1]
     assert not list(DATA.rglob('*global_loot_modifiers*')), 'Do not register duplicate loot hooks'
-print('PASS: 36 new + 3 retained stonecutting recipes, soup recipe, 80% loot gate, preserved looting, cancelled sandstone scope')
+    soul_recipe = effective['data/better_forbidden_arcanus/recipe/clibano_combustion/soul_from_soul_sand.json']
+    assert soul_recipe['type'] == 'forbidden_arcanus:clibano_combustion'
+    assert soul_recipe['ingredients'] == {'item': 'minecraft:soul_sand'}
+    assert soul_recipe['result'] == {'count': 1, 'id': 'forbidden_arcanus:soul'}
+    assert soul_recipe['cooking_time'] == 100 and soul_recipe['experience'] == 0
+    assert soul_recipe['residue'] == {'type': 'better_forbidden_arcanus:soulless_sand', 'chance': 1.0}
+    residue = json.loads((DATA / 'better_forbidden_arcanus/forbidden_arcanus/residue_type/soulless_sand.json').read_text())
+    assert residue['combine_info'] == {'required_amount': 1, 'result': {'count': 1, 'id': 'forbidden_arcanus:soulless_sand'}}
+    for name, main, side, tier, aureal, souls, blood in [
+            ('corrupt_soul', 'soul', 'forbidden_arcanus:corrupti_dust', 2, 100, 10, 250),
+            ('enchanted_soul', 'corrupt_soul', 'minecraft:experience_bottle', 3, 500, 20, 500)]:
+        ritual = json.loads((DATA / f'better_forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/{name}.json').read_text())
+        assert ritual['forge_tier'] == tier and not ritual.get('match_tier_exact', False)
+        assert ritual['main_ingredient'] == {'tag': 'better_forbidden_arcanus:' + main}
+        assert ritual['inputs'] == [{'amount': 4, 'ingredient': {'item': side}}]
+        assert ritual['essences'] == {'aureal': aureal, 'souls': souls, 'blood': blood, 'experience': 0}
+        assert ritual['result']['result_item'] == {'count': 1, 'id': 'forbidden_arcanus:' + name}
+    binding_path = 'data/forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/soul_binding_crystal.json'
+    binding = json.loads((ROOT / 'src/main/resources' / binding_path).read_text())
+    original_binding = json.loads(jar.read(binding_path))
+    assert {k: v for k, v in binding.items() if k != 'inputs'} == {k: v for k, v in original_binding.items() if k != 'inputs'}
+    textures = ROOT / 'src/main/resources/assets/better_forbidden_arcanus/textures/item'
+    for base in ('soul', 'corrupt_soul', 'enchanted_soul'):
+        image = (textures / f'eternal_{base}.png').read_bytes()
+        assert image[:8] == b'\x89PNG\r\n\x1a\n' and struct.unpack('>II', image[16:24]) == (16, 80)
+        assert image[25] == 6, 'Textures must preserve RGBA transparency'
+        assert json.loads((textures / f'eternal_{base}.png.mcmeta').read_text()) == json.loads(jar.read(f'assets/forbidden_arcanus/textures/item/{base}.png.mcmeta'))
+        assert not any('eternal_' in str(r.get('result', {})) for r in effective.values()), 'Eternal souls must remain creative-only'
+print('PASS: stonecutting, soup, loot, Clibano soul extraction, rituals, animated eternal textures')

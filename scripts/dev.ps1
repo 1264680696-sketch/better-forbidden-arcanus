@@ -32,4 +32,20 @@ Push-Location $taskProject
 try {
     & (Join-Path $taskProject 'gradlew.bat') @Tasks
     if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    # Some mod-loading failures exit Java with code zero. Require the game's own
+    # completion marker instead of trusting Gradle's process exit alone.
+    if ($Tasks -contains 'runGameTestServer') {
+        $taskTestLog = Join-Path $taskProject 'runs/gametest/logs/latest.log'
+        if (-not (Test-Path -LiteralPath $taskTestLog) -or
+            -not (Select-String -LiteralPath $taskTestLog -Pattern 'All \d+ required tests passed' -Quiet)) {
+            throw 'Game tests did not reach successful completion. Check runs/gametest/logs/latest.log.'
+        }
+    }
+    if ($Tasks -contains 'runClientSmoke') {
+        $taskClientLog = Join-Path $taskProject 'runs/client-smoke/logs/latest.log'
+        if (-not (Test-Path -LiteralPath $taskClientLog) -or
+            -not (Select-String -LiteralPath $taskClientLog -SimpleMatch 'BFA_CLIENT_SMOKE_PASS' -Quiet)) {
+            throw 'Client smoke test did not reach its completion marker. Check runs/client-smoke/logs/latest.log.'
+        }
+    }
 } finally { Pop-Location }
