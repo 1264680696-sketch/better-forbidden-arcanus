@@ -17,5 +17,12 @@
 <p id="create-error" role="alert"></p><div class="dialog-actions"><button id="create-cancel" type="button">取消</button><button type="submit" class="primary">创建</button></div>
 </form></dialog>
 <dialog id="confirm-dialog" aria-labelledby="confirm-title"><h2 id="confirm-title">确认操作</h2><p id="confirm-message"></p><div class="dialog-actions"><button id="confirm-cancel" type="button">取消</button><button id="confirm-accept" type="button" class="primary">确认</button></div></dialog>
+<dialog id="item-dialog" aria-labelledby="item-title">
+<div class="dialog-heading"><div><small>物品图标选择器</small><h2 id="item-title">选择物品</h2></div><button id="item-close" type="button" aria-label="关闭物品选择器">×</button></div>
+<div class="item-search-row"><label>搜索物品<input id="item-search" type="search" placeholder="搜索中文名、英文名或 ID，例如：灵魂" autocomplete="off"></label><label>所属 Mod<select id="item-mod"><option value="forbidden_arcanus">禁忌与奥秘</option></select></label></div>
+<div class="item-picker-info"><span id="item-count" role="status">正在读取本地物品…</span><span id="item-current"></span></div>
+<div id="item-grid" class="item-grid" aria-label="匹配物品"></div><p id="item-empty" hidden>没有找到匹配物品。试试更短的关键词，或切换到“全部 Mod”。</p>
+<div class="item-picker-footer"><span>点击图标自动填入 ID · 支持方向键、Enter 和 Esc</span><button id="item-more" type="button" hidden>显示更多</button><button id="item-cancel" type="button">取消</button></div>
+</dialog>
 <div id="toast" role="alert"></div><script src="app.js"></script>
 </body></html>

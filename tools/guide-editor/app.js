@@ -6,6 +6,74 @@ let rawDraft = null;
 let createKind = null;
 const glyphs = new Map(), requestedGlyphs = new Set(), recipes = new Map();
 let glyphTimer;
+let catalogPromise = null, pickerTarget = null, visibleItems = 80;
+async function itemCatalog() {
+  if (!catalogPromise) catalogPromise = fetch('/api/items').then(async response => {
+    const data = await response.json(); if (!response.ok) throw Error(data.error || '物品目录读取失败。');
+    data.items.forEach(item => item.search = `${item.name} ${item.english_name} ${item.id} ${item.mod_name} ${(item.aliases || []).join(' ')}`.normalize('NFKC').toLowerCase());
+    return data;
+  }).catch(error => { catalogPromise = null; throw error; });
+  return catalogPromise;
+}
+function itemField(parent, title, object, key, hint = '') {
+  const input = field(parent, title, object, key, false, hint);
+  const row = el('div', undefined, 'item-field-row'); input.replaceWith(row); row.append(input, button('选择物品…', () => openItemPicker(object, key)));
+  const sample = el('div', undefined, 'item-field-preview'); sample.append(icon(object[key]), el('span', object[key] || '尚未选择物品')); input.parentNode.parentNode.append(sample);
+  input.addEventListener('input', () => { sample.replaceChildren(icon(input.value), el('span', input.value || '尚未选择物品')); tree(); });
+  return input;
+}
+async function openItemPicker(object, key) {
+  if (rawDraft !== null) return toast('请先应用 JSON。', true);
+  pickerTarget = {object, key}; $('item-search').value = ''; visibleItems = 80;
+  $('item-grid').replaceChildren(); $('item-empty').hidden = true; $('item-more').hidden = true;
+  $('item-count').textContent = '正在读取本地物品…'; $('item-current').textContent = '当前：' + (object[key] || '未选择');
+  $('item-mod').disabled = true; $('item-dialog').showModal(); $('item-search').focus();
+  try {
+    const catalog = await itemCatalog(); if (!$('item-dialog').open) return;
+    $('item-mod').replaceChildren(); const all = el('option', '全部 Mod'); all.value = ''; $('item-mod').append(all);
+    for (const mod of catalog.mods) { const option = el('option', `${mod.name}（${mod.count}）`); option.value = mod.id; $('item-mod').append(option); }
+    $('item-mod').value = catalog.mods.some(mod => mod.id === 'forbidden_arcanus') ? 'forbidden_arcanus' : '';
+    $('item-mod').disabled = false; renderItemPicker(catalog);
+  } catch (error) { $('item-count').textContent = '读取失败，关闭后可重新尝试。'; toast(error.message, true); }
+}
+function renderItemPicker(catalog) {
+  if (!pickerTarget || !$('item-dialog').open) return;
+  const query = $('item-search').value.normalize('NFKC').trim().toLowerCase(), words = query.split(/\s+/).filter(Boolean), mod = $('item-mod').value;
+  const results = catalog.items.filter(item => (!mod || item.mod === mod) && words.every(word => item.search.includes(word)));
+  if (query) results.sort((a,b) => {
+    const rank = item => item.id.toLowerCase() === query || item.name.toLowerCase() === query ? 0 : item.name.toLowerCase().startsWith(query) ? 1 : 2;
+    return rank(a) - rank(b) || a.id.localeCompare(b.id);
+  });
+  $('item-grid').replaceChildren();
+  for (const item of results.slice(0, visibleItems)) {
+    const card = button('', () => chooseItem(item), 'item-card' + (item.id === pickerTarget.object[pickerTarget.key] ? ' chosen' : ''));
+    card.setAttribute('aria-label', `${item.name}，${item.id}`); card.title = `${item.name}\n${item.id}\n${item.mod_name}`;
+    const picture = icon(item.id);
+    const caption = el('div', undefined, 'item-card-caption'); caption.append(el('strong', item.name), el('small', item.id), el('span', item.mod_name)); card.append(picture, caption); $('item-grid').append(card);
+  }
+  $('item-empty').hidden = results.length !== 0; $('item-more').hidden = results.length <= visibleItems;
+  $('item-count').textContent = `找到 ${results.length} 个物品 · 已显示 ${Math.min(results.length,visibleItems)} 个`;
+  $('item-grid').scrollTop = 0;
+}
+function chooseItem(item) {
+  if (!pickerTarget) return;
+  const target = pickerTarget; target.object[target.key] = item.id; $('item-dialog').close(); pickerTarget = null;
+  changed(); render(); toast(`已选择“${item.name}”，记得保存到工程。`);
+}
+async function filterItems() { visibleItems = 80; try { renderItemPicker(await itemCatalog()); } catch (error) { toast(error.message,true); } }
+for (const id of ['item-close','item-cancel']) $(id).addEventListener('click', () => $('item-dialog').close());
+$('item-dialog').addEventListener('close', () => pickerTarget = null);
+$('item-dialog').addEventListener('keydown', event => { if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); $('item-dialog').close(); } });
+$('item-search').addEventListener('input', filterItems); $('item-mod').addEventListener('change', filterItems);
+$('item-more').addEventListener('click', async () => { visibleItems += 80; renderItemPicker(await itemCatalog()); });
+$('item-grid').addEventListener('keydown', event => {
+  const cards = [...$('item-grid').querySelectorAll('button')], index = cards.indexOf(document.activeElement);
+  if (index < 0) return;
+  const columns = getComputedStyle($('item-grid')).gridTemplateColumns.split(' ').length;
+  const offsets = {ArrowRight:1, ArrowLeft:-1, ArrowDown:columns, ArrowUp:-columns};
+  if (!(event.key in offsets) && event.key !== 'Home' && event.key !== 'End') return;
+  event.preventDefault(); const next = event.key === 'Home' ? 0 : event.key === 'End' ? cards.length-1 : Math.min(cards.length-1,Math.max(0,index+offsets[event.key])); cards[next].focus();
+});
 async function loadGlyphs() {
   if (!doc) return;
   const chars = [...new Set([...(JSON.stringify(doc) + JSON.stringify([...recipes.values()]))].filter(c => c.codePointAt(0) > 255 && !requestedGlyphs.has(c)))];
@@ -131,7 +199,7 @@ function render() {
   } else {
     $('fields').append(el('p', '文件 ID：' + selection.id, 'preview-note'));
     field($('fields'), selection.kind === 'categories' ? '分类名称' : '条目名称', object, 'name');
-    field($('fields'), '图标物品 ID', object, 'icon', false, '例如 forbidden_arcanus:arcane_crystal');
+    itemField($('fields'), '图标物品 ID', object, 'icon', '点击“选择物品…”按中文名搜索，也可手动输入 ID。');
     field($('fields'), '排序值', object, 'sortnum', false, '数值越小，越靠前。');
     if (selection.kind === 'categories') {
       field($('fields'), '分类简介', object, 'description', true);
@@ -171,7 +239,7 @@ function pageFields(p) {
   const titleInput = field($('page-fields'), '页面标题（可留空）', p, 'title');
   if (page === 0 && p.type === 'patchouli:text') { titleInput.disabled = true; titleInput.parentNode.append(el('small', '第一页标题采用条目名称；请在上方修改条目名称。')); }
   if (p.type === 'patchouli:crafting') { field($('page-fields'), '配方 ID', p, 'recipe'); field($('page-fields'), '第二个配方 ID（可留空）', p, 'recipe2').addEventListener('input', () => { if (!p.recipe2) delete p.recipe2; }); }
-  if (p.type === 'patchouli:spotlight') field($('page-fields'), '介绍的物品 ID', p, 'item');
+  if (p.type === 'patchouli:spotlight') itemField($('page-fields'), '介绍的物品 ID', p, 'item', '选择后会替换本页的物品 ID。');
   const text = field($('page-fields'), '正文', p, 'text', true, '格式示例：$(item)神秘水晶$()；$(br2) 分段。'); text.rows = 7;
   const tools = el('div', undefined, 'format-tools');
   for (const [name, start, end] of [['换行','$(br)',''],['分段','$(br2)',''],['加粗','$(l)','$()'],['物品色','$(item)','$()'],['重点色','$(4)','$()']]) {

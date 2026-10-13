@@ -91,6 +91,97 @@ def item_name(item_id):
     return lang.get(f'item.{namespace}.{path}', lang.get(f'block.{namespace}.{path}', item_id))
 
 
+@lru_cache(maxsize=1)
+def item_catalog():
+    """Index item models with actual name keys, excluding templates/overrides."""
+    models, english, chinese, mod_names = set(), {}, {}, {
+        'minecraft': '我的世界', 'forbidden_arcanus': '禁忌与奥秘',
+        'better_forbidden_arcanus': '更好的禁忌与奥秘', 'patchouli': '帕秋莉手册',
+    }
+    model_pattern = re.compile(r'assets/([a-z0-9_.-]+)/models/item/([a-z0-9_./-]+)\.json\Z')
+    language_pattern = re.compile(r'assets/[^/]+/lang/(en_us|zh_cn)\.json\Z')
+
+    def read_entry(path, raw):
+        model = model_pattern.fullmatch(path)
+        if model:
+            item_id = model[1] + ':' + model[2]
+            if '..' not in item_id:
+                models.add(item_id)
+        locale = language_pattern.fullmatch(path)
+        if locale:
+            try:
+                data = json.loads(raw.decode('utf-8-sig'))
+                if isinstance(data, dict):
+                    (chinese if locale[1] == 'zh_cn' else english).update(
+                        {key: value for key, value in data.items() if isinstance(value, str)})
+            except (ValueError, UnicodeDecodeError):
+                pass
+
+    # Last source wins for translated names: vanilla, installed mods, dev libs,
+    # then project resources (including this addon's original-item name fixes).
+    for jar in reversed(resource_jars()):
+        try:
+            with zipfile.ZipFile(jar) as archive:
+                for path in archive.namelist():
+                    if model_pattern.fullmatch(path):
+                        read_entry(path, b'')
+                    elif language_pattern.fullmatch(path):
+                        read_entry(path, archive.read(path))
+                for manifest in ('META-INF/neoforge.mods.toml', 'META-INF/mods.toml'):
+                    if manifest in archive.namelist():
+                        text = archive.read(manifest).decode('utf-8', errors='replace')
+                        for block in text.split('[[mods]]')[1:]:
+                            mod_id = re.search(r'^\s*modId\s*=\s*"([a-z0-9_.-]+)"', block, re.M)
+                            name = re.search(r'^\s*displayName\s*=\s*"([^"\r\n]+)"', block, re.M)
+                            if mod_id and name and '${' not in name[1]:
+                                mod_names.setdefault(mod_id[1], name[1])
+        except (OSError, zipfile.BadZipFile):
+            continue
+    for path in asset_index():
+        if re.fullmatch(r'[^/]+/lang/(en_us|zh_cn)\.json', path):
+            raw = cached_asset(path)
+            if raw:
+                # Supplement missing translations from Mojang's asset cache.
+                try:
+                    data = json.loads(raw.decode('utf-8-sig'))
+                    locale = chinese if path.endswith('/zh_cn.json') else english
+                    for key, value in data.items():
+                        if isinstance(value, str):
+                            locale.setdefault(key, value)
+                except (ValueError, UnicodeDecodeError):
+                    pass
+    for path in sorted((RESOURCES / 'assets').rglob('*.json')):
+        relative = path.relative_to(RESOURCES).as_posix()
+        if model_pattern.fullmatch(relative) or language_pattern.fullmatch(relative):
+            read_entry(relative, path.read_bytes())
+
+    items, counts = [], {}
+    common_names = {
+        'forbidden_arcanus:soul': ['普通灵魂'],
+        'forbidden_arcanus:corrupt_soul': ['腐化灵魂'],
+        'forbidden_arcanus:enchanted_soul': ['附魔灵魂'],
+        'forbidden_arcanus:soul_binding_crystal': ['灵魂绑定水晶'],
+    }
+    for item_id in sorted(models):
+        namespace, path = item_id.split(':', 1)
+        # A model alone can be an internal variant; require a canonical item
+        # or block name key, rather than interpreting every translation as an ID.
+        keys = [f'item.{namespace}.{path}', f'block.{namespace}.{path}']
+        key = next((key for key in keys if key in chinese or key in english), None)
+        if key is None:
+            continue
+        display_name = chinese.get(key) or next(iter(common_names.get(item_id, [])), None) or english.get(key, item_id)
+        items.append({'id': item_id, 'name': display_name,
+                      'english_name': english.get(key, ''), 'aliases': common_names.get(item_id, []), 'mod': namespace,
+                      'mod_name': mod_names.get(namespace, namespace)})
+        counts[namespace] = counts.get(namespace, 0) + 1
+    mods = [{'id': namespace, 'name': mod_names.get(namespace, namespace), 'count': count}
+            for namespace, count in sorted(counts.items(), key=lambda row: (
+                row[0] != 'forbidden_arcanus', row[0] != 'minecraft',
+                row[0] != 'better_forbidden_arcanus', row[0]))]
+    return {'items': items, 'mods': mods}
+
+
 def crafting_recipe(recipe_id):
     namespace, path = resource_parts(recipe_id)
     raw = resource(f'data/{namespace}/recipe/{path}.json')
@@ -266,6 +357,44 @@ def texture(resource_id):
         raw = resource(candidate)
         if raw:
             return raw
+    # Generated/enhancer items often reference a differently named texture.
+    # Resolve the first display layer through model parents instead of guessing
+    # that every item's texture filename must equal its registry ID.
+    model_id, textures, visited = namespace + ':item/' + name, {}, set()
+    for _ in range(8):
+        if model_id in visited:
+            break
+        visited.add(model_id)
+        try:
+            model_namespace, model_path = resource_parts(model_id)
+            raw = resource(f'assets/{model_namespace}/models/{model_path}.json')
+            if not raw:
+                break
+            model = json.loads(raw)
+            for key, value in model.get('textures', {}).items():
+                if isinstance(value, str):
+                    textures.setdefault(key, value)
+            parent = model.get('parent')
+            if not isinstance(parent, str):
+                break
+            model_id = parent if ':' in parent else 'minecraft:' + parent
+        except (ValueError, TypeError, AttributeError):
+            break
+    for key in dict.fromkeys(['layer0', 'all', 'particle', 'front', 'side'] + list(textures)):
+        location = textures.get(key, '')
+        for _ in range(8):
+            if not location.startswith('#'):
+                break
+            location = textures.get(location[1:], '')
+        if not location or location.startswith('#'):
+            continue
+        try:
+            texture_namespace, texture_path = resource_parts(location if ':' in location else 'minecraft:' + location)
+            raw = resource(f'assets/{texture_namespace}/textures/{texture_path}.png')
+            if raw:
+                return raw
+        except ValueError:
+            continue
     if resource_id == 'patchouli:guide_book':
         return resource('assets/patchouli/textures/item/book_brown.png')
     return None
@@ -309,6 +438,8 @@ class Handler(BaseHTTPRequestHandler):
             if route.path == '/api/icon':
                 icon = texture(parse_qs(route.query).get('id', [''])[0])
                 return self.send(icon or b'', 200 if icon else 404, 'image/png')
+            if route.path == '/api/items':
+                return self.send(item_catalog())
             if route.path == '/api/texture':
                 namespace, path = resource_parts(parse_qs(route.query).get('id', [''])[0])
                 if not path.startswith('textures/') or not path.endswith('.png'):
