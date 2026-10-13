@@ -1,0 +1,33 @@
+{
+  "name": "永恒之石",
+  "category": "better_forbidden_arcanus:forge_tier_3",
+  "icon": "forbidden_arcanus:eternal_stella",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "用作永恒修饰材料，让适用装备不再具有耐久消耗。制作此物品后，仍要通过锻造台完成装备改造。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:eternal_stella",
+      "title": "永恒之石",
+      "text": "最低 3 级；成品用途与材料见本条目。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "中央：钻石×1。$(br)石化经验球×3$(br)流星碎片×1$(br2)外围辅料每份占一个基座，其他基座保持空置。",
+      "title": "仪式材料"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：82$(br)灵魂：1$(br)血液：1000$(br)经验：0$(br2)无必需增强器。以上是未受增强器优惠的基础消耗。",
+      "title": "精华与增强器"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "装备改造步骤与适用限制见$(l:better_forbidden_arcanus:practical/modifiers)装备修饰$(/l)。配方要求的增强器必须放在祭坛槽位内。",
+      "title": "继续使用成品"
+    }
+  ]
+}

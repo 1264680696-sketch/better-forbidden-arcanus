@@ -1,0 +1,27 @@
+{
+  "name": "炽炉的灵魂加工",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "minecraft:soul_sand",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "本附属中，六种普通与永恒灵魂放在炽炉灵魂槽时都不会消耗。普通灵魂加速 1.25 倍，腐化 1.5 倍，附魔 2.5 倍。炽炉仍消耗燃料。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "放入腐化、附魔或其永恒版本后：灵魂沙×1 → 普通灵魂×1，并必定留下失魂沙残留物×1。每份残留物转换为 1 个失魂沙。普通灵魂不能开启此配方。",
+      "title": "加工灵魂沙"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "基础加工时间 100 tick，灵魂倍率会缩短时间。取出灵魂立即取消加速；失去合格灵魂时，该配方进度清空。没有燃料、产物空间或残留空间时不加工。",
+      "title": "生产条件"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "使用$(l:better_forbidden_arcanus:forge_tier_2/corrupt_soul)二级仪式$(/l)获得腐化灵魂即可建立此路线。输出的普通灵魂还能供给祭坛，或继续用于新的腐化灵魂仪式。",
+      "title": "从祭坛到生产"
+    }
+  ]
+}

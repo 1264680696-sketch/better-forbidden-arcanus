@@ -54,6 +54,13 @@ neoForge {
             loadedMods = [mods."${mod_id}", mods.bfa_tests]
             systemProperty 'bfa.clientSmokeTest', 'true'
         }
+        clientGuide {
+            client()
+            sourceSet = sourceSets.gametest
+            gameDirectory = project.file('runs/client-guide')
+            loadedMods = [mods."${mod_id}", mods.bfa_tests]
+            systemProperty 'bfa.guideTest', 'true'
+        }
         gameTestServer {
             type = 'gameTestServer'
             sourceSet = sourceSets.gametest

@@ -1,0 +1,86 @@
+{
+  "name": "战神提尔盔甲",
+  "category": "better_forbidden_arcanus:forge_tier_4",
+  "icon": "forbidden_arcanus:tyr_chestplate",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "这套盔甲按部件逐件转化。中央放对应的天龙神秘盔甲，外围使用进阶龙鳞与暗黑下界之星。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "头盔、胸甲、护腿与靴子的消耗不同，下页起逐件列出。装备转化保留原物品组件；先准备$(l:better_forbidden_arcanus:practical/alloys)黑曜钢材料$(/l)，再执行仪式。",
+      "title": "装备路线"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:tyr_helmet",
+      "title": "战神提尔之头盔",
+      "text": "最低 4 级；成品用途与材料见本条目。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "中央：天龙神秘头盔×1。$(br)水生龙鳞×4$(br)金色龙鳞×1$(br2)外围辅料每份占一个基座，其他基座保持空置。",
+      "title": "仪式材料"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：4820$(br)灵魂：40$(br)血液：5930$(br)经验：2450$(br2)无必需增强器。以上是未受增强器优惠的基础消耗。",
+      "title": "精华与增强器"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:tyr_chestplate",
+      "title": "战神提尔之胸甲",
+      "text": "最低 4 级；成品用途与材料见本条目。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "中央：天龙神秘胸甲×1。$(br)水生龙鳞×4$(br)金色龙鳞×4$(br2)外围辅料每份占一个基座，其他基座保持空置。",
+      "title": "仪式材料"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：6300$(br)灵魂：60$(br)血液：8080$(br)经验：3420$(br2)无必需增强器。以上是未受增强器优惠的基础消耗。",
+      "title": "精华与增强器"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:tyr_leggings",
+      "title": "战神提尔之护腿",
+      "text": "最低 4 级；成品用途与材料见本条目。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "中央：天龙神秘护腿×1。$(br)水生龙鳞×4$(br)金色龙鳞×3$(br2)外围辅料每份占一个基座，其他基座保持空置。",
+      "title": "仪式材料"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：5080$(br)灵魂：50$(br)血液：7620$(br)经验：3010$(br2)无必需增强器。以上是未受增强器优惠的基础消耗。",
+      "title": "精华与增强器"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:tyr_boots",
+      "title": "战神提尔之靴子",
+      "text": "最低 4 级；成品用途与材料见本条目。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "中央：天龙神秘靴子×1。$(br)水生龙鳞×3$(br)金色龙鳞×2$(br2)外围辅料每份占一个基座，其他基座保持空置。",
+      "title": "仪式材料"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：4460$(br)灵魂：40$(br)血液：5620$(br)经验：2170$(br2)无必需增强器。以上是未受增强器优惠的基础消耗。",
+      "title": "精华与增强器"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "装备任意一件，普通猪灵会按金装备规则保持中立，主动挑衅仍会激怒它们。每件增加泳速，全套为相同条件下海豚恩惠泳速的 1.25 倍。",
+      "title": "提尔装备能力"
+    }
+  ]
+}

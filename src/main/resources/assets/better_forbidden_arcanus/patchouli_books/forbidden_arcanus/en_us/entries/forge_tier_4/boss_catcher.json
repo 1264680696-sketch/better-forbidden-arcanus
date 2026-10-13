@@ -1,0 +1,28 @@
+{
+  "name": "首领捕捉器",
+  "category": "better_forbidden_arcanus:forge_tier_4",
+  "icon": "forbidden_arcanus:boss_catcher",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "更高阶的生物收纳器，可处理普通量子捕捉器所排除的部分首领。仍受实体有效性与排除规则限制，并非所有生物都能捕捉。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:boss_catcher",
+      "title": "首领捕捉器",
+      "text": "最低 4 级；成品用途与材料见本条目。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "中央：量子捕捉器×1。$(br)下界之星×1$(br)流星碎片×3$(br2)外围辅料每份占一个基座，其他基座保持空置。",
+      "title": "仪式材料"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：500$(br)灵魂：10$(br)血液：7500$(br)经验：1200$(br2)无必需增强器。以上是未受增强器优惠的基础消耗。",
+      "title": "精华与增强器"
+    }
+  ]
+}

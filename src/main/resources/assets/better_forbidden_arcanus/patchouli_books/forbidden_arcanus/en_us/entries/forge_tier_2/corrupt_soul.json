@@ -1,0 +1,38 @@
+{
+  "name": "腐化灵魂",
+  "category": "better_forbidden_arcanus:forge_tier_2",
+  "icon": "forbidden_arcanus:corrupt_soul",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "二级起可把普通灵魂制成腐化灵魂。它可转化埃德木，也是炽炉加工灵魂沙的合格灵魂之一。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:corrupt_soul",
+      "title": "腐化灵魂",
+      "text": "最低 2 级；成品用途与材料见本条目。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "中央：普通或永恒灵魂×1。$(br)腐化粉末×4$(br2)外围辅料每份占一个基座，其他基座保持空置。",
+      "title": "仪式材料"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：100$(br)灵魂：10$(br)血液：250$(br)经验：0$(br2)无必需增强器。以上是未受增强器优惠的基础消耗。",
+      "title": "精华与增强器"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "对应永恒灵魂可替代仪式中的灵魂材料并保留；其他材料与精华照常扣除。永恒主材料留在中央槽时，成品会弹到祭坛上方。",
+      "title": "永恒材料替代"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "灵魂的精华用途见$(l:better_forbidden_arcanus:basics/souls)三种灵魂$(/l)；加工灵魂沙的方法见$(l:better_forbidden_arcanus:practical/soul_processing)炽炉灵魂加工$(/l)。",
+      "title": "继续使用成品"
+    }
+  ]
+}

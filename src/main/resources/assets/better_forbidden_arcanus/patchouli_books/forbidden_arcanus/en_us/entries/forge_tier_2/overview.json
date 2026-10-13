@@ -1,0 +1,17 @@
+{
+  "name": "二级：目标与容量",
+  "category": "better_forbidden_arcanus:forge_tier_2",
+  "icon": "forbidden_arcanus:hephaestus_forge_tier_2",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "准备黑曜钢与龙鳞，强化盔甲，并建立腐化灵魂的稳定来源。 本章仅列首次在本级解锁的物品，更高级祭坛仍能制作它们。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：3000$(br)灵魂：50$(br)血液：15000$(br)经验：1350$(br2)这些是储量上限，不是每次仪式的消耗。",
+      "title": "本级精华容量"
+    }
+  ]
+}

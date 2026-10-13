@@ -1,0 +1,41 @@
+{
+  "name": "辉光方尖碑",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:arcane_crystal_block",
+  "sortnum": 13,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "在神秘磨制暗黑石上方叠两块神秘水晶块，再用洁净粉末进行转化。形成方尖碑后，它能为祭坛持续提供辉光。"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "方尖碑建造前",
+      "multiblock": {
+        "pattern": [
+          [
+            "X"
+          ],
+          [
+            "X"
+          ],
+          [
+            "0"
+          ]
+        ],
+        "mapping": {
+          "X": "forbidden_arcanus:arcane_crystal_block",
+          "0": "forbidden_arcanus:arcane_polished_darkstone"
+        },
+        "symmetrical": true
+      },
+      "enable_visualize": true,
+      "text": "用洁净粉末转化；底座应放在祭坛的供给位置。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "把方尖碑放在祭坛可用的供给位置，会占用一个原本可放基座的位置。升级仪式需要 8 份外围材料时，应先补足辉光，再调整供给设备。",
+      "title": "与基座的关系"
+    }
+  ]
+}

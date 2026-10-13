@@ -1,0 +1,27 @@
+{
+  "name": "升级至四级",
+  "category": "better_forbidden_arcanus:forge_tier_3",
+  "icon": "forbidden_arcanus:hephaestus_forge_tier_4",
+  "sortnum": 99,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "本仪式只能在 3 级祭坛执行。完成后升至 4 级，增加精华容量。先备齐 8 份基座材料，再补足本条目列出的精华。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "中央：錾制磨制暗黑石×1。$(br)流星碎片×4$(br)符文×4$(br2)外围辅料每份占一个基座，其他基座保持空置。",
+      "title": "仪式材料"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：2000$(br)灵魂：100$(br)血液：12000$(br)经验：0$(br2)无必需增强器。以上是未受增强器优惠的基础消耗。",
+      "title": "精华与增强器"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "用锻工锤右击开始，等待约 25 秒。升级完成后阅读$(l:better_forbidden_arcanus:forge_tier_4/overview)四级$(/l)的目标与新物品。",
+      "title": "执行升级"
+    }
+  ]
+}

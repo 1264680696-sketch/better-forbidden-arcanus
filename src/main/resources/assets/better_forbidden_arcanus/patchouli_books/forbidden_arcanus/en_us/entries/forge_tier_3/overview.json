@@ -1,0 +1,17 @@
+{
+  "name": "三级：目标与容量",
+  "category": "better_forbidden_arcanus:forge_tier_3",
+  "icon": "forbidden_arcanus:hephaestus_forge_tier_3",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "制作永恒之石、两种元素棱晶和注入器，建立附魔灵魂来源。 本章仅列首次在本级解锁的物品，更高级祭坛仍能制作它们。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：5000$(br)灵魂：100$(br)血液：30000$(br)经验：2500$(br2)这些是储量上限，不是每次仪式的消耗。",
+      "title": "本级精华容量"
+    }
+  ]
+}

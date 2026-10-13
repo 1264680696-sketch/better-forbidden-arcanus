@@ -11,14 +11,15 @@ $taskTemp = Join-Path (Resolve-Path "$taskProject/../..").Path '.bfa-tmp'
 New-Item -ItemType Directory -Path $taskTemp -Force | Out-Null
 $env:TEMP = $taskTemp
 $env:TMP = $taskTemp
-if ($Tasks -contains 'runClientSmoke') {
+foreach ($taskClientRun in @('runClientSmoke', 'runClientGuide')) {
+    if ($Tasks -notcontains $taskClientRun) { continue }
     # A fresh client would otherwise wait indefinitely at its first-run
     # accessibility onboarding screen before reaching the title screen.
-    $taskSmokeDirectory = Join-Path $taskProject 'runs/client-smoke'
+    $taskSmokeDirectory = Join-Path $taskProject $(if ($taskClientRun -eq 'runClientGuide') { 'runs/client-guide' } else { 'runs/client-smoke' })
     New-Item -ItemType Directory -Path $taskSmokeDirectory -Force | Out-Null
     $taskOptionsPath = Join-Path $taskSmokeDirectory 'options.txt'
     if (-not (Test-Path -LiteralPath $taskOptionsPath)) {
-        [System.IO.File]::WriteAllText($taskOptionsPath, "onboardAccessibility:false`n", [System.Text.UTF8Encoding]::new($false))
+        [System.IO.File]::WriteAllText($taskOptionsPath, "onboardAccessibility:false`nlang:zh_cn`nguiScale:2`nrenderDistance:2`nmaxFps:30`ntutorialStep:none`n", [System.Text.UTF8Encoding]::new($false))
     }
 }
 # Java does not automatically use the Windows proxy that browsers/Python use.
@@ -46,6 +47,13 @@ try {
         if (-not (Test-Path -LiteralPath $taskClientLog) -or
             -not (Select-String -LiteralPath $taskClientLog -SimpleMatch 'BFA_CLIENT_SMOKE_PASS' -Quiet)) {
             throw 'Client smoke test did not reach its completion marker. Check runs/client-smoke/logs/latest.log.'
+        }
+    }
+    if ($Tasks -contains 'runClientGuide') {
+        $taskGuideLog = Join-Path $taskProject 'runs/client-guide/logs/latest.log'
+        if (-not (Test-Path -LiteralPath $taskGuideLog) -or
+            -not (Select-String -LiteralPath $taskGuideLog -SimpleMatch 'BFA_GUIDE_PASS' -Quiet)) {
+            throw 'Guide check did not finish. Check runs/client-guide/logs/latest.log.'
         }
     }
 } finally { Pop-Location }

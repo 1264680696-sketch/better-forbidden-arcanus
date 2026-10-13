@@ -1,0 +1,37 @@
+{
+  "name": "进阶材料的准备",
+  "category": "better_forbidden_arcanus:basics",
+  "icon": "forbidden_arcanus:stellarite_piece",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "刷怪笼碎片用于二级升级。没有精准采集时，破坏刷怪笼可获得附加碎片；先检查工具，避免把刷怪笼直接取走而没有碎片。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "流星碎片来自奥术陨石。开采可能引发爆炸，避免把贵重设备放在旁边。精准采集获得方块时，不等同于已经拿到流星碎片。",
+      "title": "流星碎片"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "龙鳞可从末影龙及末地城宝箱的附加掉落获得，用于两套高阶盔甲和五级升级。黑曜钢由$(l:better_forbidden_arcanus:practical/alloys)炽炉合金$(/l)制得，需要工匠遗物。",
+      "title": "龙鳞与黑曜钢"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "五级升级还需要暗黑下界之星与流星块。先准备下界之星和黑曜钢，再把 9 份流星碎片合成流星块。",
+      "title": "最高等级材料"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:dark_nether_star",
+      "text": ""
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:stellarite_block_from_stellarite_piece",
+      "text": ""
+    }
+  ]
+}

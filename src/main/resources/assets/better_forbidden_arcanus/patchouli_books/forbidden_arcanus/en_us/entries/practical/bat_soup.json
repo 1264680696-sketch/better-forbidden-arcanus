@@ -1,0 +1,22 @@
+{
+  "name": "蝙蝠翼与蝙蝠汤",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:bat_soup",
+  "sortnum": 16,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "蝙蝠翼现在有 80% 的基础成功判定，成功时至少掉落 1 片，并保留抢夺数量奖励。失败时不会额外掉落蝙蝠翼。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:bat_soup",
+      "text": "蘑菇、碗、蝙蝠翼，以及发光浆果或发光地衣。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "喝完后：夜视 I 90 秒、速度 I 30 秒、发光 90 秒。重复食用按原版效果合并，不把持续时间直接相加。当前饮用后不返还碗。",
+      "title": "饮用效果"
+    }
+  ]
+}

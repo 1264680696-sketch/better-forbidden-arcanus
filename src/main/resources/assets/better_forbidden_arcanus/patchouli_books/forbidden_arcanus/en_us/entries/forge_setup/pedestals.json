@@ -1,0 +1,67 @@
+{
+  "name": "基座与完成后布局",
+  "category": "better_forbidden_arcanus:forge_setup",
+  "icon": "forbidden_arcanus:darkstone_pedestal",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "祭坛周围有 8 个可用基座位置，分别位于外围镀金石上方。下页展示完整布局，但每次只按所选仪式放入需要的材料。"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "祭坛与八个基座",
+      "multiblock": {
+        "pattern": [
+          [
+            "___   ___",
+            "_   H   _",
+            "_ H   H _",
+            "         ",
+            " H  0  H ",
+            "         ",
+            "_ H   H _",
+            "_   H   _",
+            "___   ___"
+          ],
+          [
+            "___PPP___",
+            "_PPPAPPP_",
+            "_PAPPPAP_",
+            "PPPPCPPPP",
+            "PAPCACPAP",
+            "PPPPCPPPP",
+            "_PAPPPAP_",
+            "_PPPAPPP_",
+            "___PPP___"
+          ]
+        ],
+        "mapping": {
+          "P": "forbidden_arcanus:polished_darkstone",
+          "A": "forbidden_arcanus:gilded_chiseled_polished_darkstone",
+          "C": "forbidden_arcanus:chiseled_arcane_polished_darkstone",
+          "0": "#forbidden_arcanus:hephaestus_forges",
+          "H": "forbidden_arcanus:darkstone_pedestal"
+        },
+        "symmetrical": true
+      },
+      "enable_visualize": true,
+      "text": "中心兼容一至五级祭坛；基座实际用量按仪式。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:darkstone_pedestal",
+      "text": "先准备普通基座，后续可用磁化混合物升级。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "需要 4 份某材料，表示 4 个基座各放 1 个，不是一个基座堆 4 个。暂时用不到的基座保持空置；多余的非空材料会妨碍仪式匹配。",
+      "title": "正确放置辅料"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "磁化基座会拾取抛向它的物品。方尖碑也占用这些供给位置：仪式需要 8 个基座时，先调整方尖碑布局。",
+      "title": "供给设备的占位"
+    }
+  ]
+}

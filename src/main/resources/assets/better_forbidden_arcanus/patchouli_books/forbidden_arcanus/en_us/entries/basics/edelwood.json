@@ -1,0 +1,27 @@
+{
+  "name": "埃德木与腐化",
+  "category": "better_forbidden_arcanus:basics",
+  "icon": "forbidden_arcanus:edelwood_planks",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "探索时留意埃德木，木板是二级升级的中央材料。腐化灵魂也能把橡树树苗或枯死灌木转成生长中的埃德木。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "腐化粉末是二级腐化灵魂仪式的辅料。它需要黑曜钢锭、烈焰粉、下界疣、水晶粉与末影珍珠碎片，无序合成产出 4 份。",
+      "title": "腐化粉末"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:corrupti_dust",
+      "text": ""
+    },
+    {
+      "type": "patchouli:text",
+      "text": "不要把洁净粉末和腐化粉末混淆：洁净粉末激活设施；腐化粉末参与灵魂仪式，也用于$(l:better_forbidden_arcanus:practical/black_hole)黑洞$(/l)。",
+      "title": "用途区分"
+    }
+  ]
+}

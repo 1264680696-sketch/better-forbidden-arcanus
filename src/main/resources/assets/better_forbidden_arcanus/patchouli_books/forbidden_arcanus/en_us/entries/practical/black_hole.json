@@ -1,0 +1,22 @@
+{
+  "name": "黑洞与经验收集",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:dark_matter",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "黑洞会吸收附近经验球，累积后产出石化经验球。石化经验球可投入祭坛经验槽，是批量补充经验精华的一条路线。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "把暗物质与腐化粉末抛到同一处附近，二者相遇且所在位置为空气时，各消耗 1 个并形成黑洞。这是世界中的物品交互，不是工作台配方。",
+      "title": "形成黑洞"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "把经验产生的位置安排在黑洞附近，再收集石化经验球。其他经验供给方式见$(l:better_forbidden_arcanus:basics/essences)四种精华$(/l)。",
+      "title": "经验流转"
+    }
+  ]
+}

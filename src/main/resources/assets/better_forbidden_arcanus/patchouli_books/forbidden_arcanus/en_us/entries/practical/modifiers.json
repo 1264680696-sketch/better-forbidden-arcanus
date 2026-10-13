@@ -1,0 +1,32 @@
+{
+  "name": "装备修饰的步骤",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:apply_modifier_smithing_template",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "仪式成品与装备修饰是两个步骤。先取得修饰符锻造模板，再在锻造台放入模板、适用装备与修饰材料。默认一件装备不能任意叠加多个修饰符。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:apply_modifier_smithing_template",
+      "text": ""
+    },
+    {
+      "type": "patchouli:text",
+      "text": "永恒之石用于有耐久的适用装备，移除耐久相关组件。带有耐久或经验修补等不兼容附魔的装备，不能直接应用永恒修饰。",
+      "title": "永恒修饰"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "熔炉棱晶用于适用挖掘工具，提供炙热处理；与精准采集不兼容。撼地棱晶用于适用挖掘工具，提供范围破坏。",
+      "title": "工具修饰"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "海洋棱晶用于适用头盔；磁化混合物用于适用靴子；灵魂绑定水晶用于允许灵魂绑定的物品。是否能应用，以锻造台结果和物品条件为准。",
+      "title": "护甲与灵魂绑定"
+    }
+  ]
+}

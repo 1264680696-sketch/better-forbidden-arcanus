@@ -1,0 +1,17 @@
+{
+  "name": "四级：目标与容量",
+  "category": "better_forbidden_arcanus:forge_tier_4",
+  "icon": "forbidden_arcanus:hephaestus_forge_tier_4",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "制作战神提尔装备及灵魂绑定物品，准备最后一次升级。 本章仅列首次在本级解锁的物品，更高级祭坛仍能制作它们。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：10000$(br)灵魂：500$(br)血液：50000$(br)经验：5000$(br2)这些是储量上限，不是每次仪式的消耗。",
+      "title": "本级精华容量"
+    }
+  ]
+}

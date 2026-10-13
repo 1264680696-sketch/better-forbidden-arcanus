@@ -1,0 +1,27 @@
+{
+  "name": "三种灵魂",
+  "category": "better_forbidden_arcanus:basics",
+  "icon": "forbidden_arcanus:soul",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "普通灵魂可由灵魂提取器处理灵魂沙获得，也可击败迷失灵魂获得。灵魂掠夺附魔提供召唤迷失灵魂的机会；不同变体对应不同灵魂物品。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:soul_extractor",
+      "text": "用灵魂提取器处理灵魂沙，留下失魂沙。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "普通、腐化灵魂各提供 1 点灵魂精华；附魔灵魂提供 10 点。精华与物品是不同概念：把物品投入精华槽后，普通物品会被消耗。",
+      "title": "灵魂精华"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "本附属增加$(l:better_forbidden_arcanus:forge_tier_2/corrupt_soul)二级腐化灵魂仪式$(/l)和$(l:better_forbidden_arcanus:forge_tier_3/enchanted_soul)三级附魔灵魂仪式$(/l)。它们还可让$(l:better_forbidden_arcanus:practical/soul_processing)炽炉加工灵魂沙$(/l)。",
+      "title": "稳定获取路线"
+    }
+  ]
+}

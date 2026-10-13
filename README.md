@@ -1,10 +1,14 @@
 # 更好的禁忌与奥秘
 
-Minecraft 1.21.1 / NeoForge 21.1.251 / Forbidden and Arcanus 2.6.1 附属，版本 0.4.0。
+Minecraft 1.21.1 / NeoForge 21.1.251 / Forbidden and Arcanus 2.6.1 附属，版本 0.5.0。
 
 ## 帕秋莉指南与编辑器
 
-**神秘水晶 + 书 → 禁忌与奥秘**，无序合成，使用帕秋莉默认棕色书本，也可从独立创造栏获得。首页包含“启程”和指南合成说明，后续内容可自行编辑。
+**神秘水晶 + 书 → 禁忌与奥秘**，无序合成，使用帕秋莉默认棕色书本，也可从独立创造栏获得。
+
+中文正文按“基础知识 → 搭建祭坛 → 一至五级祭坛”展开，实用支线介绍炽炉、遗物、装备修饰、精华设施与附属便利内容。包含 52 个正式条目，覆盖当前版本全部 24 种有效仪式；所有章节均可提前阅读。目录思维导图见 [GUIDE_STRUCTURE.md](docs/GUIDE_STRUCTURE.md)。
+
+祭坛建造前、激活后基座布局、炽炉和方尖碑使用原生三维结构页。点击眼睛按钮、关闭书本后查看世界投影，再右击方块锚定位置；书内提示说明材料与操作。工作台和熔炼使用原生配方页，祭坛仪式分别列出中央材料、基座材料、四种精华和必要增强器。
 
 双击工程根目录的 **打开指南编辑器.bat**，在本地浏览器中编辑分类、条目、页面并预览。保存会直接写回工程，自动备份旧内容；正文支持帕秋莉格式。保存后构建 JAR 才会更新正式游戏内容，也可导出正文资源包快速预览。使用方法、文件路径和官方教程见 [GUIDE_EDITOR.md](docs/GUIDE_EDITOR.md)。
 
@@ -75,20 +79,21 @@ Curios 新增“遗物”栏，初始 1 个槽位，接受原 Mod 的七种增�
 - Curios API，开发版本为 `9.5.1+1.21.1`（本版必需依赖）。
 - Patchouli（帕秋莉手册）`1.21.1-93-NEOFORGE`，客户端与服务端均需安装。
 
-将 `build/libs/better_forbidden_arcanus-0.4.0.jar` 放入游戏实例的 `mods` 目录。升级时只保留一个版本的附属 JAR；不要移除原 Mod 或 Curios。
+将 `build/libs/better_forbidden_arcanus-0.5.0.jar` 放入游戏实例的 `mods` 目录。升级时只保留一个版本的附属 JAR；不要移除原 Mod 或 Curios。若启用了旧版编辑器导出的指南资源包，请关闭或重新导出，以免旧正文覆盖新版。
 
 ## 从源码构建
 
 在项目目录中打开 PowerShell：
 
 ```powershell
-# 首次运行或从旧版升级：从当前实例复制三个开发依赖到 libs。
+# 首次运行或从旧版升级：从当前实例复制开发依赖到 libs。
 .\scripts\setup-dev.ps1
 
 # 开发脚本使用 JDK 21，并将 Gradle 缓存放在项目内。
 .\scripts\dev.ps1 build
 .\scripts\dev.ps1 runGameTestServer
 .\scripts\dev.ps1 runClientSmoke
+.\scripts\dev.ps1 runClientGuide
 .\scripts\dev.ps1 runClient
 ```
 
@@ -111,6 +116,8 @@ Curios 新增“遗物”栏，初始 1 个槽位，接受原 Mod 的七种增�
 - `src/gametest`：独立测试 Mod；不进入发行 JAR。
 - `scripts/generate_resources.py`：生成配方与掉落资源。
 - `scripts/verify_resources.py`：与原 JAR 对照检查配方、范围、重复和掉落规则。
+- `scripts/verify_guide.py`：核对指南的等级归类、仪式覆盖、精华消耗、条目跳转、原生配方类型与结构用量。使用 Python 3 直接运行。
+- `runClientGuide`：在独立临时世界检查真实书页排版、三维渲染与四种世界投影；不读取整合包存档。
 
 ## Git 与版本维护
 

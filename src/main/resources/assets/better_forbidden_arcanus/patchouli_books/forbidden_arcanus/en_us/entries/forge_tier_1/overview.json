@@ -1,0 +1,17 @@
+{
+  "name": "一级：目标与容量",
+  "category": "better_forbidden_arcanus:forge_tier_1",
+  "icon": "forbidden_arcanus:hephaestus_forge_tier_1",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "开始执行基础仪式，准备磁化基座和二级升级材料。 本章仅列首次在本级解锁的物品，更高级祭坛仍能制作它们。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：1000$(br)灵魂：10$(br)血液：10000$(br)经验：900$(br2)这些是储量上限，不是每次仪式的消耗。",
+      "title": "本级精华容量"
+    }
+  ]
+}

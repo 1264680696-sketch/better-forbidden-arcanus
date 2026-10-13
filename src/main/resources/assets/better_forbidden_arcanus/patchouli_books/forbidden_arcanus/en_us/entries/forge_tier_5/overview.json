@@ -1,0 +1,27 @@
+{
+  "name": "五级：目标与容量",
+  "category": "better_forbidden_arcanus:forge_tier_5",
+  "icon": "forbidden_arcanus:hephaestus_forge_tier_5",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "获得最高储量，集中运用此前解锁的高阶仪式。 本章仅列首次在本级解锁的物品，更高级祭坛仍能制作它们。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：20000$(br)灵魂：1000$(br)血液：100000$(br)经验：7500$(br2)这些是储量上限，不是每次仪式的消耗。",
+      "title": "本级精华容量"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "当前没有最低要求五级的专属制物仪式。升级的直接收益是更大储量；四级与更低等级的制物仪式仍然可用。",
+      "title": "五级的用途"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "借助$(l:better_forbidden_arcanus:practical/containers)精华容器$(/l)、$(l:better_forbidden_arcanus:forge_tier_3/quantum_injector)量子注入器$(/l)和$(l:better_forbidden_arcanus:forge_tier_1/ferrognetic_mixture)磁化基座$(/l)整理供给。提高储量不会免除配方材料和必要增强器。",
+      "title": "高阶补给整理"
+    }
+  ]
+}

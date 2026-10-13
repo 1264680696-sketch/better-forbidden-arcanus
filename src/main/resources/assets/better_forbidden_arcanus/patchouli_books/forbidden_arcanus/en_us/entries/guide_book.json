@@ -1,18 +1,27 @@
 {
-  "name": "禁忌与奥秘",
+  "name": "阅读这本指南",
   "category": "better_forbidden_arcanus:beginnings",
   "icon": "forbidden_arcanus:arcane_crystal",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "第一本指南",
-      "text": "将一本书与一枚$(item)神秘水晶$()放入合成栏，即可得到这本指南。$(br2)手持指南并使用，即可翻开书页。你可以通过目录选择篇章，逐步了解禁忌与奥秘的世界。"
+      "text": "这本指南以祭坛升级为主线。先读$(l:better_forbidden_arcanus:basics/materials)基础材料$(/l)，再按$(l:better_forbidden_arcanus:forge_setup/construction)搭建祭坛$(/l)完成第一座赫菲斯托斯锻造炉。所有章节都能提前阅读。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "每级章节介绍本级容量、新解锁物品和下一次升级。仪式注明最低等级；更高等级仍能制作低阶产物。升级仪式只在指定上一等级执行。",
+      "title": "阅读路线"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "旁支收录$(l:better_forbidden_arcanus:practical/clibano)炽炉$(/l)、$(l:better_forbidden_arcanus:practical/relics)增强遗物$(/l)和$(l:better_forbidden_arcanus:practical/modifiers)装备修饰$(/l)。本书采用当前附属的玩法：灵魂不在炽炉中消耗，并包含两种新的灵魂仪式。",
+      "title": "主线与支线"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:guide_book",
-      "text": "无序合成：神秘水晶 + 书。"
+      "text": "神秘水晶 + 书，无序合成。手持指南使用即可阅读。"
     }
   ]
 }

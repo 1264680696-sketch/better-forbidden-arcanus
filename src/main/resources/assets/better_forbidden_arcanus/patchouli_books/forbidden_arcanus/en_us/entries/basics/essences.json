@@ -1,0 +1,32 @@
+{
+  "name": "四种精华",
+  "category": "better_forbidden_arcanus:basics",
+  "icon": "forbidden_arcanus:xpetrified_orb",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "祭坛需要辉光、灵魂、血液与经验四种精华。侧边供给槽用于输入对应材料，中央大槽才是仪式主材料；库存不能超过当前等级容量。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光可通过辉光瓶或$(l:better_forbidden_arcanus:practical/obelisk)方尖碑$(/l)供给；灵魂可投入灵魂物品。$(l:better_forbidden_arcanus:practical/containers)精华容器$(/l)用于储存与补给。",
+      "title": "辉光与灵魂"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "生物在祭坛附近受到伤害，可为祭坛供给血液。副手持试管攻击也能收集血液，之后再转移。绯红之石能增强玩家攻击和试管的采血量。",
+      "title": "血液"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "石化经验球提供 91 点经验精华，附魔之瓶提供 15 点；祭坛经验槽也能消除装备附魔并转成精华，使用前确认不再需要这些附魔。",
+      "title": "经验精华"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "玩家自身的辉光和祭坛库存是两套储量。量子捕捉器等物品会使用玩家辉光，附近祭坛存满并不能替代玩家自身储量。",
+      "title": "两种辉光储量"
+    }
+  ]
+}

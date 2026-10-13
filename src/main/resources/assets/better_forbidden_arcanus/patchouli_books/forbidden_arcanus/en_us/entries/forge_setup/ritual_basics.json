@@ -1,0 +1,37 @@
+{
+  "name": "启动一次仪式",
+  "category": "better_forbidden_arcanus:forge_setup",
+  "icon": "forbidden_arcanus:iron_blacksmith_gavel",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "按顺序准备：确认等级 → 放中央材料 → 分开放基座辅料 → 放必需增强器 → 补足四种精华 → 用锻工锤右击祭坛。默认仪式持续约 25 秒。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "中央大槽是主材料，四个小槽是设施增强器。把$(l:better_forbidden_arcanus:practical/elementarium)基本元素$(/l)戴进遗物栏，并不能满足祭坛增强器槽的配方要求。",
+      "title": "槽位用途"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:blacksmith_gavel_head",
+      "text": ""
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:iron_blacksmith_gavel",
+      "text": "锻工锤用于启动；其他材质也有对应配方。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "普通仪式允许高等级祭坛执行低阶配方。升级仪式则要求精确的上一等级；完成后提升储量并开启新仪式。",
+      "title": "等级规则"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "装备转化仪式会把中央装备变成高阶装备并保留其组件。永恒主材料参与制物仪式时，产物会弹出祭坛上方，主材料留在中央槽。",
+      "title": "产物位置"
+    }
+  ]
+}

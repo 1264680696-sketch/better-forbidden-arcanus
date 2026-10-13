@@ -1,0 +1,28 @@
+{
+  "name": "旋风棱晶",
+  "category": "better_forbidden_arcanus:forge_tier_3",
+  "icon": "forbidden_arcanus:whirlwind_prism",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "对方块使用后，在目标位置产生短暂旋风，并在上方形成上升气流。进入气流会被向上推动，抵达顶部可获得短暂缓降。它不是装备修饰材料。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:whirlwind_prism",
+      "title": "旋风棱晶",
+      "text": "最低 3 级；成品用途与材料见本条目。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "中央：白色羊毛×1。$(br)蝙蝠翅膀×1$(br)羽毛×2$(br)幻翼膜×3$(br2)外围辅料每份占一个基座，其他基座保持空置。",
+      "title": "仪式材料"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：1000$(br)灵魂：3$(br)血液：2250$(br)经验：0$(br2)必需增强器：基本元素。以上是未受增强器优惠的基础消耗。",
+      "title": "精华与增强器"
+    }
+  ]
+}

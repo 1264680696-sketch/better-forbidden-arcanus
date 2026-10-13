@@ -1,0 +1,81 @@
+{
+  "name": "天龙神秘盔甲",
+  "category": "better_forbidden_arcanus:forge_tier_2",
+  "icon": "forbidden_arcanus:draco_arcanus_chestplate",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "这套盔甲按部件逐件转化。中央放对应的下界合金盔甲，外围需要龙鳞和黑曜钢锭。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "头盔、胸甲、护腿与靴子的消耗不同，下页起逐件列出。装备转化保留原物品组件；先准备$(l:better_forbidden_arcanus:practical/alloys)黑曜钢材料$(/l)，再执行仪式。",
+      "title": "装备路线"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:draco_arcanus_helmet",
+      "title": "天龙神秘头盔",
+      "text": "最低 2 级；成品用途与材料见本条目。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "中央：下界合金头盔×1。$(br)龙鳞×2$(br)黑曜钢锭×3$(br2)外围辅料每份占一个基座，其他基座保持空置。",
+      "title": "仪式材料"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：820$(br)灵魂：6$(br)血液：475$(br)经验：420$(br2)无必需增强器。以上是未受增强器优惠的基础消耗。",
+      "title": "精华与增强器"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:draco_arcanus_chestplate",
+      "title": "天龙神秘胸甲",
+      "text": "最低 2 级；成品用途与材料见本条目。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "中央：下界合金胸甲×1。$(br)龙鳞×4$(br)黑曜钢锭×3$(br2)外围辅料每份占一个基座，其他基座保持空置。",
+      "title": "仪式材料"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：1300$(br)灵魂：9$(br)血液：625$(br)经验：760$(br2)无必需增强器。以上是未受增强器优惠的基础消耗。",
+      "title": "精华与增强器"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:draco_arcanus_leggings",
+      "title": "天龙神秘护腿",
+      "text": "最低 2 级；成品用途与材料见本条目。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "中央：下界合金护腿×1。$(br)龙鳞×3$(br)黑曜钢锭×3$(br2)外围辅料每份占一个基座，其他基座保持空置。",
+      "title": "仪式材料"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：1000$(br)灵魂：7$(br)血液：565$(br)经验：540$(br2)无必需增强器。以上是未受增强器优惠的基础消耗。",
+      "title": "精华与增强器"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:draco_arcanus_boots",
+      "title": "天龙神秘靴子",
+      "text": "最低 2 级；成品用途与材料见本条目。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "中央：下界合金靴子×1。$(br)龙鳞×2$(br)黑曜钢锭×2$(br2)外围辅料每份占一个基座，其他基座保持空置。",
+      "title": "仪式材料"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：700$(br)灵魂：5$(br)血液：405$(br)经验：370$(br2)无必需增强器。以上是未受增强器优惠的基础消耗。",
+      "title": "精华与增强器"
+    }
+  ]
+}

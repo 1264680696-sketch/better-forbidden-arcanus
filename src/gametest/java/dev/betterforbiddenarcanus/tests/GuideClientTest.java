@@ -1,0 +1,136 @@
+package dev.betterforbiddenarcanus.tests;
+
+import dev.betterforbiddenarcanus.SoulItems;
+import java.util.ArrayList;
+import java.util.List;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.Screenshot;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.screens.TitleScreen;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.contents.TranslatableContents;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.GameType;
+import net.minecraft.world.level.LevelSettings;
+import net.minecraft.world.level.WorldDataConfiguration;
+import net.minecraft.world.level.levelgen.WorldOptions;
+import net.minecraft.world.level.levelgen.presets.WorldPresets;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
+import vazkii.patchouli.api.PatchouliAPI;
+import vazkii.patchouli.client.book.BookEntry;
+import vazkii.patchouli.client.book.gui.BookTextRenderer;
+import vazkii.patchouli.client.book.gui.GuiBookEntry;
+import vazkii.patchouli.client.book.page.PageMultiblock;
+import vazkii.patchouli.client.book.page.abstr.PageWithText;
+import vazkii.patchouli.common.book.BookRegistry;
+
+/** Exercises the actual book renderer in a disposable development world. */
+@EventBusSubscriber(modid = "bfa_tests", value = Dist.CLIENT)
+public final class GuideClientTest {
+    private record Frame(BookEntry entry, int offset) {}
+    private static final List<Frame> frames = new ArrayList<>();
+    private static final List<String> overflows = new ArrayList<>();
+    private static boolean started, ready, finished, projecting;
+    private static int frame, ticks, projections;
+    private static long start;
+
+    private static Object field(Class<?> type, String name, Object instance) {
+        try { var field = type.getDeclaredField(name); field.setAccessible(true); return field.get(instance); }
+        catch (ReflectiveOperationException error) { throw new IllegalStateException(error); }
+    }
+
+    @SubscribeEvent
+    public static void tick(ClientTickEvent.Post event) {
+        if (!Boolean.getBoolean("bfa.guideTest") || finished) return;
+        var mc = Minecraft.getInstance();
+        if (!started && mc.screen instanceof TitleScreen) {
+            started = true; start = System.currentTimeMillis();
+            var rules = new GameRules();
+            rules.getRule(GameRules.RULE_DOMOBSPAWNING).set(false, null);
+            var settings = new LevelSettings("BFA Guide Check", GameType.CREATIVE, false, Difficulty.PEACEFUL, true, rules, WorldDataConfiguration.DEFAULT);
+            mc.createWorldOpenFlows().createFreshLevel("bfa-guide-" + System.currentTimeMillis(), settings, new WorldOptions(1L,false,false),
+                    access -> access.registryOrThrow(Registries.WORLD_PRESET).getHolderOrThrow(WorldPresets.FLAT).value().createWorldDimensions(), mc.screen);
+            return;
+        }
+        if (!started) return;
+        if (System.currentTimeMillis() - start > 300000) throw new IllegalStateException("Guide world/render check timed out");
+        if (mc.level == null || mc.player == null) return;
+        var book = BookRegistry.INSTANCE.books.get(SoulItems.id("forbidden_arcanus"));
+        if (!ready) {
+            if (mc.screen != null) return;
+            book.reloadContents(mc.level, false);
+            var contents = book.getContents();
+            if (contents.isErrored()) throw new IllegalStateException("Guide contents failed to compile", contents.getException());
+            if (contents.entries.size() < 52 || contents.categories.size() < 9) throw new IllegalStateException("Incomplete guide contents");
+            try {
+                var overflow = book.getClass().getDeclaredField("overflowMode"); overflow.setAccessible(true);
+                overflow.set(book, vazkii.patchouli.api.PatchouliConfigAccess.TextOverflowMode.RESIZE);
+            } catch (ReflectiveOperationException error) { throw new IllegalStateException(error); }
+            contents.entries.values().stream().sorted(java.util.Comparator.comparing(entry -> entry.getId().toString())).forEach(entry -> {
+                for (int offset = 0; offset < entry.getPages().size(); offset += 2) frames.add(new Frame(entry, offset));
+                if (entry.isLocked()) throw new IllegalStateException("Guide chapter unexpectedly locked: " + entry.getId());
+            });
+            ready = true; show(); return;
+        }
+        if (++ticks < 3) return;
+        if (projecting) {
+            if (mc.screen != null || PatchouliAPI.get().getCurrentMultiblock() == null)
+                throw new IllegalStateException("World projection did not remain visible after closing the book");
+            if (projections == 1) Screenshot.grab(mc.gameDirectory, "guide-projection.png", mc.getMainRenderTarget(), component -> {});
+            projecting = false;
+            advance(); return;
+        }
+        var current = frames.get(frame);
+        if (!(mc.screen instanceof GuiBookEntry)) throw new IllegalStateException("Book GUI did not open: " + current.entry.getId());
+        for (int index = current.offset; index < Math.min(current.offset + 2, current.entry.getPages().size()); index++) {
+            var page = current.entry.getPages().get(index);
+            if (page instanceof PageWithText) {
+                var renderer = (BookTextRenderer)field(PageWithText.class, "textRender", page);
+                if (renderer != null && (float)field(BookTextRenderer.class,"scale",renderer) < 0.999f) {
+                    String message = current.entry.getId() + " page " + index + " scale=" + field(BookTextRenderer.class,"scale",renderer);
+                    overflows.add(message); com.mojang.logging.LogUtils.getLogger().warn("BFA_GUIDE_OVERFLOW: {}", message);
+                }
+            }
+            if (page instanceof PageMultiblock) {
+                if (!((java.util.Set<?>)field(PageMultiblock.class,"erroredTiles",page)).isEmpty()) throw new IllegalStateException("Multiblock tile rendering failed");
+                var visualize = mc.screen.children().stream().filter(widget -> widget instanceof Button).map(widget -> (Button)widget)
+                        .filter(button -> button.getMessage().getContents() instanceof TranslatableContents translation && translation.getKey().contains("visualize"))
+                        .findFirst().orElseThrow(() -> new IllegalStateException("Missing visualization button"));
+                if (projections == 0) Screenshot.grab(mc.gameDirectory, "guide-construction.png", mc.getMainRenderTarget(), component -> {});
+                visualize.onPress();
+                if (PatchouliAPI.get().getCurrentMultiblock() == null) throw new IllegalStateException("Visualization button did not create world projection");
+                mc.setScreen(null); // The player closes the book to see the selected projection.
+                mc.player.setXRot(35); mc.player.setYRot(0);
+                projections++;
+                projecting = true; ticks = 0;
+            }
+        }
+        if (!projecting) advance();
+    }
+
+    private static void advance() {
+        var mc = Minecraft.getInstance();
+        var book = BookRegistry.INSTANCE.books.get(SoulItems.id("forbidden_arcanus"));
+        if (++frame >= frames.size()) {
+            if (!overflows.isEmpty()) throw new IllegalStateException("Guide text overflow: " + String.join("; ",overflows));
+            if (projections != 4) throw new IllegalStateException("Expected four functioning multiblock projections, got " + projections);
+            finished = true;
+            com.mojang.logging.LogUtils.getLogger().info("BFA_GUIDE_PASS: {} entries, {} rendered spreads, {} working world projections",
+                    book.getContents().entries.size(), frames.size(), projections);
+            mc.stop(); return;
+        }
+        show();
+    }
+
+    private static void show() {
+        PatchouliAPI.get().clearMultiblock();
+        var current = frames.get(frame);
+        PatchouliAPI.get().openBookEntry(SoulItems.id("forbidden_arcanus"), current.entry.getId(), current.offset);
+        ticks = 0;
+    }
+}

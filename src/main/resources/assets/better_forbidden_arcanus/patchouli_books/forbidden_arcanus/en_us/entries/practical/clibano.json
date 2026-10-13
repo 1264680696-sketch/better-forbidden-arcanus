@@ -1,0 +1,63 @@
+{
+  "name": "炽炉搭建与激活",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:clibano_core",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "炽炉是独立的加工设施，不是搭建一级祭坛的硬性前置。它提供双输入、合金与残留物，用于制作黑曜钢和建立灵魂生产路线。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "准备磨制暗黑石×8、磨制暗黑石砖×17、炽炉核心×1和洁净粉末×1。建成 3×3×3 外壳，内部中央留空气，核心放在一侧正中央。",
+      "title": "材料与摆放"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:clibano_core",
+      "text": ""
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "炽炉建造前",
+      "multiblock": {
+        "pattern": [
+          [
+            "PBP",
+            "BBB",
+            "PBP"
+          ],
+          [
+            "B0B",
+            "B B",
+            "BBB"
+          ],
+          [
+            "PBP",
+            "BBB",
+            "PBP"
+          ]
+        ],
+        "mapping": {
+          "P": "forbidden_arcanus:polished_darkstone",
+          "B": "forbidden_arcanus:polished_darkstone_bricks",
+          "0": "forbidden_arcanus:clibano_core"
+        },
+        "symmetrical": false
+      },
+      "enable_visualize": true,
+      "text": "用洁净粉末点击核心激活；中心必须留空。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "激活后添加燃料与输入。灵魂槽决定加速和特定配方资格；增强器槽用于满足合金等条件。输入、输出、燃料与残留存储都要保持可用。",
+      "title": "使用炽炉"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "继续阅读$(l:better_forbidden_arcanus:practical/soul_processing)灵魂加速与加工$(/l)和$(l:better_forbidden_arcanus:practical/alloys)合金与残留物$(/l)。",
+      "title": "加工分支"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "量子捕捉器",
+  "category": "better_forbidden_arcanus:forge_tier_1",
+  "icon": "forbidden_arcanus:quantum_catcher",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "用于收纳和释放允许捕捉的生物。捕捉时会检查玩家自身的辉光；祭坛库存不能代替它。对无效或被排除的实体无法使用。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:quantum_catcher",
+      "title": "量子捕捉器",
+      "text": "最低 1 级；成品用途与材料见本条目。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "中央：量子核心×1。$(br)刷怪笼碎片×4$(br2)外围辅料每份占一个基座，其他基座保持空置。",
+      "title": "仪式材料"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：200$(br)灵魂：5$(br)血液：1200$(br)经验：155$(br2)无必需增强器。以上是未受增强器优惠的基础消耗。",
+      "title": "精华与增强器"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:quantum_core",
+      "text": "先合成中央材料量子核心，再执行捕捉器仪式。"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "从矿物开始",
+  "category": "better_forbidden_arcanus:basics",
+  "icon": "forbidden_arcanus:arcane_crystal",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "探索地下，收集暗黑石、神秘水晶和符文。神秘水晶用于粉末、德欧鲁姆锭和多次升级；暗黑石加工成祭坛底座；符文用于神秘石材和四级升级。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:arcane_crystal",
+      "title": "神秘水晶",
+      "text": "神秘水晶矿石的主要产物，也是制作本书的材料。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "神秘水晶可以在熔炉加工成粉末。洁净粉末需要烈焰粉、幻翼膜等材料，因此前往下界与探索夜晚也属于入门准备。",
+      "title": "材料链"
+    },
+    {
+      "type": "patchouli:smelting",
+      "recipe": "forbidden_arcanus:smelting/arcane_crystal_dust_from_smelting",
+      "text": "熔炼水晶得到粉末。熔炉和高炉均有对应配方。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "先准备$(l:better_forbidden_arcanus:basics/darkstone)建筑石材$(/l)和$(l:better_forbidden_arcanus:basics/dust_and_deorum)洁净粉末与金属$(/l)。高级矿物用途见$(l:better_forbidden_arcanus:basics/advanced_materials)进阶材料$(/l)。",
+      "title": "下一步"
+    }
+  ]
+}

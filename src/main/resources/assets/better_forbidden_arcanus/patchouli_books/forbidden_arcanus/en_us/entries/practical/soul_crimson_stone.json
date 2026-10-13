@@ -1,0 +1,28 @@
+{
+  "name": "灵魂绯红之石",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:soul_crimson_stone",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "当前默认资源没有可确认的常规生存获取路线。它适合作为创造辅助物品查询，不能把它当成必经材料。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:soul_crimson_stone",
+      "title": "灵魂绯红之石",
+      "text": "可作设施增强器，也可放入遗物栏。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "设施：将四种精华的基础需求倍率降为 0，仪式材料和其他必要条件仍需满足。",
+      "title": "作为设施增强器"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "装备：可以放入遗物栏，但本附属暂未赋予额外装备能力。",
+      "title": "装备在遗物栏"
+    }
+  ]
+}

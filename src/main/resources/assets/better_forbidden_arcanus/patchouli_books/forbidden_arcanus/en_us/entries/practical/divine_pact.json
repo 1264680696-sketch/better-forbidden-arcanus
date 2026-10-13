@@ -1,0 +1,28 @@
+{
+  "name": "神圣契约",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:divine_pact",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "当前默认配方及附加宝箱资源没有可确认的常规获取路线。请确认整合包是否补充获取方式；不能仅凭创造栏可见推断生存来源。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:divine_pact",
+      "title": "神圣契约",
+      "text": "可作设施增强器，也可放入遗物栏。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "设施：灵魂绑定水晶仪式必须使用神圣契约。",
+      "title": "作为设施增强器"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "装备：对亡灵伤害增加 25%；生命严格低于当前最大生命值 20% 时获得生命恢复 I。",
+      "title": "装备在遗物栏"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "精华容器与供给",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:utrem_jar",
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "精华罐用于储存对应类型的精华，再为祭坛补给。先确认容器的精华类型与容量；已有库存不能因为重复输入而越过上限。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:utrem_jar",
+      "text": ""
+    },
+    {
+      "type": "patchouli:text",
+      "text": "普通与腐化灵魂供给时各增加 1 点，附魔灵魂增加 10 点。永恒版本可以反复供给且物品保留；普通版本仍消耗。",
+      "title": "灵魂供给"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光储罐与相关瓶装物品也可帮助管理辉光。注意玩家辉光、容器库存和祭坛库存分别储存，必须通过对应交互进行转移。",
+      "title": "储存与转移"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "三级可制作$(l:better_forbidden_arcanus:forge_tier_3/quantum_injector)量子注入器$(/l)，把附近精华罐与祭坛配合起来。它只转移已有精华，并不创造新的库存。",
+      "title": "后续补给"
+    }
+  ]
+}

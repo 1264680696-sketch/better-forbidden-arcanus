@@ -1,0 +1,22 @@
+{
+  "name": "增强遗物的两种用途",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:elementarium",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "增强遗物可放在祭坛或炽炉中满足条件、降低消耗；也可装备在本附属新增的遗物栏中，获得玩家能力。这两种用途分别检查所在槽位。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "遗物栏初始只有 1 个槽。同种遗物只能装备一个。$(l:better_forbidden_arcanus:practical/elementarium)基本元素$(/l)可增加 2 个槽；卸下后额外物品会返还背包，背包满时掉落。",
+      "title": "遗物槽"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "有些遗物来自宝箱，有些默认资源没有可确认的普通生存来源。本书分别说明已知路线，不把创造栏可见当成生存可获得。",
+      "title": "获取方式"
+    }
+  ]
+}

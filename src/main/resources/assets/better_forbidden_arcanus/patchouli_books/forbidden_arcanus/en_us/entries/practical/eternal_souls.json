@@ -1,0 +1,22 @@
+{
+  "name": "永恒灵魂的用途",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "better_forbidden_arcanus:eternal_soul",
+  "sortnum": 17,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "永恒灵魂、永恒腐化灵魂和永恒附魔灵魂目前没有生存配方，只能通过创造模式或命令获得。它们不是普通玩家升级祭坛的必经材料。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "在对应灵魂的已知使用场景中，永恒版本保留物品：精华供给、相关仪式，以及永恒腐化灵魂的埃德木转化。其他材料与精华照常消耗。",
+      "title": "物品保留"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "六种灵魂放在炽炉中都不消耗；永恒版本在炽炉里不会得到额外倍率。普通、腐化、附魔仍分别是 1.25、1.5、2.5 倍。",
+      "title": "炽炉中的区别"
+    }
+  ]
+}

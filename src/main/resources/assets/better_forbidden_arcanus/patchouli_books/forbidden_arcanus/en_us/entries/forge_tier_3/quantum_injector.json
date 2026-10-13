@@ -1,0 +1,33 @@
+{
+  "name": "量子注入器",
+  "category": "better_forbidden_arcanus:forge_tier_3",
+  "icon": "forbidden_arcanus:quantum_injector",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "帮助把附近精华罐中的精华送入祭坛，减少手动补给。它需要现有精华来源与可接收的祭坛，不会凭空生成精华。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:quantum_injector",
+      "title": "量子注入器",
+      "text": "最低 3 级；成品用途与材料见本条目。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "中央：洁净粉末×1。$(br)量子核心×4$(br2)外围辅料每份占一个基座，其他基座保持空置。",
+      "title": "仪式材料"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：5000$(br)灵魂：50$(br)血液：3000$(br)经验：1060$(br2)无必需增强器。以上是未受增强器优惠的基础消耗。",
+      "title": "精华与增强器"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "把注入器与附近祭坛、对应类型的精华罐配合使用。祭坛满或来源耗尽时不能继续输送。$(l:better_forbidden_arcanus:practical/containers)容器说明$(/l)介绍储存与输入。",
+      "title": "自动补给"
+    }
+  ]
+}
