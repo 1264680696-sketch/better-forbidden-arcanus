@@ -29,6 +29,19 @@ public final class ClientSmokeTest {
             }
             var language = net.minecraft.locale.Language.getInstance();
             if (!language.has("curios.identifier.relic")) throw new IllegalStateException("Missing relic slot name");
+            if (!language.has("curios.modifiers.relic")) throw new IllegalStateException("Missing relic attributes heading");
+            var guideId = SoulItems.id("forbidden_arcanus");
+            var guide = vazkii.patchouli.common.book.BookRegistry.INSTANCE.books.get(guideId);
+            if (guide == null || !guide.name.equals("禁忌与奥秘")
+                    || !guide.model.toString().equals("patchouli:item/book_brown")
+                    || !guide.bookTexture.toString().equals("patchouli:textures/gui/book_brown.png")
+                    || !guide.creativeTab.equals(SoulItems.id("main"))) {
+                throw new IllegalStateException("Guide must use default brown book and addon creative tab");
+            }
+            var resource = SoulItems.id("patchouli_books/forbidden_arcanus/en_us/entries/guide_book.json");
+            if (Minecraft.getInstance().getResourceManager().getResource(resource).isEmpty()) {
+                throw new IllegalStateException("Missing guide content");
+            }
             for (var item : dev.betterforbiddenarcanus.RelicCurio.items()) {
                 String path = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item).getPath();
                 if (!language.has("tooltip.better_forbidden_arcanus.relic." + path)) throw new IllegalStateException("Missing relic description: " + path);

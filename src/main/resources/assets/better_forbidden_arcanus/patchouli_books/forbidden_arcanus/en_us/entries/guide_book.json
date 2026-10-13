@@ -1,0 +1,18 @@
+{
+  "name": "禁忌与奥秘",
+  "category": "better_forbidden_arcanus:beginnings",
+  "icon": "forbidden_arcanus:arcane_crystal",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "第一本指南",
+      "text": "将一本书与一枚$(item)神秘水晶$()放入合成栏，即可得到这本指南。$(br2)手持指南并使用，即可翻开书页。你可以通过目录选择篇章，逐步了解禁忌与奥秘的世界。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:guide_book",
+      "text": "无序合成：神秘水晶 + 书。"
+    }
+  ]
+}

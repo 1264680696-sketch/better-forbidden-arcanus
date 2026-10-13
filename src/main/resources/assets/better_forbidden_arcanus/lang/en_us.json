@@ -5,6 +5,7 @@
   "itemGroup.better_forbidden_arcanus": "Better Forbidden and Arcanus",
   "residue.better_forbidden_arcanus.soulless_sand": "Soulless Sand",
   "curios.identifier.relic": "Relic",
+  "curios.modifiers.relic": "When equipped as a relic:",
   "tooltip.better_forbidden_arcanus.relic.divine_pact": "Relic: +25% damage against undead; Regeneration I below 20% health.",
   "tooltip.better_forbidden_arcanus.relic.maledictus_pact": "Relic: -20% maximum health; +40% damage dealt.",
   "tooltip.better_forbidden_arcanus.relic.crescent_moon": "Relic: Night Vision, Speed I and Jump Boost I at night; +2 Aureal per second.",

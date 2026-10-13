@@ -1,6 +1,14 @@
 # 更好的禁忌与奥秘
 
-Minecraft 1.21.1 / NeoForge 21.1.251 / Forbidden and Arcanus 2.6.1 附属，版本 0.3.0。
+Minecraft 1.21.1 / NeoForge 21.1.251 / Forbidden and Arcanus 2.6.1 附属，版本 0.4.0。
+
+## 帕秋莉指南与编辑器
+
+**神秘水晶 + 书 → 禁忌与奥秘**，无序合成，使用帕秋莉默认棕色书本，也可从独立创造栏获得。首页包含“启程”和指南合成说明，后续内容可自行编辑。
+
+双击工程根目录的 **打开指南编辑器.bat**，在本地浏览器中编辑分类、条目、页面并预览。保存会直接写回工程，自动备份旧内容；正文支持帕秋莉格式。保存后构建 JAR 才会更新正式游戏内容，也可导出正文资源包快速预览。使用方法、文件路径和官方教程见 [GUIDE_EDITOR.md](docs/GUIDE_EDITOR.md)。
+
+修复遗物属性标题：基本元素、诅咒契约等物品不再显示未翻译的 `curios.modifiers.relic`，改为中文“装备为遗物时：”，属性数值保留。
 
 ## 提尔盔甲与遗物
 
@@ -65,8 +73,9 @@ Curios 新增“遗物”栏，初始 1 个槽位，接受原 Mod 的七种增�
 - Forbidden and Arcanus 2.6.1。
 - 原 Mod 的必需依赖 Valhelsia Core；本项目测试使用 1.1.5。
 - Curios API，开发版本为 `9.5.1+1.21.1`（本版必需依赖）。
+- Patchouli（帕秋莉手册）`1.21.1-93-NEOFORGE`，客户端与服务端均需安装。
 
-将 `build/libs/better_forbidden_arcanus-0.3.0.jar` 放入游戏实例的 `mods` 目录。升级时只保留一个版本的附属 JAR；不要移除原 Mod 或 Curios。
+将 `build/libs/better_forbidden_arcanus-0.4.0.jar` 放入游戏实例的 `mods` 目录。升级时只保留一个版本的附属 JAR；不要移除原 Mod 或 Curios。
 
 ## 从源码构建
 

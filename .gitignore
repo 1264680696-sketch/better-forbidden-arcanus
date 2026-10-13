@@ -6,4 +6,7 @@ libs/*.jar
 .idea/
 *.iml
 scripts/__pycache__/
+tools/guide-editor/__pycache__/
+tools/guide-editor/.backups/
+tools/guide-editor/*.log
 local.properties

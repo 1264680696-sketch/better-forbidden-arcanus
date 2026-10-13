@@ -85,8 +85,16 @@ with zipfile.ZipFile(next((ROOT / 'libs').glob('*forbidden_arcanus-2.6.1.jar')))
     for locale in ('zh_cn', 'en_us'):
         lang = json.loads((ROOT / f'src/main/resources/assets/better_forbidden_arcanus/lang/{locale}.json').read_text(encoding='utf-8'))
         assert 'curios.identifier.relic' in lang
+        assert 'curios.modifiers.relic' in lang
         for item_id in relics:
             assert 'tooltip.better_forbidden_arcanus.relic.' + item_id.split(':')[1] in lang
         assert '+20%' in lang['tooltip.better_forbidden_arcanus.relic.artisan_relic']
         assert not any(key.startswith('tooltip.better_forbidden_arcanus') and 'tyr' in key for key in lang)
-print('PASS: recipe resources, loot, soul textures, relic slots and descriptions')
+guide = json.loads((DATA / 'better_forbidden_arcanus/patchouli_books/forbidden_arcanus/book.json').read_text(encoding='utf-8'))
+assert guide['name'] == '禁忌与奥秘' and guide['use_resource_pack'] is True
+assert 'model' not in guide and 'book_texture' not in guide, 'Keep Patchouli default brown book'
+guide_recipe = json.loads((DATA / 'better_forbidden_arcanus/recipe/guide_book.json').read_text(encoding='utf-8'))
+assert guide_recipe['type'] == 'minecraft:crafting_shapeless'
+assert guide_recipe['ingredients'] == [{'item': 'forbidden_arcanus:arcane_crystal'}, {'item': 'minecraft:book'}]
+assert guide_recipe['result'] == {'id': 'patchouli:guide_book', 'count': 1, 'components': {'patchouli:book': 'better_forbidden_arcanus:forbidden_arcanus'}}
+print('PASS: recipe resources, loot, soul textures, relic slots, descriptions and guide')

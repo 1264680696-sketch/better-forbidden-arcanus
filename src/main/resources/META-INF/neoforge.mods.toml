@@ -7,7 +7,14 @@ modId="better_forbidden_arcanus"
 version="${mod_version}"
 displayName="更好的禁忌与奥秘"
 authors="起始的蓝"
-description='''改良禁忌与奥秘的配方、蝙蝠汤与炽炉，扩展灵魂、提尔盔甲及 Curios 遗物。'''
+description='''改良禁忌与奥秘的配方、蝙蝠汤与炽炉，扩展灵魂、提尔盔甲及 Curios 遗物，提供帕秋莉指南书。'''
+
+[[dependencies.better_forbidden_arcanus]]
+modId="patchouli"
+type="required"
+versionRange="[1.21.1-93-NEOFORGE,1.21.2)"
+ordering="AFTER"
+side="BOTH"
 
 [[mixins]]
 config="better_forbidden_arcanus.mixins.json"

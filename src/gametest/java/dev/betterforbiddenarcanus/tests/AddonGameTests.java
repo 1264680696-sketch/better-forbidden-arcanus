@@ -71,6 +71,24 @@ public final class AddonGameTests {
     }
 
     @GameTest(template = "empty")
+    public static void guideBookCrafting(GameTestHelper helper) {
+        var bookId = ResourceLocation.fromNamespaceAndPath("better_forbidden_arcanus", "forbidden_arcanus");
+        var expected = vazkii.patchouli.api.PatchouliAPI.get().getBookStack(bookId);
+        helper.assertTrue(expected.getHoverName().getString().equals("禁忌与奥秘"), "Guide definition must load on the server");
+        for (var ingredients : List.of(List.of(new ItemStack(item("arcane_crystal")), new ItemStack(Items.BOOK)),
+                List.of(new ItemStack(Items.BOOK), new ItemStack(item("arcane_crystal"))))) {
+            var input = CraftingInput.of(2, 1, ingredients);
+            var recipe = helper.getLevel().getRecipeManager().getRecipeFor(RecipeType.CRAFTING, input, helper.getLevel()).orElseThrow();
+            helper.assertTrue(recipe.id().equals(ResourceLocation.fromNamespaceAndPath("better_forbidden_arcanus", "guide_book")), "Guide recipe must be shapeless");
+            var result = recipe.value().assemble(input, helper.getLevel().registryAccess());
+            helper.assertTrue(result.getCount() == 1 && ItemStack.isSameItemSameComponents(result, expected), "Recipe must produce the exact named Patchouli book component");
+        }
+        var wrong = CraftingInput.of(2, 1, List.of(new ItemStack(Items.AMETHYST_SHARD), new ItemStack(Items.BOOK)));
+        helper.assertTrue(helper.getLevel().getRecipeManager().getRecipeFor(RecipeType.CRAFTING, wrong, helper.getLevel()).isEmpty(), "Amethyst must not replace arcane crystal");
+        helper.succeed();
+    }
+
+    @GameTest(template = "empty")
     public static void soupIngredients(GameTestHelper helper) {
         for (Item green : List.of(Items.GLOW_BERRIES, Items.GLOW_LICHEN)) {
             var input = CraftingInput.of(2, 2, List.of(new ItemStack(Items.RED_MUSHROOM),

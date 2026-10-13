@@ -5,6 +5,7 @@
   "itemGroup.better_forbidden_arcanus": "更好的禁忌与奥秘",
   "residue.better_forbidden_arcanus.soulless_sand": "失魂沙",
   "curios.identifier.relic": "遗物",
+  "curios.modifiers.relic": "装备为遗物时：",
   "tooltip.better_forbidden_arcanus.relic.divine_pact": "遗物效果：对亡灵伤害 +25%；生命低于 20% 时获得生命恢复 I。",
   "tooltip.better_forbidden_arcanus.relic.maledictus_pact": "遗物效果：最大生命值 -20%；造成的所有伤害 +40%。",
   "tooltip.better_forbidden_arcanus.relic.crescent_moon": "遗物效果：夜晚获得夜视、速度 I、跳跃提升 I；每秒额外恢复 2 点辉光。",

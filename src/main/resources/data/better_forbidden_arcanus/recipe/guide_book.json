@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {"item": "forbidden_arcanus:arcane_crystal"},
+    {"item": "minecraft:book"}
+  ],
+  "result": {
+    "id": "patchouli:guide_book",
+    "count": 1,
+    "components": {"patchouli:book": "better_forbidden_arcanus:forbidden_arcanus"}
+  }
+}

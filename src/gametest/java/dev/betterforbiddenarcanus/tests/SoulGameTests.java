@@ -276,7 +276,9 @@ public final class SoulGameTests {
     public static void creativeTabAndOriginalRitualIngredients(GameTestHelper h) {
         CreativeModeTabs.tryRebuildTabContents(h.getLevel().enabledFeatures(), true, h.getLevel().registryAccess());
         var tab = SoulItems.TAB.get();
-        h.assertTrue(tab.getIconItem().is(SoulItems.ETERNAL_SOUL.get()) && tab.getDisplayItems().size() == 3, "Addon tab must contain all three new items");
+        h.assertTrue(tab.getIconItem().is(SoulItems.ETERNAL_SOUL.get()) && tab.getDisplayItems().size() == 4, "Addon tab must contain three eternal souls and the guide");
+        var guide = vazkii.patchouli.api.PatchouliAPI.get().getBookStack(SoulItems.id("forbidden_arcanus"));
+        h.assertTrue(tab.getDisplayItems().stream().anyMatch(stack -> ItemStack.isSameItemSameComponents(stack, guide)), "Addon tab must contain the named guide");
         var ritual = h.getLevel().registryAccess().registryOrThrow(FARegistries.RITUAL)
                 .get(ResourceLocation.parse("forbidden_arcanus:soul_binding_crystal"));
         h.assertTrue(ritual.checkIngredients(List.of(new ItemStack(SoulItems.ETERNAL_SOUL.get()), new ItemStack(SoulItems.ETERNAL_CORRUPT_SOUL.get()),

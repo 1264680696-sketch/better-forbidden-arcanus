@@ -51,11 +51,11 @@ git push -u origin main
 
 ```powershell
 # 修改 mod_version 和更新日志，完成构建/测试后：
-git add gradle.properties CHANGELOG.md src docs
-git commit -m "release: 0.3.0"
-git tag -a v0.3.0 -m "Release 0.3.0"
+git add gradle.properties CHANGELOG.md src docs tools scripts README.md .gitignore '打开指南编辑器.bat'
+git commit -m "release: 0.4.0"
+git tag -a v0.4.0 -m "Release 0.4.0"
 git push
-git push origin v0.3.0
+git push origin v0.4.0
 ```
 
 在 GitHub Releases 中选择这个标签，填写更新内容与游戏/前置版本，上传 `build/libs` 中对应版本的附属 JAR。源码提交、版本标签、Release 和安装 JAR 是不同对象。
@@ -63,3 +63,5 @@ git push origin v0.3.0
 首版未自动创建远程仓库或上传；待用户提供真实 GitHub 仓库地址后再完成远程配置与推送。
 
 0.2.0 的功能代码、配方、贴图、测试代码和文档属于同一次本地版本快照。版本标签指向对应提交；不会自动上传 GitHub。之后先运行 `git status` 查看分支和改动，再用 `git log --oneline -5` 查看提交、`git tag --list` 查看版本标签。
+
+0.4.0 开始，手册内容也是源码的一部分。编辑器“保存到工程”后先运行 `git status`，用 `git diff -- src/main/resources` 查看改了哪些页面，再提交。编辑器备份、日志、构建缓存及第三方 JAR 不提交。重新编辑手册后请根据更新规模修改版本并创建新标签，不移动已发布的旧版本标签。
