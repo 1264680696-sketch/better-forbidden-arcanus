@@ -1,0 +1,18 @@
+{
+  "name": "耀金瓶加工",
+  "category": "better_forbidden_arcanus:clibano",
+  "icon": "forbidden_arcanus:aureal_bottle",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "从罐子取瓶",
+      "text": "用玻璃瓶右键装有辉光的罐子，每次消耗35点辉光，得到1瓶耀金瓶。剩余不足35点时无法取瓶。$(br2)罐子与遗物自动生产见$(l:better_forbidden_arcanus:practical/containers)精华容器$(/l)。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "耀金瓶与恶魂之泪",
+      "text": "炽炉灵魂槽内放腐化或附魔灵魂，可以把1瓶耀金瓶烧成1个恶魂之泪；空槽或普通灵魂不能加工。$(br2)基础100 tick，灵魂加速照常生效，消耗燃料与整瓶耀金，不返还玻璃瓶；无残留物或经验。"
+    }
+  ]
+}

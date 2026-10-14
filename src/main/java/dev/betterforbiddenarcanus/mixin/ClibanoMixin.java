@@ -51,8 +51,8 @@ public abstract class ClibanoMixin {
         }
         bfa$lastSpeed = speed;
         if (!SoulItems.canExtractSoul(soul)) {
-            if (entity.getStack(ClibanoMenu.INPUT_SLOTS.getFirst()).is(Items.SOUL_SAND)) logic.resetCookingProgress(0);
-            if (entity.getStack(ClibanoMenu.INPUT_SLOTS.getSecond()).is(Items.SOUL_SAND)) logic.resetCookingProgress(1);
+            if (SoulItems.strongSoulInput(entity.getStack(ClibanoMenu.INPUT_SLOTS.getFirst()))) logic.resetCookingProgress(0);
+            if (SoulItems.strongSoulInput(entity.getStack(ClibanoMenu.INPUT_SLOTS.getSecond()))) logic.resetCookingProgress(1);
         }
     }
 
@@ -75,10 +75,10 @@ public abstract class ClibanoMixin {
 
     @Inject(method = "canSmelt", at = @At("HEAD"), cancellable = true)
     private void bfa$recipeGate(RecipeHolder<ClibanoRecipe> recipe, ClibanoInputSlot slot, CallbackInfoReturnable<Boolean> cir) {
-        if (recipe == null || !recipe.id().equals(SoulItems.SOUL_SAND_RECIPE)) return;
+        if (recipe == null || !SoulItems.requiresStrongSoul(recipe.id())) return;
         var entity = (ClibanoMainBlockEntity) (Object) this;
         if (!SoulItems.canExtractSoul(entity.getStack(ClibanoMenu.SOUL_SLOT))
-                || entity.getResiduesStorage().getTotalAmount() >= ResiduesStorage.MAX_AMOUNT
+                || (recipe.id().equals(SoulItems.SOUL_SAND_RECIPE) && entity.getResiduesStorage().getTotalAmount() >= ResiduesStorage.MAX_AMOUNT)
                 || (burnTime <= 0 && entity.getStack(ClibanoMenu.FUEL_SLOT).getBurnTime(RecipeType.BLASTING) <= 0)) {
             cir.setReturnValue(false);
         }

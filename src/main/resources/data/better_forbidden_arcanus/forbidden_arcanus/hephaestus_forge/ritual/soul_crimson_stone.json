@@ -1,0 +1,72 @@
+{
+  "forge_tier": 5,
+  "match_tier_exact": true,
+  "duration": 500,
+  "essences": {
+    "aureal": 10000,
+    "souls": 500,
+    "blood": 50000,
+    "experience": 3750
+  },
+  "main_ingredient": {
+    "item": "forbidden_arcanus:crimson_stone"
+  },
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "forbidden_arcanus:divine_pact"
+      },
+      "amount": 1
+    },
+    {
+      "ingredient": {
+        "item": "forbidden_arcanus:maledictus_pact"
+      },
+      "amount": 1
+    },
+    {
+      "ingredient": {
+        "item": "forbidden_arcanus:crescent_moon"
+      },
+      "amount": 1
+    },
+    {
+      "ingredient": {
+        "item": "forbidden_arcanus:elementarium"
+      },
+      "amount": 1
+    },
+    {
+      "ingredient": {
+        "item": "forbidden_arcanus:artisan_relic"
+      },
+      "amount": 1
+    },
+    {
+      "ingredient": {
+        "item": "forbidden_arcanus:soul_binding_crystal"
+      },
+      "amount": 1
+    },
+    {
+      "ingredient": {
+        "item": "forbidden_arcanus:dark_nether_star"
+      },
+      "amount": 1
+    },
+    {
+      "ingredient": {
+        "item": "forbidden_arcanus:eternal_stella"
+      },
+      "amount": 1
+    }
+  ],
+  "magic_circle": "forbidden_arcanus:create_item",
+  "result": {
+    "type": "forbidden_arcanus:create_item",
+    "result_item": {
+      "id": "forbidden_arcanus:soul_crimson_stone",
+      "count": 1
+    }
+  }
+}

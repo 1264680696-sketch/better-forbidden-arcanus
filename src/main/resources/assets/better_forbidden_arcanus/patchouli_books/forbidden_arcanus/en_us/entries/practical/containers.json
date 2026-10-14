@@ -27,6 +27,26 @@
       "type": "patchouli:text",
       "text": "三级可制作$(l:better_forbidden_arcanus:forge_tier_3/quantum_injector)量子注入器$(/l)。右键开启后自动转移附近精华罐的库存，罐子消耗5点，祭坛获得6点；已连接的祭坛仪式用时缩短20%。",
       "title": "后续补给"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "用玻璃瓶取耀金",
+      "text": "用玻璃瓶右键耀金罐，每次消耗1个玻璃瓶、扣除35点耀金，获得1瓶本体耀金瓶。库存不足35点时不能取瓶。$(br2)原本的耀金瓶工作台配方仍保留。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:aureal_bottle",
+      "text": "仍可使用本体配方制作耀金瓶，也可从装有耀金的罐子取瓶。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "罐上的遗物",
+      "text": "持待盈新月右键空罐或耀金罐，可把它放在罐子上；每100 tick／5秒生成1点耀金。$(br2)绯红之石同样放在空罐或血罐上，每5秒生成1点血液。只支持这两种遗物，不消耗遗物。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "取回与库存",
+      "text": "罐满时停止生产。空手潜行右键取回遗物，打碎罐子也会掉落遗物。罐内精华与容量保留，重载后继续生产。$(br2)有其他种类精华的罐子不能改装；先清空库存，避免覆盖精华。"
     }
   ]
 }

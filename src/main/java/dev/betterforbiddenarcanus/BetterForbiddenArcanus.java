@@ -21,5 +21,6 @@ public final class BetterForbiddenArcanus {
         modBus.addListener(DracoToolComponents::modifyDefaults);
         modBus.addListener(RelicCurio::setup);
         modBus.addListener(TyrCooldown::register);
+        modBus.addListener(MeteorScan::register);
     }
 }

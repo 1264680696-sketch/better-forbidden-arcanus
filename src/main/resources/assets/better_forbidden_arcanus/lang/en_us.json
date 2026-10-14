@@ -10,5 +10,8 @@
   "tooltip.better_forbidden_arcanus.relic.artisan_relic": "Relic: half anvil level cost, rounded up; 25% less anvil damage chance; 25% chance to retain smithing templates. Enables equipment upgrading in the forge enhancer slot.",
   "tooltip.better_forbidden_arcanus.relic.crimson_stone": "Relic: 10% life steal from actual health damage; +50% test-tube and player-attack forge blood generation.",
   "tooltip.better_forbidden_arcanus.relic.soul_crimson_stone": "Relic: No additional equipped ability yet.",
-  "modifier.better_forbidden_arcanus.gale": "Gale"
+  "modifier.better_forbidden_arcanus.gale": "Gale",
+  "message.better_forbidden_arcanus.meteor_scan": "Arcane meteor blocks found: %s",
+  "tooltip.better_forbidden_arcanus.jar_relic.crescent_moon": "On a jar: generates 1 Aureal every 5 seconds.",
+  "tooltip.better_forbidden_arcanus.jar_relic.crimson_stone": "On a jar: generates 1 Blood every 5 seconds."
 }

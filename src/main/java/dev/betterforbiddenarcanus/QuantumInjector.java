@@ -33,6 +33,7 @@ public final class QuantumInjector {
         sources.put(pos.immutable(), new Connection(forge.getBlockPos(), level.getGameTime()));
         var manager = forge.getEssenceManager();
         var capacities = ((EssenceCapacityAccessor)manager).bfa$capacity();
+        boolean transferred = false;
         for (var type : EssenceType.values()) {
             int room = Math.max(0, capacities.get(type) - manager.getEssence(type));
             if (room == 0) continue;
@@ -41,7 +42,8 @@ public final class QuantumInjector {
             int owed = Math.min(room, credit / 5);
             if (owed > 0) {
                 manager.increaseEssence(type, owed); bridge.bfa$credit(type, credit - owed * 5);
-                injector.setChanged(); bridge.bfa$stop(level, pos); return;
+                injector.setChanged(); credit -= owed * 5; room -= owed;
+                if (room == 0) continue;
             }
             var poi = bridge.bfa$poiTypes().get(type);
             var jar = level.getPoiManager().getInRange(holder -> holder.value() == poi.value(), pos, 8, PoiManager.Occupancy.ANY)
@@ -56,9 +58,9 @@ public final class QuantumInjector {
             int gain = Math.min(room, fifths / 5);
             if (cost <= 0 || gain <= 0) continue;
             bridge.bfa$jar(jar); bridge.bfa$transfer(level, pos, cost, gain);
-            bridge.bfa$credit(type, fifths - gain * 5); injector.setChanged(); return;
+            bridge.bfa$credit(type, fifths - gain * 5); injector.setChanged(); transferred = true;
         }
-        bridge.bfa$stop(level, pos);
+        if (!transferred) bridge.bfa$stop(level, pos);
     }
     public static boolean boosts(ServerLevel level, BlockPos forgePos) {
         var sources = CONNECTIONS.get(level); if (sources == null) return false;

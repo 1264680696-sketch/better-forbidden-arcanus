@@ -23,6 +23,11 @@
       "type": "patchouli:text",
       "text": "装备：按实际造成的生命损失获得 10% 吸血；副手试管和玩家攻击供给祭坛的血液增加 50%。",
       "title": "装备在遗物栏"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "放在罐子上",
+      "text": "持此遗物右键空罐或血液罐，每5秒产生1点血液，满罐停止。遗物保留在罐顶；空手潜行右键可取回，打碎罐子也会掉落。$(br2)只支持待盈新月与绯红之石。详情见$(l:better_forbidden_arcanus:practical/containers)精华容器$(/l)。"
     }
   ]
 }

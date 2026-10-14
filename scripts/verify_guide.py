@@ -78,7 +78,7 @@ for entry_id, block, counts in multiblocks:
 
 # The source registry is the independent oracle: every effective ritual belongs
 # to its first usable tier, including exact-tier upgrades and grouped armour.
-assert len(rituals) == 29
+assert len(rituals) == 30
 aliases = {
     'better_forbidden_arcanus:soul': '普通灵魂',
     'better_forbidden_arcanus:corrupt_soul': '腐化灵魂',
@@ -123,4 +123,4 @@ for ritual_id, ritual in rituals.items():
     if ritual.get('enhancers'):
         assert '必需增强器：' in text and '无必需增强器。' not in text, ritual_id
 assert sum(r['result']['type'] == 'better_forbidden_arcanus:upgrade_equipment' for r in rituals.values()) == 5
-print(f'PASS: {len(entries)} guide entries, 29 effective rituals, links, recipe types and five native blueprints')
+print(f'PASS: {len(entries)} guide entries, 30 effective rituals, links, recipe types and five native blueprints')

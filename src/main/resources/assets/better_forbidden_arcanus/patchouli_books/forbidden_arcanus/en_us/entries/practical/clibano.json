@@ -1,6 +1,6 @@
 {
   "name": "炽炉搭建与激活",
-  "category": "better_forbidden_arcanus:practical",
+  "category": "better_forbidden_arcanus:clibano",
   "icon": "forbidden_arcanus:clibano_core",
   "sortnum": 0,
   "pages": [
@@ -56,13 +56,8 @@
     },
     {
       "type": "patchouli:text",
-      "text": "继续阅读$(l:better_forbidden_arcanus:practical/soul_processing)灵魂加速与加工$(/l)和$(l:better_forbidden_arcanus:practical/alloys)合金与残留物$(/l)。",
+      "text": "继续阅读$(l:better_forbidden_arcanus:practical/soul_processing)灵魂加速与加工$(/l)和$(l:better_forbidden_arcanus:practical/alloys)合金与残留物$(/l)。$(br2)还可以进行$(l:better_forbidden_arcanus:clibano/scale_recycling)鳞片回收$(/l)和$(l:better_forbidden_arcanus:clibano/aureal_bottle)耀金瓶加工$(/l)。",
       "title": "加工分支"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "鳞片回收",
-      "text": "金色、银色与水生龙鳞可各按1:1烧回普通龙鳞。需正常燃料，不要求灵魂或增强器，基础100 tick，无经验及残留物。$(br2)灵魂槽加速照常生效。鳞片可由$(l:better_forbidden_arcanus:practical/arcane_dragon_egg)神秘龙蛋$(/l)定期产出。"
     }
   ]
 }

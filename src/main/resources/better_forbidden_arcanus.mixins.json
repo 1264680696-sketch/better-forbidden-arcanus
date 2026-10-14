@@ -28,10 +28,15 @@
     "UpgradeArrowMixin",
     "UpgradeFireworkMixin",
     "DragonEggScalesMixin",
-    "ScepterStormMixin"
+    "ScepterStormMixin",
+    "MagicWandScanMixin",
+    "JarRelicMixin",
+    "JarRelicBlockMixin"
   ],
   "client": [
-    "TyrCooldownRenderMixin"
+    "TyrCooldownRenderMixin",
+    "SpectralRangeMixin",
+    "JarRelicRenderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

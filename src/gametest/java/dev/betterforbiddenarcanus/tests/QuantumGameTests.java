@@ -43,6 +43,30 @@ public final class QuantumGameTests {
         QuantumInjectorBlockEntity.serverTick(h.getLevel(),injector.getBlockPos(),injector.getBlockState(),injector);
     }
     private static void eq(GameTestHelper h,int actual,int expected,String why) {h.assertTrue(actual==expected,why+": "+actual+" != "+expected);}
+    @GameTest(template="guide_area") public static void simultaneousTypesAndIndependentCapacity(GameTestHelper h) {
+        var s=setup(h,EssenceType.values()[0]);s.forge.setForgeLevel(HephaestusForgeLevel.values()[4]);
+        var jars=new java.util.ArrayList<EssenceUtremJarBlockEntity>();
+        for(var type:EssenceType.values()) {
+            var pos=CENTER.offset(-3+type.ordinal()*2,0,2);
+            h.setBlock(pos,ModBlocks.ESSENCE_UTREM_JAR.get().defaultBlockState().setValue(ModBlockStateProperties.ESSENCE_TYPE,type));
+            EssenceUtremJarBlockEntity jar=h.getBlockEntity(pos);jar.addEssence(30);jars.add(jar);
+        }
+        h.runAfterDelay(10,()->pulse(h,()->{
+            enabled(h,INJECTOR,true);transfer(h,s.injector);
+            for(var type:EssenceType.values()) {
+                eq(h,jars.get(type.ordinal()).getAmount(),20,"All four types withdrawn on the same pulse");
+                eq(h,s.forge.getEssenceManager().getEssence(type),12,"All four types receive their own 20 percent bonus");
+            }
+            var full=EssenceType.values()[0];int cap=((EssenceCapacityAccessor)s.forge.getEssenceManager()).bfa$capacity().get(full);
+            s.forge.getEssenceManager().setEssence(full,cap);transfer(h,s.injector);
+            eq(h,jars.get(0).getAmount(),20,"Full type consumes nothing");
+            for(int i=1;i<jars.size();i++) {
+                eq(h,jars.get(i).getAmount(),10,"Other types continue even when the first is full");
+                eq(h,s.forge.getEssenceManager().getEssence(EssenceType.values()[i]),24,"No type starved by another");
+            }
+            h.succeed();
+        }));
+    }
     @GameTest(template="guide_area") public static void doubleRateAllEssencesEmptyAndDisabled(GameTestHelper h) {
         var s=setup(h,EssenceType.values()[0]);
         h.runAfterDelay(10,()->pulse(h,()->{

@@ -141,5 +141,7 @@ public final class RelicEffects {
         if (!RelicCurio.items().contains(item)) return;
         String path = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item).getPath();
         event.getToolTip().add(Component.translatable("tooltip.better_forbidden_arcanus.relic." + path).withStyle(ChatFormatting.GOLD));
+        if (item == ModItems.CRESCENT_MOON.get() || item == ModItems.CRIMSON_STONE.get())
+            event.getToolTip().add(Component.translatable("tooltip.better_forbidden_arcanus.jar_relic." + path).withStyle(ChatFormatting.GOLD));
     }
 }

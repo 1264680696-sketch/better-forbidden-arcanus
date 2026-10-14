@@ -1,0 +1,23 @@
+{
+  "name": "魔杖与陨石探测",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:magic_wand",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:magic_wand",
+      "text": "在原配方的埃德木棍正下方增加1片流星碎片；其他材料与产量保留。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "两种用法",
+      "text": "普通右键保留原耀金飞弹的蓄力、释放与消耗。$(br2)潜行右键探测周围32格球形范围内的奥术陨石，不额外消耗耀金；不会顺带发射飞弹。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "寻找地下陨石",
+      "text": "探测结果以金色方框穿墙显示，持续10秒；再探测会刷新结果。只检查已加载区块，不强行加载远处地形。$(br2)挖掉的陨石不再显示，切换维度或退出后清除标记。开采安全与用途见$(l:better_forbidden_arcanus:basics/advanced_materials)进阶材料$(/l)。"
+    }
+  ]
+}

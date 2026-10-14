@@ -119,3 +119,18 @@ for kind in ['golden','silver','aquatic']:
     assert recycle['result'] == {'id':'forbidden_arcanus:dragon_scale','count':1}
     assert recycle['cooking_time']==100 and 'residue' not in recycle
 print('PASS: enchanted apple materials and three one-to-one scale recycling recipes')
+
+wand = effective['data/forbidden_arcanus/recipe/magic_wand.json']
+assert wand['pattern'] == ['  E',' DM','A  ']
+assert wand['key']['M'] == {'item':'forbidden_arcanus:stellarite_piece'}
+eye = effective['data/forbidden_arcanus/recipe/spectral_eye_amulet.json']
+assert eye['key']['X'] == {'item':'forbidden_arcanus:enchanted_soul'}
+tear = effective['data/better_forbidden_arcanus/recipe/clibano_combustion/ghast_tear_from_aureal_bottle.json']
+assert tear['ingredients'] == {'item':'forbidden_arcanus:aureal_bottle'} and tear['result']=={'id':'minecraft:ghast_tear','count':1}
+assert tear['fire_type']=='soul_fire' and tear['cooking_time']==100 and 'residue' not in tear
+crimson = json.loads((DATA / 'better_forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/soul_crimson_stone.json').read_text())
+assert crimson['forge_tier']==5 and crimson['match_tier_exact']
+assert crimson['essences']=={'aureal':10000,'souls':500,'blood':50000,'experience':3750}
+assert len(crimson['inputs'])==8 and all(row['amount']==1 for row in crimson['inputs'])
+assert crimson['main_ingredient']=={'item':'forbidden_arcanus:crimson_stone'}
+print('PASS: wand/eye overrides, ghast-tear bottle recipe and fifth-tier soul crimson ritual')

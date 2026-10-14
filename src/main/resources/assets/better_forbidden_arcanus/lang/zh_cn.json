@@ -17,5 +17,8 @@
   "item.forbidden_arcanus.artisan_relic": "工匠遗物",
   "item.forbidden_arcanus.crimson_stone": "绯红之石",
   "item.forbidden_arcanus.soul_crimson_stone": "灵魂绯红之石",
-  "modifier.better_forbidden_arcanus.gale": "疾风"
+  "modifier.better_forbidden_arcanus.gale": "疾风",
+  "message.better_forbidden_arcanus.meteor_scan": "探测到奥术陨石：%s",
+  "tooltip.better_forbidden_arcanus.jar_relic.crescent_moon": "放在罐上：每5秒生成1点辉光。",
+  "tooltip.better_forbidden_arcanus.jar_relic.crimson_stone": "放在罐上：每5秒生成1点血液。"
 }

@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "当前默认资源没有可确认的常规生存获取路线。它适合作为创造辅助物品查询，不能把它当成必经材料。"
+      "text": "本附属可通过$(l:better_forbidden_arcanus:forge_tier_5/soul_crimson_stone)五级祭坛仪式$(/l)制作：中央绯红之石，外围八份材料，四种精华各消耗五级基础容量的一半。"
     },
     {
       "type": "patchouli:spotlight",

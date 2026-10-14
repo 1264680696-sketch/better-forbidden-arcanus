@@ -1,0 +1,18 @@
+{
+  "name": "幽灵之眼护身符",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:spectral_eye_amulet",
+  "sortnum": 24,
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:spectral_eye_amulet",
+      "text": "中央下界之星改为1个附魔灵魂，线、Deorum锭和末影之眼沿用原布局。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "40格幽灵视野",
+      "text": "右键开启或关闭，放在背包中便可持续提供幽灵视野。实体高亮限制在距玩家40格的球形范围内，包括上下方。$(br2)范围内仍须为客户端已加载、可渲染的实体；普通发光效果不会因这个距离限制而消失。"
+    }
+  ]
+}

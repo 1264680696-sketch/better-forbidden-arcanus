@@ -48,6 +48,8 @@ public final class GuideClientTest {
     private static volatile boolean counterConsumed;
     private static boolean silentBoltSeen;
     private static int silentBoltSeenAt;
+    private static volatile net.minecraft.core.BlockPos scanOre, scanJar;
+    private static long scanReceivedAt;
 
     private static Object field(Class<?> type, String name, Object instance) {
         try { var field = type.getDeclaredField(name); field.setAccessible(true); return field.get(instance); }
@@ -288,7 +290,7 @@ public final class GuideClientTest {
                 // The preceding native whirlwind can leave the player airborne.
                 // Give the next real right-click a stable, collidable top surface.
                 galeGround=p.blockPosition().below();p.serverLevel().setBlockAndUpdate(galeGround,net.minecraft.world.level.block.Blocks.STONE.defaultBlockState());
-                p.teleportTo(galeGround.getX()+.5,galeGround.getY()+1.0,galeGround.getZ()+.5);p.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);p.hurtMarked=true;p.fallDistance=0;
+                p.connection.teleport(galeGround.getX()+.5,galeGround.getY()+1.0,galeGround.getZ()+.5,p.getYRot(),p.getXRot());p.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);p.hurtMarked=true;p.fallDistance=0;
                 var recipe=(net.minecraft.world.item.crafting.SmithingRecipe)p.serverLevel().getRecipeManager().byKey(SoulItems.id("smithing/apply_gale_modifier")).orElseThrow().value();
                 var result=recipe.assemble(new net.minecraft.world.item.crafting.SmithingRecipeInput(
                     new net.minecraft.world.item.ItemStack(com.stal111.forbidden_arcanus.core.init.ModItems.APPLY_MODIFIER_SMITHING_TEMPLATE.get()),
@@ -307,7 +309,7 @@ public final class GuideClientTest {
         }
         if (elapsed >= 190 && elapsed <= 250) peakY=Math.max(peakY,mc.player.getY());
         if (elapsed == 200) {
-            if(mc.player.getY()<launchY+2)throw new IllegalStateException("Server-authoritative gale impulse did not move client player");
+            if(mc.player.getY()<launchY+2)throw new IllegalStateException("Server-authoritative gale impulse did not move client player: ground="+galeGround+", pos="+mc.player.position()+", launch="+launchY+", state="+mc.level.getBlockState(galeGround)+", cooldown="+mc.player.getCooldowns().isOnCooldown(net.minecraft.world.item.Items.MACE));
             mc.player.setXRot(70);
             Screenshot.grab(mc.gameDirectory,"guide-gale-launch.png",mc.getMainRenderTarget(),component -> {});
         }
@@ -389,8 +391,58 @@ public final class GuideClientTest {
         if(silentBoltSeen&&elapsed==silentBoltSeenAt+1) Screenshot.grab(mc.gameDirectory,"guide-scepter-lightning.png",mc.getMainRenderTarget(),component -> {});
         if(elapsed==380) {
             if(!silentBoltSeen)throw new IllegalStateException("Silent lightning visual did not synchronize in its lifetime");
+            mc.player.setYRot(0);mc.player.setXRot(15);
+            var id=mc.player.getUUID();mc.getSingleplayerServer().execute(()->{
+                var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);p.setHealth(20);
+                p.connection.teleport(p.getX()+12,p.getY(),p.getZ()+12,0,15);
+                var base=p.blockPosition();
+                scanOre=base.offset(0,0,4);scanJar=base.offset(-2,0,3);
+                p.serverLevel().setBlockAndUpdate(scanOre,com.stal111.forbidden_arcanus.core.init.ModBlocks.STELLA_ARCANUM.get().defaultBlockState());
+                p.serverLevel().setBlockAndUpdate(base.offset(0,0,3),net.minecraft.world.level.block.Blocks.STONE.defaultBlockState());
+                p.serverLevel().setBlockAndUpdate(scanJar,com.stal111.forbidden_arcanus.core.init.ModBlocks.UTREM_JAR.get().defaultBlockState());
+                p.getInventory().setItem(0,new net.minecraft.world.item.ItemStack(com.stal111.forbidden_arcanus.core.init.ModItems.MAGIC_WAND.get()));p.inventoryMenu.broadcastChanges();
+            });
+        }
+        if(elapsed==410) {
+            mc.player.setShiftKeyDown(true);mc.getConnection().send(new net.minecraft.network.protocol.game.ServerboundPlayerCommandPacket(mc.player,net.minecraft.network.protocol.game.ServerboundPlayerCommandPacket.Action.PRESS_SHIFT_KEY));
+            mc.gameMode.useItem(mc.player,net.minecraft.world.InteractionHand.MAIN_HAND);scanReceivedAt=mc.level.getGameTime();
+        }
+        if(elapsed==420) {
+            if(!dev.betterforbiddenarcanus.client.MeteorHighlights.visible().contains(scanOre))throw new IllegalStateException("Real wand scan did not highlight buried meteor");
+            if(mc.player.isUsingItem())throw new IllegalStateException("Sneak scan started ordinary projectile charging");
+            Screenshot.grab(mc.gameDirectory,"guide-meteor-scan.png",mc.getMainRenderTarget(),component->{});
+            mc.player.setShiftKeyDown(false);mc.getConnection().send(new net.minecraft.network.protocol.game.ServerboundPlayerCommandPacket(mc.player,net.minecraft.network.protocol.game.ServerboundPlayerCommandPacket.Action.RELEASE_SHIFT_KEY));
+            var id=mc.player.getUUID();mc.getSingleplayerServer().execute(()->{
+                var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);p.getInventory().setItem(0,new net.minecraft.world.item.ItemStack(com.stal111.forbidden_arcanus.core.init.ModItems.CRESCENT_MOON.get()));p.inventoryMenu.broadcastChanges();
+            });
+        }
+        if(elapsed==450) mc.gameMode.useItemOn(mc.player,net.minecraft.world.InteractionHand.MAIN_HAND,new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(scanJar),net.minecraft.core.Direction.UP,scanJar,false));
+        if(elapsed==465) {
+            var jar=(com.stal111.forbidden_arcanus.common.block.entity.EssenceUtremJarBlockEntity)mc.level.getBlockEntity(scanJar);
+            if(jar==null||!((dev.betterforbiddenarcanus.JarRelicStorage)jar).bfa$relic().is(com.stal111.forbidden_arcanus.core.init.ModItems.CRESCENT_MOON.get()))throw new IllegalStateException("Mounted relic did not synchronize to jar renderer");
+            mc.player.setYRot(34);mc.player.setXRot(5);
+            var id=mc.player.getUUID();mc.getSingleplayerServer().execute(()->{
+                var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);p.getInventory().setItem(0,new net.minecraft.world.item.ItemStack(com.stal111.forbidden_arcanus.core.init.ModItems.SPECTRAL_EYE_AMULET.get()));p.inventoryMenu.broadcastChanges();
+            });
+        }
+        if(elapsed==470) Screenshot.grab(mc.gameDirectory,"guide-mounted-jar-relic.png",mc.getMainRenderTarget(),component->{});
+        if(elapsed==490) mc.gameMode.useItem(mc.player,net.minecraft.world.InteractionHand.MAIN_HAND);
+        if(elapsed==510) {
+            if(!mc.player.hasEffect(com.stal111.forbidden_arcanus.core.init.ModMobEffects.SPECTRAL_VISION))throw new IllegalStateException("Eye did not grant native spectral vision");
+            var target=net.minecraft.world.entity.EntityType.COW.create(mc.level);
+            target.setPos(mc.player.position().add(40,0,0));if(!mc.shouldEntityAppearGlowing(target))throw new IllegalStateException("Exact forty-block radius excluded");
+            target.setPos(mc.player.position().add(40.01,0,0));if(mc.shouldEntityAppearGlowing(target))throw new IllegalStateException("Spectral eye still has unlimited range");
+            target.setPos(mc.player.position().add(0,40.01,0));if(mc.shouldEntityAppearGlowing(target))throw new IllegalStateException("Spectral radius ignores height");
+            // Client glow is the synchronized entity flag, not the server-only glowingTag field.
+            var flags=(net.minecraft.network.syncher.EntityDataAccessor<Byte>)field(net.minecraft.world.entity.Entity.class,"DATA_SHARED_FLAGS_ID",null);
+            target.getEntityData().set(flags,(byte)64);if(!target.isCurrentlyGlowing()||!mc.shouldEntityAppearGlowing(target))throw new IllegalStateException("Range restriction removed external glow");
+        }
+        if(elapsed==630) {
+            if(mc.level.getGameTime()-scanReceivedAt<200||!dev.betterforbiddenarcanus.client.MeteorHighlights.visible().isEmpty())throw new IllegalStateException("Meteor marks did not expire at ten seconds");
+            var jar=(com.stal111.forbidden_arcanus.common.block.entity.EssenceUtremJarBlockEntity)mc.level.getBlockEntity(scanJar);
+            if(jar.getAmount()<1)throw new IllegalStateException("Mounted moon generated no Aureal on actual server");
             finished = true;
-            com.mojang.logging.LogUtils.getLogger().info("BFA_GUIDE_PASS: {} entries, {} rendered spreads, {} working world projections; dragon egg, upgrade tooltip, crystal/whirlwind placement, gale launch/landing, avatar/counter, vanilla armor cooldown overlay and silent lightning",
+            com.mojang.logging.LogUtils.getLogger().info("BFA_GUIDE_PASS: {} entries, {} rendered spreads, {} working world projections; dragon egg, upgrade tooltip, crystal/whirlwind placement, gale launch/landing, avatar/counter, vanilla armor cooldown overlay, silent lightning, meteor highlighting, jar relic and forty-block spectral vision",
                     BookRegistry.INSTANCE.books.get(SoulItems.id("forbidden_arcanus")).getContents().entries.size(), frames.size(), projections);
             mc.stop();
         }

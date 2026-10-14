@@ -20,6 +20,9 @@ public final class SoulItems {
             .displayItems((parameters, output) -> ITEMS.getEntries().forEach(item -> output.accept(item.get())))
             .build());
     public static final ResourceLocation SOUL_SAND_RECIPE = id("clibano_combustion/soul_from_soul_sand");
+    public static final ResourceLocation GHAST_TEAR_RECIPE = id("clibano_combustion/ghast_tear_from_aureal_bottle");
+    public static boolean requiresStrongSoul(ResourceLocation recipe){return SOUL_SAND_RECIPE.equals(recipe)||GHAST_TEAR_RECIPE.equals(recipe);}
+    public static boolean strongSoulInput(ItemStack stack){return stack.is(net.minecraft.world.item.Items.SOUL_SAND)||stack.is(ModItems.AUREAL_BOTTLE.get());}
 
     private SoulItems() {}
 

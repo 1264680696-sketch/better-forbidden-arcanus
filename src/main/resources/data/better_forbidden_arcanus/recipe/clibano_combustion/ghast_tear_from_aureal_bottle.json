@@ -1,0 +1,9 @@
+{
+  "type": "forbidden_arcanus:clibano_combustion",
+  "category": "misc",
+  "cooking_time": 100,
+  "experience": 0,
+  "fire_type": "soul_fire",
+  "ingredients": {"item": "forbidden_arcanus:aureal_bottle"},
+  "result": {"id": "minecraft:ghast_tear", "count": 1}
+}

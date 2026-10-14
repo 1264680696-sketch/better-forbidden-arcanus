@@ -1,6 +1,6 @@
 {
   "name": "实用支线",
-  "description": "炽炉、遗物、装备修饰与资源补给，按需要随时查阅。",
-  "icon": "forbidden_arcanus:clibano_core",
-  "sortnum": 8
+  "description": "遗物、装备修饰、精华设施与附属便利内容，按需要随时查阅。",
+  "icon": "forbidden_arcanus:utrem_jar",
+  "sortnum": 9
 }

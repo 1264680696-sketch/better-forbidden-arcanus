@@ -1,0 +1,28 @@
+{
+  "name": "灵魂绯红之石",
+  "category": "better_forbidden_arcanus:forge_tier_5",
+  "icon": "forbidden_arcanus:soul_crimson_stone",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:soul_crimson_stone",
+      "text": "仅五级锻炉可以制作。本体物品的设施增强器用途保留，可装备于遗物槽，目前没有额外装备能力。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "仪式材料",
+      "text": "中央：绯红之石×1。$(br)神圣契约×1$(br)诅咒契约×1$(br)待盈新月×1$(br)基本元素×1$(br)工匠遗物×1$(br)灵魂绑定水晶×1$(br)暗黑下界之星×1$(br)永恒之石×1$(br2)八份外围材料各占一个基座。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "精华与增强器",
+      "text": "辉光：10000$(br)灵魂：500$(br)血液：50000$(br)经验：3750$(br2)无必需增强器。基础消耗为五级四种储量上限的一半，未受增强器优惠。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "启动仪式",
+      "text": "只能在精确五级锻炉进行：中央放绯红之石，八个基座放齐上述材料，用锻工锤启动。基础500 tick／25秒。$(br2)成品1个灵魂绯红之石，中央及外围材料照常消耗；有效量子注入器可缩短仪式时间。"
+    }
+  ]
+}

@@ -45,7 +45,7 @@ public abstract class QuantumInjectorMixin extends BlockEntity implements Quantu
     @WrapOperation(method = "transferEssence", at = @At(value = "INVOKE", target = "Lcom/stal111/forbidden_arcanus/common/block/entity/forge/essence/EssenceManager;increaseEssence(Lcom/stal111/forbidden_arcanus/common/block/entity/forge/essence/EssenceType;I)V"))
     private void bfa$deposit(EssenceManager manager, EssenceType type, int ignored, Operation<Void> original) { original.call(manager, type, bfa$gain); }
     @WrapOperation(method = "transferEssence", at = @At(value = "INVOKE", target = "Lcom/stal111/forbidden_arcanus/common/block/entity/EssenceUtremJarBlockEntity;addEssence(I)V"))
-    private void bfa$withdraw(EssenceUtremJarBlockEntity jar, int ignored, Operation<Void> original) { original.call(jar, -bfa$cost); }
+    private void bfa$withdraw(EssenceUtremJarBlockEntity jar, int ignored, Operation<Void> original) { original.call(jar, -bfa$cost); RelicJars.sync(jar); }
     @Override protected void saveAdditional(CompoundTag tag, HolderLookup.Provider lookup) {
         super.saveAdditional(tag, lookup); tag.putIntArray("bfa_quantum_credits", bfa$credits);
     }
