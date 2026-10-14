@@ -36,7 +36,7 @@ public final class ScepterGameTests {
         var energy=EssenceHelper.getEssenceProvider(p).orElseThrow();energy.setAmount(EssenceType.AUREAL,10);
         var phantom=spawn(h,EntityType.PHANTOM,p.position().add(0,8,0));float hp=phantom.getHealth();
         var low=spawn(h,EntityType.PHANTOM,p.position().add(1,3.999,0));float lowHp=low.getHealth();
-        var distant=spawn(h,EntityType.PHANTOM,p.position().add(4.01,6,0));float farHp=distant.getHealth();
+        var distant=spawn(h,EntityType.PHANTOM,p.position().add(10.01,6,0));float farHp=distant.getHealth();
         var cow=spawn(h,EntityType.COW,p.position().add(1,6,0));float cowHp=cow.getHealth();
         var wolf=spawn(h,EntityType.WOLF,p.position().add(2,6,0));wolf.setTarget(p);float wolfHp=wolf.getHealth();
         var pet=spawn(h,EntityType.WOLF,p.position().add(-1,6,0));pet.setTame(true,true);pet.setOwnerUUID(p.getUUID());pet.setTarget(p);float petHp=pet.getHealth();
@@ -45,13 +45,13 @@ public final class ScepterGameTests {
         stack.getItem().onUseTick(h.getLevel(),p,stack,71999);
         h.assertTrue(Math.abs(phantom.getHealth()-(hp-5))<.01&&Math.abs(wolf.getHealth()-(wolfHp-5))<.01,"Above hostile and attacking neutral each take five damage");
         h.assertTrue(low.getHealth()==lowHp&&distant.getHealth()==farHp&&cow.getHealth()==cowHp&&pet.getHealth()==petHp,"Four block height, horizontal range, neutral and pet exclusions");
-        h.assertTrue(energy.getAmount(EssenceType.AUREAL)==5,"Cost is five per pulse, independent of target count");
-        stack.getItem().onUseTick(h.getLevel(),p,stack,71998);h.assertTrue(energy.getAmount(EssenceType.AUREAL)==5,"One pulse per twenty ticks");
+        h.assertTrue(energy.getAmount(EssenceType.AUREAL)==5,"Cost is five per second, independent of target count");
+        stack.getItem().onUseTick(h.getLevel(),p,stack,71998);h.assertTrue(energy.getAmount(EssenceType.AUREAL)==5,"Repeated call in the same tick cannot produce another pulse");
         var bolts=h.getLevel().getEntitiesOfClass(ScepterStorm.SilentBolt.class,p.getBoundingBox().inflate(10));h.assertTrue(bolts.size()==2,"Visual bolts only for selected targets");
         for(var bolt:bolts)for(int i=0;i<7;i++)bolt.tick();h.assertTrue(drop.isAlive()&&drop.getItem().is(Items.DIAMOND),"Bolt cannot destroy adjacent drops");
         h.assertTrue(phantom.getHealth()==hp-5,"Visual lightning cannot apply damage twice");
         p.setShiftKeyDown(false);stack.getItem().onUseTick(h.getLevel(),p,stack,71997);h.assertTrue(!p.isUsingItem()&&!ScepterStorm.channeling(p),"Releasing sneak stops immediately");
-        p.getPersistentData().putLong("bfa_scepter_next_pulse",0);energy.setAmount(EssenceType.AUREAL,4);p.setShiftKeyDown(true);
+        p.getPersistentData().putLong("bfa_scepter_next_pulse",0);p.getPersistentData().putLong("bfa_scepter_next_payment",0);energy.setAmount(EssenceType.AUREAL,4);p.setShiftKeyDown(true);
         stack.getItem().use(h.getLevel(),p,InteractionHand.MAIN_HAND);h.assertTrue(!p.isUsingItem(),"Insufficient energy cannot restart storm");
         energy.setAmount(EssenceType.AUREAL,5);stack.getItem().use(h.getLevel(),p,InteractionHand.MAIN_HAND);energy.setAmount(EssenceType.AUREAL,0);stack.getItem().onUseTick(h.getLevel(),p,stack,71999);
         h.assertTrue(!p.isUsingItem()&&energy.getAmount(EssenceType.AUREAL)==0,"Exhaustion stops without going negative");
@@ -59,15 +59,15 @@ public final class ScepterGameTests {
     }
     @GameTest(template="guide_area") public static void stormTracksEntrantsHeightBoundaryAndDeparture(GameTestHelper h) {
         // Keep normal daytime phantom burning out of the damage measurement.
-        for(int x=3;x<=13;x++)for(int z=3;z<=13;z++)h.setBlock(new BlockPos(x,15,z),net.minecraft.world.level.block.Blocks.STONE);
+        for(int x=-3;x<=19;x++)for(int z=-3;z<=19;z++)h.setBlock(new BlockPos(x,15,z),net.minecraft.world.level.block.Blocks.STONE);
         var p=h.makeMockPlayer(GameType.SURVIVAL);GameType.SURVIVAL.updatePlayerAbilities(p.getAbilities());p.setPos(Vec3.atCenterOf(h.absolutePos(new BlockPos(8,1,8))));
         var stack=new ItemStack(ModItems.DRACO_ARCANUS_SCEPTER.get());p.setItemInHand(InteractionHand.MAIN_HAND,stack);p.setShiftKeyDown(true);
         var energy=EssenceHelper.getEssenceProvider(p).orElseThrow();energy.setAmount(EssenceType.AUREAL,30);
-        var entrant=spawn(h,EntityType.PHANTOM,p.position().add(4.01,4,0));float hp=entrant.getHealth();
-        var diagonal=spawn(h,EntityType.PHANTOM,p.position().add(3,6,3));float diagonalHp=diagonal.getHealth();
+        var entrant=spawn(h,EntityType.PHANTOM,p.position().add(10.01,4,0));float hp=entrant.getHealth();
+        var diagonal=spawn(h,EntityType.PHANTOM,p.position().add(8,6,8));float diagonalHp=diagonal.getHealth();
         stack.getItem().use(h.getLevel(),p,InteractionHand.MAIN_HAND);stack.getItem().onUseTick(h.getLevel(),p,stack,71999);
         h.assertTrue(entrant.getHealth()==hp&&diagonal.getHealth()==diagonalHp,"Outside horizontal circle excluded at cast start");
-        entrant.setPos(p.position().add(4,4,0));
+        entrant.setPos(p.position().add(10,4,0));
         h.runAfterDelay(20,()->{
             stack.getItem().onUseTick(h.getLevel(),p,stack,71979);
             h.assertTrue(p.isUsingItem()&&ScepterStorm.channeling(p)&&Math.abs(entrant.getHealth()-(hp-5))<.01,"New entrant hit without restarting, exact radius and height boundaries included: health="+entrant.getHealth()+", start="+hp+", pos="+entrant.position()+", player="+p.position()+", valid="+ScepterStorm.target(p,entrant)+", using="+p.isUsingItem()+", channel="+ScepterStorm.channeling(p)+", energy="+energy.getAmount(EssenceType.AUREAL));
@@ -77,7 +77,7 @@ public final class ScepterGameTests {
         h.runAfterDelay(40,()->{
             stack.getItem().onUseTick(h.getLevel(),p,stack,71959);
             h.assertTrue(Math.abs(entrant.getHealth()-(hp-10))<.01,"Remaining high above is hit again, no spherical height cap");
-            entrant.setPos(p.position().add(4.001,6,0));
+            entrant.setPos(p.position().add(10.001,6,0));
         });
         h.runAfterDelay(60,()->{
             stack.getItem().onUseTick(h.getLevel(),p,stack,71939);
@@ -90,4 +90,30 @@ public final class ScepterGameTests {
             p.stopUsingItem();ScepterStorm.start(p,false);entrant.discard();diagonal.discard();h.succeed();
         });
     }
+    @GameTest(template="guide_area") public static void stormTenHitsPerSecondKeepsFiveAurealCost(GameTestHelper h) {
+        var p=h.makeMockPlayer(GameType.SURVIVAL);GameType.SURVIVAL.updatePlayerAbilities(p.getAbilities());p.setPos(Vec3.atCenterOf(h.absolutePos(new BlockPos(8,1,8))));
+        var stack=new ItemStack(ModItems.DRACO_ARCANUS_SCEPTER.get());p.setItemInHand(InteractionHand.MAIN_HAND,stack);p.setShiftKeyDown(true);
+        var energy=EssenceHelper.getEssenceProvider(p).orElseThrow();energy.setAmount(EssenceType.AUREAL,10);
+        var target=spawn(h,EntityType.VEX,p.position().add(0,6,0));
+        target.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH).setBaseValue(200);target.setHealth(200);
+        var natural=EntityType.COW.create(h.getLevel());natural.setPos(p.position().add(0,2,0));
+        natural.hurt(h.getLevel().damageSources().lightningBolt(),5);natural.hurt(h.getLevel().damageSources().lightningBolt(),5);
+        h.assertTrue(natural.getHealth()==5,"Natural lightning retains ordinary hurt cooldown");
+        stack.getItem().use(h.getLevel(),p,InteractionHand.MAIN_HAND);stack.getItem().onUseTick(h.getLevel(),p,stack,71999);
+        h.assertTrue(target.getHealth()==195&&energy.getAmount(EssenceType.AUREAL)==5,"First pulse prepays one second");
+        for(int tick=1;tick<=40;tick++) {
+            final int elapsed=tick;
+            h.runAfterDelay(tick,()->{
+                stack.getItem().onUseTick(h.getLevel(),p,stack,71999-elapsed);
+                int hits=Math.min(20,1+elapsed/2);
+                h.assertTrue(Math.abs(target.getHealth()-(200-hits*5))<.01,"Real two-tick damage cadence including hurt immunity: tick="+elapsed+", hp="+target.getHealth()+", hits="+hits);
+                h.assertTrue(energy.getAmount(EssenceType.AUREAL)==(elapsed<20?5:0),"Five Aureal each second, not each pulse");
+                if(elapsed==40) {
+                    h.assertTrue(!p.isUsingItem()&&!ScepterStorm.channeling(p),"Exhaustion stops before unpaid pulse");
+                    target.discard();h.succeed();
+                }
+            });
+        }
+    }
+
 }

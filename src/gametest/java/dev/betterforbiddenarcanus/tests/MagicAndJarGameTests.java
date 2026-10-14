@@ -43,11 +43,13 @@ public final class MagicAndJarGameTests {
         h.succeed();
     }
     @GameTest(template="guide_area") public static void meteorSphereAndOrdinaryWandPreserved(GameTestHelper h) {
-        var center=h.absolutePos(POS);var near=POS.offset(2,1,0);var boundary=POS.above(32);var outside=POS.above(33);
-        for(var pos:List.of(near,boundary,outside))h.setBlock(pos,ModBlocks.STELLA_ARCANUM.get());
+        var center=h.absolutePos(POS);var near=POS.offset(2,1,0);var boundary=POS.above(64);var outside=POS.above(65);
+        var side=POS.east(64);var diagonal=POS.offset(46,0,46);
+        for(var pos:List.of(near,boundary,outside,side,diagonal))h.setBlock(pos,ModBlocks.STELLA_ARCANUM.get());
         h.setBlock(POS.above(),Blocks.STONE);
         var found=MeteorScan.find(h.getLevel(),Vec3.atCenterOf(center));
-        h.assertTrue(found.contains(h.absolutePos(near))&&found.contains(h.absolutePos(boundary))&&!found.contains(h.absolutePos(outside)),"Hidden ore and exact sphere boundary found, outside rejected");
+        h.assertTrue(found.contains(h.absolutePos(near))&&found.contains(h.absolutePos(boundary))&&!found.contains(h.absolutePos(outside)),"Hidden ore and exact sixty-four-block sphere boundary found, outside rejected");
+        h.assertTrue(found.contains(h.absolutePos(side))&&!found.contains(h.absolutePos(diagonal)),"Horizontal sixty-four-block boundary included; diagonal outside sphere rejected");
         h.setBlock(near,Blocks.AIR);h.assertTrue(!MeteorScan.find(h.getLevel(),Vec3.atCenterOf(center)).contains(h.absolutePos(near)),"Destroyed ore removed on new scan");
         var p=player(h);var stack=new ItemStack(ModItems.MAGIC_WAND.get());p.setItemInHand(InteractionHand.MAIN_HAND,stack);
         var provider=EssenceHelper.getEssenceProvider(p).orElseThrow();provider.setAmount(EssenceType.AUREAL,500);
@@ -56,7 +58,7 @@ public final class MagicAndJarGameTests {
         h.assertTrue(!h.getLevel().getEntitiesOfClass(com.stal111.forbidden_arcanus.common.entity.projectile.AurealMissile.class,p.getBoundingBox().inflate(3)).isEmpty(),"Ordinary projectile unchanged");
         int before=provider.getAmount(EssenceType.AUREAL);p.setShiftKeyDown(true);stack.getItem().use(h.getLevel(),p,InteractionHand.MAIN_HAND);
         h.assertTrue(!p.isUsingItem()&&provider.getAmount(EssenceType.AUREAL)==before,"Sneak scan does not charge a projectile or consume Aureal");
-        for(var pos:List.of(near,boundary,outside))h.setBlock(pos,Blocks.AIR);h.succeed();
+        for(var pos:List.of(near,boundary,outside,side,diagonal))h.setBlock(pos,Blocks.AIR);h.succeed();
     }
     @GameTest(template="guide_area") public static void bottleExtractionStockAndStackHandling(GameTestHelper h) {
         var p=player(h);h.setBlock(POS,ModBlocks.ESSENCE_UTREM_JAR.get().defaultBlockState().setValue(ModBlockStateProperties.ESSENCE_TYPE,EssenceType.AUREAL));

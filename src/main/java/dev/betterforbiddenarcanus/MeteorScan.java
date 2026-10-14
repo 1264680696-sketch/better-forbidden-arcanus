@@ -13,7 +13,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 
 public final class MeteorScan {
-    public static final int RADIUS=32, DURATION=200, MAX_RESULTS=4096;
+    public static final int RADIUS=64, DURATION=200, MAX_RESULTS=4096;
     private static final String NEXT="bfa_meteor_scan_next";
     private MeteorScan() {}
     public record Payload(ResourceLocation dimension,List<BlockPos> positions) implements CustomPacketPayload {

@@ -21,7 +21,8 @@ public final class ScepterStorm {
     public static final DeferredHolder<EntityType<?>, EntityType<LightningBolt>> BOLT = ENTITIES.register("scepter_lightning",
             () -> EntityType.Builder.<LightningBolt>of(SilentBolt::new, MobCategory.MISC).sized(0,0).clientTrackingRange(16).updateInterval(20).build("scepter_lightning"));
     private static final Set<Player> CHANNELS = Collections.newSetFromMap(new WeakHashMap<>());
-    private static final String NEXT = "bfa_scepter_next_pulse";
+    public static final int RADIUS = 10, PULSE_TICKS = 2;
+    private static final String NEXT = "bfa_scepter_next_pulse", NEXT_PAYMENT = "bfa_scepter_next_payment";
     private ScepterStorm() {}
     /** A rendered lightning bolt with no world, item, thunder or fire interactions. */
     public static final class SilentBolt extends LightningBolt {
@@ -41,7 +42,7 @@ public final class ScepterStorm {
     }
     public static boolean target(Player player,LivingEntity entity) {
         double dx=entity.getX()-player.getX(), dz=entity.getZ()-player.getZ();
-        return entity.isAlive() && !(entity instanceof Player) && entity.getY()>=player.getY()+4 && dx*dx+dz*dz<=16
+        return entity.isAlive() && !(entity instanceof Player) && entity.getY()>=player.getY()+4 && dx*dx+dz*dz<=RADIUS*RADIUS
                 && !player.isAlliedTo(entity) && !entity.isAlliedTo(player) && !(entity instanceof TamableAnimal pet && pet.isTame())
                 && (entity instanceof Enemy || entity instanceof Mob mob && mob.getTarget()==player);
     }
@@ -49,15 +50,24 @@ public final class ScepterStorm {
         if (!(player.level() instanceof ServerLevel level)) return;
         long now=TyrCombat.clock(player);
         if(now<player.getPersistentData().getLong(NEXT))return;
-        if(!pay(player,5)){player.stopUsingItem();CHANNELS.remove(player);return;}
-        player.getPersistentData().putLong(NEXT,now+20);
+        // Charge once for each second of channeling, independently of the faster pulses.
+        if(now>=player.getPersistentData().getLong(NEXT_PAYMENT)) {
+            if(!pay(player,5)){player.stopUsingItem();CHANNELS.remove(player);return;}
+            player.getPersistentData().putLong(NEXT_PAYMENT,now+20);
+        }
+        player.getPersistentData().putLong(NEXT,now+PULSE_TICKS);
         // A vertical column: inspect accessible entity sections above the player,
         // without imposing a spherical height cap or loading additional chunks.
-        var column=new net.minecraft.world.phys.AABB(player.getX()-4,player.getY()+4,player.getZ()-4,
-                player.getX()+4,Double.POSITIVE_INFINITY,player.getZ()+4);
+        var column=new net.minecraft.world.phys.AABB(player.getX()-RADIUS,player.getY()+4,player.getZ()-RADIUS,
+                player.getX()+RADIUS,Double.POSITIVE_INFINITY,player.getZ()+RADIUS);
         for(var entity:level.getEntitiesOfClass(LivingEntity.class,column,target->target(player,target))) {
             var bolt=BOLT.get().create(level);bolt.setPos(entity.position());level.addFreshEntity(bolt);
-            entity.hurt(new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.LIGHTNING_BOLT),player,player),5);
+            entity.hurt(new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.LIGHTNING_BOLT),player,player) {
+                // Only this storm source bypasses hurt cooldown; natural lightning stays unchanged.
+                @Override public boolean is(net.minecraft.tags.TagKey<DamageType> tag) {
+                    return tag.equals(net.minecraft.tags.DamageTypeTags.BYPASSES_COOLDOWN)||super.is(tag);
+                }
+            },5);
         }
     }
     @SubscribeEvent public static void stop(LivingEntityUseItemEvent.Stop event) { if(event.getEntity() instanceof Player p)CHANNELS.remove(p); }
