@@ -15,13 +15,18 @@
     },
     {
       "type": "patchouli:text",
-      "text": "当前没有最低要求五级的专属制物仪式。升级的直接收益是更大储量；四级与更低等级的制物仪式仍然可用。",
+      "text": "五级现可进行 40% 属性的装备强化。此前等级的普通制物仪式仍可使用；强化则按炉体实际等级执行。",
       "title": "五级的用途"
     },
     {
       "type": "patchouli:text",
       "text": "借助$(l:better_forbidden_arcanus:practical/containers)精华容器$(/l)、$(l:better_forbidden_arcanus:forge_tier_3/quantum_injector)量子注入器$(/l)和$(l:better_forbidden_arcanus:forge_tier_1/ferrognetic_mixture)磁化基座$(/l)整理供给。提高储量不会免除配方材料和必要增强器。",
       "title": "高阶补给整理"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "新增$(l:better_forbidden_arcanus:forge_tier_5/upgrade_equipment_5)本级装备强化$(/l)：工匠遗物放入增强器槽后，可将装备直接提升到本级强化。",
+      "title": "装备强化"
     }
   ]
 }

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " #N",
+    " O#",
+    "S  "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "N": {
+      "item": "forbidden_arcanus:dark_nether_star"
+    },
+    "O": {
+      "item": "forbidden_arcanus:obsidiansteel_ingot"
+    },
+    "S": {
+      "item": "forbidden_arcanus:draco_arcanus_staff"
+    }
+  },
+  "result": {
+    "id": "forbidden_arcanus:draco_arcanus_scepter",
+    "count": 1
+  }
+}

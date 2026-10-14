@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " OE",
+    "OOO",
+    "FO "
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "F": {
+      "item": "forbidden_arcanus:ender_pearl_fragment"
+    },
+    "O": {
+      "item": "forbidden_arcanus:obsidiansteel_ingot"
+    }
+  },
+  "result": {
+    "id": "forbidden_arcanus:draco_arcanus_staff",
+    "count": 1
+  }
+}

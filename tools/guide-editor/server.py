@@ -162,13 +162,20 @@ def item_catalog():
         'forbidden_arcanus:enchanted_soul': ['附魔灵魂'],
         'forbidden_arcanus:soul_binding_crystal': ['灵魂绑定水晶'],
     }
+    for tier, label in enumerate(('一级', '二级', '三级', '四级', '五级'), 1):
+        # Forge blocks share a translation key in the original mod.
+        common_names[f'forbidden_arcanus:hephaestus_forge_tier_{tier}'] = [f'{label}赫菲斯托斯锻炉']
     for item_id in sorted(models):
         namespace, path = item_id.split(':', 1)
+        # The editor targets the current source tree, even while an older addon
+        # jar is still installed in the game instance.
+        if namespace == 'better_forbidden_arcanus' and not (RESOURCES / f'assets/{namespace}/models/item/{path}.json').is_file():
+            continue
         # A model alone can be an internal variant; require a canonical item
         # or block name key, rather than interpreting every translation as an ID.
         keys = [f'item.{namespace}.{path}', f'block.{namespace}.{path}']
         key = next((key for key in keys if key in chinese or key in english), None)
-        if key is None:
+        if key is None and item_id not in common_names:
             continue
         display_name = chinese.get(key) or next(iter(common_names.get(item_id, [])), None) or english.get(key, item_id)
         items.append({'id': item_id, 'name': display_name,

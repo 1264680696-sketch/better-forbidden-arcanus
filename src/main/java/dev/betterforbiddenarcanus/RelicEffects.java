@@ -46,11 +46,6 @@ public final class RelicEffects {
         return RelicCurio.equipped(player, ModItems.CRIMSON_STONE.get());
     }
 
-    private static boolean hasTool(Player player) {
-        var stack = player.getMainHandItem();
-        return stack.has(DataComponents.TOOL) || stack.is(ItemTags.SWORDS);
-    }
-
     @SubscribeEvent
     public static void beforePlayerTick(PlayerTickEvent.Pre event) {
         updateAttributes(event.getEntity());
@@ -58,14 +53,12 @@ public final class RelicEffects {
 
     public static void updateAttributes(Player player) {
         TyrArmor.update(player);
-        boolean artisan = RelicCurio.equipped(player, ModItems.ARTISAN_RELIC.get());
-        boolean armor = false;
-        for (var stack : player.getArmorSlots()) if (stack.getItem() instanceof ArmorItem) armor = true;
-        modifier(player, Attributes.ATTACK_DAMAGE, "artisan_attack", artisan && hasTool(player), 0.2);
-        modifier(player, Attributes.ATTACK_SPEED, "artisan_attack_speed", artisan && hasTool(player), 0.2);
-        modifier(player, Attributes.ARMOR, "artisan_armor", artisan && armor, 0.2);
-        modifier(player, Attributes.ARMOR_TOUGHNESS, "artisan_toughness", artisan && armor, 0.2);
-        modifier(player, Attributes.KNOCKBACK_RESISTANCE, "artisan_knockback", artisan && armor, 0.2);
+        // Remove the previous version's own modifier IDs if a player is already loaded.
+        modifier(player, Attributes.ATTACK_DAMAGE, "artisan_attack", false, 0);
+        modifier(player, Attributes.ATTACK_SPEED, "artisan_attack_speed", false, 0);
+        modifier(player, Attributes.ARMOR, "artisan_armor", false, 0);
+        modifier(player, Attributes.ARMOR_TOUGHNESS, "artisan_toughness", false, 0);
+        modifier(player, Attributes.KNOCKBACK_RESISTANCE, "artisan_knockback", false, 0);
     }
 
     private static void modifier(Player player, Holder<Attribute> type, String name, boolean active, double amount) {
@@ -140,11 +133,6 @@ public final class RelicEffects {
             int base = (int) (20 * event.getNewDamage());
             EssenceHelper.getEssenceStorage(tube).ifPresent(storage -> storage.addEssence(tube, base / 2));
         }
-    }
-
-    @SubscribeEvent
-    public static void breakSpeed(PlayerEvent.BreakSpeed event) {
-        if (hasTool(event.getEntity()) && RelicCurio.equipped(event.getEntity(), ModItems.ARTISAN_RELIC.get())) event.setNewSpeed(event.getNewSpeed() * 1.2F);
     }
 
     @SubscribeEvent

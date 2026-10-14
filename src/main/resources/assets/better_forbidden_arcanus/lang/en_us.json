@@ -1,7 +1,4 @@
 {
-  "item.better_forbidden_arcanus.eternal_soul": "Eternal Soul",
-  "item.better_forbidden_arcanus.eternal_corrupt_soul": "Eternal Corrupt Soul",
-  "item.better_forbidden_arcanus.eternal_enchanted_soul": "Eternal Enchanted Soul",
   "itemGroup.better_forbidden_arcanus": "Better Forbidden and Arcanus",
   "residue.better_forbidden_arcanus.soulless_sand": "Soulless Sand",
   "curios.identifier.relic": "Relic",
@@ -10,7 +7,8 @@
   "tooltip.better_forbidden_arcanus.relic.maledictus_pact": "Relic: -20% maximum health; +40% damage dealt.",
   "tooltip.better_forbidden_arcanus.relic.crescent_moon": "Relic: Night Vision, Speed I and Jump Boost I at night; +2 Aureal per second.",
   "tooltip.better_forbidden_arcanus.relic.elementarium": "Relic: +2 relic slots.",
-  "tooltip.better_forbidden_arcanus.relic.artisan_relic": "Relic: +20% tool attack damage, attack speed and mining speed; +20% armor, toughness and knockback resistance.",
+  "tooltip.better_forbidden_arcanus.relic.artisan_relic": "Relic: half anvil level cost, rounded up; 25% less anvil damage chance; 25% chance to retain smithing templates. Enables equipment upgrading in the forge enhancer slot.",
   "tooltip.better_forbidden_arcanus.relic.crimson_stone": "Relic: 10% life steal from actual health damage; +50% test-tube and player-attack forge blood generation.",
-  "tooltip.better_forbidden_arcanus.relic.soul_crimson_stone": "Relic: No additional equipped ability yet."
+  "tooltip.better_forbidden_arcanus.relic.soul_crimson_stone": "Relic: No additional equipped ability yet.",
+  "tooltip.better_forbidden_arcanus.forge_upgrade": "Forge upgrade %s: +%s%% stats"
 }

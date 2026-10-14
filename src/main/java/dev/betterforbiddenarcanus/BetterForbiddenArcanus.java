@@ -12,6 +12,9 @@ public final class BetterForbiddenArcanus {
         SoulItems.TABS.register(modBus);
         ElytraDuplicationRecipe.SERIALIZERS.register(modBus);
         CorruptedObelisk.INTERACTIONS.register(modBus);
+        ForgeUpgrades.COMPONENTS.register(modBus);
+        ForgeUpgrades.INGREDIENTS.register(modBus);
+        ForgeUpgrades.RESULTS.register(modBus);
         modBus.addListener(BatSoupComponents::modifyDefaults);
         modBus.addListener(RelicCurio::setup);
     }

@@ -20,12 +20,8 @@ public final class ClientSmokeTest {
                 && Minecraft.getInstance().screen instanceof TitleScreen) {
             finished = true;
             for (String name : java.util.List.of("eternal_soul", "eternal_corrupt_soul", "eternal_enchanted_soul")) {
-                var expected = SoulItems.id("item/" + name);
-                var sprite = Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(expected).contents();
-                if (!sprite.name().equals(expected) || sprite.width() != 16 || sprite.height() != 16
-                        || sprite.getUniqueFrames().count() != 5) {
-                    throw new IllegalStateException("Invalid eternal soul texture or animation: " + name);
-                }
+                if (net.minecraft.core.registries.BuiltInRegistries.ITEM.containsKey(SoulItems.id(name)))
+                    throw new IllegalStateException("Removed soul is still registered: " + name);
             }
             var language = net.minecraft.locale.Language.getInstance();
             if (!language.has("curios.identifier.relic")) throw new IllegalStateException("Missing relic slot name");
@@ -46,7 +42,7 @@ public final class ClientSmokeTest {
                 String path = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item).getPath();
                 if (!language.has("tooltip.better_forbidden_arcanus.relic." + path)) throw new IllegalStateException("Missing relic description: " + path);
             }
-            com.mojang.logging.LogUtils.getLogger().info("BFA_CLIENT_SMOKE_PASS: title screen, animated textures and relic descriptions loaded");
+            com.mojang.logging.LogUtils.getLogger().info("BFA_CLIENT_SMOKE_PASS: title screen, removed souls, guide and relic descriptions loaded");
             Minecraft.getInstance().stop();
         }
     }

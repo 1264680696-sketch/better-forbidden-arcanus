@@ -1,0 +1,47 @@
+{
+  "name": "天龙工具与权杖",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:draco_arcanus_pickaxe",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "官方旧版的天龙工具配方现已恢复。先制作天龙杖柄，再配合龙鳞、钻石和黑曜钢制作工具。下列配方都产出原 Mod 的物品。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:draco_arcanus_staff",
+      "text": "天龙杖柄；每次产出 1 个。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:draco_arcanus_sword",
+      "text": "天龙剑；每次产出 1 个。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:draco_arcanus_pickaxe",
+      "text": "天龙镐；每次产出 1 个。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:draco_arcanus_axe",
+      "text": "天龙斧；每次产出 1 个。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:draco_arcanus_shovel",
+      "text": "天龙锹；每次产出 1 个。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:draco_arcanus_hoe",
+      "text": "天龙锄；每次产出 1 个。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:draco_arcanus_scepter",
+      "text": "天龙权杖；每次产出 1 个。"
+    }
+  ]
+}

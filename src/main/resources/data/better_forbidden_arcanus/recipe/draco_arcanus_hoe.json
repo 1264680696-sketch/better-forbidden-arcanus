@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "DDO",
+    " # ",
+    "S  "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "D": {
+      "item": "forbidden_arcanus:dragon_scale"
+    },
+    "O": {
+      "item": "forbidden_arcanus:obsidiansteel_ingot"
+    },
+    "S": {
+      "item": "forbidden_arcanus:draco_arcanus_staff"
+    }
+  },
+  "result": {
+    "id": "forbidden_arcanus:draco_arcanus_hoe",
+    "count": 1
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "forge_tier": 4,
+  "match_tier_exact": true,
+  "duration": 500,
+  "essences": {
+    "aureal": 0,
+    "souls": 0,
+    "blood": 0,
+    "experience": 0
+  },
+  "enhancers": [
+    "forbidden_arcanus:artisan_relic"
+  ],
+  "inputs": [
+    {
+      "amount": 4,
+      "ingredient": {
+        "item": "minecraft:netherite_ingot"
+      }
+    },
+    {
+      "amount": 2,
+      "ingredient": {
+        "item": "forbidden_arcanus:dark_nether_star"
+      }
+    },
+    {
+      "amount": 2,
+      "ingredient": {
+        "item": "forbidden_arcanus:stellarite_piece"
+      }
+    }
+  ],
+  "main_ingredient": {
+    "type": "better_forbidden_arcanus:forgeable_equipment",
+    "target_tier": 4
+  },
+  "magic_circle": "forbidden_arcanus:create_item",
+  "result": {
+    "type": "better_forbidden_arcanus:upgrade_equipment",
+    "tier": 4
+  }
+}

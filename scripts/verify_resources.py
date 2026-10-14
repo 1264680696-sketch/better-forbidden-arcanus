@@ -65,17 +65,24 @@ with zipfile.ZipFile(next((ROOT / 'libs').glob('*forbidden_arcanus-2.6.1.jar')))
         assert ritual['inputs'] == [{'amount': 4, 'ingredient': {'item': side}}]
         assert ritual['essences'] == {'aureal': aureal, 'souls': souls, 'blood': blood, 'experience': 0}
         assert ritual['result']['result_item'] == {'count': 1, 'id': 'forbidden_arcanus:' + name}
-    binding_path = 'data/forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/soul_binding_crystal.json'
-    binding = json.loads((ROOT / 'src/main/resources' / binding_path).read_text())
-    original_binding = json.loads(jar.read(binding_path))
-    assert {k: v for k, v in binding.items() if k != 'inputs'} == {k: v for k, v in original_binding.items() if k != 'inputs'}
-    textures = ROOT / 'src/main/resources/assets/better_forbidden_arcanus/textures/item'
-    for base in ('soul', 'corrupt_soul', 'enchanted_soul'):
-        image = (textures / f'eternal_{base}.png').read_bytes()
-        assert image[:8] == b'\x89PNG\r\n\x1a\n' and struct.unpack('>II', image[16:24]) == (16, 80)
-        assert image[25] == 6, 'Textures must preserve RGBA transparency'
-        assert json.loads((textures / f'eternal_{base}.png.mcmeta').read_text()) == json.loads(jar.read(f'assets/forbidden_arcanus/textures/item/{base}.png.mcmeta'))
-        assert not any('eternal_' in str(r.get('result', {})) for r in effective.values()), 'Eternal souls must remain creative-only'
+    assert not (DATA / 'forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/soul_binding_crystal.json').exists()
+    for removed in ('eternal_soul', 'eternal_corrupt_soul', 'eternal_enchanted_soul'):
+        assert not list((ROOT / 'src/main/resources/assets/better_forbidden_arcanus').rglob(removed + '*'))
+    for name in ('soul','corrupt_soul','enchanted_soul'):
+        tag = json.loads((DATA / f'better_forbidden_arcanus/tags/item/{name}.json').read_text())
+        assert tag['values'] == ['forbidden_arcanus:' + name]
+    for tier in range(1,6):
+        ritual = json.loads((DATA / f'better_forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/upgrade_equipment_{tier}.json').read_text())
+        assert ritual['forge_tier'] == tier and ritual['match_tier_exact'] and ritual['duration'] == 500
+        assert sum(i['amount'] for i in ritual['inputs']) == 8
+        assert all(v == 0 for v in ritual['essences'].values())
+        assert ritual['enhancers'] == ['forbidden_arcanus:artisan_relic']
+        assert ritual['main_ingredient'] == {'type':'better_forbidden_arcanus:forgeable_equipment', 'target_tier':tier}
+        assert ritual['result'] == {'type':'better_forbidden_arcanus:upgrade_equipment','tier':tier}
+    for name in ('staff','sword','pickaxe','axe','shovel','hoe','scepter'):
+        recipe=effective[f'data/better_forbidden_arcanus/recipe/draco_arcanus_{name}.json']
+        assert recipe['type']=='minecraft:crafting_shaped' and recipe['result']=={'id':'forbidden_arcanus:draco_arcanus_'+name,'count':1}
+        assert 'obsidian_ingot' not in json.dumps(recipe)
     slot = json.loads((DATA / 'better_forbidden_arcanus/curios/slots/relic.json').read_text())
     assert slot['size'] == 1 and slot['validators'] == ['curios:tag'] and not slot['add_cosmetic']
     entity_slots = json.loads((DATA / 'better_forbidden_arcanus/curios/entities/player.json').read_text())
@@ -88,7 +95,7 @@ with zipfile.ZipFile(next((ROOT / 'libs').glob('*forbidden_arcanus-2.6.1.jar')))
         assert 'curios.modifiers.relic' in lang
         for item_id in relics:
             assert 'tooltip.better_forbidden_arcanus.relic.' + item_id.split(':')[1] in lang
-        assert '+20%' in lang['tooltip.better_forbidden_arcanus.relic.artisan_relic']
+        assert '25%' in lang['tooltip.better_forbidden_arcanus.relic.artisan_relic'] and 'tooltip.better_forbidden_arcanus.forge_upgrade' in lang
         assert not any(key.startswith('tooltip.better_forbidden_arcanus') and 'tyr' in key for key in lang)
 guide = json.loads((DATA / 'better_forbidden_arcanus/patchouli_books/forbidden_arcanus/book.json').read_text(encoding='utf-8'))
 assert guide['name'] == '禁忌与奥秘' and guide['use_resource_pack'] is True
@@ -97,4 +104,4 @@ guide_recipe = json.loads((DATA / 'better_forbidden_arcanus/recipe/guide_book.js
 assert guide_recipe['type'] == 'minecraft:crafting_shapeless'
 assert guide_recipe['ingredients'] == [{'item': 'forbidden_arcanus:arcane_crystal'}, {'item': 'minecraft:book'}]
 assert guide_recipe['result'] == {'id': 'patchouli:guide_book', 'count': 1, 'components': {'patchouli:book': 'better_forbidden_arcanus:forbidden_arcanus'}}
-print('PASS: recipe resources, loot, soul textures, relic slots, descriptions and guide')
+print('PASS: recipe resources, loot, removed souls and upgrades, relic slots, descriptions and guide')

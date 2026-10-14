@@ -60,11 +60,10 @@ public final class SoulGameTests {
     }
 
     @GameTest(template = "empty", timeoutTicks = 200)
-    public static void sixSoulSpeedsAndNoConsumption(GameTestHelper h) {
+    public static void threeSoulSpeedsAndNoConsumption(GameTestHelper h) {
         var recipe = h.getLevel().getRecipeManager().byKey(SoulItems.SOUL_SAND_RECIPE).orElseThrow();
-        List<Item> souls = List.of(ModItems.SOUL.get(), ModItems.CORRUPT_SOUL.get(), ModItems.ENCHANTED_SOUL.get(),
-                SoulItems.ETERNAL_SOUL.get(), SoulItems.ETERNAL_CORRUPT_SOUL.get(), SoulItems.ETERNAL_ENCHANTED_SOUL.get());
-        int[] durations = {80, 66, 40, 80, 66, 40};
+        List<Item> souls = List.of(ModItems.SOUL.get(), ModItems.CORRUPT_SOUL.get(), ModItems.ENCHANTED_SOUL.get());
+        int[] durations = {80, 66, 40};
         for (int i = 0; i < souls.size(); i++) {
             var c = clibano(h);
             c.setStack(ClibanoMenu.SOUL_SLOT, new ItemStack(souls.get(i)));
@@ -84,7 +83,7 @@ public final class SoulGameTests {
 
     @GameTest(template = "empty")
     public static void soulSandGateDualInputAndResidue(GameTestHelper h) {
-        for (Item soul : List.of(ModItems.SOUL.get(), SoulItems.ETERNAL_SOUL.get())) {
+        for (Item soul : List.of(ModItems.SOUL.get())) {
             var c = clibano(h);
             c.setStack(ClibanoMenu.SOUL_SLOT, new ItemStack(soul));
             c.setStack(ClibanoMenu.FUEL_SLOT, new ItemStack(Items.COAL));
@@ -93,7 +92,7 @@ public final class SoulGameTests {
             h.assertTrue(output(c, ModItems.SOUL.get()) == 0 && c.getStack(ClibanoMenu.INPUT_SLOTS.getFirst()).getCount() == 1,
                     "Ordinary soul cannot extract souls");
         }
-        for (Item soul : List.of(ModItems.CORRUPT_SOUL.get(), ModItems.ENCHANTED_SOUL.get(), SoulItems.ETERNAL_CORRUPT_SOUL.get(), SoulItems.ETERNAL_ENCHANTED_SOUL.get())) {
+        for (Item soul : List.of(ModItems.CORRUPT_SOUL.get(), ModItems.ENCHANTED_SOUL.get())) {
             var c = clibano(h);
             c.setStack(ClibanoMenu.SOUL_SLOT, new ItemStack(soul));
             c.setStack(ClibanoMenu.FUEL_SLOT, new ItemStack(Items.COAL));
@@ -185,11 +184,10 @@ public final class SoulGameTests {
     }
 
     @GameTest(template = "empty")
-    public static void forgeRitualLevelsCostsAndEternalMain(GameTestHelper h) {
-        for (boolean enchanted : List.of(false, true)) for (boolean eternal : List.of(false, true)) {
+    public static void forgeRitualLevelsCostsAndOrdinaryMain(GameTestHelper h) {
+        for (boolean enchanted : List.of(false, true)) {
             h.setBlock(CENTER, Blocks.AIR);
-            Item main = enchanted ? (eternal ? SoulItems.ETERNAL_CORRUPT_SOUL.get() : ModItems.CORRUPT_SOUL.get())
-                    : (eternal ? SoulItems.ETERNAL_SOUL.get() : ModItems.SOUL.get());
+            Item main = enchanted ? ModItems.CORRUPT_SOUL.get() : ModItems.SOUL.get();
             var f = forge(h, enchanted, main);
             var manager = f.getRitualManager();
             h.assertTrue(manager.getValidRitual().isPresent(), "Exact essence cost must allow ritual");
@@ -203,88 +201,30 @@ public final class SoulGameTests {
                     "Ritual must deduct exact specified essences");
             for (int i = 0; i <= 500; i++) manager.tick().ifPresent(result -> f.setStack(HephaestusForgeBlockEntity.MAIN_SLOT, result));
             Item resultItem = enchanted ? ModItems.ENCHANTED_SOUL.get() : ModItems.CORRUPT_SOUL.get();
-            h.assertTrue(f.getStack(HephaestusForgeBlockEntity.MAIN_SLOT).is(eternal ? main : resultItem), "Incorrect main/result retention");
-            if (eternal) h.assertTrue(h.getEntities(EntityType.ITEM).stream().anyMatch(entity -> entity.getItem().is(resultItem)), "Eternal main must eject product");
+            h.assertTrue(f.getStack(HephaestusForgeBlockEntity.MAIN_SLOT).is(resultItem), "Incorrect main/result retention");
             for (var pos : SIDES) h.assertTrue(!((PedestalBlockEntity) h.getBlockEntity(pos)).hasStack(), "Four side ingredients must be consumed");
             h.killAllEntities();
         }
         h.succeed();
     }
 
-    @GameTest(template = "empty")
-    public static void eternalEssenceJarAndCorruptUse(GameTestHelper h) {
-        var f = forge(h, false, ModItems.SOUL.get());
-        f.setForgeLevel(HephaestusForgeLevel.FIVE);
-        f.getEssenceManager().setSouls(0);
-        var input = new EssenceDataInput();
-        for (Item item : List.of(SoulItems.ETERNAL_SOUL.get(), SoulItems.ETERNAL_CORRUPT_SOUL.get(), SoulItems.ETERNAL_ENCHANTED_SOUL.get())) {
-            var stack = new ItemStack(item);
-            int amount = item == SoulItems.ETERNAL_ENCHANTED_SOUL.get() ? 10 : 1;
-            int before = f.getEssenceManager().getSouls();
-            for (int i = 0; i < 3; i++) f.fillWith(EssenceType.SOULS, stack, input, 6);
-            h.assertTrue(stack.getCount() == 1 && f.getEssenceManager().getSouls() == before + 3 * amount, "Eternal essence must be reusable");
-        }
-        var ordinary = new ItemStack(ModItems.SOUL.get());
-        f.fillWith(EssenceType.SOULS, ordinary, input, 6);
-        h.assertTrue(ordinary.isEmpty(), "Original essence supply must still consume ordinary souls");
-        h.setBlock(SIDES.getFirst(), ModBlocks.ESSENCE_UTREM_JAR.get().defaultBlockState().setValue(ModBlockStateProperties.ESSENCE_TYPE, EssenceType.SOULS));
-        EssenceUtremJarBlockEntity jar = h.getBlockEntity(SIDES.getFirst());
-        var player = h.makeMockPlayer(GameType.SURVIVAL);
-        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(SoulItems.ETERNAL_ENCHANTED_SOUL.get()));
-        h.useBlock(SIDES.getFirst(), player);
-        h.useBlock(SIDES.getFirst(), player);
-        h.assertTrue(jar.getAmount() == 20 && player.getMainHandItem().getCount() == 1, "Jar must accept reusable eternal essence");
-        jar.addEssence(jar.getLimit());
-        h.useBlock(SIDES.getFirst(), player);
-        h.assertTrue(jar.getAmount() == jar.getLimit() && player.getMainHandItem().getCount() == 1, "Full jar must not overflow or consume catalyst");
-        for (var target : List.of(Blocks.OAK_SAPLING, Blocks.DEAD_BUSH)) {
-            h.setBlock(SIDES.getLast(), target);
-            player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(SoulItems.ETERNAL_CORRUPT_SOUL.get()));
-            h.useBlock(SIDES.getLast(), player);
-            h.assertTrue(h.getBlockState(SIDES.getLast()).is(ModBlocks.GROWING_EDELWOOD.get()) && player.getMainHandItem().getCount() == 1,
-                    "Eternal corrupt soul must retain transformation ability without consumption");
-        }
-        h.succeed();
-    }
 
-    @GameTest(template = "empty")
-    public static void retainedPedestalSupportsRepeatedRitual(GameTestHelper h) {
-        h.setBlock(CENTER, ModBlocks.HEPHAESTUS_FORGE_TIER_1.get());
-        HephaestusForgeBlockEntity f = h.getBlockEntity(CENTER);
-        h.setBlock(SIDES.getFirst(), ModBlocks.DARKSTONE_PEDESTAL.get());
-        h.setBlock(SIDES.get(1), ModBlocks.DARKSTONE_PEDESTAL.get());
-        PedestalBlockEntity retained = h.getBlockEntity(SIDES.getFirst());
-        var catalyst = new ItemStack(SoulItems.ETERNAL_CORRUPT_SOUL.get());
-        retained.setStack(catalyst, null, com.stal111.forbidden_arcanus.common.block.pedestal.effect.PedestalEffectTrigger.RITUAL_FINISHED);
-        f.updatePedestalStack(retained.getBlockPos(), catalyst);
-        for (int round = 0; round < 2; round++) {
-            f.setStack(HephaestusForgeBlockEntity.MAIN_SLOT, new ItemStack(ModItems.SOUL.get()));
-            PedestalBlockEntity consumed = h.getBlockEntity(SIDES.get(1));
-            var dust = new ItemStack(ModItems.CORRUPTI_DUST.get());
-            consumed.setStack(dust, null, com.stal111.forbidden_arcanus.common.block.pedestal.effect.PedestalEffectTrigger.RITUAL_FINISHED);
-            f.updatePedestalStack(consumed.getBlockPos(), dust);
-            h.assertTrue(f.getRitualManager().startRitual(ritualPlayer(h), f.getEssenceManager().getStorage()),
-                    "Retained pedestal must remain in ritual cache for round " + round);
-            for (int i = 0; i <= 5; i++) f.getRitualManager().tick().ifPresent(result -> f.setStack(HephaestusForgeBlockEntity.MAIN_SLOT, result));
-            h.assertTrue(f.getStack(HephaestusForgeBlockEntity.MAIN_SLOT).is(Items.DIAMOND) && retained.getStack().getCount() == 1
-                    && retained.getStack().is(SoulItems.ETERNAL_CORRUPT_SOUL.get()) && !consumed.hasStack(), "Only eternal pedestal catalyst must be retained");
-        }
-        h.succeed();
-    }
+
+
 
     @GameTest(template = "empty")
     public static void creativeTabAndOriginalRitualIngredients(GameTestHelper h) {
         CreativeModeTabs.tryRebuildTabContents(h.getLevel().enabledFeatures(), true, h.getLevel().registryAccess());
         var tab = SoulItems.TAB.get();
-        h.assertTrue(tab.getIconItem().is(SoulItems.ETERNAL_SOUL.get()) && tab.getDisplayItems().size() == 4, "Addon tab must contain three eternal souls and the guide");
+        h.assertTrue(tab.getIconItem().is(ModBlocks.HEPHAESTUS_FORGE_TIER_5.get().asItem()) && tab.getDisplayItems().size() == 1, "Addon tab must use the tier-five icon and contain only the guide");
         var guide = vazkii.patchouli.api.PatchouliAPI.get().getBookStack(SoulItems.id("forbidden_arcanus"));
         h.assertTrue(tab.getDisplayItems().stream().anyMatch(stack -> ItemStack.isSameItemSameComponents(stack, guide)), "Addon tab must contain the named guide");
         var ritual = h.getLevel().registryAccess().registryOrThrow(FARegistries.RITUAL)
                 .get(ResourceLocation.parse("forbidden_arcanus:soul_binding_crystal"));
-        h.assertTrue(ritual.checkIngredients(List.of(new ItemStack(SoulItems.ETERNAL_SOUL.get()), new ItemStack(SoulItems.ETERNAL_CORRUPT_SOUL.get()),
-                new ItemStack(SoulItems.ETERNAL_ENCHANTED_SOUL.get()), new ItemStack(Items.AMETHYST_SHARD), new ItemStack(Items.AMETHYST_SHARD),
+        h.assertTrue(ritual.checkIngredients(List.of(new ItemStack(ModItems.SOUL.get()), new ItemStack(ModItems.CORRUPT_SOUL.get()),
+                new ItemStack(ModItems.ENCHANTED_SOUL.get()), new ItemStack(Items.AMETHYST_SHARD), new ItemStack(Items.AMETHYST_SHARD),
                 new ItemStack(ModItems.ENDER_PEARL_FRAGMENT.get()), new ItemStack(ModItems.ENDER_PEARL_FRAGMENT.get()), new ItemStack(ModItems.ENDER_PEARL_FRAGMENT.get())),
-                new ItemStack(Items.QUARTZ)), "Original soul-binding ritual must accept eternal alternatives");
+                new ItemStack(Items.QUARTZ)), "Original soul-binding ritual must accept ordinary souls");
         h.succeed();
     }
 }

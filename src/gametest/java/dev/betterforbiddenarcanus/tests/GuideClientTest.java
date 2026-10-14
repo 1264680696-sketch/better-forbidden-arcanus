@@ -39,6 +39,7 @@ public final class GuideClientTest {
     private static int frame, ticks, projections;
     private static long start;
     private static boolean dragonScene;
+    private static boolean upgradeScene;
     private static net.minecraft.core.BlockPos standingEgg, fallingEgg;
     private static volatile int fallingEntity;
 
@@ -51,6 +52,7 @@ public final class GuideClientTest {
     public static void tick(ClientTickEvent.Post event) {
         if (!Boolean.getBoolean("bfa.guideTest") || finished) return;
         var mc = Minecraft.getInstance();
+        mc.options.pauseOnLostFocus = false; // Keep this unattended development check running when another app gains focus.
         if (!started && mc.screen instanceof TitleScreen) {
             started = true; start = System.currentTimeMillis();
             var rules = new GameRules();
@@ -63,6 +65,7 @@ public final class GuideClientTest {
         if (!started) return;
         if (System.currentTimeMillis() - start > 300000) throw new IllegalStateException("Guide world/render check timed out");
         if (mc.level == null || mc.player == null) return;
+        if (upgradeScene) { checkUpgradeScene(); return; }
         if (dragonScene) { checkDragonScene(); return; }
         var book = BookRegistry.INSTANCE.books.get(SoulItems.id("forbidden_arcanus"));
         if (!ready) {
@@ -70,7 +73,7 @@ public final class GuideClientTest {
             book.reloadContents(mc.level, false);
             var contents = book.getContents();
             if (contents.isErrored()) throw new IllegalStateException("Guide contents failed to compile", contents.getException());
-            if (contents.entries.size() < 56 || contents.categories.size() < 9) throw new IllegalStateException("Incomplete guide contents");
+            if (contents.entries.size() < 63 || contents.categories.size() < 9) throw new IllegalStateException("Incomplete guide contents");
             var eggState = com.stal111.forbidden_arcanus.core.init.ModBlocks.ARCANE_DRAGON_EGG.get().defaultBlockState();
             if (mc.getBlockRenderer().getBlockModel(eggState) == mc.getModelManager().getMissingModel())
                 throw new IllegalStateException("Arcane dragon egg static/falling block model is still missing");
@@ -172,8 +175,53 @@ public final class GuideClientTest {
             if (!mc.level.getBlockState(fallingEgg).is(com.stal111.forbidden_arcanus.core.init.ModBlocks.ARCANE_DRAGON_EGG.get()))
                 throw new IllegalStateException("Falling dragon egg did not land as its original block");
             Screenshot.grab(mc.gameDirectory, "guide-dragon-egg-landed.png", mc.getMainRenderTarget(), component -> {});
+            dragonScene = false; upgradeScene = true; ticks = 0;
+            var playerId = mc.player.getUUID();
+            mc.getSingleplayerServer().execute(() -> {
+                var player = mc.getSingleplayerServer().getPlayerList().getPlayer(playerId);
+                player.setGameMode(GameType.SURVIVAL);
+                for (int tier = 1; tier <= 5; tier++) {
+                    var stack = new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.DIAMOND_SWORD);
+                    stack.set(dev.betterforbiddenarcanus.ForgeUpgrades.TIER, tier);
+                    stack.set(net.minecraft.core.component.DataComponents.CUSTOM_NAME, net.minecraft.network.chat.Component.literal("强化 " + tier).withStyle(net.minecraft.ChatFormatting.ITALIC));
+                    player.getInventory().setItem(tier - 1, stack);
+                    player.getInventory().setItem(tier + 8, stack.copy());
+                }
+                player.inventoryMenu.broadcastChanges();
+            });
+        }
+    }
+
+    private static void checkUpgradeScene() {
+        var mc = Minecraft.getInstance(); int elapsed = ++ticks;
+        if (elapsed == 20) {
+            for (int tier = 1; tier <= 5; tier++) {
+                var stack = mc.player.getInventory().getItem(tier - 1);
+                if (dev.betterforbiddenarcanus.ForgeUpgrades.tier(stack) != tier
+                        || stack.getHoverName().getStyle().getColor().getValue() != dev.betterforbiddenarcanus.ForgeUpgrades.color(stack).getColor())
+                    throw new IllegalStateException("Upgrade component or name did not synchronize to client");
+            }
+            Screenshot.grab(mc.gameDirectory, "guide-upgrade-hotbar.png", mc.getMainRenderTarget(), component -> {});
+            mc.setScreen(new net.minecraft.client.gui.screens.inventory.InventoryScreen(mc.player));
+        }
+        if (elapsed == 30) Screenshot.grab(mc.gameDirectory, "guide-upgrade-inventory.png", mc.getMainRenderTarget(), component -> {});
+        if (elapsed == 32) {
+            mc.setScreen(null);
+            var id = mc.player.getUUID();
+            mc.getSingleplayerServer().execute(() -> {
+                var player = mc.getSingleplayerServer().getPlayerList().getPlayer(id);
+                var pos = player.blockPosition().offset(0, 0, 2);
+                player.serverLevel().setBlockAndUpdate(pos, net.minecraft.world.level.block.Blocks.CHEST.defaultBlockState());
+                var chest = (net.minecraft.world.level.block.entity.ChestBlockEntity)player.serverLevel().getBlockEntity(pos);
+                for (int tier = 1; tier <= 5; tier++) chest.setItem(tier - 1, player.getInventory().getItem(tier - 1).copy());
+                player.openMenu(chest);
+            });
+        }
+        if (elapsed == 60) {
+            if (!(mc.screen instanceof net.minecraft.client.gui.screens.inventory.ContainerScreen)) throw new IllegalStateException("Real chest inventory did not open");
+            Screenshot.grab(mc.gameDirectory, "guide-upgrade-container.png", mc.getMainRenderTarget(), component -> {});
             finished = true;
-            com.mojang.logging.LogUtils.getLogger().info("BFA_GUIDE_PASS: {} entries, {} rendered spreads, {} working world projections; standing/falling dragon egg rendered",
+            com.mojang.logging.LogUtils.getLogger().info("BFA_GUIDE_PASS: {} entries, {} rendered spreads, {} working world projections; dragon egg and five upgrade colors in hotbar/inventory/chest",
                     BookRegistry.INSTANCE.books.get(SoulItems.id("forbidden_arcanus")).getContents().entries.size(), frames.size(), projections);
             mc.stop();
         }

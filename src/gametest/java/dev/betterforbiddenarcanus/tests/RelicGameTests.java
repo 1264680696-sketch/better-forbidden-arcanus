@@ -250,10 +250,10 @@ public final class RelicGameTests {
         var baseline = attributes.stream().map(p::getAttributeValue).toList();
         equip(p, 0, ModItems.ARTISAN_RELIC.get());
         RelicEffects.updateAttributes(p);
-        for (int i = 0; i < attributes.size(); i++) close(h, p.getAttributeValue(attributes.get(i)), baseline.get(i) * 1.2, "Artisan must boost applicable stat by 20%");
+        for (int i = 0; i < attributes.size(); i++) close(h, p.getAttributeValue(attributes.get(i)), baseline.get(i), "Artisan must no longer boost equipment stats");
         var breakEvent = new PlayerEvent.BreakSpeed(p, Blocks.STONE.defaultBlockState(), 10, BlockPos.ZERO);
-        RelicEffects.breakSpeed(breakEvent);
-        close(h, breakEvent.getNewSpeed(), 12, "Artisan mining speed must be 20% faster");
+        dev.betterforbiddenarcanus.UpgradeEffects.mining(breakEvent);
+        close(h, breakEvent.getNewSpeed(), 10, "Unupgraded tool must not gain mining speed from Artisan");
         h.assertTrue(sword.getMaxDamage() == Items.DIAMOND_SWORD.getDefaultInstance().getMaxDamage(), "Artisan must not change durability");
         for (var item : RelicCurio.items()) {
             var lines = new ItemStack(item).getTooltipLines(Item.TooltipContext.of(h.getLevel()), p, TooltipFlag.NORMAL);

@@ -22,7 +22,7 @@ def indexed(directory):
 
 categories = indexed(BOOK / 'categories')
 entries = indexed(BOOK / 'entries')
-assert len(categories) >= 9 and len(entries) >= 56
+assert len(categories) >= 9 and len(entries) >= 63
 recipes, rituals = {}, {}
 for jar_path in sorted((ROOT / 'libs').glob('*.jar')):
     with zipfile.ZipFile(jar_path) as jar:
@@ -78,11 +78,11 @@ for entry_id, block, counts in multiblocks:
 
 # The source registry is the independent oracle: every effective ritual belongs
 # to its first usable tier, including exact-tier upgrades and grouped armour.
-assert len(rituals) == 24
+assert len(rituals) == 29
 aliases = {
-    'better_forbidden_arcanus:soul': '普通或永恒灵魂',
-    'better_forbidden_arcanus:corrupt_soul': '腐化或永恒腐化灵魂',
-    'better_forbidden_arcanus:enchanted_soul': '附魔或永恒附魔灵魂',
+    'better_forbidden_arcanus:soul': '普通灵魂',
+    'better_forbidden_arcanus:corrupt_soul': '腐化灵魂',
+    'better_forbidden_arcanus:enchanted_soul': '附魔灵魂',
 }
 for ritual_id, ritual in rituals.items():
     tier = ritual.get('forge_tier', 1)
@@ -122,5 +122,5 @@ for ritual_id, ritual in rituals.items():
         assert '精确' in text or '只能' in text or '仅' in text, ritual_id
     if ritual.get('enhancers'):
         assert '必需增强器：' in text and '无必需增强器。' not in text, ritual_id
-assert not any(r.get('forge_tier', 1) == 5 for r in rituals.values())
-print(f'PASS: {len(entries)} guide entries, 24 effective rituals, links, recipe types and five native blueprints')
+assert sum(r['result']['type'] == 'better_forbidden_arcanus:upgrade_equipment' for r in rituals.values()) == 5
+print(f'PASS: {len(entries)} guide entries, 29 effective rituals, links, recipe types and five native blueprints')

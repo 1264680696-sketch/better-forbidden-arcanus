@@ -1,0 +1,26 @@
+{
+  "name": "4 级装备强化",
+  "category": "better_forbidden_arcanus:forge_tier_4",
+  "icon": "minecraft:diamond_pickaxe",
+  "sortnum": 90,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "本级祭坛可将未强化或较低级装备直接强化至 4 级，属性提升 30%。同级或高级装备不能再次进行本级强化。名称与物品格边框为紫色。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "中央：待强化装备×1$(br)外围：下界合金锭×4、暗黑下界之星×2、星辰碎片×2。每份放一个基座。",
+      "title": "仪式材料"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "辉光：0$(br)灵魂：0$(br)血液：0$(br)经验：0$(br2)必需增强器：工匠遗物，放入祭坛增强器槽，不消耗。",
+      "title": "精华与增强器"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "只能在精确 4 级祭坛执行；用锻工锤启动，持续 500 tick。完整规则见$(l:better_forbidden_arcanus:practical/forge_upgrades)装备强化$(/l)。附魔、耐久损耗、名称和其他组件保留。"
+    }
+  ]
+}

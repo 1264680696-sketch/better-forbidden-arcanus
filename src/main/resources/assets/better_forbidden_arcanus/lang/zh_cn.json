@@ -1,7 +1,4 @@
 {
-  "item.better_forbidden_arcanus.eternal_soul": "永恒灵魂",
-  "item.better_forbidden_arcanus.eternal_corrupt_soul": "永恒腐化灵魂",
-  "item.better_forbidden_arcanus.eternal_enchanted_soul": "永恒附魔灵魂",
   "itemGroup.better_forbidden_arcanus": "更好的禁忌与奥秘",
   "residue.better_forbidden_arcanus.soulless_sand": "失魂沙",
   "curios.identifier.relic": "遗物",
@@ -10,7 +7,7 @@
   "tooltip.better_forbidden_arcanus.relic.maledictus_pact": "遗物效果：最大生命值 -20%；造成的所有伤害 +40%。",
   "tooltip.better_forbidden_arcanus.relic.crescent_moon": "遗物效果：夜晚获得夜视、速度 I、跳跃提升 I；每秒额外恢复 2 点辉光。",
   "tooltip.better_forbidden_arcanus.relic.elementarium": "遗物效果：增加 2 个遗物槽位。",
-  "tooltip.better_forbidden_arcanus.relic.artisan_relic": "遗物效果：工具的攻击伤害、攻速、挖掘速度，以及盔甲的护甲值、韧性、抗击退 +20%。",
+  "tooltip.better_forbidden_arcanus.relic.artisan_relic": "遗物效果：铁砧经验费用减半并向上取整；铁砧损坏概率降低 25%；锻造台有 25% 概率保留模板。放入祭坛增强器槽可进行装备强化。",
   "tooltip.better_forbidden_arcanus.relic.crimson_stone": "遗物效果：按实际伤害获得 10% 生命吸取；试管采血及玩家攻击供给锻造炉的血液 +50%。",
   "tooltip.better_forbidden_arcanus.relic.soul_crimson_stone": "遗物效果：尚无额外装备能力。",
   "item.forbidden_arcanus.divine_pact": "神圣契约",
@@ -19,5 +16,6 @@
   "item.forbidden_arcanus.elementarium": "基本元素",
   "item.forbidden_arcanus.artisan_relic": "工匠遗物",
   "item.forbidden_arcanus.crimson_stone": "绯红之石",
-  "item.forbidden_arcanus.soul_crimson_stone": "灵魂绯红之石"
+  "item.forbidden_arcanus.soul_crimson_stone": "灵魂绯红之石",
+  "tooltip.better_forbidden_arcanus.forge_upgrade": "锻造强化 %s 级：属性 +%s%%"
 }

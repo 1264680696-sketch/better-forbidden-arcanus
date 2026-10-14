@@ -1,0 +1,43 @@
+{
+  "forge_tier": 2,
+  "match_tier_exact": true,
+  "duration": 500,
+  "essences": {
+    "aureal": 0,
+    "souls": 0,
+    "blood": 0,
+    "experience": 0
+  },
+  "enhancers": [
+    "forbidden_arcanus:artisan_relic"
+  ],
+  "inputs": [
+    {
+      "amount": 4,
+      "ingredient": {
+        "item": "forbidden_arcanus:deorum_ingot"
+      }
+    },
+    {
+      "amount": 2,
+      "ingredient": {
+        "item": "minecraft:diamond"
+      }
+    },
+    {
+      "amount": 2,
+      "ingredient": {
+        "item": "forbidden_arcanus:arcane_crystal_block"
+      }
+    }
+  ],
+  "main_ingredient": {
+    "type": "better_forbidden_arcanus:forgeable_equipment",
+    "target_tier": 2
+  },
+  "magic_circle": "forbidden_arcanus:create_item",
+  "result": {
+    "type": "better_forbidden_arcanus:upgrade_equipment",
+    "tier": 2
+  }
+}

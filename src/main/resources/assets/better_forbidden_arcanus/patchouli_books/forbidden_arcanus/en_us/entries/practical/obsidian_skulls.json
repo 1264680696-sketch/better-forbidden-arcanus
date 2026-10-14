@@ -1,0 +1,42 @@
+{
+  "name": "黑曜石头骨系列",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:obsidian_skull",
+  "sortnum": 21,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "普通黑曜石头骨可由骷髅头颅与黑曜钢合成。戴在头部时，着火会消耗其状态，依次变为裂纹、碎裂、消逝，最终成为普通骷髅头颅。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:obsidian_skull",
+      "text": "中央骷髅头颅，周围 8 个黑曜钢锭。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "每个阶段累计约 8～13 秒着火时间；停止着火会暂停计时。仅放在背包中不会触发阶段退化。",
+      "title": "阶段退化"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:fragmented_obsidian_skull",
+      "text": "消逝头骨与 2 个黑曜钢锭修复为碎裂。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:cracked_obsidian_skull",
+      "text": "碎裂头骨与 2 个黑曜钢锭修复为裂纹。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:obsidian_skull_from_cracked_obsidian_skull",
+      "text": "裂纹头骨与 2 个黑曜钢锭修复为普通。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "本机 2.6.1 的辉光和永恒黑曜石头骨没有默认生存配方或掉落入口，可通过创造模式或命令取得。黑曜石头骨盾未在此版本注册。",
+      "title": "其他变体"
+    }
+  ]
+}
