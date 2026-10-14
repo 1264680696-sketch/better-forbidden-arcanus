@@ -1,0 +1,10 @@
+{
+  "type": "better_forbidden_arcanus:elytra_duplication",
+  "category": "equipment",
+  "pattern": ["DDD", "DED", "DDD"],
+  "key": {
+    "D": {"item": "forbidden_arcanus:dragon_scale"},
+    "E": {"item": "minecraft:elytra"}
+  },
+  "result": {"id": "minecraft:elytra", "count": 1}
+}

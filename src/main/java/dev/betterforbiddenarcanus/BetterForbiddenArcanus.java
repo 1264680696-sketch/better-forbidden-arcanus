@@ -10,6 +10,7 @@ public final class BetterForbiddenArcanus {
     public BetterForbiddenArcanus(IEventBus modBus) {
         SoulItems.ITEMS.register(modBus);
         SoulItems.TABS.register(modBus);
+        ElytraDuplicationRecipe.SERIALIZERS.register(modBus);
         modBus.addListener(BatSoupComponents::modifyDefaults);
         modBus.addListener(RelicCurio::setup);
     }

@@ -189,7 +189,7 @@ def crafting_recipe(recipe_id):
         return {'error': '本地资源中未找到该配方。'}
     recipe = json.loads(raw)
     kind = recipe.get('type')
-    if kind not in ('minecraft:crafting_shaped', 'minecraft:crafting_shapeless'):
+    if kind not in ('minecraft:crafting_shaped', 'minecraft:crafting_shapeless', 'better_forbidden_arcanus:elytra_duplication'):
         return {'error': '此配方类型请在游戏中预览。'}
 
     def ingredient(value):

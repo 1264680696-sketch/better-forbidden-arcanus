@@ -1,0 +1,11 @@
+{
+  "name": "用龙鳞复制鞘翅",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "minecraft:elytra",
+  "sortnum": 17,
+  "pages": [
+    {"type": "patchouli:text", "text": "在工作台中央放一件鞘翅，周围八格各放一片普通龙鳞。每次消耗 8 片龙鳞，额外获得 1 件全新、未附魔的鞘翅。中央原鞘翅保留，可以再次使用。"},
+    {"type": "patchouli:crafting", "recipe": "better_forbidden_arcanus:elytra_duplication", "text": "消耗 8 个龙鳞，产出 1 件新鞘翅；中央原件不消耗。"},
+    {"type": "patchouli:text", "title": "原件与材料", "text": "原鞘翅的附魔、剩余耐久、自定义名称等数据保留；新鞘翅是普通新物品。金色、银色、水生龙鳞不能替代本配方的普通龙鳞。龙鳞获取见$(l:better_forbidden_arcanus:basics/advanced_materials)进阶材料$(/l)。"}
+  ]
+}

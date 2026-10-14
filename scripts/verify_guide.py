@@ -50,7 +50,7 @@ for entry_id, entry in entries.items():
             assert target.split('#')[0] in entries, (entry_id, target)
         if page['type'] in ('patchouli:crafting', 'patchouli:smelting'):
             recipe = recipes[page['recipe']]
-            expected = ('minecraft:smelting', 'minecraft:blasting') if page['type'] == 'patchouli:smelting' else ('minecraft:crafting_shaped', 'minecraft:crafting_shapeless')
+            expected = ('minecraft:smelting', 'minecraft:blasting') if page['type'] == 'patchouli:smelting' else ('minecraft:crafting_shaped', 'minecraft:crafting_shapeless', 'better_forbidden_arcanus:elytra_duplication')
             assert recipe['type'] in expected, (entry_id, page['recipe'])
         if page['type'] == 'patchouli:multiblock':
             assert page['enable_visualize'] is True

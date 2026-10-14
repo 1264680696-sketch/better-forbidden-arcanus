@@ -14,6 +14,16 @@
       "title": "装备路线"
     },
     {
+      "type": "patchouli:text",
+      "title": "对末影龙的伤害",
+      "text": "每穿戴一件天龙神秘盔甲，对末影龙伤害增加 25%。一至四件分别增加 25%、50%、75%、100%；全套为原伤害的 2 倍。对其他生物没有这项加成。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "生效条件",
+      "text": "近战及归属于玩家的弹射物均可获得加成，命中龙头或身体时保留原有部位伤害规则。只有对应护甲槽内的装备计数，手持或放在背包中不生效；卸下立即减少加成。"
+    },
+    {
       "type": "patchouli:spotlight",
       "item": "forbidden_arcanus:draco_arcanus_helmet",
       "title": "天龙神秘头盔",
