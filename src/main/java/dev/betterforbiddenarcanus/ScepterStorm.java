@@ -40,7 +40,8 @@ public final class ScepterStorm {
         return true;
     }
     public static boolean target(Player player,LivingEntity entity) {
-        return entity.isAlive() && !(entity instanceof Player) && entity.getY()>player.getY() && player.distanceToSqr(entity)<=16
+        double dx=entity.getX()-player.getX(), dz=entity.getZ()-player.getZ();
+        return entity.isAlive() && !(entity instanceof Player) && entity.getY()>=player.getY()+4 && dx*dx+dz*dz<=16
                 && !player.isAlliedTo(entity) && !entity.isAlliedTo(player) && !(entity instanceof TamableAnimal pet && pet.isTame())
                 && (entity instanceof Enemy || entity instanceof Mob mob && mob.getTarget()==player);
     }
@@ -50,7 +51,11 @@ public final class ScepterStorm {
         if(now<player.getPersistentData().getLong(NEXT))return;
         if(!pay(player,5)){player.stopUsingItem();CHANNELS.remove(player);return;}
         player.getPersistentData().putLong(NEXT,now+20);
-        for(var entity:level.getEntitiesOfClass(LivingEntity.class,player.getBoundingBox().inflate(4),target->target(player,target))) {
+        // A vertical column: inspect accessible entity sections above the player,
+        // without imposing a spherical height cap or loading additional chunks.
+        var column=new net.minecraft.world.phys.AABB(player.getX()-4,player.getY()+4,player.getZ()-4,
+                player.getX()+4,Double.POSITIVE_INFINITY,player.getZ()+4);
+        for(var entity:level.getEntitiesOfClass(LivingEntity.class,column,target->target(player,target))) {
             var bolt=BOLT.get().create(level);bolt.setPos(entity.position());level.addFreshEntity(bolt);
             entity.hurt(new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.LIGHTNING_BOLT),player,player),5);
         }

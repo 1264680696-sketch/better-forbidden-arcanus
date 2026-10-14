@@ -34,20 +34,20 @@ public final class ScepterGameTests {
         var p=h.makeMockPlayer(GameType.SURVIVAL);GameType.SURVIVAL.updatePlayerAbilities(p.getAbilities());p.setPos(Vec3.atCenterOf(h.absolutePos(new BlockPos(8,1,8))));
         var stack=new ItemStack(ModItems.DRACO_ARCANUS_SCEPTER.get());p.setItemInHand(InteractionHand.MAIN_HAND,stack);p.setShiftKeyDown(true);
         var energy=EssenceHelper.getEssenceProvider(p).orElseThrow();energy.setAmount(EssenceType.AUREAL,10);
-        var phantom=spawn(h,EntityType.PHANTOM,p.position().add(0,3,0));float hp=phantom.getHealth();
-        var low=spawn(h,EntityType.PHANTOM,p.position().add(1,-.1,0));float lowHp=low.getHealth();
-        var distant=spawn(h,EntityType.PHANTOM,p.position().add(0,4.1,0));float farHp=distant.getHealth();
-        var cow=spawn(h,EntityType.COW,p.position().add(1,1,0));float cowHp=cow.getHealth();
-        var wolf=spawn(h,EntityType.WOLF,p.position().add(2,1,0));wolf.setTarget(p);float wolfHp=wolf.getHealth();
-        var pet=spawn(h,EntityType.WOLF,p.position().add(-1,1,0));pet.setTame(true,true);pet.setOwnerUUID(p.getUUID());pet.setTarget(p);float petHp=pet.getHealth();
+        var phantom=spawn(h,EntityType.PHANTOM,p.position().add(0,8,0));float hp=phantom.getHealth();
+        var low=spawn(h,EntityType.PHANTOM,p.position().add(1,3.999,0));float lowHp=low.getHealth();
+        var distant=spawn(h,EntityType.PHANTOM,p.position().add(4.01,6,0));float farHp=distant.getHealth();
+        var cow=spawn(h,EntityType.COW,p.position().add(1,6,0));float cowHp=cow.getHealth();
+        var wolf=spawn(h,EntityType.WOLF,p.position().add(2,6,0));wolf.setTarget(p);float wolfHp=wolf.getHealth();
+        var pet=spawn(h,EntityType.WOLF,p.position().add(-1,6,0));pet.setTame(true,true);pet.setOwnerUUID(p.getUUID());pet.setTarget(p);float petHp=pet.getHealth();
         var drop=new ItemEntity(h.getLevel(),phantom.getX(),phantom.getY(),phantom.getZ(),new ItemStack(Items.DIAMOND));h.getLevel().addFreshEntity(drop);
         stack.getItem().use(h.getLevel(),p,InteractionHand.MAIN_HAND);h.assertTrue(p.isUsingItem()&&stack.getUseDuration(p)==72000,"Sneak right click starts sustained mode");
         stack.getItem().onUseTick(h.getLevel(),p,stack,71999);
         h.assertTrue(Math.abs(phantom.getHealth()-(hp-5))<.01&&Math.abs(wolf.getHealth()-(wolfHp-5))<.01,"Above hostile and attacking neutral each take five damage");
-        h.assertTrue(low.getHealth()==lowHp&&distant.getHealth()==farHp&&cow.getHealth()==cowHp&&pet.getHealth()==petHp,"Height, spherical range, neutral and pet exclusions");
+        h.assertTrue(low.getHealth()==lowHp&&distant.getHealth()==farHp&&cow.getHealth()==cowHp&&pet.getHealth()==petHp,"Four block height, horizontal range, neutral and pet exclusions");
         h.assertTrue(energy.getAmount(EssenceType.AUREAL)==5,"Cost is five per pulse, independent of target count");
         stack.getItem().onUseTick(h.getLevel(),p,stack,71998);h.assertTrue(energy.getAmount(EssenceType.AUREAL)==5,"One pulse per twenty ticks");
-        var bolts=h.getLevel().getEntitiesOfClass(ScepterStorm.SilentBolt.class,p.getBoundingBox().inflate(5));h.assertTrue(bolts.size()==2,"Visual bolts only for selected targets");
+        var bolts=h.getLevel().getEntitiesOfClass(ScepterStorm.SilentBolt.class,p.getBoundingBox().inflate(10));h.assertTrue(bolts.size()==2,"Visual bolts only for selected targets");
         for(var bolt:bolts)for(int i=0;i<7;i++)bolt.tick();h.assertTrue(drop.isAlive()&&drop.getItem().is(Items.DIAMOND),"Bolt cannot destroy adjacent drops");
         h.assertTrue(phantom.getHealth()==hp-5,"Visual lightning cannot apply damage twice");
         p.setShiftKeyDown(false);stack.getItem().onUseTick(h.getLevel(),p,stack,71997);h.assertTrue(!p.isUsingItem()&&!ScepterStorm.channeling(p),"Releasing sneak stops immediately");
@@ -56,5 +56,38 @@ public final class ScepterGameTests {
         energy.setAmount(EssenceType.AUREAL,5);stack.getItem().use(h.getLevel(),p,InteractionHand.MAIN_HAND);energy.setAmount(EssenceType.AUREAL,0);stack.getItem().onUseTick(h.getLevel(),p,stack,71999);
         h.assertTrue(!p.isUsingItem()&&energy.getAmount(EssenceType.AUREAL)==0,"Exhaustion stops without going negative");
         phantom.discard();low.discard();distant.discard();cow.discard();wolf.discard();pet.discard();drop.discard();h.succeed();
+    }
+    @GameTest(template="guide_area") public static void stormTracksEntrantsHeightBoundaryAndDeparture(GameTestHelper h) {
+        // Keep normal daytime phantom burning out of the damage measurement.
+        for(int x=3;x<=13;x++)for(int z=3;z<=13;z++)h.setBlock(new BlockPos(x,15,z),net.minecraft.world.level.block.Blocks.STONE);
+        var p=h.makeMockPlayer(GameType.SURVIVAL);GameType.SURVIVAL.updatePlayerAbilities(p.getAbilities());p.setPos(Vec3.atCenterOf(h.absolutePos(new BlockPos(8,1,8))));
+        var stack=new ItemStack(ModItems.DRACO_ARCANUS_SCEPTER.get());p.setItemInHand(InteractionHand.MAIN_HAND,stack);p.setShiftKeyDown(true);
+        var energy=EssenceHelper.getEssenceProvider(p).orElseThrow();energy.setAmount(EssenceType.AUREAL,30);
+        var entrant=spawn(h,EntityType.PHANTOM,p.position().add(4.01,4,0));float hp=entrant.getHealth();
+        var diagonal=spawn(h,EntityType.PHANTOM,p.position().add(3,6,3));float diagonalHp=diagonal.getHealth();
+        stack.getItem().use(h.getLevel(),p,InteractionHand.MAIN_HAND);stack.getItem().onUseTick(h.getLevel(),p,stack,71999);
+        h.assertTrue(entrant.getHealth()==hp&&diagonal.getHealth()==diagonalHp,"Outside horizontal circle excluded at cast start");
+        entrant.setPos(p.position().add(4,4,0));
+        h.runAfterDelay(20,()->{
+            stack.getItem().onUseTick(h.getLevel(),p,stack,71979);
+            h.assertTrue(p.isUsingItem()&&ScepterStorm.channeling(p)&&Math.abs(entrant.getHealth()-(hp-5))<.01,"New entrant hit without restarting, exact radius and height boundaries included: health="+entrant.getHealth()+", start="+hp+", pos="+entrant.position()+", player="+p.position()+", valid="+ScepterStorm.target(p,entrant)+", using="+p.isUsingItem()+", channel="+ScepterStorm.channeling(p)+", energy="+energy.getAmount(EssenceType.AUREAL));
+            h.assertTrue(energy.getAmount(EssenceType.AUREAL)==20,"Empty pulse and entrant pulse each cost five");
+            entrant.setPos(p.position().add(0,12,0));
+        });
+        h.runAfterDelay(40,()->{
+            stack.getItem().onUseTick(h.getLevel(),p,stack,71959);
+            h.assertTrue(Math.abs(entrant.getHealth()-(hp-10))<.01,"Remaining high above is hit again, no spherical height cap");
+            entrant.setPos(p.position().add(4.001,6,0));
+        });
+        h.runAfterDelay(60,()->{
+            stack.getItem().onUseTick(h.getLevel(),p,stack,71939);
+            h.assertTrue(Math.abs(entrant.getHealth()-(hp-10))<.01,"Leaving horizontal range stops damage on next pulse");
+            entrant.setPos(p.position().add(0,3.999,0));
+        });
+        h.runAfterDelay(80,()->{
+            stack.getItem().onUseTick(h.getLevel(),p,stack,71919);
+            h.assertTrue(Math.abs(entrant.getHealth()-(hp-10))<.01&&diagonal.getHealth()==diagonalHp,"Dropping below height threshold stops damage, diagonal outside stays safe");
+            p.stopUsingItem();ScepterStorm.start(p,false);entrant.discard();diagonal.discard();h.succeed();
+        });
     }
 }
