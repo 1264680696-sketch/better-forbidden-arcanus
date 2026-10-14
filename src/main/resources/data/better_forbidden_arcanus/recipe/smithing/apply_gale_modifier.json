@@ -1,0 +1,6 @@
+{
+  "type": "forbidden_arcanus:apply_modifier",
+  "addition": { "item": "forbidden_arcanus:whirlwind_prism" },
+  "modifier": "better_forbidden_arcanus:gale",
+  "template": { "item": "forbidden_arcanus:apply_modifier_smithing_template" }
+}

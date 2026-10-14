@@ -18,9 +18,10 @@ public final class TyrArmor {
     }
 
     public static int count(LivingEntity entity) {
-        int count = 0;
-        for (var stack : entity.getArmorSlots()) if (isTyr(stack)) count++;
-        return count;
+        return (entity.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.HEAD).is(ModItems.TYR_HELMET.get()) ? 1 : 0)
+                + (entity.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.CHEST).is(ModItems.TYR_CHESTPLATE.get()) ? 1 : 0)
+                + (entity.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.LEGS).is(ModItems.TYR_LEGGINGS.get()) ? 1 : 0)
+                + (entity.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.FEET).is(ModItems.TYR_BOOTS.get()) ? 1 : 0);
     }
 
     public static double swimMultiplier(Player player, int pieces) {
@@ -37,6 +38,7 @@ public final class TyrArmor {
     }
 
     public static void update(Player player) {
+        TyrCombat.update(player);
         var attribute = player.getAttribute(NeoForgeMod.SWIM_SPEED);
         if (attribute == null) return;
         var id = SoulItems.id("tyr_swimming");

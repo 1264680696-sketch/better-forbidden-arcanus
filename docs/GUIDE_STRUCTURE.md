@@ -1,6 +1,6 @@
 # 《禁忌与奥秘》中文指南结构
 
-内容基线：Minecraft 1.21.1、Forbidden and Arcanus 2.6.1、更好的禁忌与奥秘 0.8.1。所有章节可提前阅读。“祭坛”统一指赫菲斯托斯锻造炉，制物仪式归入首次可用的最低等级；升级仪式归入执行升级的上一等级。
+内容基线：Minecraft 1.21.1、Forbidden and Arcanus 2.6.1、更好的禁忌与奥秘 0.9.0。所有章节可提前阅读。“祭坛”统一指赫菲斯托斯锻造炉，制物仪式归入首次可用的最低等级；升级仪式归入执行升级的上一等级。
 
 ```mermaid
 mindmap
@@ -51,6 +51,8 @@ mindmap
     四级祭坛
       精华容量
       战神提尔盔甲
+        英勇与公正
+        提尔化身与五倍反击
       灵魂绑定水晶
       首领捕捉器
       升级至五级
@@ -85,6 +87,7 @@ mindmap
         切石机配方
         蝙蝠翼与蝙蝠汤
         天龙工具与权杖配方
+        疾风重锤与风弹跳跃
 ```
 
 ## 条目写法
@@ -100,6 +103,8 @@ mindmap
 ## 页面与内容文件
 
 书籍 ID 和数据设置保存在 `data/better_forbidden_arcanus/patchouli_books/forbidden_arcanus/book.json`，名称、外观及无序合成不变。正文位于 `assets/better_forbidden_arcanus/patchouli_books/forbidden_arcanus/en_us/`；延续当前未启用本地化正文的路径设置，目录名不决定正文语言。
+
+疾风重锤的锻造页使用 Patchouli 模板，处理器从实际修饰配方生成三份输入和带疾风修饰的产物预览。
 
 普通配方使用原生 `patchouli:crafting`、`patchouli:smelting`；仪式是原 Mod 自定义注册表内容，使用物品页和文字清单。正文面向玩家，不含编辑器或开发操作。跨章节链接在材料和设施需要时引导到对应条目。
 

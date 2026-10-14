@@ -8,6 +8,8 @@
     "ClibanoProgressMixin",
     "RitualMixin",
     "TyrPiglinMixin",
+    "TyrEquipmentMixin",
+    "TyrInventoryMixin",
     "CrimsonBloodMixin",
     "CorruptedObeliskMixin",
     "BeaconAccessor",

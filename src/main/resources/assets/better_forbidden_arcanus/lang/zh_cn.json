@@ -16,5 +16,6 @@
   "item.forbidden_arcanus.elementarium": "基本元素",
   "item.forbidden_arcanus.artisan_relic": "工匠遗物",
   "item.forbidden_arcanus.crimson_stone": "绯红之石",
-  "item.forbidden_arcanus.soul_crimson_stone": "灵魂绯红之石"
+  "item.forbidden_arcanus.soul_crimson_stone": "灵魂绯红之石",
+  "modifier.better_forbidden_arcanus.gale": "疾风"
 }

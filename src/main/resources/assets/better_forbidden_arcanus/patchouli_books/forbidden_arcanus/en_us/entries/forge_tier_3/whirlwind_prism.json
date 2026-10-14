@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "对方块使用后，在目标位置产生短暂旋风，并在上方形成上升气流。进入气流会被向上推动，抵达顶部可获得短暂缓降。它不是装备修饰材料。"
+      "text": "对方块使用后产生短暂旋风，上方形成气流。进入气流会被向上推动，顶部可获得短暂缓降。$(br2)它现在也用于$(l:better_forbidden_arcanus:practical/gale_mace)疾风重锤$(/l)的锻造台修饰。"
     },
     {
       "type": "patchouli:spotlight",

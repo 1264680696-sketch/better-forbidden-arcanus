@@ -42,7 +42,10 @@ public final class GuideClientTest {
     private static boolean upgradeScene;
     private static net.minecraft.core.BlockPos standingEgg, fallingEgg;
     private static volatile int fallingEntity;
-    private static net.minecraft.core.BlockPos corruptionBlock;
+    private static net.minecraft.core.BlockPos corruptionBlock, windGround, galeGround;
+    private static double launchY, peakY;
+    private static volatile int counterTarget;
+    private static volatile boolean counterConsumed;
 
     private static Object field(Class<?> type, String name, Object instance) {
         try { var field = type.getDeclaredField(name); field.setAccessible(true); return field.get(instance); }
@@ -58,6 +61,7 @@ public final class GuideClientTest {
             started = true; start = System.currentTimeMillis();
             var rules = new GameRules();
             rules.getRule(GameRules.RULE_DOMOBSPAWNING).set(false, null);
+            rules.getRule(GameRules.RULE_NATURAL_REGENERATION).set(false,null);
             var settings = new LevelSettings("BFA Guide Check", GameType.CREATIVE, false, Difficulty.PEACEFUL, true, rules, WorldDataConfiguration.DEFAULT);
             mc.createWorldOpenFlows().createFreshLevel("bfa-guide-" + System.currentTimeMillis(), settings, new WorldOptions(1L,false,false),
                     access -> access.registryOrThrow(Registries.WORLD_PRESET).getHolderOrThrow(WorldPresets.FLAT).value().createWorldDimensions(), mc.screen);
@@ -99,6 +103,8 @@ public final class GuideClientTest {
             advance(); return;
         }
         var current = frames.get(frame);
+        if (current.entry.getId().getPath().equals("practical/gale_mace") && current.offset == 0)
+            Screenshot.grab(mc.gameDirectory,"guide-gale-recipe.png",mc.getMainRenderTarget(),component -> {});
         if (!(mc.screen instanceof GuiBookEntry)) throw new IllegalStateException("Book GUI did not open: " + current.entry.getId());
         for (int index = current.offset; index < Math.min(current.offset + 2, current.entry.getPages().size()); index++) {
             var page = current.entry.getPages().get(index);
@@ -249,8 +255,93 @@ public final class GuideClientTest {
             Screenshot.grab(mc.gameDirectory,"guide-crystal-corruption.png",mc.getMainRenderTarget(),component -> {});
         }
         if (elapsed == 110) {
+            windGround=mc.player.blockPosition().offset(-1,-1,3);
+            mc.player.setYRot(0);mc.player.setXRot(20);
+            var id=mc.player.getUUID();
+            mc.getSingleplayerServer().execute(() -> {
+                var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);
+                p.serverLevel().setBlockAndUpdate(windGround,net.minecraft.world.level.block.Blocks.STONE.defaultBlockState());
+                p.getInventory().setItem(0,new net.minecraft.world.item.ItemStack(com.stal111.forbidden_arcanus.core.init.ModItems.WHIRLWIND_PRISM.get()));
+                p.inventoryMenu.broadcastChanges();
+            });
+        }
+        if (elapsed == 140) {
+            mc.gameMode.useItemOn(mc.player,net.minecraft.world.InteractionHand.MAIN_HAND,
+                new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(windGround).add(0,.5,0),net.minecraft.core.Direction.UP,windGround,false));
+        }
+        if (elapsed == 148) {
+            var state=mc.level.getBlockState(windGround.above());
+            if (!state.is(com.stal111.forbidden_arcanus.core.init.ModBlocks.WHIRLWIND.get())
+                    || mc.getBlockRenderer().getBlockModel(state)==mc.getModelManager().getMissingModel())
+                throw new IllegalStateException("Real prism placement has no working whirlwind model");
+            Screenshot.grab(mc.gameDirectory,"guide-whirlwind.png",mc.getMainRenderTarget(),component -> {});
+        }
+        if (elapsed == 165) {
+            if (mc.level.getBlockState(windGround.above()).is(com.stal111.forbidden_arcanus.core.init.ModBlocks.WHIRLWIND.get()))
+                throw new IllegalStateException("Native whirlwind lifetime changed");
+            galeGround=mc.player.blockPosition().below();
+            var id=mc.player.getUUID();
+            mc.getSingleplayerServer().execute(() -> {
+                var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);
+                var recipe=(net.minecraft.world.item.crafting.SmithingRecipe)p.serverLevel().getRecipeManager().byKey(SoulItems.id("smithing/apply_gale_modifier")).orElseThrow().value();
+                var result=recipe.assemble(new net.minecraft.world.item.crafting.SmithingRecipeInput(
+                    new net.minecraft.world.item.ItemStack(com.stal111.forbidden_arcanus.core.init.ModItems.APPLY_MODIFIER_SMITHING_TEMPLATE.get()),
+                    new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.MACE),
+                    new net.minecraft.world.item.ItemStack(com.stal111.forbidden_arcanus.core.init.ModItems.WHIRLWIND_PRISM.get())),p.serverLevel().registryAccess());
+                p.getInventory().setItem(0,result);p.inventoryMenu.broadcastChanges();
+            });
+        }
+        if (elapsed == 190) {
+            if (!dev.betterforbiddenarcanus.GaleMace.isGale(mc.player.getMainHandItem())
+                    || !mc.player.getMainHandItem().getHoverName().getString().contains("疾风"))
+                throw new IllegalStateException("Gale modifier and prefix did not synchronize");
+            launchY=peakY=mc.player.getY();
+            mc.gameMode.useItemOn(mc.player,net.minecraft.world.InteractionHand.MAIN_HAND,
+                new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(galeGround).add(0,.5,0),net.minecraft.core.Direction.UP,galeGround,false));
+        }
+        if (elapsed >= 190 && elapsed <= 250) peakY=Math.max(peakY,mc.player.getY());
+        if (elapsed == 200) {
+            if(mc.player.getY()<launchY+2)throw new IllegalStateException("Server-authoritative gale impulse did not move client player");
+            mc.player.setXRot(70);
+            Screenshot.grab(mc.gameDirectory,"guide-gale-launch.png",mc.getMainRenderTarget(),component -> {});
+        }
+        if (elapsed == 250) {
+            if (peakY<launchY+5 || peakY>launchY+10 || mc.player.getHealth()!=20)
+                throw new IllegalStateException("Gale ascent/landing: height="+(peakY-launchY)+", health="+mc.player.getHealth());
+            var id=mc.player.getUUID();
+            mc.getSingleplayerServer().execute(() -> {
+                var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);
+                var armor=java.util.List.of(com.stal111.forbidden_arcanus.core.init.ModItems.TYR_HELMET.get(),com.stal111.forbidden_arcanus.core.init.ModItems.TYR_CHESTPLATE.get(),
+                        com.stal111.forbidden_arcanus.core.init.ModItems.TYR_LEGGINGS.get(),com.stal111.forbidden_arcanus.core.init.ModItems.TYR_BOOTS.get());
+                var slots=java.util.List.of(net.minecraft.world.entity.EquipmentSlot.HEAD,net.minecraft.world.entity.EquipmentSlot.CHEST,net.minecraft.world.entity.EquipmentSlot.LEGS,net.minecraft.world.entity.EquipmentSlot.FEET);
+                for(int i=0;i<4;i++)p.setItemSlot(slots.get(i),new net.minecraft.world.item.ItemStack(armor.get(i)));
+                p.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.SHIELD));
+                p.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND,new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.SHIELD));
+                p.invulnerableTime=0;p.hurt(p.damageSources().generic(),200);
+                if(p.getHealth()!=1 || !p.getPersistentData().getBoolean(dev.betterforbiddenarcanus.TyrCombat.COUNTER))
+                    throw new IllegalStateException("Real server half-heart trigger: health="+p.getHealth()+", pending="+p.getPersistentData().getBoolean(dev.betterforbiddenarcanus.TyrCombat.COUNTER));
+                var cow=net.minecraft.world.entity.EntityType.COW.create(p.serverLevel());cow.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH).setBaseValue(20);cow.setHealth(20);
+                cow.setPos(p.position().add(0,0,2));p.serverLevel().addFreshEntity(cow);counterTarget=cow.getId();
+            });
+        }
+        if(elapsed==280) {
+            if(mc.player.getHealth()!=1 || dev.betterforbiddenarcanus.TyrCombat.shield(mc.player.getMainHandItem()) || dev.betterforbiddenarcanus.TyrCombat.shield(mc.player.getOffhandItem()))
+                throw new IllegalStateException("Real player avatar/shield restriction failed: health="+mc.player.getHealth()+", main="+mc.player.getMainHandItem()+", off="+mc.player.getOffhandItem());
+            Screenshot.grab(mc.gameDirectory,"guide-tyr-avatar.png",mc.getMainRenderTarget(),component -> {});
+            mc.gameMode.attack(mc.player,mc.level.getEntity(counterTarget));
+        }
+        if(elapsed==300) {
+            var id=mc.player.getUUID();
+            mc.getSingleplayerServer().execute(() -> {
+                var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);
+                var cow=(net.minecraft.world.entity.LivingEntity)p.serverLevel().getEntity(counterTarget);
+                counterConsumed=Math.abs(cow.getHealth()-15)<.01 && !p.getPersistentData().getBoolean(dev.betterforbiddenarcanus.TyrCombat.COUNTER);
+            });
+        }
+        if(elapsed==310) {
+            if(!counterConsumed)throw new IllegalStateException("Real client attack did not consume exactly one fivefold counter");
             finished = true;
-            com.mojang.logging.LogUtils.getLogger().info("BFA_GUIDE_PASS: {} entries, {} rendered spreads, {} working world projections; dragon egg, upgrade tooltip/colors, and crystal right-click conversion",
+            com.mojang.logging.LogUtils.getLogger().info("BFA_GUIDE_PASS: {} entries, {} rendered spreads, {} working world projections; dragon egg, upgrade tooltip, crystal/whirlwind placement, gale launch/landing, avatar and counter",
                     BookRegistry.INSTANCE.books.get(SoulItems.id("forbidden_arcanus")).getContents().entries.size(), frames.size(), projections);
             mc.stop();
         }

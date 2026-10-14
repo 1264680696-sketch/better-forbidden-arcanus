@@ -1,0 +1,31 @@
+{
+  "name": "疾风重锤",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "minecraft:mace",
+  "sortnum": 21,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "疾风重锤",
+      "text": "先在三级祭坛制作$(l:better_forbidden_arcanus:forge_tier_3/whirlwind_prism)旋风棱晶$(/l)，再使用应用修饰锻造模板，在锻造台强化原版重锤。"
+    },
+    {
+      "type": "better_forbidden_arcanus:gale_smithing"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "材料与修饰",
+      "text": "消耗一份模板和一颗棱晶。装备工匠遗物时，模板仍有25%概率保留。$(br2)重锤的附魔、耐久损耗和装备强化等级保留。已有修饰不能覆盖；自定义名称沿用原修饰规则保留。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "右键起飞",
+      "text": "主手或副手持疾风重锤，右键触及范围内的地面上表面，向上弹起约8格。保留水平速度。$(br2)不消耗耐久，冷却1秒；同一玩家的疾风重锤共享冷却，换手或更换不能绕过。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "落地与下落攻击",
+      "text": "只推动使用者，伴随风粒子与风弹声音；不推动其他实体、不触发方块交互，也不留下气流方块。$(br2)回到起飞高度不会增加摔落伤害，落到更低处仍计算高度差。重锤下落攻击保持有效。"
+    }
+  ]
+}

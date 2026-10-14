@@ -1,0 +1,8 @@
+{
+  "predicate": { "items": "minecraft:mace" },
+  "display": {
+    "name": { "translate": "modifier.better_forbidden_arcanus.gale" },
+    "texture": "forbidden_arcanus:textures/gui/tooltip/aquatic.png",
+    "tooltip_color": { "start": -10845453, "end": -14463028 }
+  }
+}

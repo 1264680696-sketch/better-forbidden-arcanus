@@ -22,10 +22,14 @@ public final class UpgradeDecorations {
         }));
     }
     @SubscribeEvent public static void setup(net.neoforged.fml.event.lifecycle.FMLClientSetupEvent event) {
-        event.enqueueWork(() -> BuiltInRegistries.ITEM.forEach(item -> {
+        event.enqueueWork(() -> {
+            net.minecraft.client.renderer.ItemBlockRenderTypes.setRenderLayer(
+                    com.stal111.forbidden_arcanus.core.init.ModBlocks.WHIRLWIND.get(), net.minecraft.client.renderer.RenderType.cutout());
+            BuiltInRegistries.ITEM.forEach(item -> {
             if (item instanceof net.minecraft.world.item.BowItem)
                 net.minecraft.client.renderer.item.ItemProperties.register(item, net.minecraft.resources.ResourceLocation.withDefaultNamespace("pull"), (stack, level, entity, seed) ->
                         entity == null || !entity.isUsingItem() || entity.getUseItem() != stack ? 0 : (float)((stack.getUseDuration(entity) - entity.getUseItemRemainingTicks()) * ForgeUpgrades.multiplier(stack) / 20));
-        }));
+            });
+        });
     }
 }

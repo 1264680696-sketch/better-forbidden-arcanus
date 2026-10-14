@@ -27,6 +27,11 @@
       "type": "patchouli:text",
       "text": "海洋棱晶用于适用头盔；磁化混合物用于适用靴子；灵魂绑定水晶用于允许灵魂绑定的物品。是否能应用，以锻造台结果和物品条件为准。",
       "title": "护甲与灵魂绑定"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "疾风修饰",
+      "text": "旋风棱晶与应用修饰锻造模板，可把原版重锤强化为$(l:better_forbidden_arcanus:practical/gale_mace)疾风重锤$(/l)。同样受单修饰限制，不能覆盖已有修饰。"
     }
   ]
 }
