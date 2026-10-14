@@ -1,0 +1,52 @@
+{
+  "name": "腐化神秘水晶方尖碑",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:corrupted_arcane_crystal_block",
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "腐化方尖碑提供经验精华。材料为神秘磨制暗黑石×1、腐化神秘水晶块×2，摆放与普通方尖碑相同，再用洁净粉末转化。"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "腐化方尖碑建造前",
+      "multiblock": {
+        "pattern": [
+          [
+            "___",
+            "_X_",
+            "___"
+          ],
+          [
+            "___",
+            "_X_",
+            "___"
+          ],
+          [
+            "___",
+            "_0_",
+            "___"
+          ]
+        ],
+        "mapping": {
+          "X": "forbidden_arcanus:corrupted_arcane_crystal_block",
+          "0": "forbidden_arcanus:arcane_polished_darkstone"
+        },
+        "symmetrical": true
+      },
+      "enable_visualize": true,
+      "text": "用洁净粉末点击结构转化。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "下方放镀金錾制磨制暗黑石才能工作。每 100 tick（5 秒）向 4 格搜索范围内最近的祭坛补充 1 点经验精华，存满时不再增加。",
+      "title": "经验供给"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "它不会同时提供辉光，也不消耗经验物品。方尖碑占用祭坛的供给位置，八基座仪式前应调整布局。其他经验来源见$(l:better_forbidden_arcanus:basics/essences)四种精华$(/l)。",
+      "title": "供给整理"
+    }
+  ]
+}

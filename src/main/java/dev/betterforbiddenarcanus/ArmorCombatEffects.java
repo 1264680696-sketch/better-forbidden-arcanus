@@ -40,6 +40,6 @@ public final class ArmorCombatEffects {
                 ModItems.MORTEM_LEGGINGS.get(), ModItems.MORTEM_BOOTS.get());
         // Apply to damage after normal armour/enchantment reductions, so the
         // additional reduction remains proportional to otherwise received damage.
-        if (pieces > 0) event.setNewDamage(event.getNewDamage() * (1 - 0.2F * pieces));
+        if (pieces > 0) event.setNewDamage(event.getNewDamage() * (1 - 0.125F * pieces));
     }
 }

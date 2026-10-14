@@ -24,6 +24,31 @@ import top.theillusivec4.curios.api.CuriosApi;
 public final class ArmorCombatGameTests {
     private static final List<EquipmentSlot> SLOTS = List.of(EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET);
 
+    @GameTest(template = "empty")
+    public static void mortemCraftingPatternsAndMaterials(GameTestHelper h) {
+        var patterns = java.util.Map.of("helmet", List.of("BIB", "I I"), "chestplate", List.of("B I", "IBI", "BIB"),
+                "leggings", List.of("BIB", "I I", "B B"), "boots", List.of("B I", "I B"));
+        int bones = 0, iron = 0;
+        for (var entry : patterns.entrySet()) {
+            var items = net.minecraft.core.NonNullList.withSize(entry.getValue().size() * 3, ItemStack.EMPTY);
+            for (int y = 0; y < entry.getValue().size(); y++) for (int x = 0; x < 3; x++) {
+                char symbol = entry.getValue().get(y).charAt(x);
+                if (symbol == 'B') { items.set(y * 3 + x, new ItemStack(net.minecraft.world.item.Items.BONE)); bones++; }
+                if (symbol == 'I') { items.set(y * 3 + x, new ItemStack(net.minecraft.world.item.Items.IRON_INGOT)); iron++; }
+            }
+            var input = net.minecraft.world.item.crafting.CraftingInput.of(3, entry.getValue().size(), items);
+            var holder = h.getLevel().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, input, h.getLevel()).orElseThrow();
+            h.assertTrue(holder.id().equals(dev.betterforbiddenarcanus.SoulItems.id("mortem_" + entry.getKey())), "Mortem pattern must resolve to correct addon recipe");
+            var result = holder.value().assemble(input, h.getLevel().registryAccess());
+            h.assertTrue(result.getCount() == 1 && net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(result.getItem()).toString().equals("forbidden_arcanus:mortem_" + entry.getKey()),
+                    "Recipe must produce one original Mortem piece");
+            items.set(0, ItemStack.EMPTY);
+            h.assertTrue(!holder.value().matches(net.minecraft.world.item.crafting.CraftingInput.of(3, entry.getValue().size(), items), h.getLevel()), "Missing material must invalidate recipe");
+        }
+        h.assertTrue(bones == 12 && iron == 12, "Full set must cost exactly 12 bones and 12 iron ingots");
+        h.succeed();
+    }
+
     private static void close(GameTestHelper h, double actual, double expected, String message) {
         h.assertTrue(Math.abs(actual - expected) < 0.002, message + ": " + actual + " != " + expected);
     }
@@ -85,14 +110,14 @@ public final class ArmorCombatGameTests {
             player.getAttribute(Attributes.ARMOR).setBaseValue(0);
             player.setHealth(20); player.invulnerableTime = 0;
             player.hurt(h.getLevel().damageSources().arrow(arrow, shooter), 8);
-            close(h, 20 - player.getHealth(), 8 * (1 - 0.2 * pieces), "Each Mortem piece must add 20% projectile reduction");
+            close(h, 20 - player.getHealth(), 8 * (1 - 0.125 * pieces), "Each Mortem piece must add 12.5% projectile reduction");
         }
         player.setHealth(20); player.invulnerableTime = 0;
         player.hurt(h.getLevel().damageSources().generic(), 8);
         close(h, player.getHealth(), 12, "Non-projectile damage must remain unchanged");
         player.setHealth(20); player.invulnerableTime = 0;
         player.hurt(h.getLevel().damageSources().trident(EntityType.TRIDENT.create(h.getLevel()), shooter), 8);
-        close(h, 20 - player.getHealth(), 1.6, "Tridents must use the projectile damage tag");
+        close(h, 20 - player.getHealth(), 4, "Tridents must use the projectile damage tag");
         for (var slot : SLOTS) player.setItemSlot(slot, ItemStack.EMPTY);
         player.setItemInHand(InteractionHand.OFF_HAND, new ItemStack(armor.getFirst()));
         player.setHealth(20); player.invulnerableTime = 0;

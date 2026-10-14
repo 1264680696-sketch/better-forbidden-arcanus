@@ -4,12 +4,63 @@
   "icon": "forbidden_arcanus:mortem_chestplate",
   "sortnum": 16,
   "pages": [
-    {"type": "patchouli:text", "text": "亡骨盔甲可以降低弹射物伤害。每穿戴一件减少 20%，一至四件分别减少 20%、40%、60%、80%；全套仍承受原本应受伤害的 20%。"},
-    {"type": "patchouli:text", "title": "生效范围", "text": "箭、三叉戟等被标记为弹射物的伤害生效，包括没有射手的箭。先结算原有护甲及附魔减伤，再按件数降低伤害；近战、跌落等其他伤害不享受这项额外减伤。"},
-    {"type": "patchouli:text", "title": "穿戴与获取", "text": "只有对应护甲槽内的亡骨部件计数，手持和背包不计入，卸下立即撤销。当前原 Mod 2.6.1 未提供常规制作配方；若整合包补充了获取方式，请按整合包路线取得。"},
-    {"type": "patchouli:spotlight", "item": "forbidden_arcanus:mortem_helmet", "title": "亡骨头盔", "text": "头部装备，弹射物伤害减少 20%。"},
-    {"type": "patchouli:spotlight", "item": "forbidden_arcanus:mortem_chestplate", "title": "亡骨胸甲", "text": "胸部装备，弹射物伤害减少 20%。"},
-    {"type": "patchouli:spotlight", "item": "forbidden_arcanus:mortem_leggings", "title": "亡骨护腿", "text": "腿部装备，弹射物伤害减少 20%。"},
-    {"type": "patchouli:spotlight", "item": "forbidden_arcanus:mortem_boots", "title": "亡骨靴子", "text": "足部装备，弹射物伤害减少 20%。"}
+    {
+      "type": "patchouli:text",
+      "text": "每穿戴一件亡骨盔甲，减少 12.5% 弹射物伤害。一至四件分别减伤 12.5%、25%、37.5%、50%；全套仍承受原本应受伤害的一半。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "箭、三叉戟等弹射物伤害生效，包括没有射手的箭。先结算原有护甲及附魔减伤，再按件数减少伤害；近战和跌落等不享受这项额外减伤。",
+      "title": "生效范围"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "在工作台用骨头与铁锭制作，保留原版盔甲的形状。全套共消耗骨头×12、铁锭×12。只有对应护甲槽内的装备计数，手持与背包不生效，卸下立即撤销。",
+      "title": "制作与穿戴"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:mortem_helmet",
+      "title": "亡骨头盔",
+      "text": "穿戴此部件，弹射物伤害减少 12.5%。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:mortem_helmet",
+      "text": ""
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:mortem_chestplate",
+      "title": "亡骨胸甲",
+      "text": "穿戴此部件，弹射物伤害减少 12.5%。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:mortem_chestplate",
+      "text": ""
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:mortem_leggings",
+      "title": "亡骨护腿",
+      "text": "穿戴此部件，弹射物伤害减少 12.5%。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:mortem_leggings",
+      "text": ""
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:mortem_boots",
+      "title": "亡骨靴子",
+      "text": "穿戴此部件，弹射物伤害减少 12.5%。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:mortem_boots",
+      "text": ""
+    }
   ]
 }

@@ -1,0 +1,37 @@
+{
+  "name": "神秘龙蛋与信标飞行",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:arcane_dragon_egg",
+  "sortnum": 18,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "神秘龙蛋可为有效信标加入自由飞行能力。把它放在信标正上方一格，紧贴顶面；信标原有药水效果仍然生效。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:arcane_dragon_egg",
+      "text": "沿用原有配方：龙蛋和金色龙鳞。"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "信标须有有效矿物底座、光柱畅通，并已选择主效果。龙蛋放在高处光柱中、信标旁边或未激活信标上，均不能启用飞行。",
+      "title": "激活条件"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "在信标效果范围内，可双击跳跃起飞，跳跃上升、潜行下降，速度沿用正常自由飞行。一级至四级水平范围分别为 20、30、40、50 格，垂直范围与原版信标相同。",
+      "title": "飞行与范围"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "离开范围、移走龙蛋或信标、信标失效后，立即撤销该结构提供的飞行。不保留额外时间，也不会自动给予缓降；高处离开范围会按普通规则下落。",
+      "title": "离开范围"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "多个有效结构范围重叠时，任意一个仍覆盖你就保留飞行。创造、旁观或其他能力提供的飞行权限不受撤销影响。切换维度和重新登录时按所在地重新判断。",
+      "title": "其他飞行来源"
+    }
+  ]
+}

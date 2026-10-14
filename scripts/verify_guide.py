@@ -22,7 +22,7 @@ def indexed(directory):
 
 categories = indexed(BOOK / 'categories')
 entries = indexed(BOOK / 'entries')
-assert len(categories) >= 9 and len(entries) >= 52
+assert len(categories) >= 9 and len(entries) >= 56
 recipes, rituals = {}, {}
 for jar_path in sorted((ROOT / 'libs').glob('*.jar')):
     with zipfile.ZipFile(jar_path) as jar:
@@ -64,13 +64,17 @@ for entry_id, entry in entries.items():
             multiblocks.append((entry_id, block, counts))
 for category in categories.values():
     assert not category.get('advancement')
-assert len(multiblocks) == 4
+assert len(multiblocks) == 5
 for entry_id, block, counts in multiblocks:
     if entry_id.startswith(NS + 'forge_setup/'):
         assert (counts['P'], counts['A'], counts['C'], counts['H']) == (48, 9, 4, 8)
     elif entry_id.endswith('/clibano'):
         assert (counts['B'], counts['P'], counts['0'], counts[' ']) == (17, 8, 1, 1)
         assert block['symmetrical'] is False, 'Clibano core is on one side; preserve rotation'
+    elif entry_id.endswith('/obelisk') or entry_id.endswith('/corrupted_obelisk'):
+        assert (counts['X'], counts['0']) == (2, 1)
+        assert len(block['pattern']) == 3 and len(block['pattern'][0]) == 3 and len(block['pattern'][0][0]) == 3
+        assert block['pattern'][2][1][1] == '0'
 
 # The source registry is the independent oracle: every effective ritual belongs
 # to its first usable tier, including exact-tier upgrades and grouped armour.
@@ -119,4 +123,4 @@ for ritual_id, ritual in rituals.items():
     if ritual.get('enhancers'):
         assert '必需增强器：' in text and '无必需增强器。' not in text, ritual_id
 assert not any(r.get('forge_tier', 1) == 5 for r in rituals.values())
-print(f'PASS: {len(entries)} guide entries, 24 effective rituals, links, recipe types and four native blueprints')
+print(f'PASS: {len(entries)} guide entries, 24 effective rituals, links, recipe types and five native blueprints')

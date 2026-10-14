@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "B I",
+    "IBI",
+    "BIB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "forbidden_arcanus:mortem_chestplate",
+    "count": 1
+  }
+}

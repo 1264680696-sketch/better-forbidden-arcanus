@@ -38,6 +38,9 @@ public final class GuideClientTest {
     private static boolean started, ready, finished, projecting;
     private static int frame, ticks, projections;
     private static long start;
+    private static boolean dragonScene;
+    private static net.minecraft.core.BlockPos standingEgg, fallingEgg;
+    private static volatile int fallingEntity;
 
     private static Object field(Class<?> type, String name, Object instance) {
         try { var field = type.getDeclaredField(name); field.setAccessible(true); return field.get(instance); }
@@ -60,13 +63,17 @@ public final class GuideClientTest {
         if (!started) return;
         if (System.currentTimeMillis() - start > 300000) throw new IllegalStateException("Guide world/render check timed out");
         if (mc.level == null || mc.player == null) return;
+        if (dragonScene) { checkDragonScene(); return; }
         var book = BookRegistry.INSTANCE.books.get(SoulItems.id("forbidden_arcanus"));
         if (!ready) {
             if (mc.screen != null) return;
             book.reloadContents(mc.level, false);
             var contents = book.getContents();
             if (contents.isErrored()) throw new IllegalStateException("Guide contents failed to compile", contents.getException());
-            if (contents.entries.size() < 52 || contents.categories.size() < 9) throw new IllegalStateException("Incomplete guide contents");
+            if (contents.entries.size() < 56 || contents.categories.size() < 9) throw new IllegalStateException("Incomplete guide contents");
+            var eggState = com.stal111.forbidden_arcanus.core.init.ModBlocks.ARCANE_DRAGON_EGG.get().defaultBlockState();
+            if (mc.getBlockRenderer().getBlockModel(eggState) == mc.getModelManager().getMissingModel())
+                throw new IllegalStateException("Arcane dragon egg static/falling block model is still missing");
             try {
                 var overflow = book.getClass().getDeclaredField("overflowMode"); overflow.setAccessible(true);
                 overflow.set(book, vazkii.patchouli.api.PatchouliConfigAccess.TextOverflowMode.RESIZE);
@@ -80,7 +87,9 @@ public final class GuideClientTest {
         if (++ticks < 3) return;
         if (projecting) {
             if (mc.screen != null || PatchouliAPI.get().getCurrentMultiblock() == null)
-                throw new IllegalStateException("World projection did not remain visible after closing the book");
+                throw new IllegalStateException("World projection did not remain visible after closing the book: "
+                        + frames.get(frame).entry.getId() + ", screen=" + mc.screen
+                        + ", projection=" + PatchouliAPI.get().getCurrentMultiblock());
             if (projections == 1) Screenshot.grab(mc.gameDirectory, "guide-projection.png", mc.getMainRenderTarget(), component -> {});
             projecting = false;
             advance(); return;
@@ -102,6 +111,10 @@ public final class GuideClientTest {
                         .filter(button -> button.getMessage().getContents() instanceof TranslatableContents translation && translation.getKey().contains("visualize"))
                         .findFirst().orElseThrow(() -> new IllegalStateException("Missing visualization button"));
                 if (projections == 0) Screenshot.grab(mc.gameDirectory, "guide-construction.png", mc.getMainRenderTarget(), component -> {});
+                if (current.entry.getId().getPath().equals("practical/obelisk"))
+                    Screenshot.grab(mc.gameDirectory, "guide-obelisk.png", mc.getMainRenderTarget(), component -> {});
+                if (current.entry.getId().getPath().equals("practical/corrupted_obelisk"))
+                    Screenshot.grab(mc.gameDirectory, "guide-corrupted-obelisk.png", mc.getMainRenderTarget(), component -> {});
                 visualize.onPress();
                 if (PatchouliAPI.get().getCurrentMultiblock() == null) throw new IllegalStateException("Visualization button did not create world projection");
                 mc.setScreen(null); // The player closes the book to see the selected projection.
@@ -118,13 +131,52 @@ public final class GuideClientTest {
         var book = BookRegistry.INSTANCE.books.get(SoulItems.id("forbidden_arcanus"));
         if (++frame >= frames.size()) {
             if (!overflows.isEmpty()) throw new IllegalStateException("Guide text overflow: " + String.join("; ",overflows));
-            if (projections != 4) throw new IllegalStateException("Expected four functioning multiblock projections, got " + projections);
-            finished = true;
-            com.mojang.logging.LogUtils.getLogger().info("BFA_GUIDE_PASS: {} entries, {} rendered spreads, {} working world projections",
-                    book.getContents().entries.size(), frames.size(), projections);
-            mc.stop(); return;
+            if (projections != 5) throw new IllegalStateException("Expected five functioning multiblock projections, got " + projections);
+            PatchouliAPI.get().clearMultiblock();
+            mc.setScreen(null);
+            standingEgg = mc.player.blockPosition().offset(0, 0, 4);
+            fallingEgg = standingEgg.offset(2, 0, 0);
+            mc.player.setXRot(0); mc.player.setYRot(-12);
+            dragonScene = true; ticks = 0;
+            var dimension = mc.level.dimension();
+            mc.getSingleplayerServer().execute(() -> {
+                var level = mc.getSingleplayerServer().getLevel(dimension);
+                var egg = com.stal111.forbidden_arcanus.core.init.ModBlocks.ARCANE_DRAGON_EGG.get().defaultBlockState();
+                level.setBlockAndUpdate(standingEgg.below(), net.minecraft.world.level.block.Blocks.STONE.defaultBlockState());
+                level.setBlockAndUpdate(fallingEgg.below(), net.minecraft.world.level.block.Blocks.STONE.defaultBlockState());
+                level.setBlockAndUpdate(standingEgg, egg);
+                level.setBlockAndUpdate(fallingEgg.above(3), egg);
+                var entity = net.minecraft.world.entity.item.FallingBlockEntity.fall(level, fallingEgg.above(3), egg);
+                entity.setNoGravity(true);
+                fallingEntity = entity.getId();
+            });
+            return;
         }
         show();
+    }
+
+    private static void checkDragonScene() {
+        var mc = Minecraft.getInstance();
+        int elapsed = ++ticks;
+        if (elapsed == 30) {
+            if (!mc.level.getBlockState(standingEgg).is(com.stal111.forbidden_arcanus.core.init.ModBlocks.ARCANE_DRAGON_EGG.get())
+                    || !(mc.level.getEntity(fallingEntity) instanceof net.minecraft.world.entity.item.FallingBlockEntity))
+                throw new IllegalStateException("Standing/falling dragon egg scene did not synchronize");
+            Screenshot.grab(mc.gameDirectory, "guide-dragon-egg.png", mc.getMainRenderTarget(), component -> {});
+            mc.getSingleplayerServer().execute(() -> {
+                var entity = mc.getSingleplayerServer().getLevel(mc.level.dimension()).getEntity(fallingEntity);
+                entity.setNoGravity(false);
+            });
+        }
+        if (elapsed == 100) {
+            if (!mc.level.getBlockState(fallingEgg).is(com.stal111.forbidden_arcanus.core.init.ModBlocks.ARCANE_DRAGON_EGG.get()))
+                throw new IllegalStateException("Falling dragon egg did not land as its original block");
+            Screenshot.grab(mc.gameDirectory, "guide-dragon-egg-landed.png", mc.getMainRenderTarget(), component -> {});
+            finished = true;
+            com.mojang.logging.LogUtils.getLogger().info("BFA_GUIDE_PASS: {} entries, {} rendered spreads, {} working world projections; standing/falling dragon egg rendered",
+                    BookRegistry.INSTANCE.books.get(SoulItems.id("forbidden_arcanus")).getContents().entries.size(), frames.size(), projections);
+            mc.stop();
+        }
     }
 
     private static void show() {

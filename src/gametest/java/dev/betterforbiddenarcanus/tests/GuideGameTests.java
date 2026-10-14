@@ -111,6 +111,12 @@ public final class GuideGameTests {
         obelisk.place(level, center, Rotation.NONE);
         helper.assertTrue(obelisk.validate(level, center, Rotation.NONE), "Obelisk book structure must validate");
         helper.assertTrue(ModBlockPatterns.ARCANE_CRYSTAL_OBELISK_PATTERN.find(level, center) != null, "Published obelisk must match original activation pattern");
+        for (int x = -2; x <= 2; x++) for (int y = -1; y <= 3; y++) for (int z = -2; z <= 2; z++) level.setBlockAndUpdate(center.offset(x,y,z), Blocks.AIR.defaultBlockState());
+        var corrupt = structure("practical/corrupted_obelisk");
+        corrupt.place(level, center, Rotation.NONE);
+        level.setBlockAndUpdate(center.offset(1, 0, 1), Blocks.DIAMOND_BLOCK.defaultBlockState());
+        helper.assertTrue(corrupt.validate(level, center, Rotation.NONE), "Corrupt obelisk display padding must allow arbitrary blocks");
+        helper.assertTrue(dev.betterforbiddenarcanus.CorruptedObelisk.PATTERN.find(level, center) != null, "Published corrupt obelisk must match addon creation pattern without moving anchor");
         helper.succeed();
     }
 }

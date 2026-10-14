@@ -27,6 +27,11 @@
       "type": "patchouli:text",
       "text": "玩家自身的辉光和祭坛库存是两套储量。量子捕捉器等物品会使用玩家辉光，附近祭坛存满并不能替代玩家自身储量。",
       "title": "两种辉光储量"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "使用$(l:better_forbidden_arcanus:practical/corrupted_obelisk)腐化神秘水晶方尖碑$(/l)，可为附近祭坛持续增加经验精华；石化经验球、附魔之瓶和祛除附魔仍可用于补给。",
+      "title": "持续补充经验"
     }
   ]
 }

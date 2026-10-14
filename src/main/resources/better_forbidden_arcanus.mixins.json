@@ -3,6 +3,6 @@
   "minVersion": "0.8",
   "package": "dev.betterforbiddenarcanus.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": ["ClibanoMixin", "ClibanoProgressMixin", "EssenceInputMixin", "DarkSoulMixin", "PedestalMixin", "RitualMixin", "TyrPiglinMixin", "CrimsonBloodMixin"],
+  "mixins": ["ClibanoMixin", "ClibanoProgressMixin", "EssenceInputMixin", "DarkSoulMixin", "PedestalMixin", "RitualMixin", "TyrPiglinMixin", "CrimsonBloodMixin", "CorruptedObeliskMixin", "BeaconAccessor", "BeaconFlightMixin"],
   "injectors": {"defaultRequire": 1}
 }
