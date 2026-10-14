@@ -10,3 +10,5 @@ tools/guide-editor/__pycache__/
 tools/guide-editor/.backups/
 tools/guide-editor/*.log
 local.properties
+
+tools/guide-editor/.runtime/

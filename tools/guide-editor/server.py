@@ -25,6 +25,7 @@ SAFE_ID = re.compile(r'[a-z0-9_-]+(?:/[a-z0-9_-]+)*\Z')
 RESOURCE_ID = re.compile(r'[a-z0-9_.-]+:[a-z0-9_./-]+\Z')
 TOKEN = os.environ.get('BFA_GUIDE_EDITOR_TOKEN') or secrets.token_urlsafe(32)
 ASSET_CACHE = PROJECT / '.gradle-user-home/caches/neoformruntime/assets'
+BACKUPS = HERE / '.backups'
 
 
 @lru_cache(maxsize=1)
@@ -224,6 +225,33 @@ def crafting_recipe(recipe_id):
 
 
 @lru_cache(maxsize=1)
+def recipe_catalog():
+    pattern = re.compile(r'data/([a-z0-9_.-]+)/recipe/([a-z0-9_./-]+)\.json\Z')
+    candidates = {}
+    for jar in resource_jars():
+        with zipfile.ZipFile(jar) as archive:
+            for name in archive.namelist():
+                match = pattern.fullmatch(name)
+                if match:
+                    recipe_id = match[1] + ':' + match[2]
+                    if recipe_id not in candidates:
+                        try: candidates[recipe_id] = json.loads(archive.read(name))
+                        except (ValueError, UnicodeDecodeError): pass
+    for path in sorted((RESOURCES / 'data').rglob('*.json')):
+        match = pattern.fullmatch(path.relative_to(RESOURCES).as_posix())
+        if match:
+            candidates[match[1] + ':' + match[2]] = json.loads(path.read_text(encoding='utf-8-sig'))
+    result = []
+    for recipe_id, recipe in candidates.items():
+        if recipe.get('type') not in ('minecraft:crafting_shaped','minecraft:crafting_shapeless'): continue
+        output = recipe.get('result',{})
+        if isinstance(output,dict): output = output.get('id') or output.get('item')
+        if not isinstance(output,str): continue
+        result.append({'id':recipe_id,'name':item_name(output),'output':output})
+    return {'recipes':sorted(result,key=lambda row:row['id'])}
+
+
+@lru_cache(maxsize=1)
 def unicode_glyphs():
     """Minecraft's locally cached Unifont bitmaps; not copied into the project."""
     raw = cached_asset('minecraft/font/unifont.zip')
@@ -258,7 +286,7 @@ def load():
         data[kind] = {p.relative_to(CONTENT / kind).with_suffix('').as_posix():
                       json.loads(p.read_text(encoding='utf-8-sig'))
                       for p in sorted((CONTENT / kind).rglob('*.json'))}
-    return {'document': data, 'revision': revision(), 'token': TOKEN, 'bookId': BOOK_ID}
+    return {'document': data, 'revision': revision(), 'token': TOKEN, 'bookId': BOOK_ID, 'projectRoot': str(PROJECT), 'contentRoot': str(RESOURCES)}
 
 
 def validate(data):
@@ -325,7 +353,11 @@ def save(data, expected):
         raise FileExistsError('源文件已被其他窗口或工具修改。请先重新载入，避免覆盖。')
     targets = target_files(validate(data))
     old = {p: p.read_bytes() for p in files()}
-    backup = HERE / '.backups' / (str(time.time_ns()) + '.zip')
+    # Leave untouched files byte-for-byte intact, including user-authored drafts.
+    for path in targets.keys() & old.keys():
+        if json.loads(old[path].decode('utf-8-sig')) == json.loads(targets[path]):
+            targets[path] = old[path]
+    backup = BACKUPS / (str(time.time_ns()) + '.zip')
     backup.parent.mkdir(exist_ok=True)
     with zipfile.ZipFile(backup, 'w', zipfile.ZIP_DEFLATED) as archive:
         for path, content in old.items():
@@ -333,6 +365,8 @@ def save(data, expected):
     staged = {}
     try:
         for path, content in targets.items():
+            if old.get(path) == content:
+                continue
             path.parent.mkdir(parents=True, exist_ok=True)
             with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as handle:
                 handle.write(content)
@@ -447,6 +481,8 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send(icon or b'', 200 if icon else 404, 'image/png')
             if route.path == '/api/items':
                 return self.send(item_catalog())
+            if route.path == '/api/recipes':
+                return self.send(recipe_catalog())
             if route.path == '/api/texture':
                 namespace, path = resource_parts(parse_qs(route.query).get('id', [''])[0])
                 if not path.startswith('textures/') or not path.endswith('.png'):
@@ -461,10 +497,10 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send({'error': '一次最多查询 4096 个字形。'}, 400)
                 glyphs = unicode_glyphs()
                 return self.send({char: glyphs[char] for char in set(chars) if char in glyphs})
-            names = {'/': 'index.html', '/style.css': 'style.css', '/app.js': 'app.js'}
+            names = {'/': 'index.html', '/style.css': 'style.css', '/app.js': 'app.js', '/visual.js': 'visual.js'}
             if route.path in names:
                 name = names[route.path]
-                mime = {'index.html': 'text/html', 'style.css': 'text/css', 'app.js': 'application/javascript'}[name]
+                mime = {'index.html': 'text/html', 'style.css': 'text/css', 'app.js': 'application/javascript', 'visual.js': 'application/javascript'}[name]
                 return self.send((HERE / name).read_bytes(), mime=mime + '; charset=utf-8')
             self.send({'error': '页面不存在。'}, 404)
         except Exception as error:
@@ -498,7 +534,15 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--port', type=int, default=18741)
     parser.add_argument('--open', action='store_true')
+    parser.add_argument('--content-root', type=Path, help='Use an isolated copy of the resource folder for authoring or verification.')
     args = parser.parse_args()
+    if args.content_root:
+        RESOURCES = args.content_root.resolve()
+        BOOK = RESOURCES / 'data' / NAMESPACE / 'patchouli_books/forbidden_arcanus/book.json'
+        CONTENT = RESOURCES / 'assets' / NAMESPACE / 'patchouli_books/forbidden_arcanus/en_us'
+        BACKUPS = RESOURCES.parent / '.guide-backups'
+        if not BOOK.is_file():
+            raise SystemExit('The resource copy does not contain this guide book.')
     try:
         server = ThreadingHTTPServer(('127.0.0.1', args.port), Handler)
     except OSError:

@@ -353,4 +353,3 @@ $('export').addEventListener('click', async () => { if ((dirty || rawDraft !== n
 document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') { e.preventDefault(); saveDocument(); } });
 window.addEventListener('beforeunload', e => { if (dirty || rawDraft !== null) { e.preventDefault(); e.returnValue = ''; } });
 new ResizeObserver(() => { if (doc) { fitBook(); updateOverflow(); } }).observe($('book-frame'));
-loadDocument();
