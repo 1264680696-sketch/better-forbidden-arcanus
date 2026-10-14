@@ -16,6 +16,7 @@ public final class BetterForbiddenArcanus {
         ForgeUpgrades.INGREDIENTS.register(modBus);
         ForgeUpgrades.RESULTS.register(modBus);
         modBus.addListener(BatSoupComponents::modifyDefaults);
+        modBus.addListener(DracoToolComponents::modifyDefaults);
         modBus.addListener(RelicCurio::setup);
     }
 }

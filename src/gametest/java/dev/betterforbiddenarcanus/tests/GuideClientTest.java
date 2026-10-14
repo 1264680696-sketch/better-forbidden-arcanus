@@ -42,6 +42,7 @@ public final class GuideClientTest {
     private static boolean upgradeScene;
     private static net.minecraft.core.BlockPos standingEgg, fallingEgg;
     private static volatile int fallingEntity;
+    private static net.minecraft.core.BlockPos corruptionBlock;
 
     private static Object field(Class<?> type, String name, Object instance) {
         try { var field = type.getDeclaredField(name); field.setAccessible(true); return field.get(instance); }
@@ -181,7 +182,7 @@ public final class GuideClientTest {
                 var player = mc.getSingleplayerServer().getPlayerList().getPlayer(playerId);
                 player.setGameMode(GameType.SURVIVAL);
                 for (int tier = 1; tier <= 5; tier++) {
-                    var stack = new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.DIAMOND_SWORD);
+                    var stack = new net.minecraft.world.item.ItemStack(com.stal111.forbidden_arcanus.core.init.ModItems.DRACO_ARCANUS_SWORD.get());
                     stack.set(dev.betterforbiddenarcanus.ForgeUpgrades.TIER, tier);
                     stack.set(net.minecraft.core.component.DataComponents.CUSTOM_NAME, net.minecraft.network.chat.Component.literal("强化 " + tier).withStyle(net.minecraft.ChatFormatting.ITALIC));
                     player.getInventory().setItem(tier - 1, stack);
@@ -202,7 +203,11 @@ public final class GuideClientTest {
                     throw new IllegalStateException("Upgrade component or name did not synchronize to client");
             }
             Screenshot.grab(mc.gameDirectory, "guide-upgrade-hotbar.png", mc.getMainRenderTarget(), component -> {});
-            mc.setScreen(new net.minecraft.client.gui.screens.inventory.InventoryScreen(mc.player));
+            mc.setScreen(new net.minecraft.client.gui.screens.inventory.InventoryScreen(mc.player) {
+                @Override public void render(net.minecraft.client.gui.GuiGraphics graphics,int mouseX,int mouseY,float partialTick) {
+                    super.render(graphics,this.leftPos+8+18*4+8,this.topPos+84+8,partialTick);
+                }
+            });
         }
         if (elapsed == 30) Screenshot.grab(mc.gameDirectory, "guide-upgrade-inventory.png", mc.getMainRenderTarget(), component -> {});
         if (elapsed == 32) {
@@ -220,8 +225,32 @@ public final class GuideClientTest {
         if (elapsed == 60) {
             if (!(mc.screen instanceof net.minecraft.client.gui.screens.inventory.ContainerScreen)) throw new IllegalStateException("Real chest inventory did not open");
             Screenshot.grab(mc.gameDirectory, "guide-upgrade-container.png", mc.getMainRenderTarget(), component -> {});
+            mc.player.closeContainer();
+            corruptionBlock=mc.player.blockPosition().offset(0,1,3);
+            mc.player.setYRot(0);mc.player.setXRot(2);
+            var id=mc.player.getUUID();
+            mc.getSingleplayerServer().execute(() -> {
+                var player=mc.getSingleplayerServer().getPlayerList().getPlayer(id);
+                player.serverLevel().setBlockAndUpdate(corruptionBlock,com.stal111.forbidden_arcanus.core.init.ModBlocks.ARCANE_CRYSTAL_BLOCK.get().defaultBlockState());
+                player.getInventory().setItem(0,new net.minecraft.world.item.ItemStack(com.stal111.forbidden_arcanus.core.init.ModItems.CORRUPTI_DUST.get(),3));
+                player.getInventory().selected=0;player.inventoryMenu.broadcastChanges();
+            });
+        }
+        if (elapsed == 90) {
+            if (!mc.level.getBlockState(corruptionBlock).is(com.stal111.forbidden_arcanus.core.init.ModBlocks.ARCANE_CRYSTAL_BLOCK.get())
+                    || !mc.player.getMainHandItem().is(com.stal111.forbidden_arcanus.core.init.ModItems.CORRUPTI_DUST.get()))
+                throw new IllegalStateException("Crystal interaction scene did not synchronize");
+            mc.gameMode.useItemOn(mc.player,net.minecraft.world.InteractionHand.MAIN_HAND,
+                    new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(corruptionBlock),net.minecraft.core.Direction.NORTH,corruptionBlock,false));
+        }
+        if (elapsed == 96) {
+            if (!mc.level.getBlockState(corruptionBlock).is(com.stal111.forbidden_arcanus.core.init.ModBlocks.CORRUPTED_ARCANE_CRYSTAL_BLOCK.get())
+                    || mc.player.getMainHandItem().getCount()!=2) throw new IllegalStateException("Client/server crystal right-click conversion failed");
+            Screenshot.grab(mc.gameDirectory,"guide-crystal-corruption.png",mc.getMainRenderTarget(),component -> {});
+        }
+        if (elapsed == 110) {
             finished = true;
-            com.mojang.logging.LogUtils.getLogger().info("BFA_GUIDE_PASS: {} entries, {} rendered spreads, {} working world projections; dragon egg and five upgrade colors in hotbar/inventory/chest",
+            com.mojang.logging.LogUtils.getLogger().info("BFA_GUIDE_PASS: {} entries, {} rendered spreads, {} working world projections; dragon egg, upgrade tooltip/colors, and crystal right-click conversion",
                     BookRegistry.INSTANCE.books.get(SoulItems.id("forbidden_arcanus")).getContents().entries.size(), frames.size(), projections);
             mc.stop();
         }

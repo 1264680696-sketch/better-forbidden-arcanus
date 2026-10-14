@@ -16,6 +16,5 @@
   "item.forbidden_arcanus.elementarium": "基本元素",
   "item.forbidden_arcanus.artisan_relic": "工匠遗物",
   "item.forbidden_arcanus.crimson_stone": "绯红之石",
-  "item.forbidden_arcanus.soul_crimson_stone": "灵魂绯红之石",
-  "tooltip.better_forbidden_arcanus.forge_upgrade": "锻造强化 %s 级：属性 +%s%%"
+  "item.forbidden_arcanus.soul_crimson_stone": "灵魂绯红之石"
 }

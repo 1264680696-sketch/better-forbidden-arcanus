@@ -22,6 +22,11 @@
       "type": "patchouli:text",
       "text": "不要把洁净粉末和腐化粉末混淆：洁净粉末激活设施；腐化粉末参与灵魂仪式，也用于$(l:better_forbidden_arcanus:practical/black_hole)黑洞$(/l)。",
       "title": "用途区分"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "腐化水晶块",
+      "text": "手持一份腐化粉末，右击已放置的神秘水晶块，将它转化为腐化神秘水晶块。每次消耗一份粉末；会迸出水晶粒子，并播放方尖碑转化的声音。"
     }
   ]
 }

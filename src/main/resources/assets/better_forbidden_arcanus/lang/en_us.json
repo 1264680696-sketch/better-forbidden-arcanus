@@ -9,6 +9,5 @@
   "tooltip.better_forbidden_arcanus.relic.elementarium": "Relic: +2 relic slots.",
   "tooltip.better_forbidden_arcanus.relic.artisan_relic": "Relic: half anvil level cost, rounded up; 25% less anvil damage chance; 25% chance to retain smithing templates. Enables equipment upgrading in the forge enhancer slot.",
   "tooltip.better_forbidden_arcanus.relic.crimson_stone": "Relic: 10% life steal from actual health damage; +50% test-tube and player-attack forge blood generation.",
-  "tooltip.better_forbidden_arcanus.relic.soul_crimson_stone": "Relic: No additional equipped ability yet.",
-  "tooltip.better_forbidden_arcanus.forge_upgrade": "Forge upgrade %s: +%s%% stats"
+  "tooltip.better_forbidden_arcanus.relic.soul_crimson_stone": "Relic: No additional equipped ability yet."
 }

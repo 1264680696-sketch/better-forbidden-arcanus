@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "官方旧版的天龙工具配方现已恢复。先制作天龙杖柄，再配合龙鳞、钻石和黑曜钢制作工具。下列配方都产出原 Mod 的物品。"
+      "text": "先制作天龙杖柄，再配合龙鳞、钻石和黑曜钢制作工具。天龙工具已恢复默认攻击属性；强化后，绿色属性行直接显示加成后的数值。"
     },
     {
       "type": "patchouli:crafting",
@@ -42,6 +42,11 @@
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:draco_arcanus_scepter",
       "text": "天龙权杖；每次产出 1 个。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "基础近战属性",
+      "text": "伤害／攻击速度：$(br)剑：12／1.8$(br)镐：10／1.4$(br)斧：14／1.2$(br)锹：10.5／1.2$(br)锄：4／5$(br)权杖：1／4$(br2)权杖以上数值为近战属性，能量球攻击沿用原规则。"
     }
   ]
 }

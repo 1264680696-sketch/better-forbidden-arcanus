@@ -47,6 +47,11 @@
       "type": "patchouli:text",
       "text": "它不会同时提供辉光，也不消耗经验物品。方尖碑占用祭坛的供给位置，八基座仪式前应调整布局。其他经验来源见$(l:better_forbidden_arcanus:basics/essences)四种精华$(/l)。",
       "title": "供给整理"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "准备腐化水晶块",
+      "text": "先放置普通神秘水晶块，再用腐化粉末右击转化，每块消耗一份粉末。准备两块后，按本条目的结构投影搭建方尖碑。"
     }
   ]
 }

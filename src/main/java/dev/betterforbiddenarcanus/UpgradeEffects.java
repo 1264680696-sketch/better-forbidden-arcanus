@@ -2,10 +2,10 @@ package dev.betterforbiddenarcanus;
 
 import java.util.List;
 import net.minecraft.core.Holder;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -38,9 +38,17 @@ public final class UpgradeEffects {
             for (var type : List.of(Attributes.ATTACK_DAMAGE, Attributes.ATTACK_SPEED)) {
                 if (entries.stream().noneMatch(e -> e.attribute().equals(type) && e.slot().test(EquipmentSlot.MAINHAND))) continue;
                 double base = type.equals(Attributes.ATTACK_SPEED) ? 4 : 1;
-                double amount = Math.max(0, value(entries, type, base)) * bonus;
-                event.addModifier(type, new AttributeModifier(SoulItems.id("upgrade_" + (base == 4 ? "speed" : "attack")), amount,
-                        AttributeModifier.Operation.ADD_VALUE), net.minecraft.world.entity.EquipmentSlotGroup.MAINHAND);
+                double extra = Math.max(0, value(entries, type, base)) * bonus;
+                var canonical = base == 4 ? Item.BASE_ATTACK_SPEED_ID : Item.BASE_ATTACK_DAMAGE_ID;
+                // Merge main-hand additive values into the native base modifier.
+                // This keeps real stats and the green tooltip total identical,
+                // while percentage modifiers still apply once in the normal order.
+                var additive = entries.stream().filter(e -> e.attribute().equals(type)
+                        && e.slot() == net.minecraft.world.entity.EquipmentSlotGroup.MAINHAND
+                        && e.modifier().operation() == AttributeModifier.Operation.ADD_VALUE).toList();
+                double amount = additive.stream().mapToDouble(e -> e.modifier().amount()).sum() + extra;
+                additive.forEach(e -> event.removeModifier(type, e.modifier().id()));
+                event.addModifier(type, new AttributeModifier(canonical, amount, AttributeModifier.Operation.ADD_VALUE), net.minecraft.world.entity.EquipmentSlotGroup.MAINHAND);
             }
         }
     }
@@ -53,6 +61,5 @@ public final class UpgradeEffects {
         var stack = event.getItemStack(); int tier = ForgeUpgrades.tier(stack);
         if (tier == 0) return;
         if (!event.getToolTip().isEmpty()) event.getToolTip().set(0, event.getToolTip().getFirst().copy().withStyle(ForgeUpgrades.color(stack)));
-        event.getToolTip().add(Component.translatable("tooltip.better_forbidden_arcanus.forge_upgrade", tier, (int)Math.round(ForgeUpgrades.bonus(stack) * 100)).withStyle(ForgeUpgrades.color(stack)));
     }
 }

@@ -95,7 +95,7 @@ with zipfile.ZipFile(next((ROOT / 'libs').glob('*forbidden_arcanus-2.6.1.jar')))
         assert 'curios.modifiers.relic' in lang
         for item_id in relics:
             assert 'tooltip.better_forbidden_arcanus.relic.' + item_id.split(':')[1] in lang
-        assert '25%' in lang['tooltip.better_forbidden_arcanus.relic.artisan_relic'] and 'tooltip.better_forbidden_arcanus.forge_upgrade' in lang
+        assert '25%' in lang['tooltip.better_forbidden_arcanus.relic.artisan_relic'] and 'tooltip.better_forbidden_arcanus.forge_upgrade' not in lang
         assert not any(key.startswith('tooltip.better_forbidden_arcanus') and 'tyr' in key for key in lang)
 guide = json.loads((DATA / 'better_forbidden_arcanus/patchouli_books/forbidden_arcanus/book.json').read_text(encoding='utf-8'))
 assert guide['name'] == '禁忌与奥秘' and guide['use_resource_pack'] is True
