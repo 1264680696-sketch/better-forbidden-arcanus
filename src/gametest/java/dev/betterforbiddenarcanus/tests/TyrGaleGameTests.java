@@ -97,8 +97,9 @@ public final class TyrGaleGameTests {
         p.setHealth(20);close(h,hit(p,h.getLevel().damageSources().generic(),8),8,"No unrelated damage reduction");
         p.setItemInHand(InteractionHand.MAIN_HAND,new ItemStack(Items.SHIELD));p.setItemInHand(InteractionHand.OFF_HAND,new ItemStack(Items.SHIELD));
         p.startUsingItem(InteractionHand.OFF_HAND);h.assertTrue(!p.isUsingItem(),"Cannot start shield blocking");
-        TyrCombat.update(p);h.assertTrue(p.getMainHandItem().isEmpty()&&p.getOffhandItem().isEmpty(),"Both shields stowed");
+        TyrCombat.update(p);h.assertTrue(p.getMainHandItem().is(Items.SHIELD)&&p.getOffhandItem().isEmpty(),"Only offhand shield stowed");
         close(h,p.getInventory().items.stream().filter(s->s.is(Items.SHIELD)).mapToInt(ItemStack::getCount).sum(),2,"Neither shield deleted");
+        p.startUsingItem(InteractionHand.MAIN_HAND);h.assertTrue(p.isUsingItem(),"Main hand shield is usable");p.stopUsingItem();
         for(int i=0;i<36;i++)p.getInventory().setItem(i,new ItemStack(Items.STONE,64));
         p.setItemInHand(InteractionHand.OFF_HAND,new ItemStack(Items.SHIELD));TyrCombat.update(p);
         h.assertTrue(p.getOffhandItem().isEmpty(),"Full backpack must remove shield from hand");

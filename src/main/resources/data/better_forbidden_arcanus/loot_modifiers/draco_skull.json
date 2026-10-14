@@ -1,0 +1,4 @@
+{
+  "type": "better_forbidden_arcanus:draco_skull",
+  "conditions": [{"condition": "neoforge:loot_table_id", "loot_table_id": "minecraft:entities/wither_skeleton"}]
+}

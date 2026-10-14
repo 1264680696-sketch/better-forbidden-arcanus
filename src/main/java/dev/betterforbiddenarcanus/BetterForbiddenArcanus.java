@@ -9,6 +9,8 @@ public final class BetterForbiddenArcanus {
 
     public BetterForbiddenArcanus(IEventBus modBus) {
         SoulItems.ITEMS.register(modBus);
+        ScepterStorm.ENTITIES.register(modBus);
+        DracoSkullLoot.SERIALIZERS.register(modBus);
         SoulItems.TABS.register(modBus);
         ElytraDuplicationRecipe.SERIALIZERS.register(modBus);
         CorruptedObelisk.INTERACTIONS.register(modBus);
@@ -18,5 +20,6 @@ public final class BetterForbiddenArcanus {
         modBus.addListener(BatSoupComponents::modifyDefaults);
         modBus.addListener(DracoToolComponents::modifyDefaults);
         modBus.addListener(RelicCurio::setup);
+        modBus.addListener(TyrCooldown::register);
     }
 }

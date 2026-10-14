@@ -88,6 +88,23 @@ public final class ArmorCombatGameTests {
     }
 
     @GameTest(template = "empty")
+    public static void tyrDragonBonusAndMixedArmor(GameTestHelper h) {
+        var p=h.makeMockPlayer(GameType.SURVIVAL);var dragon=EntityType.ENDER_DRAGON.create(h.getLevel());
+        var tyr=List.of(ModItems.TYR_HELMET.get(),ModItems.TYR_CHESTPLATE.get(),ModItems.TYR_LEGGINGS.get(),ModItems.TYR_BOOTS.get());
+        var draco=List.of(ModItems.DRACO_ARCANUS_HELMET.get(),ModItems.DRACO_ARCANUS_CHESTPLATE.get(),ModItems.DRACO_ARCANUS_LEGGINGS.get(),ModItems.DRACO_ARCANUS_BOOTS.get());
+        for(int pieces=1;pieces<=4;pieces++) {
+            p.setItemSlot(SLOTS.get(pieces-1),new ItemStack(tyr.get(pieces-1)));
+            double expected=8*(1+pieces*.25)*(pieces>=2?1.5:1);
+            close(h,hitDragon(dragon,p,false,false),expected,"Tyr melee dragon bonus multiplies with justice once");
+            close(h,hitDragon(dragon,p,false,true),expected,"Tyr ranged dragon bonus");
+        }
+        for(int i=1;i<4;i++)p.setItemSlot(SLOTS.get(i),new ItemStack(draco.get(i)));
+        close(h,hitDragon(dragon,p,false,true),16,"One Tyr plus three Draco adds four pieces without duplicate bonus");
+        for(var slot:SLOTS)p.setItemSlot(slot,ItemStack.EMPTY);
+        close(h,hitDragon(dragon,p,false,true),8,"Unequip removes bonus");h.succeed();
+    }
+
+    @GameTest(template = "empty")
     public static void dracoDoesNotBoostOtherTargets(GameTestHelper h) {
         var player = h.makeMockPlayer(GameType.SURVIVAL);
         player.setItemSlot(EquipmentSlot.CHEST, new ItemStack(ModItems.DRACO_ARCANUS_CHESTPLATE.get()));

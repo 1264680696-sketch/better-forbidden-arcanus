@@ -25,7 +25,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "三级可制作$(l:better_forbidden_arcanus:forge_tier_3/quantum_injector)量子注入器$(/l)，把附近精华罐与祭坛配合起来。它只转移已有精华，并不创造新的库存。",
+      "text": "三级可制作$(l:better_forbidden_arcanus:forge_tier_3/quantum_injector)量子注入器$(/l)。右键开启后自动转移附近精华罐的库存，罐子消耗5点，祭坛获得6点；已连接的祭坛仪式用时缩短20%。",
       "title": "后续补给"
     }
   ]

@@ -46,6 +46,8 @@ public final class GuideClientTest {
     private static double launchY, peakY;
     private static volatile int counterTarget;
     private static volatile boolean counterConsumed;
+    private static boolean silentBoltSeen;
+    private static int silentBoltSeenAt;
 
     private static Object field(Class<?> type, String name, Object instance) {
         try { var field = type.getDeclaredField(name); field.setAccessible(true); return field.get(instance); }
@@ -283,6 +285,10 @@ public final class GuideClientTest {
             var id=mc.player.getUUID();
             mc.getSingleplayerServer().execute(() -> {
                 var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);
+                // The preceding native whirlwind can leave the player airborne.
+                // Give the next real right-click a stable, collidable top surface.
+                galeGround=p.blockPosition().below();p.serverLevel().setBlockAndUpdate(galeGround,net.minecraft.world.level.block.Blocks.STONE.defaultBlockState());
+                p.teleportTo(galeGround.getX()+.5,galeGround.getY()+1.0,galeGround.getZ()+.5);p.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);p.hurtMarked=true;p.fallDistance=0;
                 var recipe=(net.minecraft.world.item.crafting.SmithingRecipe)p.serverLevel().getRecipeManager().byKey(SoulItems.id("smithing/apply_gale_modifier")).orElseThrow().value();
                 var result=recipe.assemble(new net.minecraft.world.item.crafting.SmithingRecipeInput(
                     new net.minecraft.world.item.ItemStack(com.stal111.forbidden_arcanus.core.init.ModItems.APPLY_MODIFIER_SMITHING_TEMPLATE.get()),
@@ -325,7 +331,7 @@ public final class GuideClientTest {
             });
         }
         if(elapsed==280) {
-            if(mc.player.getHealth()!=1 || dev.betterforbiddenarcanus.TyrCombat.shield(mc.player.getMainHandItem()) || dev.betterforbiddenarcanus.TyrCombat.shield(mc.player.getOffhandItem()))
+            if(mc.player.getHealth()!=1 || !dev.betterforbiddenarcanus.TyrCombat.shield(mc.player.getMainHandItem()) || dev.betterforbiddenarcanus.TyrCombat.shield(mc.player.getOffhandItem()))
                 throw new IllegalStateException("Real player avatar/shield restriction failed: health="+mc.player.getHealth()+", main="+mc.player.getMainHandItem()+", off="+mc.player.getOffhandItem());
             Screenshot.grab(mc.gameDirectory,"guide-tyr-avatar.png",mc.getMainRenderTarget(),component -> {});
             mc.gameMode.attack(mc.player,mc.level.getEntity(counterTarget));
@@ -338,10 +344,53 @@ public final class GuideClientTest {
                 counterConsumed=Math.abs(cow.getHealth()-15)<.01 && !p.getPersistentData().getBoolean(dev.betterforbiddenarcanus.TyrCombat.COUNTER);
             });
         }
+        if(elapsed==282) mc.setScreen(new net.minecraft.client.gui.screens.inventory.InventoryScreen(mc.player));
+        if(elapsed==292) {
+            var screen=(net.minecraft.client.gui.screens.inventory.InventoryScreen)mc.screen;
+            if(dev.betterforbiddenarcanus.client.TyrCooldownClient.remaining()<2000)throw new IllegalStateException("Avatar cooldown did not synchronize");
+            for(var slot:screen.getMenu().slots)if(slot.container==mc.player.getInventory()&&slot.getContainerSlot()>=36&&slot.getContainerSlot()<40) {
+                if(dev.betterforbiddenarcanus.client.TyrCooldownClient.armorOverlay(slot.getItem(),slot.x,slot.y)<.8f)throw new IllegalStateException("Armor slot cooldown missing");
+                if(mc.player.getCooldowns().isOnCooldown(slot.getItem().getItem()))throw new IllegalStateException("Visual overlay must not block equipping armor");
+            }
+            if(dev.betterforbiddenarcanus.client.TyrCooldownClient.armorOverlay(mc.player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.HEAD),8,84)!=0)throw new IllegalStateException("Cooldown leaked into backpack");
+            Screenshot.grab(mc.gameDirectory,"guide-tyr-cooldown-full.png",mc.getMainRenderTarget(),component -> {});
+        }
         if(elapsed==310) {
             if(!counterConsumed)throw new IllegalStateException("Real client attack did not consume exactly one fivefold counter");
+            var id=mc.player.getUUID();mc.getSingleplayerServer().execute(()->{
+                var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);
+                p.getPersistentData().putLong(dev.betterforbiddenarcanus.TyrCombat.COOLDOWN,dev.betterforbiddenarcanus.TyrCombat.clock(p)+1200);dev.betterforbiddenarcanus.TyrCooldown.sync(p);
+            });
+        }
+        if(elapsed==325) {
+            int remaining=dev.betterforbiddenarcanus.client.TyrCooldownClient.remaining();
+            if(remaining<1100||remaining>1200)throw new IllegalStateException("Half cooldown synchronization: "+remaining);
+            Screenshot.grab(mc.gameDirectory,"guide-tyr-cooldown-half.png",mc.getMainRenderTarget(),component -> {});
+            var id=mc.player.getUUID();mc.getSingleplayerServer().execute(()->{
+                var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);
+                p.getPersistentData().putLong(dev.betterforbiddenarcanus.TyrCombat.COOLDOWN,dev.betterforbiddenarcanus.TyrCombat.clock(p)+1);dev.betterforbiddenarcanus.TyrCooldown.sync(p);
+            });
+        }
+        if(elapsed==350) {
+            if(dev.betterforbiddenarcanus.client.TyrCooldownClient.remaining()!=0)throw new IllegalStateException("Expired cooldown overlay persists");
+            Screenshot.grab(mc.gameDirectory,"guide-tyr-cooldown-expired.png",mc.getMainRenderTarget(),component -> {});
+            mc.setScreen(null);mc.player.setYRot(0);mc.player.setXRot(-10);
+            var id=mc.player.getUUID();mc.getSingleplayerServer().execute(()->{
+                var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);
+                var bolt=dev.betterforbiddenarcanus.ScepterStorm.BOLT.get().create(p.serverLevel());
+                bolt.setPos(p.position().add(0,1,2));p.serverLevel().addFreshEntity(bolt);
+            });
+        }
+        if(elapsed>=351&&elapsed<=379&&!silentBoltSeen) {
+            for(var entity:mc.level.entitiesForRendering())if(entity instanceof dev.betterforbiddenarcanus.ScepterStorm.SilentBolt) {
+                silentBoltSeen=true;silentBoltSeenAt=elapsed;break;
+            }
+        }
+        if(silentBoltSeen&&elapsed==silentBoltSeenAt+1) Screenshot.grab(mc.gameDirectory,"guide-scepter-lightning.png",mc.getMainRenderTarget(),component -> {});
+        if(elapsed==380) {
+            if(!silentBoltSeen)throw new IllegalStateException("Silent lightning visual did not synchronize in its lifetime");
             finished = true;
-            com.mojang.logging.LogUtils.getLogger().info("BFA_GUIDE_PASS: {} entries, {} rendered spreads, {} working world projections; dragon egg, upgrade tooltip, crystal/whirlwind placement, gale launch/landing, avatar and counter",
+            com.mojang.logging.LogUtils.getLogger().info("BFA_GUIDE_PASS: {} entries, {} rendered spreads, {} working world projections; dragon egg, upgrade tooltip, crystal/whirlwind placement, gale launch/landing, avatar/counter, vanilla armor cooldown overlay and silent lightning",
                     BookRegistry.INSTANCE.books.get(SoulItems.id("forbidden_arcanus")).getContents().entries.size(), frames.size(), projections);
             mc.stop();
         }

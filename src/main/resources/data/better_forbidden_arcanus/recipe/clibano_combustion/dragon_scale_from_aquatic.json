@@ -1,0 +1,14 @@
+{
+  "type": "forbidden_arcanus:clibano_combustion",
+  "category": "misc",
+  "cooking_time": 100,
+  "experience": 0,
+  "fire_type": "fire",
+  "ingredients": {
+    "item": "forbidden_arcanus:aquatic_dragon_scale"
+  },
+  "result": {
+    "id": "forbidden_arcanus:dragon_scale",
+    "count": 1
+  }
+}

@@ -29,6 +29,7 @@ public final class ArmorCombatEffects {
                 || !(event.getSource().getEntity() instanceof Player player)) return;
         int pieces = count(player, ModItems.DRACO_ARCANUS_HELMET.get(), ModItems.DRACO_ARCANUS_CHESTPLATE.get(),
                 ModItems.DRACO_ARCANUS_LEGGINGS.get(), ModItems.DRACO_ARCANUS_BOOTS.get());
+        pieces += TyrArmor.count(player);
         if (pieces > 0) event.setAmount(event.getAmount() * (1 + 0.25F * pieces));
     }
 

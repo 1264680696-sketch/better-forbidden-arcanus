@@ -74,8 +74,8 @@ public final class TyrCombat {
         attributes(player, harmfulEffects(player));
         if (TyrArmor.count(player) != 4 || !player.isAlive()) player.getPersistentData().remove(COUNTER);
         else {
-            if (player.isUsingItem() && shield(player.getUseItem())) player.stopUsingItem();
-            stow(player, EquipmentSlot.MAINHAND); stow(player, EquipmentSlot.OFFHAND);
+            if (player.isUsingItem() && player.getUsedItemHand() == net.minecraft.world.InteractionHand.OFF_HAND && shield(player.getUseItem())) player.stopUsingItem();
+            stow(player, EquipmentSlot.OFFHAND);
         }
     }
     public static boolean shield(ItemStack stack) { return stack.canPerformAction(ItemAbilities.SHIELD_BLOCK); }
@@ -143,6 +143,7 @@ public final class TyrCombat {
         if (p.getHealth() < 1) p.setHealth(1);
         p.getPersistentData().putLong(COOLDOWN, clock(p) + 2400);
         p.getPersistentData().putBoolean(COUNTER, true);
+        TyrCooldown.sync(p);
         p.level().playSound(null, p.getX(), p.getY(), p.getZ(), net.minecraft.sounds.SoundEvents.TOTEM_USE,
                 net.minecraft.sounds.SoundSource.PLAYERS, 1, 1);
     }
@@ -163,12 +164,12 @@ public final class TyrCombat {
         if (!event.isWasDeath() && old.getBoolean(COUNTER)) data.putBoolean(COUNTER, true); else data.remove(COUNTER);
     }
     @SubscribeEvent public static void shieldStart(LivingEntityUseItemEvent.Start event) {
-        if (event.getEntity() instanceof Player p && TyrArmor.count(p) == 4 && shield(event.getItem())) event.setCanceled(true);
+        if (event.getEntity() instanceof Player p && TyrArmor.count(p) == 4 && event.getHand() == net.minecraft.world.InteractionHand.OFF_HAND && shield(event.getItem())) event.setCanceled(true);
     }
     @SubscribeEvent public static void shieldTick(LivingEntityUseItemEvent.Tick event) {
-        if (event.getEntity() instanceof Player p && TyrArmor.count(p) == 4 && shield(event.getItem())) { p.stopUsingItem(); event.setCanceled(true); }
+        if (event.getEntity() instanceof Player p && TyrArmor.count(p) == 4 && event.getHand() == net.minecraft.world.InteractionHand.OFF_HAND && shield(event.getItem())) { p.stopUsingItem(); event.setCanceled(true); }
     }
     @SubscribeEvent public static void shieldBlock(LivingShieldBlockEvent event) {
-        if (event.getEntity() instanceof Player p && TyrArmor.count(p) == 4) event.setBlocked(false);
+        if (event.getEntity() instanceof Player p && TyrArmor.count(p) == 4 && p.getUsedItemHand() == net.minecraft.world.InteractionHand.OFF_HAND) event.setBlocked(false);
     }
 }

@@ -1,0 +1,23 @@
+{
+  "name": "合成附魔金苹果",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "minecraft:enchanted_golden_apple",
+  "sortnum": 22,
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:enchanted_golden_apple",
+      "text": "中央放 1 个金苹果，周围八格各放 1 片金龙之鳞，产出 1 个附魔金苹果。全部材料正常消耗。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "准备金龙之鳞",
+      "text": "金龙之鳞由1片普通龙鳞与4个Deorum锭在工作台合成。下页展示配方。普通、银色和水生龙鳞不能替代本配方的金龙之鳞。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:golden_dragon_scale",
+      "text": "先制作8片金龙之鳞，再围住金苹果。龙鳞获取见$(l:better_forbidden_arcanus:basics/advanced_materials)进阶材料$(/l)。"
+    }
+  ]
+}

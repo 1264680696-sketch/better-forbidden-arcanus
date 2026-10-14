@@ -47,7 +47,10 @@ with zipfile.ZipFile(next((ROOT / 'libs').glob('*forbidden_arcanus-2.6.1.jar')))
     assert pool['functions'][0] == {'function': 'minecraft:set_count', 'count': 1, 'add': False}
     original_loot = json.loads(jar.read('data/forbidden_arcanus/loot_table/entities/additions/bat_wing_addition.json'))
     assert pool['functions'][1] == original_loot['pools'][0]['functions'][1]
-    assert not list(DATA.rglob('*global_loot_modifiers*')), 'Do not register duplicate loot hooks'
+    hooks = json.loads((DATA / 'neoforge/loot_modifiers/global_loot_modifiers.json').read_text())
+    assert hooks == {'replace': False, 'entries': ['better_forbidden_arcanus:draco_skull']}, 'Bat drop must reuse the native hook'
+    skull_hook = json.loads((DATA / 'better_forbidden_arcanus/loot_modifiers/draco_skull.json').read_text())
+    assert skull_hook['conditions'] == [{'condition': 'neoforge:loot_table_id', 'loot_table_id': 'minecraft:entities/wither_skeleton'}]
     soul_recipe = effective['data/better_forbidden_arcanus/recipe/clibano_combustion/soul_from_soul_sand.json']
     assert soul_recipe['type'] == 'forbidden_arcanus:clibano_combustion'
     assert soul_recipe['ingredients'] == {'item': 'minecraft:soul_sand'}
@@ -105,3 +108,14 @@ assert guide_recipe['type'] == 'minecraft:crafting_shapeless'
 assert guide_recipe['ingredients'] == [{'item': 'forbidden_arcanus:arcane_crystal'}, {'item': 'minecraft:book'}]
 assert guide_recipe['result'] == {'id': 'patchouli:guide_book', 'count': 1, 'components': {'patchouli:book': 'better_forbidden_arcanus:forbidden_arcanus'}}
 print('PASS: recipe resources, loot, removed souls and upgrades, relic slots, descriptions and guide')
+
+apple = effective['data/better_forbidden_arcanus/recipe/enchanted_golden_apple.json']
+assert apple['pattern'] == ['GGG','GAG','GGG']
+assert apple['key'] == {'G': {'item':'forbidden_arcanus:golden_dragon_scale'}, 'A': {'item':'minecraft:golden_apple'}}
+assert apple['result'] == {'id':'minecraft:enchanted_golden_apple','count':1}
+for kind in ['golden','silver','aquatic']:
+    recycle = effective[f'data/better_forbidden_arcanus/recipe/clibano_combustion/dragon_scale_from_{kind}.json']
+    assert recycle['ingredients'] == {'item':f'forbidden_arcanus:{kind}_dragon_scale'}
+    assert recycle['result'] == {'id':'forbidden_arcanus:dragon_scale','count':1}
+    assert recycle['cooking_time']==100 and 'residue' not in recycle
+print('PASS: enchanted apple materials and three one-to-one scale recycling recipes')
