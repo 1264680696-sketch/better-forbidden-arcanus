@@ -1,0 +1,23 @@
+{
+  "name": "独立禁忌之书",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "better_forbidden_arcanus:forbiddenmicon",
+  "sortnum": 30,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "两本指南",
+      "text": "禁忌之书恢复旧版独立界面，保留主页、物品、方块分类和翻页；正文与配方已经适配当前版本。$(br2)它与本帕秋莉指南并存，旧书中未移植内容会明确标注。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:forbiddenmicon",
+      "text": "书＋神秘水晶粉，无序合成。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "阅读方式",
+      "text": "点击分类、左右箭头切换条目；右页用滚轮或正文按钮翻页。左页配方按钮切换当前世界实际存在的工作台和烧炼配方，材料可悬停查看。"
+    }
+  ]
+}

@@ -13,5 +13,18 @@
   "modifier.better_forbidden_arcanus.gale": "Gale",
   "message.better_forbidden_arcanus.meteor_scan": "Arcane meteor blocks found: %s",
   "tooltip.better_forbidden_arcanus.jar_relic.crescent_moon": "On a jar: generates 1 Aureal every 5 seconds.",
-  "tooltip.better_forbidden_arcanus.jar_relic.crimson_stone": "On a jar: generates 1 Blood every 5 seconds."
+  "tooltip.better_forbidden_arcanus.jar_relic.crimson_stone": "On a jar: generates 1 Blood every 5 seconds.",
+  "item.better_forbidden_arcanus.zombie_arm": "Zombie Arm",
+  "item.better_forbidden_arcanus.shiny_zombie_arm": "Shiny Zombie Arm",
+  "item.better_forbidden_arcanus.forbiddenmicon": "Forbiddenmicon",
+  "item.better_forbidden_arcanus.runic_battleaxe": "Runic Battleaxe",
+  "item.better_forbidden_arcanus.dark_rune": "Dark Rune",
+  "item.better_forbidden_arcanus.arcane_gold_ingot": "Arcane Gold Ingot",
+  "item.better_forbidden_arcanus.skull": "Legacy Skull",
+  "item.better_forbidden_arcanus.rune_bag": "Rune Bag",
+  "item.better_forbidden_arcanus.dark_rune_bag": "Dark Rune Bag",
+  "block.better_forbidden_arcanus.runic_tenebris_frame": "Runic Tenebris Frame",
+  "block.better_forbidden_arcanus.runic_tenebris_core": "Runic Tenebris Core",
+  "block.better_forbidden_arcanus.runic_chiseled_polished_darkstone": "Runic Chiseled Polished Darkstone",
+  "block.better_forbidden_arcanus.dark_runestone": "Dark Runestone"
 }

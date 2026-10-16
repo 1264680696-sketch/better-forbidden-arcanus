@@ -78,7 +78,7 @@ public final class MagicAndJarGameTests {
             h.assertTrue(storage.bfa$relic().is(relic)&&p.getMainHandItem().isEmpty()&&jar.getBlockState().getValue(ModBlockStateProperties.ESSENCE_TYPE)==RelicJars.type(new ItemStack(relic)),"Relic mounted and empty jar converted to its own type");
             for(int i=0;i<99;i++)RelicJars.tick(jar);h.assertTrue(jar.getAmount()==0,"No early generation");
             var saved=jar.saveWithoutMetadata(h.getLevel().registryAccess());var restored=new EssenceUtremJarBlockEntity(jar.getBlockPos(),jar.getBlockState());restored.setLevel(h.getLevel());restored.loadWithComponents(saved,h.getLevel().registryAccess());h.getLevel().setBlockEntity(restored);jar=restored;storage=(JarRelicStorage)jar;
-            RelicJars.tick(jar);h.assertTrue(jar.getAmount()==1&&storage.bfa$relic().is(relic),"Progress and displayed item persist through reload");
+            RelicJars.tick(jar);h.assertTrue(jar.getAmount()==3&&storage.bfa$relic().is(relic),"Progress and displayed item persist through reload");
             jar.addEssence(jar.getLimit()-jar.getAmount());for(int i=0;i<200;i++)RelicJars.tick(jar);h.assertTrue(jar.getAmount()==jar.getLimit(),"Full jar never overflows");
             p.setItemInHand(InteractionHand.MAIN_HAND,ItemStack.EMPTY);p.setShiftKeyDown(true);click(h,p,POS);
             h.assertTrue(p.getMainHandItem().is(relic)&&storage.bfa$relic().isEmpty(),"Empty hand sneak returns the mounted relic");
@@ -94,7 +94,7 @@ public final class MagicAndJarGameTests {
     }
     @GameTest(template="guide_area",timeoutTicks=150) public static void mountedJarHasRealServerTicker(GameTestHelper h) {
         var p=player(h);h.setBlock(POS,ModBlocks.UTREM_JAR.get());p.setItemInHand(InteractionHand.MAIN_HAND,new ItemStack(ModItems.CRESCENT_MOON.get()));click(h,p,POS);
-        h.runAtTickTime(120,()->{EssenceUtremJarBlockEntity jar=h.getBlockEntity(POS);h.assertTrue(jar.getAmount()==1,"Actual block ticker produces one point in five seconds");h.succeed();});
+        h.runAtTickTime(120,()->{EssenceUtremJarBlockEntity jar=h.getBlockEntity(POS);h.assertTrue(jar.getAmount()==3,"Actual block ticker produces three points in five seconds");h.succeed();});
     }
     @GameTest(template="empty") public static void aurealBottleGhastRecipeSoulGateAndCancellation(GameTestHelper h) {
         var pos=new BlockPos(1,1,1);

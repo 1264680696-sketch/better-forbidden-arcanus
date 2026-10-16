@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "better_forbidden_arcanus:item/tool/runic_battleaxe"
+  }
+}

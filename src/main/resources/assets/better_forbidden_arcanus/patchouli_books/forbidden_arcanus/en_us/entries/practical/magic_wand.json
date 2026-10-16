@@ -17,7 +17,7 @@
     {
       "type": "patchouli:text",
       "title": "寻找地下陨石",
-      "text": "探测结果以金色方框穿墙显示，持续10秒；再探测会刷新结果。只检查已加载区块，不强行加载远处地形。$(br2)挖掉的陨石不再显示，切换维度或退出后清除标记。开采安全与用途见$(l:better_forbidden_arcanus:basics/advanced_materials)进阶材料$(/l)。"
+      "text": "探测结果以金色方框穿墙显示，持续10秒；再探测会刷新结果。只检查已加载区块，不强行加载远处地形。$(br2)挖掉的陨石不再显示，切换维度或退出后清除标记。开采安全与用途见$(l:better_forbidden_arcanus:basics/materials)地下材料$(/l)。"
     }
   ]
 }

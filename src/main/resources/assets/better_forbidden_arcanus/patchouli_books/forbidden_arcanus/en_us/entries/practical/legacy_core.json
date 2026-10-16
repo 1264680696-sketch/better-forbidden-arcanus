@@ -1,0 +1,38 @@
+{
+  "name": "暗黑符文核心",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "better_forbidden_arcanus:runic_tenebris_core",
+  "sortnum": 32,
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:runic_chiseled_polished_darkstone",
+      "text": "錾制磨制暗黑石＋符文，无序合成。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "符文石防刷怪",
+      "text": "用一个神秘水晶右键錾制磨制符文暗黑石，激活后阻止25格球形范围内怪物生成。破坏后撤销，重新放置需重新激活。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:runic_tenebris_frame",
+      "text": "四角奥术金锭，四边符文暗黑石，中央暗物质。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "激活核心",
+      "text": "手持一颗暗黑下界之星右键框架，消耗星并变成核心，保留水浸状态。核心没有燃料槽或额外精华消耗。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "三条转化链",
+      "text": "持材料右键核心：$(br)符文→暗黑符文$(br)符文袋→暗黑符文袋$(br)三种普通符文矿石→暗黑符文矿石$(br2)每次消耗1个输入，获得1个产物；背包满时产物掉落。"
+    },
+    {
+      "type": "patchouli:smelting",
+      "recipe": "better_forbidden_arcanus:dark_rune_smelting",
+      "text": "暗黑矿石无额外自然生成；正常开采支持时运，精准采集保留矿石。"
+    }
+  ]
+}

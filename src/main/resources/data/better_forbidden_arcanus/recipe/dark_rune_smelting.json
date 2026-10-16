@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "better_forbidden_arcanus:dark_runestone"
+  },
+  "result": {
+    "id": "better_forbidden_arcanus:dark_rune",
+    "count": 1
+  },
+  "experience": 1.2,
+  "cookingtime": 250
+}

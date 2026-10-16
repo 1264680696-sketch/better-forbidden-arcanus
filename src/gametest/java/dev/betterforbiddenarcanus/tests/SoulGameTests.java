@@ -216,7 +216,8 @@ public final class SoulGameTests {
     public static void creativeTabAndOriginalRitualIngredients(GameTestHelper h) {
         CreativeModeTabs.tryRebuildTabContents(h.getLevel().enabledFeatures(), true, h.getLevel().registryAccess());
         var tab = SoulItems.TAB.get();
-        h.assertTrue(tab.getIconItem().is(ModBlocks.HEPHAESTUS_FORGE_TIER_5.get().asItem()) && tab.getDisplayItems().size() == 1, "Addon tab must use the tier-five icon and contain only the guide");
+        h.assertTrue(tab.getIconItem().is(ModBlocks.HEPHAESTUS_FORGE_TIER_5.get().asItem()) && tab.getDisplayItems().size() == 14, "Addon tab must contain thirteen restored items and the guide with the tier-five icon");
+        for (var item : SoulItems.ITEMS.getEntries()) h.assertTrue(tab.getDisplayItems().stream().anyMatch(stack -> stack.is(item.get())), "Restored item missing from addon tab: " + item.getId());
         var guide = vazkii.patchouli.api.PatchouliAPI.get().getBookStack(SoulItems.id("forbidden_arcanus"));
         h.assertTrue(tab.getDisplayItems().stream().anyMatch(stack -> ItemStack.isSameItemSameComponents(stack, guide)), "Addon tab must contain the named guide");
         var ritual = h.getLevel().registryAccess().registryOrThrow(FARegistries.RITUAL)

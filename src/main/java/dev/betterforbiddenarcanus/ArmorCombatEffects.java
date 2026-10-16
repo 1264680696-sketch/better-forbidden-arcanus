@@ -30,7 +30,8 @@ public final class ArmorCombatEffects {
         int pieces = count(player, ModItems.DRACO_ARCANUS_HELMET.get(), ModItems.DRACO_ARCANUS_CHESTPLATE.get(),
                 ModItems.DRACO_ARCANUS_LEGGINGS.get(), ModItems.DRACO_ARCANUS_BOOTS.get());
         pieces += TyrArmor.count(player);
-        if (pieces > 0) event.setAmount(event.getAmount() * (1 + 0.25F * pieces));
+        float weapon = DracoCombat.weaponBonus(event.getSource(), player);
+        if (pieces > 0 || weapon > 0) event.setAmount(event.getAmount() * (1 + weapon + 0.25F * pieces));
     }
 
     @SubscribeEvent

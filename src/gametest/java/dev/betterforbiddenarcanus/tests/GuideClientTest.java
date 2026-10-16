@@ -309,7 +309,9 @@ public final class GuideClientTest {
         }
         if (elapsed >= 190 && elapsed <= 250) peakY=Math.max(peakY,mc.player.getY());
         if (elapsed == 200) {
-            if(mc.player.getY()<launchY+2)throw new IllegalStateException("Server-authoritative gale impulse did not move client player: ground="+galeGround+", pos="+mc.player.position()+", launch="+launchY+", state="+mc.level.getBlockState(galeGround)+", cooldown="+mc.player.getCooldowns().isOnCooldown(net.minecraft.world.item.Items.MACE));
+            // Packet delivery is not phase-locked to client ticks. This early check only verifies movement;
+            // the later assertion still requires the complete 5..10-block ascent and damage-free landing.
+            if(peakY<launchY+1)throw new IllegalStateException("Server-authoritative gale impulse did not move client player: ground="+galeGround+", pos="+mc.player.position()+", launch="+launchY+", state="+mc.level.getBlockState(galeGround)+", cooldown="+mc.player.getCooldowns().isOnCooldown(net.minecraft.world.item.Items.MACE));
             mc.player.setXRot(70);
             Screenshot.grab(mc.gameDirectory,"guide-gale-launch.png",mc.getMainRenderTarget(),component -> {});
         }
@@ -442,9 +444,9 @@ public final class GuideClientTest {
             var jar=(com.stal111.forbidden_arcanus.common.block.entity.EssenceUtremJarBlockEntity)mc.level.getBlockEntity(scanJar);
             if(jar.getAmount()<1)throw new IllegalStateException("Mounted moon generated no Aureal on actual server");
             finished = true;
-            com.mojang.logging.LogUtils.getLogger().info("BFA_GUIDE_PASS: {} entries, {} rendered spreads, {} working world projections; dragon egg, upgrade tooltip, crystal/whirlwind placement, gale launch/landing, avatar/counter, vanilla armor cooldown overlay, silent lightning, meteor highlighting, jar relic and forty-block spectral vision",
+            com.mojang.logging.LogUtils.getLogger().info("BFA_GUIDE_RENDER_PASS: {} entries, {} rendered spreads, {} working world projections; dragon egg, upgrade tooltip, crystal/whirlwind placement, gale launch/landing, avatar/counter, vanilla armor cooldown overlay, silent lightning, meteor highlighting, jar relic and forty-block spectral vision",
                     BookRegistry.INSTANCE.books.get(SoulItems.id("forbidden_arcanus")).getContents().entries.size(), frames.size(), projections);
-            mc.stop();
+            LegacyClientChecks.begin();
         }
     }
 

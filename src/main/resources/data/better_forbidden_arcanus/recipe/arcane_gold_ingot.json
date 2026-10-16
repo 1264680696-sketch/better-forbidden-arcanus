@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CAC",
+    "MGM",
+    "CAC"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:charcoal"
+    },
+    "A": {
+      "item": "forbidden_arcanus:arcane_crystal_dust"
+    },
+    "M": {
+      "item": "forbidden_arcanus:mundabitur_dust"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "id": "better_forbidden_arcanus:arcane_gold_ingot",
+    "count": 1
+  }
+}

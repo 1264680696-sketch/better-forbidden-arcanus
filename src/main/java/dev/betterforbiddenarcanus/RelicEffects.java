@@ -135,13 +135,18 @@ public final class RelicEffects {
         }
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = net.neoforged.bus.api.EventPriority.LOWEST)
     public static void tooltip(ItemTooltipEvent event) {
         Item item = event.getItemStack().getItem();
         if (!RelicCurio.items().contains(item)) return;
-        String path = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item).getPath();
-        event.getToolTip().add(Component.translatable("tooltip.better_forbidden_arcanus.relic." + path).withStyle(ChatFormatting.GOLD));
-        if (item == ModItems.CRESCENT_MOON.get() || item == ModItems.CRIMSON_STONE.get())
-            event.getToolTip().add(Component.translatable("tooltip.better_forbidden_arcanus.jar_relic." + path).withStyle(ChatFormatting.GOLD));
+        var lines = event.getToolTip();
+        for (int i = 0; i < lines.size(); i++) {
+            if (containsEnhancerLabel(lines.get(i))) { lines.subList(i + 1, lines.size()).clear(); break; }
+        }
+    }
+    private static boolean containsEnhancerLabel(Component line) {
+        if (line.getContents() instanceof net.minecraft.network.chat.contents.TranslatableContents text
+                && text.getKey().equals("item.forbidden_arcanus.enhancer")) return true;
+        return line.getSiblings().stream().anyMatch(RelicEffects::containsEnhancerLabel);
     }
 }

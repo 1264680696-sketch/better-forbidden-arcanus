@@ -31,7 +31,10 @@
     "ScepterStormMixin",
     "MagicWandScanMixin",
     "JarRelicMixin",
-    "JarRelicBlockMixin"
+    "JarRelicBlockMixin",
+    "DracoArrowMixin",
+    "DracoCloudMixin",
+    "EnergyBallOwnerMixin"
   ],
   "client": [
     "TyrCooldownRenderMixin",

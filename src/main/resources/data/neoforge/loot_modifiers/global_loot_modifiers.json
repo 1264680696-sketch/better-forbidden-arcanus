@@ -1,1 +1,8 @@
-{"replace": false, "entries": ["better_forbidden_arcanus:draco_skull"]}
+{
+  "replace": false,
+  "entries": [
+    "better_forbidden_arcanus:draco_skull",
+    "better_forbidden_arcanus:zombie_arm",
+    "better_forbidden_arcanus:shiny_zombie_arm"
+  ]
+}

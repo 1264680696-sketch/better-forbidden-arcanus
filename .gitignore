@@ -12,3 +12,4 @@ tools/guide-editor/*.log
 local.properties
 
 tools/guide-editor/.runtime/
+.porting/

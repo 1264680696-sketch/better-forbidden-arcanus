@@ -53,7 +53,7 @@ public final class RelicJars {
         if(type==null||type!=jar.getBlockState().getValue(ModBlockStateProperties.ESSENCE_TYPE)||jar.getAmount()>=jar.getLimit())return;
         int ticks=storage.bfa$relicTicks()+1;
         storage.bfa$relicTicks(ticks>=PERIOD?0:ticks);jar.setChanged();
-        if(ticks>=PERIOD){jar.addEssence(1);sync(jar);}
+        if(ticks>=PERIOD){jar.addEssence(Math.min(3, jar.getLimit()-jar.getAmount()));sync(jar);}
     }
     public static void drop(Level level,BlockPos pos,EssenceUtremJarBlockEntity jar) {
         var storage=(JarRelicStorage)jar;var stack=storage.bfa$relic();storage.bfa$relic(ItemStack.EMPTY);

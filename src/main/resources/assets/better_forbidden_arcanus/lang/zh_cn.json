@@ -20,5 +20,18 @@
   "modifier.better_forbidden_arcanus.gale": "疾风",
   "message.better_forbidden_arcanus.meteor_scan": "探测到奥术陨石：%s",
   "tooltip.better_forbidden_arcanus.jar_relic.crescent_moon": "放在罐上：每5秒生成1点辉光。",
-  "tooltip.better_forbidden_arcanus.jar_relic.crimson_stone": "放在罐上：每5秒生成1点血液。"
+  "tooltip.better_forbidden_arcanus.jar_relic.crimson_stone": "放在罐上：每5秒生成1点血液。",
+  "item.better_forbidden_arcanus.zombie_arm": "僵尸手臂",
+  "item.better_forbidden_arcanus.shiny_zombie_arm": "闪光僵尸手臂",
+  "item.better_forbidden_arcanus.forbiddenmicon": "禁忌之书",
+  "item.better_forbidden_arcanus.runic_battleaxe": "符文战斧",
+  "item.better_forbidden_arcanus.dark_rune": "暗黑符文",
+  "item.better_forbidden_arcanus.arcane_gold_ingot": "奥术金锭",
+  "item.better_forbidden_arcanus.skull": "旧头骨",
+  "item.better_forbidden_arcanus.rune_bag": "符文袋",
+  "item.better_forbidden_arcanus.dark_rune_bag": "暗黑符文袋",
+  "block.better_forbidden_arcanus.runic_tenebris_frame": "暗黑符文框架",
+  "block.better_forbidden_arcanus.runic_tenebris_core": "暗黑符文核心",
+  "block.better_forbidden_arcanus.runic_chiseled_polished_darkstone": "錾制磨制符文暗黑石",
+  "block.better_forbidden_arcanus.dark_runestone": "暗黑符文矿石"
 }

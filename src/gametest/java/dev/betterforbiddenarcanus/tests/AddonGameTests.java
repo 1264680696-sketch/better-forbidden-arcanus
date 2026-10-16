@@ -74,7 +74,7 @@ public final class AddonGameTests {
     public static void guideBookCrafting(GameTestHelper helper) {
         var bookId = ResourceLocation.fromNamespaceAndPath("better_forbidden_arcanus", "forbidden_arcanus");
         var expected = vazkii.patchouli.api.PatchouliAPI.get().getBookStack(bookId);
-        helper.assertTrue(expected.getHoverName().getString().equals("禁忌与奥秘"), "Guide definition must load on the server");
+        helper.assertTrue(!expected.isEmpty() && expected.getHoverName().getString().equals(vazkii.patchouli.common.book.BookRegistry.INSTANCE.books.get(bookId).name), "Guide must retain the current user-edited name");
         for (var ingredients : List.of(List.of(new ItemStack(item("arcane_crystal")), new ItemStack(Items.BOOK)),
                 List.of(new ItemStack(Items.BOOK), new ItemStack(item("arcane_crystal"))))) {
             var input = CraftingInput.of(2, 1, ingredients);

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "better_forbidden_arcanus:dark_rune_bag"
+    }
+  ],
+  "result": {
+    "id": "better_forbidden_arcanus:dark_rune",
+    "count": 4
+  }
+}

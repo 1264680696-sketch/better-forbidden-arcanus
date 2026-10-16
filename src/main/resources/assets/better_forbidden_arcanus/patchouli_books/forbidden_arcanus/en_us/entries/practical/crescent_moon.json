@@ -27,7 +27,7 @@
     {
       "type": "patchouli:text",
       "title": "放在罐子上",
-      "text": "持此遗物右键空罐或辉光罐，每5秒产生1点辉光，满罐停止。遗物保留在罐顶；空手潜行右键可取回，打碎罐子也会掉落。$(br2)只支持待盈新月与绯红之石。详情见$(l:better_forbidden_arcanus:practical/containers)精华容器$(/l)。"
+      "text": "持此遗物右键空罐或辉光罐，每5秒产生3点辉光，满罐停止。遗物保留在罐顶；空手潜行右键可取回，打碎罐子也会掉落。$(br2)只支持待盈新月与绯红之石。详情见$(l:better_forbidden_arcanus:practical/containers)精华容器$(/l)。"
     }
   ]
 }

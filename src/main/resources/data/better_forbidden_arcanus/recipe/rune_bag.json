@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "forbidden_arcanus:rune"
+    }
+  },
+  "result": {
+    "id": "better_forbidden_arcanus:rune_bag",
+    "count": 1
+  }
+}

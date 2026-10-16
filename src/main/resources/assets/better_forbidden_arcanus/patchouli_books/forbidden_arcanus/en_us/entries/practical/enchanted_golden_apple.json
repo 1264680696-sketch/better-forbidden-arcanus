@@ -17,7 +17,7 @@
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:golden_dragon_scale",
-      "text": "先制作8片金龙之鳞，再围住金苹果。龙鳞获取见$(l:better_forbidden_arcanus:basics/advanced_materials)进阶材料$(/l)。"
+      "text": "先制作8片金龙之鳞，再围住金苹果。龙鳞获取见$(l:better_forbidden_arcanus:practical/dragon_materials)龙鳞与龙蛋$(/l)。"
     }
   ]
 }

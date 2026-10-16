@@ -8,6 +8,7 @@ public final class BetterForbiddenArcanus {
     public static final String MOD_ID = "better_forbidden_arcanus";
 
     public BetterForbiddenArcanus(IEventBus modBus) {
+        dev.betterforbiddenarcanus.legacy.LegacyContent.register(modBus);
         SoulItems.ITEMS.register(modBus);
         ScepterStorm.ENTITIES.register(modBus);
         DracoSkullLoot.SERIALIZERS.register(modBus);

@@ -257,8 +257,10 @@ public final class RelicGameTests {
         h.assertTrue(sword.getMaxDamage() == Items.DIAMOND_SWORD.getDefaultInstance().getMaxDamage(), "Artisan must not change durability");
         for (var item : RelicCurio.items()) {
             var lines = new ItemStack(item).getTooltipLines(Item.TooltipContext.of(h.getLevel()), p, TooltipFlag.NORMAL);
-            h.assertTrue(lines.stream().anyMatch(line -> line.getContents() instanceof TranslatableContents contents
-                    && contents.getKey().startsWith("tooltip.better_forbidden_arcanus.relic.")), "Relic must describe equipped effects");
+            int label = -1;
+            for (int i = 0; i < lines.size(); i++) if (lines.get(i).getContents() instanceof TranslatableContents contents
+                    && contents.getKey().equals("item.forbidden_arcanus.enhancer")) label = i;
+            h.assertTrue(label >= 0 && label == lines.size()-1, "Relic tooltip must end at the enhancer label");
         }
         var armorTooltip = new ItemStack(ModItems.TYR_CHESTPLATE.get()).getTooltipLines(Item.TooltipContext.of(h.getLevel()), p, TooltipFlag.NORMAL);
         h.assertTrue(armorTooltip.stream().noneMatch(line -> line.getContents() instanceof TranslatableContents contents

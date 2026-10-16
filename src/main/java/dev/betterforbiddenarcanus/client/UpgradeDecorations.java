@@ -12,12 +12,8 @@ public final class UpgradeDecorations {
     @SubscribeEvent public static void register(RegisterItemDecorationsEvent event) {
         BuiltInRegistries.ITEM.forEach(item -> event.register(item, (graphics, font, stack, x, y) -> {
             if (ForgeUpgrades.tier(stack) == 0) return false;
-            int color = 0xff000000 | ForgeUpgrades.color(stack).getColor();
-            // 18x18 slot outline, not a silhouette around the item sprite.
-            graphics.fill(x - 1, y - 1, x + 17, y, color);
-            graphics.fill(x - 1, y + 16, x + 17, y + 17, color);
-            graphics.fill(x - 1, y, x, y + 16, color);
-            graphics.fill(x + 16, y, x + 17, y + 16, color);
+            graphics.blit(dev.betterforbiddenarcanus.SoulItems.id("textures/gui/upgrade_border_" + ForgeUpgrades.tier(stack) + ".png"),
+                    x - 1, y - 1, 0, 0, 18, 18, 18, 18);
             return false;
         }));
     }

@@ -30,6 +30,14 @@ public final class ScepterStorm {
         @Override public void tick() { if (++tickCount >= 6) discard(); }
     }
     public static boolean channeling(Player player) { return CHANNELS.contains(player); }
+    public static final class StormDamageSource extends DamageSource {
+        public StormDamageSource(Player player) {
+            super(player.level().registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.LIGHTNING_BOLT), player, player);
+        }
+        @Override public boolean is(net.minecraft.tags.TagKey<DamageType> tag) {
+            return tag.equals(net.minecraft.tags.DamageTypeTags.BYPASSES_COOLDOWN) || super.is(tag);
+        }
+    }
     public static void start(Player player, boolean storm) { if (storm) CHANNELS.add(player); else CHANNELS.remove(player); }
     public static boolean enough(Player player,int amount) {
         return player.getAbilities().instabuild || EssenceHelper.getEssenceProvider(player).map(p->p.getAmount(EssenceType.AUREAL)>=amount).orElse(false);
@@ -62,12 +70,7 @@ public final class ScepterStorm {
                 player.getX()+RADIUS,Double.POSITIVE_INFINITY,player.getZ()+RADIUS);
         for(var entity:level.getEntitiesOfClass(LivingEntity.class,column,target->target(player,target))) {
             var bolt=BOLT.get().create(level);bolt.setPos(entity.position());level.addFreshEntity(bolt);
-            entity.hurt(new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.LIGHTNING_BOLT),player,player) {
-                // Only this storm source bypasses hurt cooldown; natural lightning stays unchanged.
-                @Override public boolean is(net.minecraft.tags.TagKey<DamageType> tag) {
-                    return tag.equals(net.minecraft.tags.DamageTypeTags.BYPASSES_COOLDOWN)||super.is(tag);
-                }
-            },5);
+            entity.hurt(new StormDamageSource(player),5);
         }
     }
     @SubscribeEvent public static void stop(LivingEntityUseItemEvent.Stop event) { if(event.getEntity() instanceof Player p)CHANNELS.remove(p); }

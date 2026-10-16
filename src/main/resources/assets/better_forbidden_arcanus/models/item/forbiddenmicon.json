@@ -1,0 +1,11 @@
+{
+    "parent": "better_forbidden_arcanus:item/forbiddenmicon_closed",
+    "overrides": [
+        {
+            "predicate": {
+                "open": 1
+            },
+            "model": "better_forbidden_arcanus:item/forbiddenmicon_open"
+        }
+    ]
+}

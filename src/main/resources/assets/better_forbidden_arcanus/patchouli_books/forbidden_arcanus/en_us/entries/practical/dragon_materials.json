@@ -1,0 +1,18 @@
+{
+  "name": "龙鳞与龙蛋",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:dragon_scale",
+  "sortnum": 24,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "龙鳞来源",
+      "text": "普通龙鳞沿用本体原有获取方式；放置的神秘龙蛋每2分钟也会掉落普通、金色、银色、水生龙鳞之一，四种概率相同。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "龙鳞加工",
+      "text": "三种特殊龙鳞都能在炽炉1:1烧回普通龙鳞。普通龙鳞可用于复制鞘翅和天龙装备；金龙之鳞用于复制附魔金苹果。"
+    }
+  ]
+}

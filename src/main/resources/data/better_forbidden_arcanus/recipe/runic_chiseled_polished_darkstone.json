@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "forbidden_arcanus:chiseled_polished_darkstone"
+    },
+    {
+      "item": "forbidden_arcanus:rune"
+    }
+  ],
+  "result": {
+    "id": "better_forbidden_arcanus:runic_chiseled_polished_darkstone",
+    "count": 1
+  }
+}

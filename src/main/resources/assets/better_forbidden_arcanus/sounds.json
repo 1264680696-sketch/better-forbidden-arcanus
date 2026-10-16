@@ -1,0 +1,12 @@
+{
+  "runic_tenebris_core_activated": {
+    "sounds": [
+      "better_forbidden_arcanus:runic_tenebris_core_activated"
+    ]
+  },
+  "runic_tenebris_core_ambient": {
+    "sounds": [
+      "better_forbidden_arcanus:runic_tenebris_core_ambient"
+    ]
+  }
+}

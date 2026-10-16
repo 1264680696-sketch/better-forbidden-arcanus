@@ -1,0 +1,9 @@
+{
+  "parent": "better_forbidden_arcanus:block/cube_column_side_layer",
+  "textures": {
+    "end": "better_forbidden_arcanus:block/chiseled_polished_darkstone",
+    "side": "better_forbidden_arcanus:block/runic_chiseled_polished_darkstone_activated",
+    "layer": "better_forbidden_arcanus:block/runic_chiseled_polished_darkstone_layer"
+  },
+  "render_type": "minecraft:cutout"
+}
