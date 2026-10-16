@@ -40,7 +40,11 @@ public final class LegacyBookScreen extends Screen {
     @Override protected void init() {
         scale = Math.min(1.35F, Math.min(width/340F, height/236F));
         left = (int)((width-340*scale)/2); top = (int)((height-236*scale)/2);
-        if (entries.isEmpty()) load();
+        if (entries.isEmpty()) {
+            load();
+            // The original book has no MAIN entries. Open its first populated category.
+            if (!entries.isEmpty()) category = entries.getFirst().category();
+        }
         refresh();
     }
     private void load() {
@@ -62,10 +66,11 @@ public final class LegacyBookScreen extends Screen {
         var entry = currentEntry();
         lines = entry == null ? List.of() : font.split(Component.literal(entry.text()), 130);
         if (minecraft.level != null && entry != null) {
-            var item = icon(entry).getItem();
+            var id = ResourceLocation.tryParse(entry.item());
+            var item = id == null ? null : BuiltInRegistries.ITEM.getOptional(id).orElse(null);
             recipes = minecraft.level.getRecipeManager().getRecipes().stream()
                     .filter(holder -> holder.value() instanceof CraftingRecipe || holder.value() instanceof AbstractCookingRecipe)
-                    .filter(holder -> holder.value().getResultItem(minecraft.level.registryAccess()).is(item))
+                    .filter(holder -> item != null && holder.value().getResultItem(minecraft.level.registryAccess()).is(item))
                     .sorted(Comparator.comparing(holder -> holder.id().toString())).toList();
         } else recipes = List.of();
         controls.clear();

@@ -1,0 +1,131 @@
+{
+  "commit": "a915c22ab3bed69f3c27ae0d2f278158d102a6c5",
+  "entries": [
+    {
+      "source": "arcane_crystal.json",
+      "category": 1,
+      "item": "forbidden_arcanus:arcane_crystal",
+      "original_item": "forbidden_arcanus:arcane_crystal",
+      "original_text": "This luminous crystal can be found underground in form of the Arcane Crystal Ore. The dust you get when smelting the crystal absorbs a special energy and is used for a variety of different things."
+    },
+    {
+      "source": "arcane_crystal_obelisk.json",
+      "category": 2,
+      "item": "forbidden_arcanus:arcane_crystal_obelisk",
+      "original_item": "forbidden_arcanus:arcane_crystal_obelisk",
+      "original_text": "Arcane Crystal Obelisks need to be create directly in the world by placing two Arcane Crystal Blocks on top of an Arcane Base Block. When you now right-click this construction with Mundabitur Dust a Arcane Crystal Obelisk will be created."
+    },
+    {
+      "source": "arcane_gold_ingot.json",
+      "category": 1,
+      "item": "better_forbidden_arcanus:arcane_gold_ingot",
+      "original_item": "forbidden_arcanus:arcane_gold_ingot",
+      "original_text": "Arcane Gold is a rare resource that can only be obtained from crafting or as special drop from the Golden Orchid. It is used for many different things."
+    },
+    {
+      "source": "chorus_pearl.json",
+      "category": 1,
+      "item": "forbidden_arcanus:chorus_pearl",
+      "original_item": "forbidden_arcanus:chorus_pearl",
+      "original_text": "A Chorus Pearl is a strange purple item that can either be crafted or found as treasure in End Cities. When you hit an entity with it, it will randomly teleport to another location within a 50-block radius."
+    },
+    {
+      "source": "dragon_scale.json",
+      "category": 1,
+      "item": "forbidden_arcanus:dragon_scale",
+      "original_item": "forbidden_arcanus:dragon_scale",
+      "original_text": "Dragon Scales can currently only be found as rare treasure in End Cities. Due to their rarity, they are used to create the strongest weapons, tools and armor."
+    },
+    {
+      "source": "edelwood_bucket.json",
+      "category": 1,
+      "item": "forbidden_arcanus:edelwood_bucket",
+      "original_item": "forbidden_arcanus:edelwood_bucket",
+      "original_text": "This Bucket made from Edelwood can hold up to 4 Water or 3 Lava. Additionally it can also be used for transporting some smaller animals. But be careful if you transport lava and the bucket does not have the permafrost enchantment!"
+    },
+    {
+      "source": "edelwood_log.json",
+      "category": 2,
+      "item": "forbidden_arcanus:edelwood_log",
+      "original_item": "forbidden_arcanus:edelwood_log",
+      "original_text": "Edelwood Logs can naturally be found hiding from the sunlight under trees in Dark Forests. Sometimes a bit Edelwood Oil leaks out of it, to collect it, just right-click the log with an empty Glass Bottle."
+    },
+    {
+      "source": "magical_farmland.json",
+      "category": 2,
+      "item": "forbidden_arcanus:magical_farmland",
+      "original_item": "forbidden_arcanus:magical_farmland",
+      "original_text": "This special type of farmland can be created by simply right-clicking a normal farmland with an Arcane Crystal Dust. Crops planted on this farmland will drop the doubled amount of drops, however not the doubled amount of seeds"
+    },
+    {
+      "source": "mundabitur_dust.json",
+      "category": 1,
+      "item": "forbidden_arcanus:mundabitur_dust",
+      "original_item": "forbidden_arcanus:mundabitur_dust",
+      "original_text": "This mysterious dust releases a lot of energy so that it can easily turn a creeper into a charged creeper. It is also needed for crafting Arcane Gold and for creating Arcane Crystal Obelisks."
+    },
+    {
+      "source": "obsidian_ingot.json",
+      "category": 1,
+      "item": "forbidden_arcanus:obsidian_ingot",
+      "original_item": "forbidden_arcanus:obsidian_ingot",
+      "original_text": "Obsidian is the hardest material in the world, so why not make some tools from it? They will be as good as diamond tools but with a lot higher durability. Or you could craft yourself an Obsidian Skull to prevent you from Fire Damage."
+    },
+    {
+      "source": "orb_of_temporary_flight.json",
+      "category": 1,
+      "item": "forbidden_arcanus:orb_of_temporary_flight",
+      "original_item": "forbidden_arcanus:orb_of_temporary_flight",
+      "original_text": "Use this orb, which can be found as treasure in End Cities, to be awarded 5 Minutes of flight!"
+    },
+    {
+      "source": "pixie.json",
+      "category": 1,
+      "item": "forbidden_arcanus:pixie",
+      "original_item": "forbidden_arcanus:pixie",
+      "original_text": "Pixies are your friend! They will help you to fly when you use them and in addition they will save you from fall damage if you hold them in your hand."
+    },
+    {
+      "source": "runic_tenebris_core.json",
+      "category": 2,
+      "item": "better_forbidden_arcanus:runic_tenebris_core",
+      "original_item": "forbidden_arcanus:runic_tenebris_core",
+      "original_text": "This Block powered by a Dark Nether Star can transform Runes into Dark Runes!"
+    },
+    {
+      "source": "spectral_eye_amulet.json",
+      "category": 1,
+      "item": "forbidden_arcanus:spectral_eye_amulet",
+      "original_item": "forbidden_arcanus:spectral_eye_amulet",
+      "original_text": "A Spectral Eye Amulet will grant you the Spectral Vision Effect while it is in your inventory. That Effect applies a glowing outline to all entities near you, the color of the outline varies depending on the type of the entity, so friendly entities will receive a green outline, hostile ones a red one and water entities a blue one."
+    },
+    {
+      "source": "stella_arcanum.json",
+      "category": 2,
+      "item": "forbidden_arcanus:stella_arcanum",
+      "original_item": "forbidden_arcanus:stella_arcanum",
+      "original_text": "Stella Arcanum functions just like an ore, when you mine it with a diamond or higher tier pickaxe it will drop a Stellarite Piece! But be aware: Stella Arcnum is a really unstable block, which means that it will explode as soon as you break it!"
+    },
+    {
+      "source": "stellarite_piece.json",
+      "category": 1,
+      "item": "forbidden_arcanus:stellarite_piece",
+      "original_item": "forbidden_arcanus:stellarite_piece",
+      "original_text": "You can get this mysterious material when mining Stella Arcanum, which can be found underground, with a diamond pickaxe or higher. But be careful: Stella Arcanum is a really unstable block, that means it will explode when mined! It seems that it has no use yet, but you should already start collecting it."
+    },
+    {
+      "source": "xpetrified_orb.json",
+      "category": 1,
+      "item": "forbidden_arcanus:xpetrified_orb",
+      "original_item": "forbidden_arcanus:xpetrified_orb",
+      "original_text": "This Orb will grant you an entire level of xp, when you right-click it!"
+    },
+    {
+      "source": "yellow_orchid.json",
+      "category": 2,
+      "item": "forbidden_arcanus:yellow_orchid",
+      "original_item": "forbidden_arcanus:yellow_orchid",
+      "original_text": "Yellow Orchids are pretty flowers which can be found in the Flower Forest Biome. With a Yellow Orchid and an Arcane Gold Ingot you could craft yourself a Golden Orchid Seed, which will truly be a big help when it comes to generating Arcane Gold Ingots."
+    }
+  ]
+}

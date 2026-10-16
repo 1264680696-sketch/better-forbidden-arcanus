@@ -1,183 +1,128 @@
 [
   {
-    "category": 0,
-    "item": "better_forbidden_arcanus:forbiddenmicon",
-    "text": "这本禁忌之书恢复了旧版独立界面。左侧选择主页、物品或方块；左右箭头切换条目。右页正文可用滚轮或正文按钮翻页，左页配方按钮切换当前可用配方。内容已适配当前1.21.1与本附属。完整的祭坛进阶流程仍可在帕秋莉指南中查阅。",
-    "title": "禁忌之书"
-  },
-  {
-    "category": 0,
-    "item": "minecraft:crafting_table",
-    "text": "配方根据当前世界的数据包实时读取，支持工作台有序、无序及常规烧炼；同一产物有多个配方时可以切换，材料Tag中的物品会轮换显示。祭坛仪式和右键交互不属于普通合成配方，请阅读右页操作说明。",
-    "title": "如何阅读"
-  },
-  {
+    "source": "arcane_crystal.json",
     "category": 1,
+    "title": "神秘水晶",
     "item": "forbidden_arcanus:arcane_crystal",
-    "text": "神秘水晶来自地下的神秘水晶矿石。烧成神秘水晶粉后用于洁净粉末、奥术金锭等加工，也可以激活錾制磨制符文暗黑石。"
+    "text": "这种发光的水晶可以在地下的神秘水晶矿石中找到。熔炼水晶得到的粉末能够吸收一种特殊能量，有着多种用途。"
   },
   {
-    "category": 1,
-    "item": "better_forbidden_arcanus:arcane_gold_ingot",
-    "text": "旧版奥术金锭与当前Deorum锭是两个不同物品。用4份木炭、2份神秘水晶粉、2份洁净粉末和1个金锭合成1个；可制作暗黑符文框架。本次没有恢复整套旧奥术金装备。"
-  },
-  {
-    "category": 1,
-    "item": "forbidden_arcanus:chorus_pearl",
-    "text": "紫颂珍珠沿用当前版本的用途和合成规则。左页只显示当前世界实际存在的配方；它不是末影珍珠碎片，也不能替代天龙杖柄所需的末影珍珠。"
-  },
-  {
-    "category": 1,
-    "item": "forbidden_arcanus:dragon_scale",
-    "text": "龙之鳞片用于天龙装备、复制鞘翅及制作特殊龙鳞。神秘龙蛋放置后每2分钟掉落普通、金色、银色、水生龙鳞之一，概率相同；后三种能在炽炉中1:1烧回普通龙鳞。"
-  },
-  {
-    "category": 1,
-    "item": "forbidden_arcanus:edelwood_bucket",
-    "text": "埃德木桶沿用本体当前行为。本次只把物品外观接入附属贴图，方便通过资源包修改，没有改动桶的容量、装液与清除液体规则。"
-  },
-  {
-    "category": 1,
-    "item": "forbidden_arcanus:mundabitur_dust",
-    "text": "洁净粉末用于激活赫菲斯托斯锻炉和两种神秘水晶方尖碑。附属配方已经去掉烈焰粉和幻翼膜，使用金锭。对成型结构使用粉末时，按本体规则消耗材料。"
-  },
-  {
-    "category": 1,
-    "item": "forbidden_arcanus:obsidiansteel_ingot",
-    "text": "现版本使用黑曜钢锭，对应旧书中的黑曜石锭材料位置。它可通过当前炽炉合金路线获得，用于天龙工具、黑曜石头骨和装备强化；旧版名称不再作为另一种可获取材料。",
-    "title": "黑曜钢锭（旧黑曜石锭）"
-  },
-  {
-    "category": 1,
-    "item": "forbidden_arcanus:spectral_eye_amulet",
-    "text": "幽灵之眼的配方已经将下界之星改成附魔灵魂。保留本体使用方式，但显示范围现在是玩家周围40格球形范围，不再无限距离显示。"
-  },
-  {
-    "category": 1,
-    "item": "forbidden_arcanus:stellarite_piece",
-    "text": "流星碎片来自奥术陨石，是永恒之石等材料的原料。潜行右键魔杖会在64格球形范围内探测已加载的奥术陨石，高亮10秒；不会为探测强制加载区块。"
-  },
-  {
-    "category": 1,
-    "item": "forbidden_arcanus:xpetrified_orb",
-    "text": "经验石化球沿用本体当前配方和使用方式。经验精华也可由腐化神秘水晶方尖碑每5秒提供1点给附近锻炉；罐子储存的经验可通过量子注入器供给。"
-  },
-  {
-    "category": 1,
-    "item": "better_forbidden_arcanus:zombie_arm",
-    "text": "僵尸基础0.2%概率掉落，每级抢夺增加0.1个百分点。主手总攻击伤害5、攻击速度1.7，无耐久消耗。近战击杀马可转化为僵尸马，击杀村民可转化为僵尸村民；保留村民职业、生物群系类型、交易、流言和经验。"
-  },
-  {
-    "category": 1,
-    "item": "better_forbidden_arcanus:shiny_zombie_arm",
-    "text": "溺尸基础0.2%概率掉落，每级抢夺增加0.1个百分点。外观与普通手臂不同，但同样是5攻击伤害、1.7攻击速度，拥有相同的马与村民转化能力，不额外添加隐藏伤害加成。"
-  },
-  {
-    "category": 1,
-    "item": "better_forbidden_arcanus:forbiddenmicon",
-    "text": "书与神秘水晶粉无序合成。右键打开本书；它与神秘水晶加书制作的帕秋莉指南是两个独立物品。旧版尚未移植的内容会明确注明，不能把历史条目当成生存获取入口。"
-  },
-  {
-    "category": 1,
-    "item": "better_forbidden_arcanus:runic_battleaxe",
-    "text": "恢复旧版钻石材质战斧参数：基础总攻击伤害5、攻击速度1.2、耐久1561。可作为常规斧工具使用和接受附魔，支持附属装备强化。配方使用2个符文、4个暗黑符文、2根埃德木棍及1个旧头骨。"
-  },
-  {
-    "category": 1,
-    "item": "better_forbidden_arcanus:dark_rune",
-    "text": "普通符文右键暗黑符文核心后1:1变成暗黑符文，也可开采暗黑符文矿石获得。四个暗黑符文能制成暗黑符文袋，再无序拆回四个；用于符文战斧等旧版配方。"
-  },
-  {
-    "category": 1,
-    "item": "better_forbidden_arcanus:skull",
-    "text": "这是一种旧版合成材料，不是骷髅头颅。四个骨块放在上、下、左、右，中间留空，合成1个旧头骨，用于符文战斧。它不能代替原版头颅的其他用途。"
-  },
-  {
-    "category": 1,
-    "item": "better_forbidden_arcanus:rune_bag",
-    "text": "四个普通符文以2×2合成1个符文袋，能无序拆回4个符文。持袋右键核心可以1:1转成暗黑符文袋，相当于一次转化四个符文。"
-  },
-  {
-    "category": 1,
-    "item": "better_forbidden_arcanus:dark_rune_bag",
-    "text": "四个暗黑符文以2×2合成，或者将符文袋交给核心转化。无序拆解得到4个暗黑符文。袋子是材料压缩物品，没有额外的储物界面。"
-  },
-  {
-    "category": 1,
-    "item": "forbidden_arcanus:draco_arcanus_sword",
-    "text": "天龙剑恢复了正常攻击属性显示。对末影龙额外增加100%伤害，与每件天龙或提尔盔甲的25%相加；配合四件合格盔甲为3倍对龙伤害，其他遗物和强化倍率继续独立生效。"
-  },
-  {
-    "category": 1,
-    "item": "forbidden_arcanus:draco_arcanus_scepter",
-    "text": "普通右键能量球每发消耗1点耀金。潜行持续右键每秒消耗5点，攻击水平半径10格内、至少高于自己4格的敌人，每0.1秒雷击一次；不伤玩家与宠物，不点火、不摧毁掉落物且没有雷声。近战、能量球与召雷均有100%对龙加伤，与盔甲加成相加。"
-  },
-  {
-    "category": 1,
-    "item": "forbidden_arcanus:draco_arcanus_arrow",
-    "text": "满蓄力、无暴击与附魔时，直接命中基准15伤害。命中生物产生20秒龙息云，初始半径2.5格、增长速度提升25%、伤害提升25%。范围内非玩家生物获得缓慢II、虚弱II，离开后保留5秒。"
-  },
-  {
-    "category": 1,
-    "item": "minecraft:elytra",
-    "text": "旧版临时飞行之球未移植。本版可将神秘龙蛋紧贴放在激活信标上方，在信标的实际作用范围内获得自由飞行；离开范围、龙蛋移除或信标失效会撤销此来源。",
-    "title": "临时飞行之球（未移植）"
-  },
-  {
-    "category": 1,
-    "item": "minecraft:allay_spawn_egg",
-    "text": "旧版妖精及其相关获取链本次没有移植。本条仅保留旧书目录位置，不提供虚假的合成或生成途径。",
-    "title": "妖精（未移植）"
-  },
-  {
+    "source": "arcane_crystal_obelisk.json",
     "category": 2,
+    "title": "神秘水晶方尖碑",
     "item": "forbidden_arcanus:arcane_crystal_obelisk",
-    "text": "神秘磨制暗黑石上叠两块神秘水晶块，用洁净粉末激活。工作时下方需镀金錾制磨制暗黑石；每5秒为4格内最近锻炉增加1点辉光。腐化版按相同方式搭建，改为每5秒提供1点经验精华。"
+    "text": "神秘水晶方尖碑需要直接在世界中搭建：在一个神秘基座方块上方放置两个神秘水晶块。然后用洁净粉末右键点击这座结构，就能将其变成神秘水晶方尖碑。"
   },
   {
+    "source": "arcane_gold_ingot.json",
+    "category": 1,
+    "title": "奥术金锭",
+    "item": "better_forbidden_arcanus:arcane_gold_ingot",
+    "text": "奥术金是一种稀有资源，只能通过合成，或作为金兰花的特殊掉落物获得。它有着多种用途。"
+  },
+  {
+    "source": "chorus_pearl.json",
+    "category": 1,
+    "title": "紫颂珍珠",
+    "item": "forbidden_arcanus:chorus_pearl",
+    "text": "紫颂珍珠是一种奇特的紫色物品，可以通过合成获得，也能在末地城的宝藏中找到。用它击中生物后，该生物会随机传送到半径50格范围内的另一处位置。"
+  },
+  {
+    "source": "dragon_scale.json",
+    "category": 1,
+    "title": "龙之鳞片",
+    "item": "forbidden_arcanus:dragon_scale",
+    "text": "龙之鳞片目前只能作为末地城中的稀有宝藏找到。由于十分稀有，它们被用于制作最强大的武器、工具和盔甲。"
+  },
+  {
+    "source": "edelwood_bucket.json",
+    "category": 1,
+    "title": "埃德木桶",
+    "item": "forbidden_arcanus:edelwood_bucket",
+    "text": "这种用埃德木制成的桶最多能装4桶水或3桶岩浆。此外，它还可以用来运送一些小型动物。但如果桶没有永冻附魔，装运岩浆时可要小心！"
+  },
+  {
+    "source": "edelwood_log.json",
     "category": 2,
+    "title": "埃德木原木",
     "item": "forbidden_arcanus:edelwood_log",
-    "text": "埃德木原木可参与本体精华与相关材料加工。腐化灵魂保留植物转化能力，但使用时按当前规则消耗；炽炉灵魂槽中的灵魂则保留不消耗的附属规则。"
+    "text": "埃德木原木会自然生成在黑森林的树下，躲避阳光。有时会有少量埃德木油从中渗出；用空玻璃瓶右键点击原木即可收集。"
   },
   {
+    "source": "magical_farmland.json",
     "category": 2,
+    "title": "魔法农田",
     "item": "forbidden_arcanus:magical_farmland",
-    "text": "魔法农田沿用本体当前行为和实际配方。旧版介绍中的数值不直接覆盖当前版本；以当前世界的数据包和本附属指南为准。"
+    "text": "只需用神秘水晶粉右键点击普通耕地，就能制作这种特殊的农田。种在这种农田上的作物会掉落双倍产物，但种子的掉落数量不会翻倍。"
   },
   {
-    "category": 2,
-    "item": "forbidden_arcanus:stella_arcanum",
-    "text": "奥术陨石在主世界地下生成，生成点Y=-44到42；每区块两次尝试，不保证生成成功。挖掘时注意爆炸风险，魔杖探测半径64格，高亮持续10秒。"
+    "source": "mundabitur_dust.json",
+    "category": 1,
+    "title": "洁净粉末",
+    "item": "forbidden_arcanus:mundabitur_dust",
+    "text": "这种神秘的粉末能释放大量能量，轻易地将苦力怕变成闪电苦力怕。制作奥术金和搭建神秘水晶方尖碑也需要用到它。"
   },
   {
-    "category": 2,
-    "item": "better_forbidden_arcanus:runic_tenebris_frame",
-    "text": "四个奥术金锭放四角，四个錾制磨制符文暗黑石放上下左右，中央暗物质。放好框架后用一颗暗黑下界之星右键，转为暗黑符文核心，保留原水浸状态。"
+    "source": "obsidian_ingot.json",
+    "category": 1,
+    "title": "黑曜石锭",
+    "item": "forbidden_arcanus:obsidian_ingot",
+    "text": "黑曜石是世界上最坚硬的材料，何不拿它来制作工具呢？做出的工具性能堪比钻石工具，耐久却高得多。你也可以为自己制作一个黑曜石头骨，用来抵御火焰伤害。"
   },
   {
+    "source": "orb_of_temporary_flight.json",
+    "category": 1,
+    "title": "短暂飞行之球",
+    "item": "forbidden_arcanus:orb_of_temporary_flight",
+    "text": "这种球可以在末地城的宝藏中找到。使用它，就能获得5分钟的飞行能力！"
+  },
+  {
+    "source": "pixie.json",
+    "category": 1,
+    "title": "精灵",
+    "item": "forbidden_arcanus:pixie",
+    "text": "精灵是你的朋友！使用它们时，它们会帮助你飞行；把它们拿在手中，还能免受摔落伤害。"
+  },
+  {
+    "source": "runic_tenebris_core.json",
     "category": 2,
+    "title": "暗黑符文核心",
     "item": "better_forbidden_arcanus:runic_tenebris_core",
-    "text": "右键核心可转化：普通符文→暗黑符文；符文袋→暗黑符文袋；石头、深板岩或暗黑石符文矿石→暗黑符文矿石。每次输入和输出均为1个，核心不消耗额外能量或材料。"
+    "text": "这种由暗黑下界之星提供能量的方块，可以将符文转化为暗黑符文！"
   },
   {
-    "category": 2,
-    "item": "better_forbidden_arcanus:runic_chiseled_polished_darkstone",
-    "text": "錾制磨制暗黑石与普通符文无序合成。再用1个神秘水晶右键激活，可阻止25格球形范围内的怪物生成。破坏方块会撤销作用；重新放置后需要重新激活，激活状态和有效位置会随世界保存。"
+    "source": "spectral_eye_amulet.json",
+    "category": 1,
+    "title": "幽灵之眼护身符",
+    "item": "forbidden_arcanus:spectral_eye_amulet",
+    "text": "将幽灵之眼护身符放在物品栏中，就能获得幽灵视觉效果。这种效果会为附近所有实体添加发光轮廓，轮廓颜色随实体类型变化：友好实体为绿色，敌对实体为红色，水生实体为蓝色。"
   },
   {
+    "source": "stella_arcanum.json",
     "category": 2,
-    "item": "better_forbidden_arcanus:dark_runestone",
-    "text": "用普通符文矿石物品右键核心获得，没有额外自然生成。正确工具开采掉落暗黑符文，支持时运；精准采集保留矿石本身。普通熔炉烧炼得到1个暗黑符文，250tick、1.2经验。"
+    "title": "奥术陨石",
+    "item": "forbidden_arcanus:stella_arcanum",
+    "text": "奥术陨石的作用就像矿石，用钻石或更高等级的镐开采它，就会掉落流星碎片！但要小心：奥术陨石是一种极不稳定的方块，一旦被破坏就会爆炸！"
   },
   {
-    "category": 2,
-    "item": "forbidden_arcanus:utrem_jar",
-    "text": "待盈新月或绯红之石可放在罐顶，分别每5秒产生3点耀金或血液，满罐停止。空手潜行右键取回，打碎会掉落遗物。只支持这两种遗物；其装备效果与罐上用途分别生效。"
+    "source": "stellarite_piece.json",
+    "category": 1,
+    "title": "流星碎片",
+    "item": "forbidden_arcanus:stellarite_piece",
+    "text": "使用钻石或更高等级的镐，开采地下的奥术陨石，就能得到这种神秘材料。但要小心：奥术陨石极不稳定，开采时会发生爆炸！这种材料似乎暂时没有用途，但你应该已经开始收集它了。"
   },
   {
+    "source": "xpetrified_orb.json",
+    "category": 1,
+    "title": "石化经验球",
+    "item": "forbidden_arcanus:xpetrified_orb",
+    "text": "右键使用这种球，就能获得整整一级经验！"
+  },
+  {
+    "source": "yellow_orchid.json",
     "category": 2,
-    "item": "minecraft:dandelion",
-    "text": "旧版黄色兰花未移植。本条保留旧书资料位置，不添加旧植物的自然生成和配方，也不将它冒充为当前其他植物。",
-    "title": "黄色兰花（未移植）"
+    "title": "黄兰花",
+    "item": "forbidden_arcanus:yellow_orchid",
+    "text": "黄兰花是一种漂亮的花，可以在繁花森林生物群系中找到。用黄兰花和奥术金锭可以合成金兰花种子，在获取奥术金锭时，它会成为你的得力帮手。"
   }
 ]

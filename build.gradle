@@ -61,6 +61,13 @@ neoForge {
             loadedMods = [mods."${mod_id}", mods.bfa_tests]
             systemProperty 'bfa.guideTest', 'true'
         }
+        clientBook {
+            client()
+            sourceSet = sourceSets.gametest
+            gameDirectory = project.file('runs/client-book')
+            loadedMods = [mods."${mod_id}", mods.bfa_tests]
+            systemProperty 'bfa.legacyBookTest', 'true'
+        }
         gameTestServer {
             type = 'gameTestServer'
             sourceSet = sourceSets.gametest
