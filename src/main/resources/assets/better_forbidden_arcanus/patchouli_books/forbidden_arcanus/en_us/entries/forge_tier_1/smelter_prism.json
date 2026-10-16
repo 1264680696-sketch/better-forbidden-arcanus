@@ -6,28 +6,29 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "作为工具的炙热修饰材料，可让适用工具的掉落进行熔炼处理。需要修饰符锻造模板，且不能与不兼容附魔组合。"
+      "title": "熔炉棱晶",
+      "text": "把熔炉的热意收进工具。熔炉棱晶是炙热修饰的材料：取得它后，还需在锻造台配合模板应用到合适的挖掘工具上；精准采集与它并不相容。"
     },
     {
       "type": "patchouli:spotlight",
       "item": "forbidden_arcanus:smelter_prism",
       "title": "熔炉棱晶",
-      "text": "最低 1 级；成品用途与材料见本条目。"
+      "text": "需1 级锻炉。配齐后续材料，用锻工锤启动。"
     },
     {
       "type": "patchouli:text",
-      "text": "中央：神秘水晶方块×1。$(br)煤炭×2$(br)烈焰粉×4$(br2)外围辅料每份占一个基座，其他基座保持空置。",
-      "title": "仪式材料"
+      "text": "中央：神秘水晶方块×1。$(br)煤炭×2$(br)烈焰粉×4$(br2)每份辅料各占一座基座，其余留空。",
+      "title": "放入法阵"
     },
     {
       "type": "patchouli:text",
-      "text": "辉光：200$(br)灵魂：4$(br)血液：1250$(br)经验：0$(br2)必需增强器：基本元素。以上是未受增强器优惠的基础消耗。",
+      "text": "辉光：200$(br)灵魂：4$(br)血液：1250$(br)经验：0$(br2)必需增强器：基本元素。所列为基础消耗，增强器可改变实际需求。",
       "title": "精华与增强器"
     },
     {
       "type": "patchouli:text",
-      "text": "装备改造步骤与适用限制见$(l:better_forbidden_arcanus:practical/modifiers)装备修饰$(/l)。配方要求的增强器必须放在祭坛槽位内。",
-      "title": "继续使用成品"
+      "text": "带上成品，按$(l:better_forbidden_arcanus:practical/modifiers)装备修饰$(/l)的步骤继续加工。",
+      "title": "完成之后"
     }
   ]
 }

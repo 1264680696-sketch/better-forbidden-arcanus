@@ -1,28 +1,18 @@
 {
   "name": "诅咒契约",
-  "category": "better_forbidden_arcanus:practical",
+  "category": "better_forbidden_arcanus:relics",
   "icon": "forbidden_arcanus:maledictus_pact",
   "sortnum": 8,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "堡垒遗迹的藏宝箱有机会提供诅咒契约。"
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:maledictus_pact",
-      "title": "诅咒契约",
-      "text": "可作设施增强器，也可放入遗物栏。"
+      "title": "力量的代价",
+      "text": "诅咒契约把生存空间换成力量：最大生命减少20%，造成的伤害增加40%。近战和能归属于你的远程攻击都受益，代价也会一直随身。"
     },
     {
       "type": "patchouli:text",
-      "text": "设施：保留增强器物品用途，但本书所列默认祭坛仪式没有把它作为必需条件。",
-      "title": "作为设施增强器"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "装备：最大生命值减少 20%，由玩家归属的伤害增加 40%。",
-      "title": "装备在遗物栏"
+      "title": "寻觅与安放",
+      "text": "可以在堡垒遗迹的宝藏中寻找它。它也保留设施增强器的身份，但本书所列普通仪式没有把它作为必要条件；不必为每个仪式都留一个槽。"
     }
   ]
 }

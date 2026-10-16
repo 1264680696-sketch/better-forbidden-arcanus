@@ -59,8 +59,8 @@ try {
     if ($Tasks -contains 'runClientBook') {
         $taskBookLog = Join-Path $taskProject 'runs/client-book/logs/latest.log'
         if (-not (Test-Path -LiteralPath $taskBookLog) -or
-            -not (Select-String -LiteralPath $taskBookLog -SimpleMatch 'BFA_LEGACY_BOOK_PASS' -Quiet)) {
-            throw 'Legacy book check did not finish. Check runs/client-book/logs/latest.log.'
+            -not (Select-String -LiteralPath $taskBookLog -SimpleMatch 'BFA_HANDBOOK_PASS' -Quiet)) {
+            throw 'Handbook check did not finish. Check runs/client-book/logs/latest.log.'
         }
     }
 } finally { Pop-Location }

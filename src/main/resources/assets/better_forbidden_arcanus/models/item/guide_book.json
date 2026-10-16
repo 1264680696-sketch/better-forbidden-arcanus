@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "better_forbidden_arcanus:item/guide_book"
-  }
+  "parent": "better_forbidden_arcanus:item/forbiddenmicon_closed"
 }

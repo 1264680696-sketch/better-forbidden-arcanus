@@ -29,12 +29,12 @@ public final class ClientSmokeTest {
             var guideId = SoulItems.id("forbidden_arcanus");
             var guide = vazkii.patchouli.common.book.BookRegistry.INSTANCE.books.get(guideId);
             if (guide == null || guide.name.isBlank()
-                    || !guide.model.toString().equals("better_forbidden_arcanus:item/guide_book")
-                    || !guide.bookTexture.toString().equals("better_forbidden_arcanus:textures/gui/guide_book.png")
+                    || !guide.model.toString().equals("better_forbidden_arcanus:guide_book")
+                    || !guide.bookTexture.toString().equals("better_forbidden_arcanus:textures/gui/forbiddenmicon.png")
                     || !guide.creativeTab.equals(SoulItems.id("main"))) {
                 throw new IllegalStateException("Guide must use default brown book and addon creative tab");
             }
-            var resource = SoulItems.id("patchouli_books/forbidden_arcanus/en_us/entries/practical/legacy_book.json");
+            var resource = SoulItems.id("patchouli_books/forbidden_arcanus/en_us/entries/practical/legacy_core.json");
             if (Minecraft.getInstance().getResourceManager().getResource(resource).isEmpty()) {
                 throw new IllegalStateException("Missing guide content");
             }

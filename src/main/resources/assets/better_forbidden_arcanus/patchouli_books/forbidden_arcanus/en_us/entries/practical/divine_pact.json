@@ -1,28 +1,23 @@
 {
   "name": "神圣契约",
-  "category": "better_forbidden_arcanus:practical",
+  "category": "better_forbidden_arcanus:relics",
   "icon": "forbidden_arcanus:divine_pact",
   "sortnum": 9,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "当前默认配方及附加宝箱资源没有可确认的常规获取路线。请确认整合包是否补充获取方式；不能仅凭创造栏可见推断生存来源。"
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:divine_pact",
-      "title": "神圣契约",
-      "text": "可作设施增强器，也可放入遗物栏。"
+      "title": "与神圣立约",
+      "text": "戴上神圣契约，对亡灵造成的伤害增加25%。当生命严格低于最大生命的20%时，获得生命恢复I。它不会替你挡下致命一击，别把濒危当成安全。"
     },
     {
       "type": "patchouli:text",
-      "text": "设施：灵魂绑定水晶仪式必须使用神圣契约。",
-      "title": "作为设施增强器"
+      "title": "放入锻炉",
+      "text": "$(l:better_forbidden_arcanus:forge_tier_4/soul_binding_crystal)灵魂绑定水晶$(/l)的仪式需要神圣契约作为增强器，必须放在锻炉小槽。"
     },
     {
       "type": "patchouli:text",
-      "text": "装备：对亡灵伤害增加 25%；生命严格低于当前最大生命值 20% 时获得生命恢复 I。",
-      "title": "装备在遗物栏"
+      "title": "寻觅",
+      "text": "现有常规配方与附加宝箱表未提供确定的生存来源。是否另有途径，取决于世界所用的额外配方或战利品安排。"
     }
   ]
 }

@@ -1,98 +1,58 @@
 {
-  "name": "天龙工具与权杖",
+  "name": "天龙工具与武器",
   "category": "better_forbidden_arcanus:practical",
   "icon": "forbidden_arcanus:draco_arcanus_pickaxe",
   "sortnum": 20,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "先制作天龙杖柄，再配合龙鳞、钻石和黑曜钢制作工具。天龙工具已恢复默认攻击属性；强化后，绿色属性行直接显示加成后的数值。"
+      "title": "龙鳞作刃",
+      "text": "坚韧的龙鳞、黑曜钢与天龙杖柄，组成这套工具与武器。先制杖柄，再选需要的工具。$(l:better_forbidden_arcanus:practical/draco_scepter)天龙权杖$(/l)与$(l:better_forbidden_arcanus:practical/draco_arrow)天龙箭矢$(/l)另有专页。"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:draco_arcanus_staff",
-      "text": "天龙杖柄；每次产出 1 个。"
+      "text": ""
     },
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:draco_arcanus_sword",
-      "text": "天龙剑；每次产出 1 个。"
+      "text": ""
     },
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:draco_arcanus_pickaxe",
-      "text": "天龙镐；每次产出 1 个。"
+      "text": ""
     },
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:draco_arcanus_axe",
-      "text": "天龙斧；每次产出 1 个。"
+      "text": ""
     },
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:draco_arcanus_shovel",
-      "text": "天龙锹；每次产出 1 个。"
+      "text": ""
     },
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:draco_arcanus_hoe",
-      "text": "天龙锄；每次产出 1 个。"
-    },
-    {
-      "type": "patchouli:crafting",
-      "recipe": "better_forbidden_arcanus:draco_arcanus_scepter",
-      "text": "天龙权杖；每次产出 1 个。"
+      "text": ""
     },
     {
       "type": "patchouli:text",
-      "title": "基础近战属性",
-      "text": "伤害／攻击速度：$(br)剑：12／1.8$(br)镐：10／1.4$(br)斧：14／1.2$(br)锹：10.5／1.2$(br)锄：4／5$(br)权杖：1／4$(br2)权杖以上数值为近战属性，能量球攻击沿用原规则。"
+      "title": "近战属性",
+      "text": "伤害／攻击速度：$(br)剑：12／1.8$(br)镐：10／1.4$(br)斧：14／1.2$(br)锹：10.5／1.2$(br)锄：4／5$(br2)强化后的物品提示会直接显示最终属性。"
     },
     {
       "type": "patchouli:text",
-      "title": "天龙斧取首",
-      "text": "用主手天龙神秘斧近战击杀凋零骷髅，头颅掉落率增加30个百分点：基础2.5%变为32.5%。$(br2)抢夺继续每级增加1个百分点，抢夺III时为35.5%；同次击杀最多一颗。持斧发射远程或其他武器击杀不获得此加成。"
+      "title": "取下凋零头颅",
+      "text": "主手持天龙斧近战击杀凋零骷髅，头颅概率额外增加30个百分点：未附魔时32.5%，抢夺III时35.5%。每次最多一颗；远程击杀不能借用手持斧的加成。"
     },
     {
       "type": "patchouli:text",
-      "title": "权杖与耀金",
-      "text": "普通右键保留原能量球攻击、蓄力与冷却，每发消耗1点玩家耀金（辉光）。耀金不足时不能发射。$(br2)按住潜行和右键可持续召雷，每秒消耗5点，松开潜行或右键、换手，或无法支付下一秒消耗时停止。创造模式免消耗。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "高处的敌人",
-      "text": "召雷选择水平半径10格内、脚底至少高于你4格的敌对怪物与正在攻击你的中立生物；排除玩家、友方及驯服宠物。$(br2)进入范围的敌人在下一轮受击，离开或降得过低便不再受击。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "连续雷击",
-      "text": "每2 tick／0.1秒重新选敌并召雷一次，每秒10次；每次造成5点基础伤害，可连续结算，不受普通受伤间隔限制。$(br2)耀金仍每秒只消耗5点，与目标数量无关。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "安静的雷击",
-      "text": "召雷没有雷声、不点火、不破坏方块，也不会击毁掉落物，只伤害选中的生物。$(br2)伤害归属使用者，可触发相应装备与遗物倍率；普通自然雷电行为不变。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "向上检测",
-      "text": "范围按水平距离计算，不是球形；向上没有额外高度上限，只检测当前已加载的生物。$(br2)在整个潜行右键持续时间内反复选取目标，不限于开始施法时的生物。耀金仍每秒消耗5点，无目标也消耗。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "屠龙武器",
-      "text": "天龙剑及天龙权杖对末影龙增加100%伤害；与每件天龙／提尔盔甲25%的加成相加。$(br2)武器加四件合格盔甲共3倍。权杖近战、普通能量球和召雷均适用；远程按发射来源判断，换手不能把普通远程变成权杖攻击。"
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:draco_arcanus_arrow",
-      "title": "天龙箭矢",
-      "text": "满蓄力、无暴击、无附魔的普通命中基准为15点伤害；蓄力、暴击、附魔和装备强化继续影响伤害。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "强化龙息",
-      "text": "箭矢命中生物后的龙息云持续20秒，初始半径2.5格，半径增长速度与伤害均比原版提升25%。$(br2)云内非玩家生物持续获得缓慢II和虚弱II，离开后保留5秒；玩家不获得这两种效果，原有龙息伤害规则保留。"
+      "title": "屠龙之刃",
+      "text": "天龙剑对末影龙额外增加100%伤害，再与每件天龙或提尔盔甲的25%相加。剑与四件合格盔甲合计3倍；龙头与身体仍遵守各自的受伤规则。"
     }
   ]
 }

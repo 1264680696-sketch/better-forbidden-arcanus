@@ -39,7 +39,8 @@
   "client": [
     "TyrCooldownRenderMixin",
     "SpectralRangeMixin",
-    "JarRelicRenderMixin"
+    "JarRelicRenderMixin",
+    "HandbookTextureMixin"
   ],
   "injectors": {
     "defaultRequire": 1

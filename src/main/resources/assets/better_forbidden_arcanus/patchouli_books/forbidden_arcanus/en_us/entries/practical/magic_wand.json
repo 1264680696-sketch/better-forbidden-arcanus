@@ -7,17 +7,18 @@
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:magic_wand",
-      "text": "在原配方的埃德木棍正下方增加1片流星碎片；其他材料与产量保留。"
+      "text": "水晶、埃德木棍与流星碎片，组成探索时的第一根魔杖。",
+      "title": ""
     },
     {
       "type": "patchouli:text",
-      "title": "两种用法",
-      "text": "普通右键保留原耀金飞弹的蓄力、释放与消耗。$(br2)潜行右键探测周围64格球形范围内的奥术陨石，不额外消耗耀金；不会顺带发射飞弹。"
+      "title": "不只用来战斗",
+      "text": "普通右键仍是蓄力发射耀金飞弹。潜行右键则向周围64格球形范围探测奥术陨石，不另耗耀金，也不顺带发射飞弹。"
     },
     {
       "type": "patchouli:text",
-      "title": "寻找地下陨石",
-      "text": "探测结果以金色方框穿墙显示，持续10秒；再探测会刷新结果。只检查已加载区块，不强行加载远处地形。$(br2)挖掉的陨石不再显示，切换维度或退出后清除标记。开采安全与用途见$(l:better_forbidden_arcanus:basics/materials)地下材料$(/l)。"
+      "title": "岩层中的星光",
+      "text": "探到的陨石用金色方框穿墙显示10秒，再次探测会刷新。只检测已加载区块；挖掉陨石、换维度或离开世界都会清理相应标记。找到之后，也请小心$(l:better_forbidden_arcanus:basics/materials)陨石$(/l)的爆炸。"
     }
   ]
 }

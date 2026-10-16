@@ -6,22 +6,23 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "黑曜钢是天龙神秘盔甲和腐化粉末的材料。炽炉同时放入粗铁和黑曜石，并在增强器槽放工匠遗物，才能匹配这项合金配方。"
+      "title": "把黑曜石锻成钢",
+      "text": "天龙盔甲和腐化粉末都离不开黑曜钢。将粗铁与黑曜石分别放入炽炉双输入槽，再把工匠遗物放在增强器槽，炉火才会认出这项合金配方。"
     },
     {
       "type": "patchouli:text",
-      "text": "合金需要双输入共同满足条件，不能把两种原料当作两次独立熔炼。工匠遗物必须留在炽炉增强器槽，戴在遗物栏中不能代替。",
-      "title": "黑曜钢的条件"
+      "title": "两份原料，一次加工",
+      "text": "这是双输入合金，不能把两种原料分成两次熔炼。工匠遗物也须留在炽炉内；戴在遗物栏中不会让合金配方成立。"
     },
     {
       "type": "patchouli:text",
-      "text": "残留物按配方类型与概率累积，达到所需份数后生成副产物。一般配方不保证每次都有副产物；灵魂沙配方则必定生成一份失魂沙残留物。",
-      "title": "残留物收集"
+      "title": "炉火留下的东西",
+      "text": "加工可按类型与概率累积残留物，凑足份数后收成副产物。普通配方不保证每次都留下残余；灵魂沙加工则必得一份失魂沙残留物。"
     },
     {
       "type": "patchouli:text",
-      "text": "成品或残留物无法输出时先清理空间。对应设备规则见$(l:better_forbidden_arcanus:practical/clibano)炽炉搭建$(/l)；遗物获得方式见$(l:better_forbidden_arcanus:practical/artisan_relic)工匠遗物$(/l)。",
-      "title": "继续加工"
+      "title": "让生产继续",
+      "text": "产物或残留空间塞满时，先取走成品。建造步骤见$(l:better_forbidden_arcanus:practical/clibano)炽炉$(/l)，增强器的来源见$(l:better_forbidden_arcanus:practical/artisan_relic)工匠遗物$(/l)。"
     }
   ]
 }

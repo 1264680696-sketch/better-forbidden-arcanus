@@ -6,22 +6,24 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "普通灵魂可由灵魂提取器处理灵魂沙获得，也可击败迷失灵魂获得。灵魂掠夺附魔提供召唤迷失灵魂的机会；不同变体对应不同灵魂物品。"
+      "title": "收集灵魂",
+      "text": "灵魂并非只有一种模样。用灵魂提取器处理灵魂沙，或击败迷失灵魂，可以得到灵魂物品。灵魂掠夺附魔还会带来召出迷失灵魂的机会；不同变体对应不同灵魂。"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:soul_extractor",
-      "text": "用灵魂提取器处理灵魂沙，留下失魂沙。"
+      "text": "先制作提取器，再用它处理灵魂沙；灵魂取走后，留下失魂沙。",
+      "title": "灵魂提取器"
     },
     {
       "type": "patchouli:text",
-      "text": "普通、腐化灵魂各提供 1 点灵魂精华；附魔灵魂提供 10 点。精华与物品是不同概念：把物品投入精华槽后，普通物品会被消耗。",
-      "title": "灵魂精华"
+      "title": "物品与精华",
+      "text": "灵魂物品投入精华供给槽会正常消耗：普通和腐化各值1点，附魔值10点。但若将灵魂放入炽炉的专用槽，它会持续维持火焰而不消耗。"
     },
     {
       "type": "patchouli:text",
-      "text": "本附属增加$(l:better_forbidden_arcanus:forge_tier_2/corrupt_soul)二级腐化灵魂仪式$(/l)和$(l:better_forbidden_arcanus:forge_tier_3/enchanted_soul)三级附魔灵魂仪式$(/l)。它们还可让$(l:better_forbidden_arcanus:practical/soul_processing)炽炉加工灵魂沙$(/l)。",
-      "title": "稳定获取路线"
+      "title": "从稀缺到量产",
+      "text": "二级锻炉可制$(l:better_forbidden_arcanus:forge_tier_2/corrupt_soul)腐化灵魂$(/l)，三级可制$(l:better_forbidden_arcanus:forge_tier_3/enchanted_soul)附魔灵魂$(/l)。以它们维持$(l:better_forbidden_arcanus:practical/soul_processing)炽炉$(/l)，便能持续把灵魂沙加工成普通灵魂。"
     }
   ]
 }

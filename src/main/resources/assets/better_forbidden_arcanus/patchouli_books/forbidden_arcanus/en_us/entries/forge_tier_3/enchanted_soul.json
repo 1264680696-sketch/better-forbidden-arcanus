@@ -6,33 +6,29 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "三级起可把腐化灵魂制成附魔灵魂。每个提供 10 点灵魂精华，放在炽炉灵魂槽时提供 2.5 倍加工速度。"
+      "title": "附魔灵魂",
+      "text": "以附魔之瓶灌注腐化灵魂，得到更凝练的附魔灵魂。它一次可供给10点灵魂精华，或留在炽炉中，将加工速度提高至2.5倍。"
     },
     {
       "type": "patchouli:spotlight",
       "item": "forbidden_arcanus:enchanted_soul",
       "title": "附魔灵魂",
-      "text": "最低 3 级；成品用途与材料见本条目。"
+      "text": "需3 级锻炉。配齐后续材料，用锻工锤启动。"
     },
     {
       "type": "patchouli:text",
-      "text": "中央：腐化灵魂×1。$(br)附魔之瓶×4$(br2)外围辅料每份占一个基座，其他基座保持空置。",
-      "title": "仪式材料"
+      "text": "中央：腐化灵魂×1。$(br)附魔之瓶×4$(br2)每份辅料各占一座基座，其余留空。",
+      "title": "放入法阵"
     },
     {
       "type": "patchouli:text",
-      "text": "辉光：500$(br)灵魂：20$(br)血液：500$(br)经验：0$(br2)无必需增强器。以上是未受增强器优惠的基础消耗。",
+      "text": "辉光：500$(br)灵魂：20$(br)血液：500$(br)经验：0$(br2)无必需增强器。所列为基础消耗，增强器可改变实际需求。",
       "title": "精华与增强器"
     },
     {
       "type": "patchouli:text",
-      "text": "普通灵魂按对应仪式正常消耗；中央产物留在祭坛槽中，外围材料与精华按配方扣除。",
-      "title": "永恒材料替代"
-    },
-    {
-      "type": "patchouli:text",
       "text": "灵魂的精华用途见$(l:better_forbidden_arcanus:basics/souls)三种灵魂$(/l)；加工灵魂沙的方法见$(l:better_forbidden_arcanus:practical/soul_processing)炽炉灵魂加工$(/l)。",
-      "title": "继续使用成品"
+      "title": "完成之后"
     }
   ]
 }

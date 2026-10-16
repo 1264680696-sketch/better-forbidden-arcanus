@@ -6,12 +6,13 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "先准备底座：磨制暗黑石×48、镀金錾制磨制暗黑石×9、錾制神秘磨制暗黑石×4。还需要锻造台×1和洁净粉末×1。"
+      "title": "第一座锻炉",
+      "text": "赫菲斯托斯锻炉是一切仪式的中心，本书也将它简称为祭坛。先备齐：磨制暗黑石48块、镀金錾制磨制暗黑石9块、錾制神秘磨制暗黑石4块，另加锻造台与洁净粉末各1。"
     },
     {
       "type": "patchouli:text",
-      "text": "底座占 9×9 范围，中央镀金石上方放锻造台。按下页结构摆放；底座图形之外的位置没有材料要求，结构标示的空气区域要留空。",
-      "title": "位置与材料"
+      "title": "把石阵铺好",
+      "text": "底座占9×9范围。按下页投影铺设，在中央镀金石上放置锻造台。结构之外可自由布置；投影中要求为空气的部分则须留空。"
     },
     {
       "type": "patchouli:multiblock",
@@ -51,17 +52,18 @@
         "symmetrical": true
       },
       "enable_visualize": true,
-      "text": "基座位可留空或放基座；点击可视化开始搭建。"
+      "text": "点击可视化，将结构投射到世界中。",
+      "title": ""
     },
     {
       "type": "patchouli:text",
-      "text": "底座正确后，蹲下并用洁净粉末右击中央锻造台。红色闪电会将其转化为一级祭坛；该激活步骤不是工作台合成。",
-      "title": "激活祭坛"
+      "title": "唤醒",
+      "text": "确认石阵完整，潜行并手持洁净粉末右击中央锻造台。红色闪电过后，锻造台化为一级锻炉。无需把整座结构塞进工作台。"
     },
     {
       "type": "patchouli:text",
-      "text": "建成后学习$(l:better_forbidden_arcanus:forge_setup/pedestals)基座布局$(/l)、$(l:better_forbidden_arcanus:forge_setup/ritual_basics)启动仪式$(/l)，再阅读$(l:better_forbidden_arcanus:forge_tier_1/overview)一级祭坛$(/l)。",
-      "title": "下一步"
+      "title": "火焰之后",
+      "text": "接下来摆好$(l:better_forbidden_arcanus:forge_setup/pedestals)基座$(/l)，学习$(l:better_forbidden_arcanus:forge_setup/ritual_basics)一次完整的仪式$(/l)。准备妥当后，开始$(l:better_forbidden_arcanus:forge_tier_1/overview)一级锻炉$(/l)的研究。"
     }
   ]
 }

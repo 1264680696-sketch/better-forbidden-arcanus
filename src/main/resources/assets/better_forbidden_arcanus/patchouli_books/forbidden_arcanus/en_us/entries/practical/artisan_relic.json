@@ -1,33 +1,23 @@
 {
   "name": "工匠遗物",
-  "category": "better_forbidden_arcanus:practical",
+  "category": "better_forbidden_arcanus:relics",
   "icon": "forbidden_arcanus:artisan_relic",
   "sortnum": 6,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "村庄盔甲匠、工具匠与武器匠的宝箱有机会提供工匠遗物。"
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:artisan_relic",
-      "title": "工匠遗物",
-      "text": "可作设施增强器，也可放入遗物栏。"
+      "title": "熟练者的回报",
+      "text": "村庄的盔甲匠、工具匠与武器匠箱子中，或许留有工匠遗物。戴上它，铁砧等级费用减半并向上取整；是否过于昂贵，也按折扣后的费用判断。"
     },
     {
       "type": "patchouli:text",
-      "text": "设施：保留祭坛经验需求优惠与炽炉合金用途。放入祭坛增强器槽还可启用$(l:better_forbidden_arcanus:practical/forge_upgrades)装备强化$(/l)。",
-      "title": "作为设施增强器"
+      "title": "省下工具与模板",
+      "text": "铁砧损坏概率乘0.75，通常从12%降到9%。每次实际领取锻造台成品，还有25%概率保留模板；升级与纹饰都适用，其他材料照常消耗。重复装备不叠加。"
     },
     {
       "type": "patchouli:text",
-      "text": "装备：铁砧经验费用减半并向上取整；折扣后不足 40 级可操作。铁砧损坏概率降低 25%，默认 12% 变 9%。不再直接增加盔甲和工具属性。",
-      "title": "装备在遗物栏"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "每次领取锻造台成品时，有 25% 概率保留模板。装备升级和盔甲纹饰均适用，其他材料正常消耗。多个工匠遗物不叠加。",
-      "title": "节省锻造模板"
+      "title": "留给设施的本领",
+      "text": "放在锻炉增强器槽，它保留经验需求优惠，并开启$(l:better_forbidden_arcanus:practical/forge_upgrades)装备强化$(/l)。放在炽炉中，则用于$(l:better_forbidden_arcanus:practical/alloys)合金加工$(/l)。直接穿戴它不会增加装备属性。"
     }
   ]
 }

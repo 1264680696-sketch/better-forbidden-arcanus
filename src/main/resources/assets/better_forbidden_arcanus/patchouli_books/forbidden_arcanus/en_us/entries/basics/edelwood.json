@@ -6,12 +6,13 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "探索时留意埃德木，木板是二级升级的中央材料。腐化灵魂也能把橡树树苗或枯死灌木转成生长中的埃德木。"
+      "title": "埃德木",
+      "text": "埃德木是后续仪式离不开的木材。留意探索途中遇到的树木；若已有腐化灵魂，也可用它转化橡树树苗或枯死灌木，培育生长中的埃德木。"
     },
     {
       "type": "patchouli:text",
-      "text": "腐化粉末是二级腐化灵魂仪式的辅料。它需要黑曜钢锭、烈焰粉、下界疣、水晶粉与末影珍珠碎片，无序合成产出 4 份。",
-      "title": "腐化粉末"
+      "title": "另一种粉末",
+      "text": "洁净粉末唤醒结构，腐化粉末则改变材料的性质。以黑曜钢锭、烈焰粉、下界疣、水晶粉和末影珍珠碎片混合，一次可制得4份腐化粉末。"
     },
     {
       "type": "patchouli:crafting",
@@ -20,13 +21,13 @@
     },
     {
       "type": "patchouli:text",
-      "text": "不要把洁净粉末和腐化粉末混淆：洁净粉末激活设施；腐化粉末参与灵魂仪式，也用于$(l:better_forbidden_arcanus:practical/black_hole)黑洞$(/l)。",
-      "title": "用途区分"
+      "title": "腐化的用途",
+      "text": "保留一些腐化粉末，二级锻炉的$(l:better_forbidden_arcanus:forge_tier_2/corrupt_soul)灵魂仪式$(/l)会用到它。若把它与暗物质一同抛出，还能形成收集经验的$(l:better_forbidden_arcanus:practical/black_hole)黑洞$(/l)。"
     },
     {
       "type": "patchouli:text",
-      "title": "腐化水晶块",
-      "text": "手持一份腐化粉末，右击已放置的神秘水晶块，将它转化为腐化神秘水晶块。每次消耗一份粉末；会迸出水晶粒子，并播放方尖碑转化的声音。"
+      "title": "水晶的另一面",
+      "text": "用一份腐化粉末右击神秘水晶块，水晶便在粒子与共鸣声中转为腐化神秘水晶块。它是$(l:better_forbidden_arcanus:practical/corrupted_obelisk)经验方尖碑$(/l)的建材。"
     }
   ]
 }

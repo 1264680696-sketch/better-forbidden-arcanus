@@ -6,32 +6,35 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "按顺序准备：确认等级 → 放中央材料 → 分开放基座辅料 → 放必需增强器 → 补足四种精华 → 用锻工锤右击祭坛。默认仪式持续约 25 秒。"
+      "title": "敲下第一锤",
+      "text": "核对锻炉等级，把主材料放中央，辅料分放基座。随后放入必要增强器，补足精华，用锻工锤右击锻炉。通常等待25秒，法阵便会完成工作。"
     },
     {
       "type": "patchouli:text",
-      "text": "中央大槽是主材料，四个小槽是设施增强器。把$(l:better_forbidden_arcanus:practical/elementarium)基本元素$(/l)戴进遗物栏，并不能满足祭坛增强器槽的配方要求。",
-      "title": "槽位用途"
+      "title": "遗物该放哪里",
+      "text": "锻炉的小槽用于设施增强器。$(l:better_forbidden_arcanus:practical/relics)遗物$(/l)戴在身上与放入设施是两种用途：例如戴着基本元素，并不能满足棱晶仪式的增强器要求。"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:blacksmith_gavel_head",
-      "text": ""
+      "text": "",
+      "title": ""
     },
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:iron_blacksmith_gavel",
-      "text": "锻工锤用于启动；其他材质也有对应配方。"
+      "text": "用锻工锤启动仪式；其他材质的锤也可使用。",
+      "title": ""
     },
     {
       "type": "patchouli:text",
-      "text": "普通仪式允许高等级祭坛执行低阶配方。升级仪式则要求精确的上一等级；完成后提升储量并开启新仪式。",
-      "title": "等级规则"
+      "title": "升阶与制物",
+      "text": "高等级锻炉可以完成此前的普通制物仪式。锻炉自身升阶、装备强化等指定等级仪式，则须在恰好对应的等级执行。"
     },
     {
       "type": "patchouli:text",
-      "text": "装备转化仪式会把中央装备变成高阶装备并保留其组件。永恒主材料参与制物仪式时，产物会弹出祭坛上方，主材料留在中央槽。",
-      "title": "产物位置"
+      "title": "取走成品",
+      "text": "普通制物会消耗中央与外围材料，成品留在中央。装备转化保留原有组件；设备旁的物品不要误取，先等法阵结束。"
     }
   ]
 }

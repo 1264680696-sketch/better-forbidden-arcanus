@@ -6,33 +6,29 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "作为灵魂绑定修饰材料，用于死亡后保留适用物品。需要修饰符锻造模板，适用范围由物品规则决定。"
+      "title": "灵魂绑定水晶",
+      "text": "重要的物品值得再加一道保险。灵魂绑定水晶可在锻造台赋予适用物品灵魂绑定修饰，使其在死亡后保留。别忘了准备模板，并检查目标是否允许绑定。"
     },
     {
       "type": "patchouli:spotlight",
       "item": "forbidden_arcanus:soul_binding_crystal",
       "title": "灵魂绑定水晶",
-      "text": "最低 4 级；成品用途与材料见本条目。"
+      "text": "需4 级锻炉。配齐后续材料，用锻工锤启动。"
     },
     {
       "type": "patchouli:text",
-      "text": "中央：下界石英×1。$(br)普通灵魂×1$(br)腐化灵魂×1$(br)附魔灵魂×1$(br)紫水晶碎片×2$(br)末影珍珠碎片×3$(br2)外围辅料每份占一个基座，其他基座保持空置。",
-      "title": "仪式材料"
+      "text": "中央：下界石英×1。$(br)普通灵魂×1$(br)腐化灵魂×1$(br)附魔灵魂×1$(br)紫水晶碎片×2$(br)末影珍珠碎片×3$(br2)每份辅料各占一座基座，其余留空。",
+      "title": "放入法阵"
     },
     {
       "type": "patchouli:text",
-      "text": "辉光：1500$(br)灵魂：20$(br)血液：375$(br)经验：220$(br2)必需增强器：神圣契约。以上是未受增强器优惠的基础消耗。",
+      "text": "辉光：1500$(br)灵魂：20$(br)血液：375$(br)经验：220$(br2)必需增强器：神圣契约。所列为基础消耗，增强器可改变实际需求。",
       "title": "精华与增强器"
     },
     {
       "type": "patchouli:text",
-      "text": "普通灵魂按对应仪式正常消耗；中央产物留在祭坛槽中，外围材料与精华按配方扣除。",
-      "title": "永恒材料替代"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "装备改造步骤与适用限制见$(l:better_forbidden_arcanus:practical/modifiers)装备修饰$(/l)。配方要求的增强器必须放在祭坛槽位内。",
-      "title": "继续使用成品"
+      "text": "带上成品，按$(l:better_forbidden_arcanus:practical/modifiers)装备修饰$(/l)的步骤继续加工。",
+      "title": "完成之后"
     }
   ]
 }

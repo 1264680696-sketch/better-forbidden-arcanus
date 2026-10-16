@@ -7,32 +7,35 @@
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:runic_chiseled_polished_darkstone",
-      "text": "錾制磨制暗黑石＋符文，无序合成。"
+      "text": "把符文与錾制磨制暗黑石结合，先得到能被唤醒的符文石。",
+      "title": ""
     },
     {
       "type": "patchouli:text",
-      "title": "符文石防刷怪",
-      "text": "用一个神秘水晶右键錾制磨制符文暗黑石，激活后阻止25格球形范围内怪物生成。破坏后撤销，重新放置需重新激活。"
+      "title": "安静的石阵",
+      "text": "用一颗神秘水晶右击符文石，激活后阻止25格球形范围内的怪物生成。破坏石块会撤去庇护，重新放置需要再激活。"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:runic_tenebris_frame",
-      "text": "四角奥术金锭，四边符文暗黑石，中央暗物质。"
+      "text": "四角放神秘金锭（Deorum），四边放符文石，中央暗物质。",
+      "title": ""
     },
     {
       "type": "patchouli:text",
-      "title": "激活核心",
-      "text": "手持一颗暗黑下界之星右键框架，消耗星并变成核心，保留水浸状态。核心没有燃料槽或额外精华消耗。"
+      "title": "给框架一颗星",
+      "text": "用暗黑下界之星右击框架，消耗一颗星后便成为暗黑符文核心。水浸状态会保留；核心不再需要燃料或精华供给。"
     },
     {
       "type": "patchouli:text",
-      "title": "三条转化链",
-      "text": "持材料右键核心：$(br)符文→暗黑符文$(br)符文袋→暗黑符文袋$(br)三种普通符文矿石→暗黑符文矿石$(br2)每次消耗1个输入，获得1个产物；背包满时产物掉落。"
+      "title": "符文的另一面",
+      "text": "手持材料右击核心：$(br)符文→暗黑符文$(br)符文袋→暗黑符文袋$(br)符文矿石→暗黑符文矿石$(br2)石头、深板岩与暗黑石中的符文矿石均可。每次一进一出，背包放不下便落在脚边。"
     },
     {
       "type": "patchouli:smelting",
       "recipe": "better_forbidden_arcanus:dark_rune_smelting",
-      "text": "暗黑矿石无额外自然生成；正常开采支持时运，精准采集保留矿石。"
+      "text": "暗黑矿石由核心转化而来，不会额外自然生成。正常开采受时运影响，精准采集可保留矿石。",
+      "title": ""
     }
   ]
 }

@@ -446,7 +446,8 @@ public final class GuideClientTest {
             finished = true;
             com.mojang.logging.LogUtils.getLogger().info("BFA_GUIDE_RENDER_PASS: {} entries, {} rendered spreads, {} working world projections; dragon egg, upgrade tooltip, crystal/whirlwind placement, gale launch/landing, avatar/counter, vanilla armor cooldown overlay, silent lightning, meteor highlighting, jar relic and forty-block spectral vision",
                     BookRegistry.INSTANCE.books.get(SoulItems.id("forbidden_arcanus")).getContents().entries.size(), frames.size(), projections);
-            LegacyClientChecks.begin();
+            com.mojang.logging.LogUtils.getLogger().info("BFA_GUIDE_PASS: full guide check complete");
+            mc.stop();
         }
     }
 

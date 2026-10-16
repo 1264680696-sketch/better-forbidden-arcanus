@@ -6,28 +6,29 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "磁化混合物能把普通暗黑石基座变成磁化基座，使其拾取抛来的物品，也可用于装备的磁化修饰。"
+      "title": "磁化混合物",
+      "text": "把混合物用在普通暗黑石基座上，基座便能拾取抛来的物品。这是让手动备料更顺手的第一步；它也能通过锻造台赋予靴子磁化修饰。"
     },
     {
       "type": "patchouli:spotlight",
       "item": "forbidden_arcanus:ferrognetic_mixture",
       "title": "磁化混合物",
-      "text": "最低 1 级；成品用途与材料见本条目。"
+      "text": "需1 级锻炉。配齐后续材料，用锻工锤启动。"
     },
     {
       "type": "patchouli:text",
-      "text": "中央：磁石×1。$(br)黏土球×2$(br)蜂蜡×2$(br)黏液球×2$(br)铁锭×1$(br2)外围辅料每份占一个基座，其他基座保持空置。",
-      "title": "仪式材料"
+      "text": "中央：磁石×1。$(br)黏土球×2$(br)蜂蜡×2$(br)黏液球×2$(br)铁锭×1$(br2)每份辅料各占一座基座，其余留空。",
+      "title": "放入法阵"
     },
     {
       "type": "patchouli:text",
-      "text": "辉光：100$(br)灵魂：2$(br)血液：1250$(br)经验：0$(br2)无必需增强器。以上是未受增强器优惠的基础消耗。",
+      "text": "辉光：100$(br)灵魂：2$(br)血液：1250$(br)经验：0$(br2)无必需增强器。所列为基础消耗，增强器可改变实际需求。",
       "title": "精华与增强器"
     },
     {
       "type": "patchouli:text",
-      "text": "装备改造步骤与适用限制见$(l:better_forbidden_arcanus:practical/modifiers)装备修饰$(/l)。配方要求的增强器必须放在祭坛槽位内。",
-      "title": "继续使用成品"
+      "text": "带上成品，按$(l:better_forbidden_arcanus:practical/modifiers)装备修饰$(/l)的步骤继续加工。",
+      "title": "完成之后"
     }
   ]
 }

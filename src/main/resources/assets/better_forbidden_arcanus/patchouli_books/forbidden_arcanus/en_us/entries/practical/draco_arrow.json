@@ -1,0 +1,18 @@
+{
+  "name": "天龙箭矢",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:draco_arcanus_arrow",
+  "sortnum": 19,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "箭落，龙息升起",
+      "text": "天龙箭矢命中生物会留下龙息。满蓄力、无暴击、无附魔和其他增伤时，直接命中的基准伤害为15；蓄力、暴击、附魔与强化仍会改变伤害。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "留出距离",
+      "text": "龙息持续20秒，初始半径2.5格，半径增长与伤害均为原有天龙箭龙息的1.25倍。云内非玩家生物获得缓慢II与虚弱II，离开后仍持续5秒。玩家只免除这两种额外负面效果，仍须小心龙息伤害。"
+    }
+  ]
+}

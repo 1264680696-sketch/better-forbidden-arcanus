@@ -6,28 +6,29 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "作为头部盔甲的水下修饰材料。将它与修饰符锻造模板及适用头盔一起放入锻造台，获得水下用途的装备。"
+      "title": "海洋棱晶",
+      "text": "海洋之心在法阵中化作棱晶，为适用头盔提供水下修饰。准备好应用修饰锻造模板后，在锻造台完成最后一步。"
     },
     {
       "type": "patchouli:spotlight",
       "item": "forbidden_arcanus:sea_prism",
       "title": "海洋棱晶",
-      "text": "最低 3 级；成品用途与材料见本条目。"
+      "text": "需3 级锻炉。配齐后续材料，用锻工锤启动。"
     },
     {
       "type": "patchouli:text",
-      "text": "中央：海洋之心×1。$(br)海晶碎片×2$(br)海龟鳞甲×2$(br)青金石×2$(br2)外围辅料每份占一个基座，其他基座保持空置。",
-      "title": "仪式材料"
+      "text": "中央：海洋之心×1。$(br)海晶碎片×2$(br)海龟鳞甲×2$(br)青金石×2$(br2)每份辅料各占一座基座，其余留空。",
+      "title": "放入法阵"
     },
     {
       "type": "patchouli:text",
-      "text": "辉光：1000$(br)灵魂：8$(br)血液：2000$(br)经验：0$(br2)必需增强器：基本元素。以上是未受增强器优惠的基础消耗。",
+      "text": "辉光：1000$(br)灵魂：8$(br)血液：2000$(br)经验：0$(br2)必需增强器：基本元素。所列为基础消耗，增强器可改变实际需求。",
       "title": "精华与增强器"
     },
     {
       "type": "patchouli:text",
-      "text": "装备改造步骤与适用限制见$(l:better_forbidden_arcanus:practical/modifiers)装备修饰$(/l)。配方要求的增强器必须放在祭坛槽位内。",
-      "title": "继续使用成品"
+      "text": "带上成品，按$(l:better_forbidden_arcanus:practical/modifiers)装备修饰$(/l)的步骤继续加工。",
+      "title": "完成之后"
     }
   ]
 }

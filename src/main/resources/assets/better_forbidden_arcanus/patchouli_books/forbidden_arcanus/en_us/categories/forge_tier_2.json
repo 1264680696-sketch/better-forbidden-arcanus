@@ -1,6 +1,6 @@
 {
-  "name": "二级祭坛",
-  "description": "了解 2 级祭坛的容量、首次解锁的物品与后续路线。",
+  "name": "2级锻炉 · 淬炼",
+  "description": "沿着锻炉升阶，查阅本级首次可制的仪式。较高等级仍能执行此前的普通制物仪式。",
   "icon": "forbidden_arcanus:hephaestus_forge_tier_2",
   "sortnum": 4
 }

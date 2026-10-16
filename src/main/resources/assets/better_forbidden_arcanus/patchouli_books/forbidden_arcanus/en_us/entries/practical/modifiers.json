@@ -1,12 +1,13 @@
 {
-  "name": "装备修饰的步骤",
+  "name": "锻造台上的修饰",
   "category": "better_forbidden_arcanus:practical",
   "icon": "forbidden_arcanus:apply_modifier_smithing_template",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "仪式成品与装备修饰是两个步骤。先取得修饰符锻造模板，再在锻造台放入模板、适用装备与修饰材料。默认一件装备不能任意叠加多个修饰符。"
+      "title": "材料不是成品",
+      "text": "棱晶、水晶与永恒之石只是改造的媒介。先制作应用修饰锻造模板，再将模板、适用装备与媒介放入锻造台。一件装备受单修饰限制，不能随意覆盖。"
     },
     {
       "type": "patchouli:crafting",
@@ -15,23 +16,23 @@
     },
     {
       "type": "patchouli:text",
-      "text": "永恒之石用于有耐久的适用装备，移除耐久相关组件。带有耐久或经验修补等不兼容附魔的装备，不能直接应用永恒修饰。",
-      "title": "永恒修饰"
+      "title": "永恒",
+      "text": "永恒之石让适用的有耐久装备不再消耗耐久。带有耐久、经验修补等不兼容附魔时，先处理附魔，再尝试应用。"
     },
     {
       "type": "patchouli:text",
-      "text": "熔炉棱晶用于适用挖掘工具，提供炙热处理；与精准采集不兼容。撼地棱晶用于适用挖掘工具，提供范围破坏。",
-      "title": "工具修饰"
+      "title": "炙热与撼地",
+      "text": "熔炉棱晶让适用挖掘工具进行炙热处理，与精准采集不兼容；撼地棱晶提供范围破坏。选好工具，再把媒介交给锻造台。"
     },
     {
       "type": "patchouli:text",
-      "text": "海洋棱晶用于适用头盔；磁化混合物用于适用靴子；灵魂绑定水晶用于允许灵魂绑定的物品。是否能应用，以锻造台结果和物品条件为准。",
-      "title": "护甲与灵魂绑定"
+      "title": "海洋、磁化与绑定",
+      "text": "海洋棱晶用于适用头盔，磁化混合物用于适用靴子，灵魂绑定水晶用于允许绑定的物品。最终能否应用，以锻造台结果为准。"
     },
     {
       "type": "patchouli:text",
-      "title": "疾风修饰",
-      "text": "旋风棱晶与应用修饰锻造模板，可把原版重锤强化为$(l:better_forbidden_arcanus:practical/gale_mace)疾风重锤$(/l)。同样受单修饰限制，不能覆盖已有修饰。"
+      "title": "疾风",
+      "text": "旋风棱晶也能用于原版重锤，制成$(l:better_forbidden_arcanus:practical/gale_mace)疾风重锤$(/l)。右击地面即可借风跃起；同样不能覆盖已有修饰。"
     }
   ]
 }

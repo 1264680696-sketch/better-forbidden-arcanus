@@ -34,7 +34,7 @@ public final class LegacyGameTests {
         var at=h.absolutePos(pos); h.getLevel().getBlockState(at).useItemOn(p.getMainHandItem(),h.getLevel(),p,InteractionHand.MAIN_HAND,new BlockHitResult(Vec3.atCenterOf(at),Direction.UP,at,false));
     }
     @GameTest(template="empty") public static void legacyRecipesResolveWithoutMissingItems(GameTestHelper h) {
-        var names=List.of("forbiddenmicon","arcane_gold_ingot","skull","runic_chiseled_polished_darkstone","runic_tenebris_frame","runic_battleaxe","rune_bag","rune_bag_unpacking","dark_rune_bag","dark_rune_bag_unpacking","dark_rune_smelting");
+        var names=List.of("skull","runic_chiseled_polished_darkstone","runic_tenebris_frame","runic_battleaxe","rune_bag","rune_bag_unpacking","dark_rune_bag","dark_rune_bag_unpacking","dark_rune_smelting");
         for(var name:names) {
             var recipe=h.getLevel().getRecipeManager().byKey(SoulItems.id(name)).orElseThrow().value();
             h.assertTrue(!recipe.getResultItem(h.getLevel().registryAccess()).isEmpty(),"Empty restored recipe "+name);

@@ -6,32 +6,33 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "祭坛需要辉光、灵魂、血液与经验四种精华。侧边供给槽用于输入对应材料，中央大槽才是仪式主材料；库存不能超过当前等级容量。"
+      "title": "锻炉的四种精华",
+      "text": "辉光、灵魂、血液与经验，是锻炉储存的四种精华。辉光也常被称作耀金。侧边供给槽负责补充库存，中央大槽留给仪式主材料；别把二者混淆。"
     },
     {
       "type": "patchouli:text",
-      "text": "辉光可通过辉光瓶或$(l:better_forbidden_arcanus:practical/obelisk)方尖碑$(/l)供给；灵魂可投入灵魂物品。$(l:better_forbidden_arcanus:practical/containers)精华容器$(/l)用于储存与补给。",
-      "title": "辉光与灵魂"
+      "title": "辉光与灵魂",
+      "text": "辉光瓶能补给辉光，$(l:better_forbidden_arcanus:practical/obelisk)神秘水晶方尖碑$(/l)则能缓慢产出。普通与腐化灵魂各补1点灵魂精华，附魔灵魂补10点，投入的灵魂物品会消耗。"
     },
     {
       "type": "patchouli:text",
-      "text": "生物在祭坛附近受到伤害，可为祭坛供给血液。副手持试管攻击也能收集血液，之后再转移。绯红之石能增强玩家攻击和试管的采血量。",
-      "title": "血液"
+      "title": "血液",
+      "text": "把锻炉安置在战斗场所附近，受伤的生物便能提供血液。副手持试管攻击也能采血，再把血液转移到锻炉。$(l:better_forbidden_arcanus:practical/crimson_stone)绯红之石$(/l)会增强这两种采血途径。"
     },
     {
       "type": "patchouli:text",
-      "text": "石化经验球提供 91 点经验精华，附魔之瓶提供 15 点；祭坛经验槽也能消除装备附魔并转成精华，使用前确认不再需要这些附魔。",
-      "title": "经验精华"
+      "title": "经验",
+      "text": "一颗石化经验球提供91点经验精华，一瓶附魔之瓶提供15点。经验供给槽也能剥离装备附魔来补充库存；操作前，请确认你愿意放弃那些附魔。"
     },
     {
       "type": "patchouli:text",
-      "text": "玩家自身的辉光和祭坛库存是两套储量。量子捕捉器等物品会使用玩家辉光，附近祭坛存满并不能替代玩家自身储量。",
-      "title": "两种辉光储量"
+      "title": "别混用储量",
+      "text": "你自身的辉光、精华罐和锻炉库存分别储存。权杖与捕捉器消耗的是玩家辉光；即使身旁的锻炉存满精华，也不能直接替你支付。"
     },
     {
       "type": "patchouli:text",
-      "text": "使用$(l:better_forbidden_arcanus:practical/corrupted_obelisk)腐化神秘水晶方尖碑$(/l)，可为附近祭坛持续增加经验精华；石化经验球、附魔之瓶和祛除附魔仍可用于补给。",
-      "title": "持续补充经验"
+      "title": "让供给持续",
+      "text": "$(l:better_forbidden_arcanus:practical/corrupted_obelisk)腐化方尖碑$(/l)能不断补充经验；$(l:better_forbidden_arcanus:practical/containers)精华罐$(/l)负责储存。三级的$(l:better_forbidden_arcanus:forge_tier_3/quantum_injector)量子注入器$(/l)可将罐中精华自动送入锻炉。"
     }
   ]
 }

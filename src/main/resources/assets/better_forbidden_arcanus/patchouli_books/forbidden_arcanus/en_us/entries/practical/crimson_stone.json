@@ -1,33 +1,23 @@
 {
   "name": "绯红之石",
-  "category": "better_forbidden_arcanus:practical",
+  "category": "better_forbidden_arcanus:relics",
   "icon": "forbidden_arcanus:crimson_stone",
   "sortnum": 7,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "掠夺者前哨站宝箱有机会提供绯红之石。"
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:crimson_stone",
-      "title": "绯红之石",
-      "text": "可作设施增强器，也可放入遗物栏。"
+      "title": "血色的回声",
+      "text": "在掠夺者前哨站的宝箱中寻找绯红之石。装备后，按你实际造成的生命损失回复10%生命；完全格挡或吸收的伤害不产生这部分回复。"
     },
     {
       "type": "patchouli:text",
-      "text": "设施：祭坛灵魂精华基础需求减半。炽炉灵魂不消耗，因此延长灵魂持续时间的旧作用不再重要。",
-      "title": "作为设施增强器"
+      "title": "采血与锻造",
+      "text": "副手试管采血，以及玩家攻击向锻炉供给的血液，增加50%。若将遗物改放在锻炉增强器槽，则使灵魂精华基础需求减半。"
     },
     {
       "type": "patchouli:text",
-      "text": "装备：按实际造成的生命损失获得 10% 吸血；副手试管和玩家攻击供给祭坛的血液增加 50%。",
-      "title": "装备在遗物栏"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "放在罐子上",
-      "text": "持此遗物右键空罐或血液罐，每5秒产生3点血液，满罐停止。遗物保留在罐顶；空手潜行右键可取回，打碎罐子也会掉落。$(br2)只支持待盈新月与绯红之石。详情见$(l:better_forbidden_arcanus:practical/containers)精华容器$(/l)。"
+      "title": "一只缓慢充盈的罐",
+      "text": "手持绯红之石右击空罐或血液罐，放置后每5秒生成3点血液。满罐暂停，不消耗遗物。空手潜行右击取回；打碎罐子也会返还。"
     }
   ]
 }

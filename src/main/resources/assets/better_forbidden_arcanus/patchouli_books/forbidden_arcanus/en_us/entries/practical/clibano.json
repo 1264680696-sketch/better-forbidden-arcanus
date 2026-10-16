@@ -6,12 +6,13 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "炽炉是独立的加工设施，不是搭建一级祭坛的硬性前置。它提供双输入、合金与残留物，用于制作黑曜钢和建立灵魂生产路线。"
+      "title": "另一座炉火",
+      "text": "炽炉负责双输入加工、合金与残留物。它不妨碍你先建锻炉，却会在黑曜钢与灵魂的持续生产中变得重要。先造外壳，再用洁净粉末唤醒核心。"
     },
     {
       "type": "patchouli:text",
-      "text": "准备磨制暗黑石×8、磨制暗黑石砖×17、炽炉核心×1和洁净粉末×1。建成 3×3×3 外壳，内部中央留空气，核心放在一侧正中央。",
-      "title": "材料与摆放"
+      "title": "准备外壳",
+      "text": "磨制暗黑石8块、磨制暗黑石砖17块、炽炉核心1个，另备洁净粉末1份。外壳为3×3×3，内部中央留空，核心置于一侧正中央。"
     },
     {
       "type": "patchouli:crafting",
@@ -47,17 +48,18 @@
         "symmetrical": false
       },
       "enable_visualize": true,
-      "text": "用洁净粉末点击核心激活；中心必须留空。"
+      "text": "用洁净粉末右击核心。内部中央须留空气。",
+      "title": ""
     },
     {
       "type": "patchouli:text",
-      "text": "激活后添加燃料与输入。灵魂槽决定加速和特定配方资格；增强器槽用于满足合金等条件。输入、输出、燃料与残留存储都要保持可用。",
-      "title": "使用炽炉"
+      "title": "给火焰食物",
+      "text": "放入燃料与原料，清出产物和残留存储空间。灵魂槽控制加速与部分配方资格；增强器槽则用于合金等特殊条件。灵魂不会替你支付燃料。"
     },
     {
       "type": "patchouli:text",
-      "text": "继续阅读$(l:better_forbidden_arcanus:practical/soul_processing)灵魂加速与加工$(/l)和$(l:better_forbidden_arcanus:practical/alloys)合金与残留物$(/l)。$(br2)还可以进行$(l:better_forbidden_arcanus:clibano/scale_recycling)鳞片回收$(/l)和$(l:better_forbidden_arcanus:clibano/aureal_bottle)耀金瓶加工$(/l)。",
-      "title": "加工分支"
+      "title": "接着烧什么",
+      "text": "先了解$(l:better_forbidden_arcanus:practical/soul_processing)灵魂与火焰$(/l)、$(l:better_forbidden_arcanus:practical/alloys)黑曜钢与残留物$(/l)，再尝试$(l:better_forbidden_arcanus:clibano/scale_recycling)鳞片回收$(/l)与$(l:better_forbidden_arcanus:clibano/aureal_bottle)耀金瓶加工$(/l)。"
     }
   ]
 }

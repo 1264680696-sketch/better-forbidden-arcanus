@@ -1,27 +1,23 @@
 {
-  "name": "增强遗物的两种用途",
-  "category": "better_forbidden_arcanus:practical",
+  "name": "认识遗物",
+  "category": "better_forbidden_arcanus:relics",
   "icon": "forbidden_arcanus:elementarium",
   "sortnum": 4,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "增强遗物可放在祭坛或炽炉中满足条件、降低消耗；也可装备在本附属新增的遗物栏中，获得玩家能力。这两种用途分别检查所在槽位。"
+      "title": "遗物，放在何处？",
+      "text": "遗物的力量取决于位置。戴进饰品界面的遗物槽，它影响自身；放进锻炉或炽炉的增强器槽，它影响设施。只戴在身上，不能代替仪式要求的增强器。"
     },
     {
       "type": "patchouli:text",
-      "text": "遗物栏初始只有 1 个槽。同种遗物只能装备一个。$(l:better_forbidden_arcanus:practical/elementarium)基本元素$(/l)可增加 2 个槽；卸下后额外物品会返还背包，背包满时掉落。",
-      "title": "遗物槽"
+      "title": "一个槽位的选择",
+      "text": "最初只有1个遗物槽，同种遗物不能重复装备。$(l:better_forbidden_arcanus:practical/elementarium)基本元素$(/l)会增加2个槽；卸下时，超出容量的遗物返还背包，放不下便掉落脚边。"
     },
     {
       "type": "patchouli:text",
-      "text": "有些遗物来自宝箱，有些默认资源没有可确认的普通生存来源。本书分别说明已知路线，不把创造栏可见当成生存可获得。",
-      "title": "获取方式"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "精简物品说明",
-      "text": "物品提示框只保留“增强遗物”及其上方信息；设施用途、装备效果与罐上生产说明请查阅各遗物条目。效果未因说明精简而取消。"
+      "title": "第三种用法",
+      "text": "$(l:better_forbidden_arcanus:practical/crescent_moon)待盈新月$(/l)和$(l:better_forbidden_arcanus:practical/crimson_stone)绯红之石$(/l)还能放在罐顶，缓慢生产辉光或血液。它们留在罐上便不能同时戴在身上，取舍由你。"
     }
   ]
 }

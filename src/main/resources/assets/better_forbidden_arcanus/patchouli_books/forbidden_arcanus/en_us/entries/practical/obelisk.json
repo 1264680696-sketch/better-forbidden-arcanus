@@ -6,7 +6,8 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "在神秘磨制暗黑石上叠两块神秘水晶块，用洁净粉末点击转化。底座会变成方尖碑下段，上方形成中段与顶端。"
+      "title": "把水晶立成塔",
+      "text": "在神秘磨制暗黑石上叠两块神秘水晶块，再用洁净粉末右击。底座与水晶会化为方尖碑的三段结构。"
     },
     {
       "type": "patchouli:multiblock",
@@ -36,22 +37,23 @@
         "symmetrical": true
       },
       "enable_visualize": true,
-      "text": "用洁净粉末点击结构转化。"
+      "text": "照投影搭建，用洁净粉末完成转化。",
+      "title": ""
     },
     {
       "type": "patchouli:text",
-      "text": "方尖碑下方必须是镀金錾制磨制暗黑石，才会激活工作。在祭坛已有的镀金供给位置上搭建即可；否则转化后也不会供给精华。",
-      "title": "工作位置"
+      "title": "让它真正工作",
+      "text": "转化还不是结束：方尖碑下方必须有镀金錾制磨制暗黑石，才会工作。它可以立在锻炉外围的镀金供给位置。"
     },
     {
       "type": "patchouli:text",
-      "text": "每 100 tick（5 秒）向 4 格搜索范围内最近的祭坛补充 1 点辉光，遵守当前祭坛容量上限。多个方尖碑可分别供给。",
-      "title": "辉光供给"
+      "title": "缓慢积累辉光",
+      "text": "每5秒，向4格搜索范围内最近的锻炉加入1点辉光，直到容量上限。多个方尖碑可分别供给，不必为它准备消耗材料。"
     },
     {
       "type": "patchouli:text",
-      "text": "方尖碑占用一个可放基座的位置。需要 8 份外围材料的升级仪式，应先补足精华再调整布局。$(l:better_forbidden_arcanus:practical/corrupted_obelisk)腐化方尖碑$(/l)以相同方式供给经验。",
-      "title": "与基座的关系"
+      "title": "给基座留位置",
+      "text": "方尖碑占据一个外围席位。遇到需要八份辅料的仪式，先存够精华再调整布局。若需要经验而非辉光，请改建$(l:better_forbidden_arcanus:practical/corrupted_obelisk)腐化方尖碑$(/l)。"
     }
   ]
 }

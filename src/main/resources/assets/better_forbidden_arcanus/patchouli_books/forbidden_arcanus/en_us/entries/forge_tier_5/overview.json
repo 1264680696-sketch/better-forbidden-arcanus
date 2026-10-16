@@ -1,17 +1,18 @@
 {
-  "name": "五级：目标与容量",
+  "name": "抵达极境",
   "category": "better_forbidden_arcanus:forge_tier_5",
   "icon": "forbidden_arcanus:hephaestus_forge_tier_5",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "获得最高储量，集中运用此前解锁的高阶仪式。 本章仅列首次在本级解锁的物品，更高级祭坛仍能制作它们。"
+      "title": "抵达极境",
+      "text": "锻炉已至极境。最高储量让连续仪式更从容，也能完成五级装备强化与灵魂绯红之石的仪式。"
     },
     {
       "type": "patchouli:text",
-      "text": "辉光：20000$(br)灵魂：1000$(br)血液：100000$(br)经验：7500$(br2)这些是储量上限，不是每次仪式的消耗。",
-      "title": "本级精华容量"
+      "text": "辉光：20000$(br)灵魂：1000$(br)血液：100000$(br)经验：7500$(br2)这是库存上限；各仪式消耗请翻阅其条目。",
+      "title": "精华储量"
     },
     {
       "type": "patchouli:text",
@@ -25,7 +26,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "新增$(l:better_forbidden_arcanus:forge_tier_5/upgrade_equipment_5)本级装备强化$(/l)：工匠遗物放入增强器槽后，可将装备直接提升到本级强化。",
+      "text": "把$(l:better_forbidden_arcanus:practical/artisan_relic)工匠遗物$(/l)放入增强器槽，即可进行$(l:better_forbidden_arcanus:forge_tier_5/upgrade_equipment_5)本级装备强化$(/l)。低级装备可以直接升至本级，加成不累积。",
       "title": "装备强化"
     }
   ]

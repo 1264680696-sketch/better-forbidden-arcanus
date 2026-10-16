@@ -1,33 +1,23 @@
 {
   "name": "待盈新月",
-  "category": "better_forbidden_arcanus:practical",
+  "category": "better_forbidden_arcanus:relics",
   "icon": "forbidden_arcanus:crescent_moon",
   "sortnum": 10,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "当前默认配方及附加宝箱资源没有可确认的常规获取路线，是否有其他生存入口取决于整合包安排。"
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:crescent_moon",
-      "title": "待盈新月",
-      "text": "可作设施增强器，也可放入遗物栏。"
+      "title": "把夜色戴在身边",
+      "text": "在有昼夜的维度，待盈新月会于夜晚给予夜视、速度I与跳跃提升I，并每秒额外恢复2点玩家辉光，直到储量上限。"
     },
     {
       "type": "patchouli:text",
-      "text": "设施：白昼与黎明辉光基础需求为 90%，夜间为 99%。",
-      "title": "作为设施增强器"
+      "title": "月光留在何处",
+      "text": "放入锻炉增强器槽，白昼与黎明的辉光基础需求为90%，夜间为99%。放在空罐或辉光罐顶，则每5秒生成3点辉光；满罐暂停。"
     },
     {
       "type": "patchouli:text",
-      "text": "装备：有昼夜的维度在夜晚获得夜视、速度 I、跳跃提升 I；每秒额外恢复 2 点玩家辉光，受储量上限限制。",
-      "title": "装备在遗物栏"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "放在罐子上",
-      "text": "持此遗物右键空罐或辉光罐，每5秒产生3点辉光，满罐停止。遗物保留在罐顶；空手潜行右键可取回，打碎罐子也会掉落。$(br2)只支持待盈新月与绯红之石。详情见$(l:better_forbidden_arcanus:practical/containers)精华容器$(/l)。"
+      "title": "收回月光",
+      "text": "罐顶遗物不消耗，空手潜行右击可取回，打碎罐子也会返还。常规配方与附加宝箱表暂未提供确定的生存来源，可先核对世界的额外获取安排。"
     }
   ]
 }

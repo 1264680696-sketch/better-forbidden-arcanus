@@ -1,18 +1,13 @@
 {
-  "name": "旧版材料与符文袋",
+  "name": "头骨与符文袋",
   "category": "better_forbidden_arcanus:practical",
-  "icon": "better_forbidden_arcanus:arcane_gold_ingot",
+  "icon": "better_forbidden_arcanus:rune_bag",
   "sortnum": 31,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "材料复原",
-      "text": "奥术金锭与Deorum锭是不同物品；旧头骨也不是原版骷髅头颅。本次恢复其独立材料和旧配方，用于暗黑符文装置与符文战斧。"
-    },
-    {
-      "type": "patchouli:crafting",
-      "recipe": "better_forbidden_arcanus:arcane_gold_ingot",
-      "text": "木炭×4、水晶粉×2、洁净粉末×2、金锭×1。"
+      "title": "收拢残片",
+      "text": "头骨是符文战斧的材料，以四个骨块按菱形排列制成，别把它认作骷髅头颅。四枚符文可压成一袋，便于保存，也能再拆回四枚。"
     },
     {
       "type": "patchouli:crafting",
@@ -22,12 +17,12 @@
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:rune_bag",
-      "text": "四个符文压成一袋；无序拆回四个。"
+      "text": "四枚符文压成一袋；无序合成可拆回四枚。"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:dark_rune_bag",
-      "text": "四个暗黑符文压成一袋；也可由普通符文袋交给核心转化。"
+      "text": "暗黑符文同样可以成袋；普通符文袋也可交给核心，一次转化整袋。"
     }
   ]
 }

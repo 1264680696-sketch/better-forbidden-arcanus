@@ -1,6 +1,6 @@
 {
-  "name": "五级祭坛",
-  "description": "了解 5 级祭坛的容量、首次解锁的物品与后续路线。",
+  "name": "5级锻炉 · 极境",
+  "description": "沿着锻炉升阶，查阅本级首次可制的仪式。较高等级仍能执行此前的普通制物仪式。",
   "icon": "forbidden_arcanus:hephaestus_forge_tier_5",
   "sortnum": 7
 }

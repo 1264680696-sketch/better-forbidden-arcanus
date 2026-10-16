@@ -1,21 +1,22 @@
 {
-  "name": "一级：目标与容量",
+  "name": "初燃的锻炉",
   "category": "better_forbidden_arcanus:forge_tier_1",
   "icon": "forbidden_arcanus:hephaestus_forge_tier_1",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "开始执行基础仪式，准备磁化基座和二级升级材料。 本章仅列首次在本级解锁的物品，更高级祭坛仍能制作它们。"
+      "title": "初燃的锻炉",
+      "text": "石阵已醒，先让它学会收纳与加工。量子捕捉器、磁化混合物和熔炉棱晶，是这一阶段值得准备的三件奇物。"
     },
     {
       "type": "patchouli:text",
-      "text": "辉光：1000$(br)灵魂：10$(br)血液：10000$(br)经验：900$(br2)这些是储量上限，不是每次仪式的消耗。",
-      "title": "本级精华容量"
+      "text": "辉光：1000$(br)灵魂：10$(br)血液：10000$(br)经验：900$(br2)这是库存上限；各仪式消耗请翻阅其条目。",
+      "title": "精华储量"
     },
     {
       "type": "patchouli:text",
-      "text": "新增$(l:better_forbidden_arcanus:forge_tier_1/upgrade_equipment_1)本级装备强化$(/l)：工匠遗物放入增强器槽后，可将装备直接提升到本级强化。",
+      "text": "把$(l:better_forbidden_arcanus:practical/artisan_relic)工匠遗物$(/l)放入增强器槽，即可进行$(l:better_forbidden_arcanus:forge_tier_1/upgrade_equipment_1)本级装备强化$(/l)。低级装备可以直接升至本级，加成不累积。",
       "title": "装备强化"
     }
   ]
