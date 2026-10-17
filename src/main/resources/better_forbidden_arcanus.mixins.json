@@ -34,7 +34,11 @@
     "JarRelicBlockMixin",
     "DracoArrowMixin",
     "DracoCloudMixin",
-    "EnergyBallOwnerMixin"
+    "EnergyBallOwnerMixin",
+    "SoulExtractorJarMixin",
+    "SkullRitualMixin",
+    "SkullConsecrationMixin",
+    "AurealicSkullCostMixin"
   ],
   "client": [
     "TyrCooldownRenderMixin",

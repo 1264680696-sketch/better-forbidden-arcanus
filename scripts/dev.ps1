@@ -11,11 +11,11 @@ $taskTemp = Join-Path (Resolve-Path "$taskProject/../..").Path '.bfa-tmp'
 New-Item -ItemType Directory -Path $taskTemp -Force | Out-Null
 $env:TEMP = $taskTemp
 $env:TMP = $taskTemp
-foreach ($taskClientRun in @('runClientSmoke', 'runClientGuide', 'runClientBook')) {
+foreach ($taskClientRun in @('runClientSmoke', 'runClientGuide', 'runClientBook', 'runClientJarGuide')) {
     if ($Tasks -notcontains $taskClientRun) { continue }
     # A fresh client would otherwise wait indefinitely at its first-run
     # accessibility onboarding screen before reaching the title screen.
-    $taskSmokeDirectory = Join-Path $taskProject $(if ($taskClientRun -eq 'runClientGuide') { 'runs/client-guide' } elseif ($taskClientRun -eq 'runClientBook') { 'runs/client-book' } else { 'runs/client-smoke' })
+    $taskSmokeDirectory = Join-Path $taskProject $(if ($taskClientRun -eq 'runClientGuide') { 'runs/client-guide' } elseif ($taskClientRun -eq 'runClientBook') { 'runs/client-book' } elseif ($taskClientRun -eq 'runClientJarGuide') { 'runs/client-jar-guide' } else { 'runs/client-smoke' })
     New-Item -ItemType Directory -Path $taskSmokeDirectory -Force | Out-Null
     $taskOptionsPath = Join-Path $taskSmokeDirectory 'options.txt'
     if (-not (Test-Path -LiteralPath $taskOptionsPath)) {
@@ -54,6 +54,18 @@ try {
         if (-not (Test-Path -LiteralPath $taskGuideLog) -or
             -not (Select-String -LiteralPath $taskGuideLog -SimpleMatch 'BFA_GUIDE_PASS' -Quiet)) {
             throw 'Guide check did not finish. Check runs/client-guide/logs/latest.log.'
+        }
+    }
+    if ($Tasks -contains 'runJarGameTestServer') {
+        $taskJarLog = Join-Path $taskProject 'runs/jar-gametest/logs/latest.log'
+        if (-not (Select-String -LiteralPath $taskJarLog -Pattern 'All \d+ required tests passed' -Quiet)) {
+            throw 'Jar extraction tests did not complete.'
+        }
+    }
+    if ($Tasks -contains 'runClientJarGuide') {
+        $taskJarGuideLog = Join-Path $taskProject 'runs/client-jar-guide/logs/latest.log'
+        if (-not (Select-String -LiteralPath $taskJarGuideLog -SimpleMatch 'BFA_JAR_GUIDE_PASS' -Quiet)) {
+            throw 'Jar guide check did not complete.'
         }
     }
     if ($Tasks -contains 'runClientBook') {

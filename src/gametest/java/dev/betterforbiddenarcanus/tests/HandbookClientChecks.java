@@ -37,6 +37,8 @@ public final class HandbookClientChecks {
     private static long start;
     private static int ticks, frame = -2, projections;
     private static Book book;
+    private static boolean lavaScene;
+    private static int lavaTicks;
 
     private static void require(boolean value, String message) {
         if (!value) throw new IllegalStateException(message);
@@ -48,7 +50,8 @@ public final class HandbookClientChecks {
 
     @SubscribeEvent
     public static void tick(ClientTickEvent.Post event) {
-        if (!Boolean.getBoolean("bfa.handbookTest") || finished) return;
+        boolean jarOnly = Boolean.getBoolean("bfa.jarGuideTest");
+        if ((!Boolean.getBoolean("bfa.handbookTest") && !jarOnly) || finished) return;
         var mc = Minecraft.getInstance();
         mc.options.pauseOnLostFocus = false;
         if (!started && mc.screen instanceof TitleScreen) {
@@ -65,6 +68,7 @@ public final class HandbookClientChecks {
         if (!started) return;
         require(System.currentTimeMillis() - start < 240000, "Handbook check timed out");
         if (mc.level == null || mc.player == null) return;
+        if (lavaScene) { checkLavaScene(); return; }
         if (!requested) {
             if (mc.screen != null) return;
             requested = true;
@@ -73,7 +77,8 @@ public final class HandbookClientChecks {
             require(book.bookTexture.equals(SoulItems.id("textures/gui/forbiddenmicon.png")), "Wrong legacy page atlas");
             book.reloadContents(mc.level, false);
             require(!book.getContents().isErrored(), "Handbook failed to compile: " + book.getContents().getException());
-            require(book.getContents().entries.size() == 76 && book.getContents().categories.size() == 10, "Missing revised entries/categories");
+            require(book.getContents().entries.size() == 77 && book.getContents().categories.size() == 10, "Missing revised entries/categories");
+            if (!jarOnly) {
             var relics = book.getContents().categories.get(SoulItems.id("relics"));
             require(relics != null && relics.getEntries().size() == 8, "Relics are not in their own chapter");
             require(book.getContents().entries.containsKey(SoulItems.id("practical/draco_scepter")), "No separate scepter entry");
@@ -92,7 +97,8 @@ public final class HandbookClientChecks {
             require(mc.getItemRenderer().getModel(guide, mc.level, mc.player, 0) != mc.getModelManager().getMissingModel(), "Guide model missing");
             var model = mc.getModelManager().getModel(net.minecraft.client.resources.model.ModelResourceLocation.standalone(SoulItems.id("item/guide_book")));
             require(!model.getQuads(null, null, net.minecraft.util.RandomSource.create()).isEmpty(), "Legacy three-dimensional cover missing");
-            book.getContents().entries.values().stream().sorted(java.util.Comparator.comparing(e -> e.getId().toString())).forEach(entry -> {
+            }
+            book.getContents().entries.values().stream().filter(e -> !jarOnly || List.of("practical/containers", "basics/souls", "practical/obsidian_skulls", "forge_tier_4/aurealic_skull").contains(e.getId().getPath())).sorted(java.util.Comparator.comparing(e -> e.getId().toString())).forEach(entry -> {
                 require(!entry.isLocked(), "Entry unexpectedly locked");
                 for (int i = 0; i < entry.getPages().size(); i += 2) spreads.add(new Spread(entry, i));
             });
@@ -107,7 +113,9 @@ public final class HandbookClientChecks {
         }
         if (!ready) {
             if (!(mc.screen instanceof GuiBook)) return;
-            ready = true; ticks = 0; return;
+            ready = true; ticks = 0;
+            if (jarOnly) { frame = 0; show(); }
+            return;
         }
         if (++ticks < 3) return;
         ticks = 0;
@@ -142,11 +150,60 @@ public final class HandbookClientChecks {
             Screenshot.grab(mc.gameDirectory, "handbook-scepter.png", mc.getMainRenderTarget(), c -> {});
         if (current.entry.getId().getPath().equals("forge_setup/construction") && current.offset == 2)
             Screenshot.grab(mc.gameDirectory, "handbook-structure.png", mc.getMainRenderTarget(), c -> {});
+        if (jarOnly && current.entry.getId().getPath().equals("practical/containers") && current.offset == 10)
+            Screenshot.grab(mc.gameDirectory, "jar-extraction-guide.png", mc.getMainRenderTarget(), c -> {});
         if (++frame < spreads.size()) { show(); return; }
+        if (jarOnly) {
+            lavaScene = true; lavaTicks = 0; mc.setScreen(null);
+            var uuid = mc.player.getUUID();
+            mc.getSingleplayerServer().execute(() -> {
+                var player = mc.getSingleplayerServer().getPlayerList().getPlayer(uuid);
+                var pos = player.blockPosition().offset(0, 2, 3);
+                var level = player.serverLevel();
+                for (int x = -2; x <= 2; x++) for (int z = -2; z <= 6; z++) {
+                    level.setBlockAndUpdate(pos.offset(x, -1, z), net.minecraft.world.level.block.Blocks.STONE.defaultBlockState());
+                    for (int y = 0; y < 4; y++) level.setBlockAndUpdate(pos.offset(x, y, z), net.minecraft.world.level.block.Blocks.LAVA.defaultBlockState());
+                }
+                for (int y = 0; y < 3; y++) level.setBlockAndUpdate(pos.offset(0, y, 4), net.minecraft.world.level.block.Blocks.GOLD_BLOCK.defaultBlockState());
+                player.setItemSlot(net.minecraft.world.entity.EquipmentSlot.HEAD, new ItemStack(com.stal111.forbidden_arcanus.core.init.ModBlocks.AUREALIC_OBSIDIAN_SKULL.getSkull()));
+                player.teleportTo(pos.getX() + .5, pos.getY() + .2, pos.getZ() + .5);
+                player.setYRot(0); player.setXRot(0); player.inventoryMenu.broadcastChanges();
+            });
+            return;
+        }
         require(projections == 5, "Expected five preserved projections");
         finished = true;
-        com.mojang.logging.LogUtils.getLogger().info("BFA_HANDBOOK_PASS: 76 entries, 10 chapters, {} spreads, original book model/atlas, actual right-click, relic chapter, scepter entry, projections and Deorum frame; no unrelated gameplay tests", spreads.size());
+        com.mojang.logging.LogUtils.getLogger().info("BFA_HANDBOOK_PASS: 77 entries, 10 chapters, {} spreads, original book model/atlas, actual right-click, relic chapter, scepter entry, projections and Deorum frame; no unrelated gameplay tests", spreads.size());
         mc.stop();
+    }
+    private static void checkLavaScene() {
+        var mc = Minecraft.getInstance();
+        int elapsed = ++lavaTicks;
+        if (elapsed == 30) {
+            var camera = mc.gameRenderer.getMainCamera();
+            require(dev.betterforbiddenarcanus.client.LavaSkullVision.active(camera), "Worn skull does not enable actual submerged lava view");
+            net.minecraft.client.renderer.FogRenderer.setupFog(camera, net.minecraft.client.renderer.FogRenderer.FogMode.FOG_TERRAIN, 128, false, 0);
+            require(Math.abs(com.mojang.blaze3d.systems.RenderSystem.getShaderFogEnd() - 32) < .01, "Lava fog was not extended to thirty-two blocks");
+            Screenshot.grab(mc.gameDirectory, "skull-lava-vision.png", mc.getMainRenderTarget(), c -> {});
+        }
+        if (elapsed == 45) {
+            var uuid = mc.player.getUUID();
+            mc.getSingleplayerServer().execute(() -> {
+                var player = mc.getSingleplayerServer().getPlayerList().getPlayer(uuid);
+                player.setItemSlot(net.minecraft.world.entity.EquipmentSlot.HEAD, ItemStack.EMPTY); player.inventoryMenu.broadcastChanges();
+            });
+        }
+        if (elapsed == 65) {
+            var camera = mc.gameRenderer.getMainCamera();
+            require(camera.getFluidInCamera() == net.minecraft.world.level.material.FogType.LAVA, "Comparison camera left lava");
+            require(!dev.betterforbiddenarcanus.client.LavaSkullVision.active(camera), "Removing skull keeps lava vision");
+            net.minecraft.client.renderer.FogRenderer.setupFog(camera, net.minecraft.client.renderer.FogRenderer.FogMode.FOG_TERRAIN, 128, false, 0);
+            require(com.mojang.blaze3d.systems.RenderSystem.getShaderFogEnd() <= 5, "Ordinary lava fog not restored");
+            Screenshot.grab(mc.gameDirectory, "skull-lava-without.png", mc.getMainRenderTarget(), c -> {});
+            finished = true;
+            com.mojang.logging.LogUtils.getLogger().info("BFA_JAR_GUIDE_PASS: four changed entries, {} spreads, native skull smithing page and actual lava vision/removal; no unrelated gameplay checks", spreads.size());
+            mc.stop();
+        }
     }
     private static void show() {
         var spread = spreads.get(frame);

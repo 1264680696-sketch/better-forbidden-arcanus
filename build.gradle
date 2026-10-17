@@ -68,6 +68,20 @@ neoForge {
             loadedMods = [mods."${mod_id}", mods.bfa_tests]
             systemProperty 'bfa.handbookTest', 'true'
         }
+        jarGameTestServer {
+            type = 'gameTestServer'
+            sourceSet = sourceSets.gametest
+            gameDirectory = project.file('runs/jar-gametest')
+            loadedMods = [mods."${mod_id}", mods.bfa_tests]
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'bfa_jar_tests'
+        }
+        clientJarGuide {
+            client()
+            sourceSet = sourceSets.gametest
+            gameDirectory = project.file('runs/client-jar-guide')
+            loadedMods = [mods."${mod_id}", mods.bfa_tests]
+            systemProperty 'bfa.jarGuideTest', 'true'
+        }
         gameTestServer {
             type = 'gameTestServer'
             sourceSet = sourceSets.gametest

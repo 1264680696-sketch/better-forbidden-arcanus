@@ -1,0 +1,18 @@
+{
+  "forge_tier": 4,
+  "duration": 500,
+  "essences": {
+    "aureal": 0,
+    "souls": 0,
+    "blood": 0,
+    "experience": 0
+  },
+  "inputs": [],
+  "main_ingredient": {
+    "item": "forbidden_arcanus:eternal_obsidian_skull"
+  },
+  "magic_circle": "forbidden_arcanus:create_item",
+  "result": {
+    "type": "better_forbidden_arcanus:consecrate_skull"
+  }
+}

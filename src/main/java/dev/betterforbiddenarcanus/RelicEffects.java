@@ -78,11 +78,12 @@ public final class RelicEffects {
         boolean divine = RelicCurio.equipped(player, ModItems.DIVINE_PACT.get());
         boolean moon = RelicCurio.equipped(player, ModItems.CRESCENT_MOON.get()) && isNight(player);
         effect(player, MobEffects.REGENERATION, "relic_regeneration", divine && player.getHealth() < player.getMaxHealth() * 0.2F, 60);
-        effect(player, MobEffects.NIGHT_VISION, "relic_night_vision", moon, 240);
+        boolean skull = AurealicSkulls.wearing(player);
+        effect(player, MobEffects.NIGHT_VISION, "relic_night_vision", moon || skull, 240);
         effect(player, MobEffects.MOVEMENT_SPEED, "relic_speed", moon, 60);
         effect(player, MobEffects.JUMP, "relic_jump", moon, 60);
-        if (moon && player.level().getGameTime() % 20 == 0) {
-            EssenceHelper.getEssenceProvider(player).ifPresent(provider -> provider.updateAmount(EssenceType.AUREAL, amount -> amount + 2));
+        if ((moon || skull) && player.level().getGameTime() % 20 == 0) {
+            EssenceHelper.getEssenceProvider(player).ifPresent(provider -> provider.updateAmount(EssenceType.AUREAL, amount -> amount + (moon ? 2 : 0) + (skull ? 2 : 0)));
         }
     }
 

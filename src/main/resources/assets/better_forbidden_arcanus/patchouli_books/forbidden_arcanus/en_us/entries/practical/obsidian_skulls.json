@@ -37,8 +37,18 @@
     },
     {
       "type": "patchouli:text",
-      "title": "另一类头骨",
-      "text": "辉光与永恒黑曜石头骨没有默认生存配方或掉落入口，只能创造或命令获取。此版本没有黑曜石头骨盾，不必为它寻找旧版配方。"
+      "title": "让头骨长存",
+      "text": "普通黑曜石头骨可在锻造台升级为永恒黑曜石头骨，佩戴时抵御火焰与熔岩伤害，且不再退化。先取得永恒之石，再按下一页配方升级。"
+    },
+    {
+      "type": "patchouli:smithing",
+      "recipe": "better_forbidden_arcanus:eternal_obsidian_skull",
+      "text": "应用修饰锻造模板＋普通黑曜石头骨＋永恒之石。模板通常消耗，工匠遗物仍可使它保留。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "再注入辉光",
+      "text": "永恒头骨还可在$(l:better_forbidden_arcanus:forge_tier_4/aurealic_skull)四级及以上锻炉$(/l)中升为辉光黑曜石头骨。它保留永久防火，并获得夜视、熔岩明视与每秒2点辉光回复。"
     }
   ]
 }

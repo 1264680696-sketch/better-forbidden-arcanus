@@ -62,7 +62,7 @@ public final class MagicAndJarGameTests {
     }
     @GameTest(template="guide_area") public static void bottleExtractionStockAndStackHandling(GameTestHelper h) {
         var p=player(h);h.setBlock(POS,ModBlocks.ESSENCE_UTREM_JAR.get().defaultBlockState().setValue(ModBlockStateProperties.ESSENCE_TYPE,EssenceType.AUREAL));
-        EssenceUtremJarBlockEntity jar=h.getBlockEntity(POS);h.assertTrue(AurealBottles.amount()==35,"Native bottle contains thirty-five Aureal");
+        EssenceUtremJarBlockEntity jar=h.getBlockEntity(POS);h.assertTrue(EssenceJarInteractions.aurealAmount()==35,"Native bottle contains thirty-five Aureal");
         jar.addEssence(70);p.setItemInHand(InteractionHand.MAIN_HAND,new ItemStack(Items.GLASS_BOTTLE,2));click(h,p,POS);
         h.assertTrue(jar.getAmount()==35&&p.getMainHandItem().is(Items.GLASS_BOTTLE)&&p.getMainHandItem().getCount()==1,"One glass bottle and thirty-five essence consumed");
         h.assertTrue(p.getInventory().items.stream().anyMatch(s->s.is(ModItems.AUREAL_BOTTLE.get())&&s.getCount()==1),"Filled bottle delivered to inventory");

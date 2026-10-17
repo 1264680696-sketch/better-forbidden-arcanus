@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "forbidden_arcanus:apply_modifier_smithing_template"
+  },
+  "base": {
+    "item": "forbidden_arcanus:obsidian_skull"
+  },
+  "addition": {
+    "item": "forbidden_arcanus:eternal_stella"
+  },
+  "result": {
+    "id": "forbidden_arcanus:eternal_obsidian_skull",
+    "count": 1
+  }
+}
