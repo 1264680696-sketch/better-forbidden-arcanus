@@ -44,7 +44,9 @@
     "SkullTransmuteMixin",
     "PrismModifierMixin",
     "SingleUseSoulboundMixin",
-    "SoulboundKeepInventoryMixin"
+    "SoulboundKeepInventoryMixin",
+    "SoulCrystalPlayerMixin",
+    "SoulCrystalRulesMixin"
   ],
   "client": [
     "TyrCooldownRenderMixin",

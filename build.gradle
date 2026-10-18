@@ -68,6 +68,20 @@ neoForge {
             loadedMods = [mods."${mod_id}", mods.bfa_tests]
             systemProperty 'bfa.handbookTest', 'true'
         }
+        soulCrystalGameTestServer {
+            type = 'gameTestServer'
+            sourceSet = sourceSets.gametest
+            gameDirectory = project.file('runs/soul-crystal-gametest')
+            loadedMods = [mods."${mod_id}", mods.bfa_tests]
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'bfa_soul_crystal_tests'
+        }
+        clientSoulCrystal {
+            client()
+            sourceSet = sourceSets.gametest
+            gameDirectory = project.file('runs/client-soul-crystal')
+            loadedMods = [mods."${mod_id}", mods.bfa_tests]
+            systemProperty 'bfa.soulCrystalGuideTest', 'true'
+        }
         prismFixGameTestServer {
             type = 'gameTestServer'
             sourceSet = sourceSets.gametest
