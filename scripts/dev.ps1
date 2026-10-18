@@ -11,11 +11,11 @@ $taskTemp = Join-Path (Resolve-Path "$taskProject/../..").Path '.bfa-tmp'
 New-Item -ItemType Directory -Path $taskTemp -Force | Out-Null
 $env:TEMP = $taskTemp
 $env:TMP = $taskTemp
-foreach ($taskClientRun in @('runClientSmoke', 'runClientGuide', 'runClientBook', 'runClientJarGuide', 'runClientPrismGuide', 'runClientPrismFixes', 'runClientSoulCrystal')) {
+foreach ($taskClientRun in @('runClientSmoke', 'runClientGuide', 'runClientBook', 'runClientJarGuide', 'runClientPrismGuide', 'runClientPrismFixes', 'runClientSoulCrystal', 'runClientRelicAcquisition')) {
     if ($Tasks -notcontains $taskClientRun) { continue }
     # A fresh client would otherwise wait indefinitely at its first-run
     # accessibility onboarding screen before reaching the title screen.
-    $taskSmokeDirectory = Join-Path $taskProject $(if ($taskClientRun -eq 'runClientGuide') { 'runs/client-guide' } elseif ($taskClientRun -eq 'runClientBook') { 'runs/client-book' } elseif ($taskClientRun -eq 'runClientSoulCrystal') { 'runs/client-soul-crystal' } elseif ($taskClientRun -eq 'runClientPrismFixes') { 'runs/client-prism-fixes' } elseif ($taskClientRun -eq 'runClientPrismGuide') { 'runs/client-prism-guide' } elseif ($taskClientRun -eq 'runClientJarGuide') { 'runs/client-jar-guide' } else { 'runs/client-smoke' })
+    $taskSmokeDirectory = Join-Path $taskProject $(if ($taskClientRun -eq 'runClientGuide') { 'runs/client-guide' } elseif ($taskClientRun -eq 'runClientBook') { 'runs/client-book' } elseif ($taskClientRun -eq 'runClientRelicAcquisition') { 'runs/client-relic-acquisition' } elseif ($taskClientRun -eq 'runClientSoulCrystal') { 'runs/client-soul-crystal' } elseif ($taskClientRun -eq 'runClientPrismFixes') { 'runs/client-prism-fixes' } elseif ($taskClientRun -eq 'runClientPrismGuide') { 'runs/client-prism-guide' } elseif ($taskClientRun -eq 'runClientJarGuide') { 'runs/client-jar-guide' } else { 'runs/client-smoke' })
     New-Item -ItemType Directory -Path $taskSmokeDirectory -Force | Out-Null
     $taskOptionsPath = Join-Path $taskSmokeDirectory 'options.txt'
     if (-not (Test-Path -LiteralPath $taskOptionsPath)) {
@@ -55,6 +55,12 @@ try {
             -not (Select-String -LiteralPath $taskGuideLog -SimpleMatch 'BFA_GUIDE_PASS' -Quiet)) {
             throw 'Guide check did not finish. Check runs/client-guide/logs/latest.log.'
         }
+    }
+    if ($Tasks -contains 'runRelicAcquisitionGameTestServer') {
+        if (-not (Select-String -LiteralPath (Join-Path $taskProject 'runs/relic-acquisition-gametest/logs/latest.log') -Pattern 'All \d+ required tests passed' -Quiet)) { throw 'Relic acquisition tests did not finish.' }
+    }
+    if ($Tasks -contains 'runClientRelicAcquisition') {
+        if (-not (Select-String -LiteralPath (Join-Path $taskProject 'runs/client-relic-acquisition/logs/latest.log') -SimpleMatch 'BFA_RELIC_ACQUISITION_GUIDE_PASS' -Quiet)) { throw 'Relic acquisition client checks did not finish.' }
     }
     if ($Tasks -contains 'runSoulCrystalGameTestServer') {
         if (-not (Select-String -LiteralPath (Join-Path $taskProject 'runs/soul-crystal-gametest/logs/latest.log') -Pattern 'All \d+ required tests passed' -Quiet)) { throw 'Soul crystal tests did not finish.' }

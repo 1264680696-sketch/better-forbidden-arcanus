@@ -68,6 +68,20 @@ neoForge {
             loadedMods = [mods."${mod_id}", mods.bfa_tests]
             systemProperty 'bfa.handbookTest', 'true'
         }
+        relicAcquisitionGameTestServer {
+            type = 'gameTestServer'
+            sourceSet = sourceSets.gametest
+            gameDirectory = project.file('runs/relic-acquisition-gametest')
+            loadedMods = [mods."${mod_id}", mods.bfa_tests]
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'bfa_relic_acquisition_tests'
+        }
+        clientRelicAcquisition {
+            client()
+            sourceSet = sourceSets.gametest
+            gameDirectory = project.file('runs/client-relic-acquisition')
+            loadedMods = [mods."${mod_id}", mods.bfa_tests]
+            systemProperty 'bfa.relicAcquisitionGuideTest', 'true'
+        }
         soulCrystalGameTestServer {
             type = 'gameTestServer'
             sourceSet = sourceSets.gametest

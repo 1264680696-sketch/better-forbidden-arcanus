@@ -12,18 +12,8 @@
     {
       "type": "patchouli:spotlight",
       "item": "forbidden_arcanus:artisan_relic",
-      "text": "饰品效果：使用锻造模板时候有概率不消耗；减半使用铁砧所需的经验。$(br)$(br)$(br)赫菲斯托斯锻炉效果：储存大量的经验。$(br)$(br)$(br)炽炉效果：允许制作新的合金。",
+      "text": "饰品效果：使用锻造模板时候有概率不消耗；减半使用铁砧所需的经验。$(br)$(br)赫菲斯托斯锻炉效果：储存大量的经验。可以进行装备强化$(br)$(br)炽炉效果：允许制作新的合金。",
       "title": "工匠遗物"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "工匠遗物",
-      "text": "$(br)"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "留给设施的本领",
-      "text": "放在锻炉增强器槽，它保留经验需求优惠，并开启$(l:better_forbidden_arcanus:practical/forge_upgrades)装备强化$(/l)。放在炽炉中，则用于$(l:better_forbidden_arcanus:practical/alloys)合金加工$(/l)。直接穿戴它不会增加装备属性。"
     }
   ]
 }

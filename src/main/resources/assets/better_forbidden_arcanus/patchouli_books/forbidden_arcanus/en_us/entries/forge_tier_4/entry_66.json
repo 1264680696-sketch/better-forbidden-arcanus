@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "将辉光注入进头骨之中，你的双眼将会变得通透，不仅可以夜视，并且在看清熔岩中的事物"
+      "text": "将辉光注入进头骨之中，你的双眼将会变得通透，不仅可以夜视，并且能看清熔岩中的事物。$(br)$(br)$(br)+2辉光再生"
     },
     {
       "title": "aurealic obsidian skull",

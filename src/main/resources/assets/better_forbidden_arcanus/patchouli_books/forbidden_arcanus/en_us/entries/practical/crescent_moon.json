@@ -7,7 +7,7 @@
     {
       "type": "patchouli:text",
       "title": "把夜色戴在身边",
-      "text": "击杀幻翼有较低概率获得$(br)$(br)"
+      "text": "玩家击杀幻翼时，有10%概率掉落1个待盈新月；抢夺不增加此概率。$(br)$(br)"
     },
     {
       "type": "patchouli:spotlight",
