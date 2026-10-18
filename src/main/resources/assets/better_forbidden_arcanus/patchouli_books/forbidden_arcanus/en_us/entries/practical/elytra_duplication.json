@@ -1,5 +1,5 @@
 {
-  "name": "用龙鳞复制鞘翅",
+  "name": "复制鞘翅",
   "category": "better_forbidden_arcanus:practical",
   "icon": "minecraft:elytra",
   "sortnum": 17,
@@ -7,18 +7,12 @@
     {
       "type": "patchouli:text",
       "title": "留下一双翅膀",
-      "text": "在工作台中央放鞘翅，周围围满8片普通龙鳞。龙鳞消耗后，得到1件全新鞘翅，中央原件留下，可以再次作为样本使用。"
+      "text": "用翅膀来复制翅膀，是一件再合理不过的事情了。"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:elytra_duplication",
-      "text": "八片普通龙鳞换得一件新鞘翅，中央原件不消耗。",
-      "title": ""
-    },
-    {
-      "type": "patchouli:text",
-      "title": "样本仍是你的",
-      "text": "原件保留附魔、剩余耐久与名称；新鞘翅则是未附魔的新物品。金色、银色和水生龙鳞不能直接替代普通鳞片，需先经炽炉回收。"
+      "text": "$(br)"
     }
   ]
 }

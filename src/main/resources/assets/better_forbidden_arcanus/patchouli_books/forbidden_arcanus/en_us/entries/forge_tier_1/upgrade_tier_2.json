@@ -7,22 +7,90 @@
     {
       "type": "patchouli:text",
       "title": "让炉火更盛",
-      "text": "这次升阶只能在1级锻炉进行。把中央材料放好，外围八份材料各占一座基座，再准备下列精华。完成后炉体升至2级，精华储量随之增加。"
+      "text": "现在无论是为了更高级的的装备强化，还是为了更强力的物品，目前的锻炉都已经无法满足你了。"
     },
     {
-      "type": "patchouli:text",
-      "text": "中央：埃德木木板×1。$(br)神秘水晶×4$(br)刷怪笼碎片×4$(br2)每份辅料各占一座基座，其余留空。",
-      "title": "放入法阵"
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:spawner_scrap",
+      "text": "挖掘刷怪笼后的残骸碎片，其散发的生机正适合将锻炉强化到新的境界。"
     },
     {
-      "type": "patchouli:text",
-      "text": "辉光：500$(br)灵魂：10$(br)血液：6000$(br)经验：0$(br2)无必需增强器。所列为基础消耗，增强器可改变实际需求。",
-      "title": "精华与增强器"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "下一段旅程",
-      "text": "用锻工锤右击，等待法阵完成。基础耗时25秒，有效量子注入器可将其缩短。升阶后继续阅读$(l:better_forbidden_arcanus:forge_tier_2/overview)下一阶段$(/l)。"
+      "title": "升级锻炉",
+      "main": "forbidden_arcanus:edelwood_planks",
+      "result": "",
+      "show_main": true,
+      "show_result": false,
+      "show_dynamic_result": true,
+      "result_summary": "升级锻炉",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 500,
+      "souls": 10,
+      "blood": 6000,
+      "experience": 0,
+      "aureal_text": "辉光 500",
+      "souls_text": "灵魂 10",
+      "blood_text": "血液 6000",
+      "experience_text": "经验 0",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "",
+      "input_1": "forbidden_arcanus:arcane_crystal",
+      "input_2": "forbidden_arcanus:arcane_crystal",
+      "input_3": "forbidden_arcanus:arcane_crystal",
+      "input_4": "forbidden_arcanus:arcane_crystal",
+      "input_5": "forbidden_arcanus:spawner_scrap",
+      "input_6": "forbidden_arcanus:spawner_scrap",
+      "input_7": "forbidden_arcanus:spawner_scrap",
+      "input_8": "forbidden_arcanus:spawner_scrap",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": true,
+      "show_input_6": true,
+      "show_input_7": true,
+      "show_input_8": true,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "forbidden_arcanus:upgrade_tier_2",
+      "studio_ritual": {
+        "essences": {
+          "aureal": 500,
+          "blood": 6000,
+          "souls": 10
+        },
+        "inputs": [
+          {
+            "amount": 4,
+            "ingredient": {
+              "item": "forbidden_arcanus:arcane_crystal"
+            }
+          },
+          {
+            "amount": 4,
+            "ingredient": {
+              "item": "forbidden_arcanus:spawner_scrap"
+            }
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:upgrade_tier",
+        "main_ingredient": {
+          "item": "forbidden_arcanus:edelwood_planks"
+        },
+        "match_tier_exact": true,
+        "result": {
+          "type": "forbidden_arcanus:upgrade_tier",
+          "result_tier": 2
+        }
+      },
+      "studio_forge_warnings": []
     }
   ]
 }

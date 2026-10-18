@@ -1,5 +1,5 @@
 {
-  "name": "搭建第一座祭坛",
+  "name": "搭建第一座锻炉",
   "category": "better_forbidden_arcanus:forge_setup",
   "icon": "forbidden_arcanus:hephaestus_forge_tier_1",
   "sortnum": 0,
@@ -7,12 +7,7 @@
     {
       "type": "patchouli:text",
       "title": "第一座锻炉",
-      "text": "赫菲斯托斯锻炉是一切仪式的中心，本书也将它简称为祭坛。先备齐：磨制暗黑石48块、镀金錾制磨制暗黑石9块、錾制神秘磨制暗黑石4块，另加锻造台与洁净粉末各1。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "把石阵铺好",
-      "text": "底座占9×9范围。按下页投影铺设，在中央镀金石上放置锻造台。结构之外可自由布置；投影中要求为空气的部分则须留空。"
+      "text": "赫菲斯托斯锻炉是一切仪式的中心。$(br)要获得赫菲斯托斯熔炉，需要 48 块磨制暗黑石、9 块神秘雕纹磨制暗黑石、4 块雕纹神秘磨制暗黑石，1 个锻造台，1个洁净粉末。将锻造台放在中央，然后通过洁净粉末潜行+右键单击锻造台，创建一级赫菲斯托斯熔炉。"
     },
     {
       "type": "patchouli:multiblock",
@@ -43,27 +38,21 @@
           ]
         ],
         "mapping": {
+          "0": "minecraft:smithing_table",
           "P": "forbidden_arcanus:polished_darkstone",
           "A": "forbidden_arcanus:gilded_chiseled_polished_darkstone",
           "C": "forbidden_arcanus:chiseled_arcane_polished_darkstone",
-          "0": "minecraft:smithing_table",
           "H": "#better_forbidden_arcanus:forge_creation_space"
         },
         "symmetrical": true
       },
       "enable_visualize": true,
-      "text": "点击可视化，将结构投射到世界中。",
-      "title": ""
+      "text": "精密仪器，切勿移动$(br)$(br)"
     },
     {
       "type": "patchouli:text",
-      "title": "唤醒",
-      "text": "确认石阵完整，潜行并手持洁净粉末右击中央锻造台。红色闪电过后，锻造台化为一级锻炉。无需把整座结构塞进工作台。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "火焰之后",
-      "text": "接下来摆好$(l:better_forbidden_arcanus:forge_setup/pedestals)基座$(/l)，学习$(l:better_forbidden_arcanus:forge_setup/ritual_basics)一次完整的仪式$(/l)。准备妥当后，开始$(l:better_forbidden_arcanus:forge_tier_1/overview)一级锻炉$(/l)的研究。"
+      "title": "第一座锻炉",
+      "text": "中央大槽只容纳仪式主材料。其余材料交给四周的八个基座：它们立在外围镀金石上，每份辅料各占一个席位。"
     }
   ]
 }

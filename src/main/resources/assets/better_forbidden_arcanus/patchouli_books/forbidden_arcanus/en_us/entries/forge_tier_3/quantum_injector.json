@@ -7,43 +7,83 @@
     {
       "type": "patchouli:text",
       "title": "让精华自行流转",
-      "text": "量子注入器从附近罐子取出精华，送进锻炉。转移带来20%增益：罐中消耗5点，锻炉得到6点。把它安置在库存与炉火之间，让备料少一次往返。"
+      "text": "想要完全将过去之物带到现在通常是不可行的，大多时候只会弄出残缺的造物，量子注入器就是这种成果。$(br)$(br)量子注入器能从附近罐子取出精华，送进锻炉；转移带来20%增益，并加快仪式的进行"
     },
     {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:quantum_injector",
       "title": "量子注入器",
-      "text": "需3 级锻炉。配齐后续材料，用锻工锤启动。"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "中央：洁净粉末×1。$(br)量子核心×4$(br2)每份辅料各占一座基座，其余留空。",
-      "title": "放入法阵"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "辉光：5000$(br)灵魂：50$(br)血液：3000$(br)经验：1060$(br2)无必需增强器。所列为基础消耗，增强器可改变实际需求。",
-      "title": "精华与增强器"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "开启与连接",
-      "text": "右击切换开关。开启后连接4格内最近的锻炉，并在8格内寻找精华罐。每5 tick同时处理四种精华，每种最多吸10点、送12点。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "涓滴也会留下",
-      "text": "不足一批时按实际库存转移，空罐不扣，锻炉满时暂停。增益的小数与尚未到账部分会保留，存档重载也不丢失；不会把罐子扣成负数。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "缩短等待",
-      "text": "有效连接使仪式用时减少20%，通常25秒变20秒。多个注入器不叠加；暂时没有精华仍可加速，关闭、移除或断开后恢复原速。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "四种精华同行",
-      "text": "辉光、灵魂、血液和经验同轮转移，各自计算容量。一种满了或耗尽，不会耽误其他种类。多个注入器依次按剩余库存取用，不会重复扣除。"
+      "main": "forbidden_arcanus:mundabitur_dust",
+      "result": "forbidden_arcanus:quantum_injector",
+      "show_main": true,
+      "show_result": true,
+      "show_dynamic_result": false,
+      "result_summary": "动态产物",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 5000,
+      "souls": 50,
+      "blood": 3000,
+      "experience": 1060,
+      "aureal_text": "辉光 5000",
+      "souls_text": "灵魂 50",
+      "blood_text": "血液 3000",
+      "experience_text": "经验 1060",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "最佳位置是两格上",
+      "input_1": "forbidden_arcanus:quantum_core",
+      "input_2": "forbidden_arcanus:quantum_core",
+      "input_3": "forbidden_arcanus:quantum_core",
+      "input_4": "forbidden_arcanus:quantum_core",
+      "input_5": "minecraft:air",
+      "input_6": "minecraft:air",
+      "input_7": "minecraft:air",
+      "input_8": "minecraft:air",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": false,
+      "show_input_6": false,
+      "show_input_7": false,
+      "show_input_8": false,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "forbidden_arcanus:quantum_injector",
+      "studio_ritual": {
+        "essences": {
+          "aureal": 5000,
+          "blood": 3000,
+          "experience": 1060,
+          "souls": 50
+        },
+        "forge_tier": 3,
+        "inputs": [
+          {
+            "amount": 4,
+            "ingredient": {
+              "item": "forbidden_arcanus:quantum_core"
+            }
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:create_item",
+        "main_ingredient": {
+          "item": "forbidden_arcanus:mundabitur_dust"
+        },
+        "result": {
+          "type": "forbidden_arcanus:create_item",
+          "result_item": {
+            "count": 1,
+            "id": "forbidden_arcanus:quantum_injector"
+          }
+        }
+      },
+      "studio_forge_warnings": []
     }
   ]
 }

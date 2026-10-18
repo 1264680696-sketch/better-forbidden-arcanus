@@ -7,17 +7,12 @@
     {
       "type": "patchouli:text",
       "title": "骨骼挡住飞矢",
-      "text": "每件正确穿戴的亡骨盔甲减少12.5%弹射物伤害，四件合计50%。先计算通常护甲与附魔，再应用这份减伤；近战和跌落不受益。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "骨与铁的平衡",
-      "text": "按下页配方逐件制作，全套消耗骨头和铁锭各12份。箭与三叉戟等弹射物都适用，包括没有射手的箭；卸下部件立即失去对应减伤。"
+      "text": "事实证明，骨头对于远程攻击有着良好的防御效果。$(br)$(br)每件亡骨盔甲减少12.5%弹射物伤害，"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:mortem_helmet",
-      "text": ""
+      "text": "$(br)"
     },
     {
       "type": "patchouli:crafting",

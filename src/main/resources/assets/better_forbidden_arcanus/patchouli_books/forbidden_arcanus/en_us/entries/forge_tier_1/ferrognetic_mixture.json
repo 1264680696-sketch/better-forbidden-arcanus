@@ -7,28 +7,99 @@
     {
       "type": "patchouli:text",
       "title": "磁化混合物",
-      "text": "把混合物用在普通暗黑石基座上，基座便能拾取抛来的物品。这是让手动备料更顺手的第一步；它也能通过锻造台赋予靴子磁化修饰。"
+      "text": "把混合物用在普通暗黑石基座上，基座便能拾取抛来的物品。它也能通过锻造台赋予靴子磁化修饰。$(br)$(br)$(br)磁化：扩大物品拾取范围"
     },
     {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:ferrognetic_mixture",
       "title": "磁化混合物",
-      "text": "需1 级锻炉。配齐后续材料，用锻工锤启动。"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "中央：磁石×1。$(br)黏土球×2$(br)蜂蜡×2$(br)黏液球×2$(br)铁锭×1$(br2)每份辅料各占一座基座，其余留空。",
-      "title": "放入法阵"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "辉光：100$(br)灵魂：2$(br)血液：1250$(br)经验：0$(br2)无必需增强器。所列为基础消耗，增强器可改变实际需求。",
-      "title": "精华与增强器"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "带上成品，按$(l:better_forbidden_arcanus:practical/modifiers)装备修饰$(/l)的步骤继续加工。",
-      "title": "完成之后"
+      "main": "minecraft:lodestone",
+      "result": "forbidden_arcanus:ferrognetic_mixture",
+      "show_main": true,
+      "show_result": true,
+      "show_dynamic_result": false,
+      "result_summary": "动态产物",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 100,
+      "souls": 2,
+      "blood": 1250,
+      "experience": 0,
+      "aureal_text": "辉光 100",
+      "souls_text": "灵魂 2",
+      "blood_text": "血液 1250",
+      "experience_text": "经验 0",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "$(br)",
+      "input_1": "minecraft:clay_ball",
+      "input_2": "minecraft:clay_ball",
+      "input_3": "forbidden_arcanus:wax",
+      "input_4": "forbidden_arcanus:wax",
+      "input_5": "minecraft:slime_ball",
+      "input_6": "minecraft:slime_ball",
+      "input_7": "minecraft:iron_ingot",
+      "input_8": "minecraft:air",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": true,
+      "show_input_6": true,
+      "show_input_7": true,
+      "show_input_8": false,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "forbidden_arcanus:ferrognetic_mixture",
+      "studio_ritual": {
+        "essences": {
+          "aureal": 100,
+          "blood": 1250,
+          "souls": 2
+        },
+        "inputs": [
+          {
+            "amount": 2,
+            "ingredient": {
+              "item": "minecraft:clay_ball"
+            }
+          },
+          {
+            "amount": 2,
+            "ingredient": {
+              "item": "forbidden_arcanus:wax"
+            }
+          },
+          {
+            "amount": 2,
+            "ingredient": {
+              "item": "minecraft:slime_ball"
+            }
+          },
+          {
+            "amount": 1,
+            "ingredient": {
+              "item": "minecraft:iron_ingot"
+            }
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:create_item",
+        "main_ingredient": {
+          "item": "minecraft:lodestone"
+        },
+        "result": {
+          "type": "forbidden_arcanus:create_item",
+          "result_item": {
+            "count": 1,
+            "id": "forbidden_arcanus:ferrognetic_mixture"
+          }
+        }
+      },
+      "studio_forge_warnings": []
     }
   ]
 }

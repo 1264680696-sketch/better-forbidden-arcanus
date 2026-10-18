@@ -1,10 +1,15 @@
 {
   "name": "火神手记",
-  "landing_text": "从一枚神秘水晶开始，搭建祭坛，逐级解锁禁忌与奥秘。$(br2)先阅读基础知识，再学习搭建与仪式。所有章节均可提前查阅。",
-  "version": "0.13.2",
+  "landing_text": "感谢游玩禁忌与奥秘！$(br)$(br)禁忌与奥秘添加了全新的魔法主题的物品。$(br)$(br)$(br)",
+  "version": "0.11.0",
   "use_resource_pack": true,
   "creative_tab": "better_forbidden_arcanus:main",
   "show_progress": false,
-  "book_texture": "better_forbidden_arcanus:textures/gui/forbiddenmicon.png",
-  "model": "better_forbidden_arcanus:guide_book"
+  "book_texture": "patchouli:textures/gui/book_brown.png",
+  "model": "better_forbidden_arcanus:guide_book",
+  "filler_texture": "patchouli:textures/gui/page_filler.png",
+  "crafting_texture": "patchouli:textures/gui/crafting.png",
+  "text_color": "000000",
+  "header_color": "333333",
+  "nameplate_color": "FFDD00"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "黑曜石头骨系列",
+  "name": "黑曜石头骨",
   "category": "better_forbidden_arcanus:practical",
   "icon": "forbidden_arcanus:obsidian_skull",
   "sortnum": 21,
@@ -7,48 +7,32 @@
     {
       "type": "patchouli:text",
       "title": "替你承受火焰",
-      "text": "用黑曜钢包住骷髅头颅，制成黑曜石头骨。戴在头部并着火时，它会逐渐裂纹、碎裂、消逝，最后留下普通骷髅头颅。"
+      "text": "用黑曜钢包住骷髅头颅，制成黑曜石头骨。戴在头部并着火时，它会逐渐裂纹、碎裂、消逝，最后留下普通骷髅头颅。$(br)$(br)$(br)每个阶段累计约8至13秒着火时间，可使用黑曜石钢来修复"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:obsidian_skull",
-      "text": "中央放骷髅头颅，周围围满八个黑曜钢锭。",
-      "title": ""
-    },
-    {
-      "type": "patchouli:text",
-      "title": "裂痕会积累",
-      "text": "每个阶段累计约8至13秒着火时间，不着火时暂停。仅放在背包不会退化。收集黑曜钢，可沿下列配方逐段修复状态。"
+      "text": "$(br)"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:fragmented_obsidian_skull",
-      "text": "消逝头骨与 2 个黑曜钢锭修复为碎裂。"
+      "text": "$(br)"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:cracked_obsidian_skull",
-      "text": "碎裂头骨与 2 个黑曜钢锭修复为裂纹。"
+      "text": "$(br)"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:obsidian_skull_from_cracked_obsidian_skull",
-      "text": "裂纹头骨与 2 个黑曜钢锭修复为普通。"
+      "text": "$(br)"
     },
     {
-      "type": "patchouli:text",
-      "title": "让头骨长存",
-      "text": "普通黑曜石头骨可在锻造台升级为永恒黑曜石头骨，佩戴时抵御火焰与熔岩伤害，且不再退化。先取得永恒之石，再按下一页配方升级。"
-    },
-    {
-      "type": "patchouli:smithing",
-      "recipe": "better_forbidden_arcanus:eternal_obsidian_skull",
-      "text": "应用修饰锻造模板＋普通黑曜石头骨＋永恒之石。模板通常消耗，工匠遗物仍可使它保留。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "再注入辉光",
-      "text": "永恒头骨还可在$(l:better_forbidden_arcanus:forge_tier_4/aurealic_skull)四级及以上锻炉$(/l)中升为辉光黑曜石头骨。它保留永久防火，并获得夜视、熔岩明视与每秒2点辉光回复。"
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:eternal_obsidian_skull",
+      "text": "使用永恒之石锻造而成"
     }
   ]
 }

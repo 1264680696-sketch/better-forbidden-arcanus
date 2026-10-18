@@ -7,7 +7,7 @@
     {
       "type": "patchouli:text",
       "title": "回到原初的鳞片",
-      "text": "金色、银色或水生龙鳞各可在炽炉中1:1烧回普通龙鳞。基础耗时5秒，需燃料，不要求灵魂或增强器，也没有经验与残留物。若放入灵魂，仍可加速。$(br2)稳定的鳞片来源见$(l:better_forbidden_arcanus:practical/arcane_dragon_egg)神秘龙蛋$(/l)。"
+      "text": "金色、银色或水生龙鳞各可在炽炉中烧回普通龙鳞。$(br2)稳定的鳞片来源见$(l:better_forbidden_arcanus:practical/arcane_dragon_egg)神秘龙蛋$(/l)。"
     }
   ]
 }

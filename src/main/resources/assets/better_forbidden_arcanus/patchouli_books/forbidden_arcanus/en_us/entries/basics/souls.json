@@ -7,23 +7,13 @@
     {
       "type": "patchouli:text",
       "title": "收集灵魂",
-      "text": "灵魂并非只有一种模样。用灵魂提取器处理灵魂沙，或击败迷失灵魂，可以得到灵魂物品。灵魂掠夺附魔还会带来召出迷失灵魂的机会；不同变体对应不同灵魂。"
+      "text": "灵魂并非只有一种模样。不同变体对应不同灵魂。"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:soul_extractor",
       "text": "先制作提取器，再用它处理灵魂沙；灵魂取走后，留下失魂沙。",
       "title": "灵魂提取器"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "物品与精华",
-      "text": "灵魂物品投入精华供给槽会正常消耗：普通和腐化各值1点，附魔值10点。也可用灵魂提取器从灵魂罐中每次取回1个普通灵魂，详见$(l:better_forbidden_arcanus:practical/containers)精华容器$(/l)。$(br2)放入炽炉专用槽的灵魂则会持续保留。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "从稀缺到量产",
-      "text": "二级锻炉可制$(l:better_forbidden_arcanus:forge_tier_2/corrupt_soul)腐化灵魂$(/l)，三级可制$(l:better_forbidden_arcanus:forge_tier_3/enchanted_soul)附魔灵魂$(/l)。以它们维持$(l:better_forbidden_arcanus:practical/soul_processing)炽炉$(/l)，便能持续把灵魂沙加工成普通灵魂。"
     }
   ]
 }

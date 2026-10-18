@@ -7,22 +7,86 @@
     {
       "type": "patchouli:text",
       "title": "让炉火更盛",
-      "text": "这次升阶只能在2级锻炉进行。把中央材料放好，外围八份材料各占一座基座，再准备下列精华。完成后炉体升至3级，精华储量随之增加。"
+      "text": "沿着炉火攀升吧$(br)"
     },
     {
-      "type": "patchouli:text",
-      "text": "中央：錾制磨制暗黑石×1。$(br)神秘水晶×4$(br)德欧鲁姆锭×4$(br2)每份辅料各占一座基座，其余留空。",
-      "title": "放入法阵"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "辉光：1000$(br)灵魂：50$(br)血液：9000$(br)经验：0$(br2)无必需增强器。所列为基础消耗，增强器可改变实际需求。",
-      "title": "精华与增强器"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "下一段旅程",
-      "text": "用锻工锤右击，等待法阵完成。基础耗时25秒，有效量子注入器可将其缩短。升阶后继续阅读$(l:better_forbidden_arcanus:forge_tier_3/overview)下一阶段$(/l)。"
+      "title": "升级锻炉",
+      "main": "forbidden_arcanus:chiseled_polished_darkstone",
+      "result": "",
+      "show_main": true,
+      "show_result": false,
+      "show_dynamic_result": true,
+      "result_summary": "升级锻炉",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 1000,
+      "souls": 50,
+      "blood": 9000,
+      "experience": 0,
+      "aureal_text": "辉光 1000",
+      "souls_text": "灵魂 50",
+      "blood_text": "血液 9000",
+      "experience_text": "经验 0",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "",
+      "input_1": "forbidden_arcanus:arcane_crystal",
+      "input_2": "forbidden_arcanus:arcane_crystal",
+      "input_3": "forbidden_arcanus:arcane_crystal",
+      "input_4": "forbidden_arcanus:arcane_crystal",
+      "input_5": "forbidden_arcanus:deorum_ingot",
+      "input_6": "forbidden_arcanus:deorum_ingot",
+      "input_7": "forbidden_arcanus:deorum_ingot",
+      "input_8": "forbidden_arcanus:deorum_ingot",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": true,
+      "show_input_6": true,
+      "show_input_7": true,
+      "show_input_8": true,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "forbidden_arcanus:upgrade_tier_3",
+      "studio_ritual": {
+        "essences": {
+          "aureal": 1000,
+          "blood": 9000,
+          "souls": 50
+        },
+        "forge_tier": 2,
+        "inputs": [
+          {
+            "amount": 4,
+            "ingredient": {
+              "item": "forbidden_arcanus:arcane_crystal"
+            }
+          },
+          {
+            "amount": 4,
+            "ingredient": {
+              "item": "forbidden_arcanus:deorum_ingot"
+            }
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:upgrade_tier",
+        "main_ingredient": {
+          "item": "forbidden_arcanus:chiseled_polished_darkstone"
+        },
+        "match_tier_exact": true,
+        "result": {
+          "type": "forbidden_arcanus:upgrade_tier",
+          "result_tier": 3
+        }
+      },
+      "studio_forge_warnings": []
     }
   ]
 }

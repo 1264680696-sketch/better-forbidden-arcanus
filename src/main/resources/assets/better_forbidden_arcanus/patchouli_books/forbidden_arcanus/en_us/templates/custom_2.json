@@ -1,0 +1,72 @@
+{
+  "components": [
+    {
+      "type": "patchouli:header",
+      "text": "锻炉配方",
+      "x": -1,
+      "y": 0
+    },
+    {
+      "type": "patchouli:separator",
+      "x": -1,
+      "y": 12
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#text",
+      "x": 4,
+      "y": 127,
+      "max_width": 116
+    },
+    {
+      "type": "patchouli:item",
+      "x": 6,
+      "y": 20
+    },
+    {
+      "type": "patchouli:item",
+      "x": 6,
+      "y": 39
+    },
+    {
+      "type": "patchouli:item",
+      "x": 6,
+      "y": 58
+    },
+    {
+      "type": "patchouli:item",
+      "x": 6,
+      "y": 76
+    },
+    {
+      "type": "patchouli:item",
+      "x": 60,
+      "y": 21
+    },
+    {
+      "type": "patchouli:item",
+      "x": 60,
+      "y": 40
+    },
+    {
+      "type": "patchouli:item",
+      "x": 60,
+      "y": 59
+    },
+    {
+      "type": "patchouli:item",
+      "x": 61,
+      "y": 77
+    },
+    {
+      "type": "patchouli:item",
+      "x": 32,
+      "y": 45,
+      "text": "",
+      "link_recipe": false
+    }
+  ],
+  "studio_defaults": {
+    "text": "在书页中编辑文字，拖动小圆点调整位置。"
+  }
+}

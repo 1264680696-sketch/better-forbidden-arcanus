@@ -1,27 +1,17 @@
 {
-  "name": "洁净粉末与金属",
+  "name": "洁净粉末",
   "category": "better_forbidden_arcanus:basics",
   "icon": "forbidden_arcanus:mundabitur_dust",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "洁净粉末用于激活祭坛、炽炉和方尖碑。神秘水晶粉×1、红石×1、骨粉×1、火药×1、金锭×1无序合成，产出 4 份。"
+      "text": "以神秘水晶粉为基底，所制成的纯净之物，用于唤醒远古的结构和物品加工。"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:mundabitur_dust",
-      "text": "激活设施只需用一份洁净粉末交互。"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "德欧鲁姆锭用于镀金石材和三级升级。每锭需要木炭×4、水晶粉×2、洁净粉末×2、金锭×1，按配方摆放。",
-      "title": "德欧鲁姆锭"
-    },
-    {
-      "type": "patchouli:crafting",
-      "recipe": "forbidden_arcanus:deorum_ingot",
-      "text": "这里的燃料材料是木炭，不能直接换成煤。"
+      "text": "$(br)"
     }
   ]
 }

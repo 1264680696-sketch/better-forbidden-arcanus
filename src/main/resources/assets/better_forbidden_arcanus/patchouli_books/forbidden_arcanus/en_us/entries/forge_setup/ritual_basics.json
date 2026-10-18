@@ -11,8 +11,8 @@
     },
     {
       "type": "patchouli:text",
-      "title": "遗物该放哪里",
-      "text": "锻炉的小槽用于设施增强器。$(l:better_forbidden_arcanus:practical/relics)遗物$(/l)戴在身上与放入设施是两种用途：例如戴着基本元素，并不能满足棱晶仪式的增强器要求。"
+      "title": "增强遗物",
+      "text": "锻炉的小槽用于放置增强遗物；增强遗物多种多样，且都会对锻炉产生不同的增益"
     },
     {
       "type": "patchouli:crafting",
@@ -25,16 +25,6 @@
       "recipe": "forbidden_arcanus:iron_blacksmith_gavel",
       "text": "用锻工锤启动仪式；其他材质的锤也可使用。",
       "title": ""
-    },
-    {
-      "type": "patchouli:text",
-      "title": "升阶与制物",
-      "text": "高等级锻炉可以完成此前的普通制物仪式。锻炉自身升阶、装备强化等指定等级仪式，则须在恰好对应的等级执行。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "取走成品",
-      "text": "普通制物会消耗中央与外围材料，成品留在中央。装备转化保留原有组件；设备旁的物品不要误取，先等法阵结束。"
     }
   ]
 }

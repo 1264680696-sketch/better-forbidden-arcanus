@@ -1,5 +1,5 @@
 {
-  "name": "埃德木与腐化",
+  "name": "埃德木",
   "category": "better_forbidden_arcanus:basics",
   "icon": "forbidden_arcanus:edelwood_planks",
   "sortnum": 5,
@@ -7,27 +7,22 @@
     {
       "type": "patchouli:text",
       "title": "埃德木",
-      "text": "埃德木是后续仪式离不开的木材。留意探索途中遇到的树木；若已有腐化灵魂，也可用它转化橡树树苗或枯死灌木，培育生长中的埃德木。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "另一种粉末",
-      "text": "洁净粉末唤醒结构，腐化粉末则改变材料的性质。以黑曜钢锭、烈焰粉、下界疣、水晶粉和末影珍珠碎片混合，一次可制得4份腐化粉末。"
+      "text": "埃德木只会生长于$(#507345)黑森林$()中，摸起来非常滑。不仅如此，其中空的结构看上去深不见底，仿佛就要将人吸进去一般。在树干上生长的树枝相当坚固，是作为手柄的好材料。"
     },
     {
       "type": "patchouli:crafting",
-      "recipe": "forbidden_arcanus:corrupti_dust",
-      "text": ""
+      "recipe": "forbidden_arcanus:edelwood_bucket",
+      "text": "每次能装4桶水。但很明显，它装不了熔岩。"
     },
     {
-      "type": "patchouli:text",
-      "title": "腐化的用途",
-      "text": "保留一些腐化粉末，二级锻炉的$(l:better_forbidden_arcanus:forge_tier_2/corrupt_soul)灵魂仪式$(/l)会用到它。若把它与暗物质一同抛出，还能形成收集经验的$(l:better_forbidden_arcanus:practical/black_hole)黑洞$(/l)。"
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:edelwood_ladder",
+      "text": "爬的飞快！"
     },
     {
-      "type": "patchouli:text",
-      "title": "水晶的另一面",
-      "text": "用一份腐化粉末右击神秘水晶块，水晶便在粒子与共鸣声中转为腐化神秘水晶块。它是$(l:better_forbidden_arcanus:practical/corrupted_obelisk)经验方尖碑$(/l)的建材。"
+      "type": "patchouli:smelting",
+      "recipe": "forbidden_arcanus:smelting/dark_matter",
+      "text": "真黑$(br)$(br)"
     }
   ]
 }

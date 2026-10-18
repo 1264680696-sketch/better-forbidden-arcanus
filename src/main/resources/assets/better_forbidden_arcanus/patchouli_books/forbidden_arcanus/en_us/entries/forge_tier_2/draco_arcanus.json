@@ -7,86 +7,323 @@
     {
       "type": "patchouli:text",
       "title": "把龙鳞锻入盔甲",
-      "text": "以对应的下界合金盔甲为中央材料，辅以龙鳞与黑曜钢，逐件转化为天龙神秘盔甲。原装备组件保留；四个部件的材料与精华分别列在后页。"
+      "text": "由击杀末影龙后获得的龙鳞与黑曜石钢制成，融合了两者的力量，可以说的上是顶尖的盔甲了。$(br)但是，应该还可以再进一步.....$(br)$(br)$(br)每件的天龙盔甲增加25%对末影龙伤害。"
     },
     {
-      "type": "patchouli:text",
-      "title": "准备炉火",
-      "text": "先用$(l:better_forbidden_arcanus:practical/alloys)炽炉$(/l)炼出黑曜钢，再按部件备料。锻炉至少二级，外围每份材料各占一个基座。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "迎战末影龙",
-      "text": "每件正确穿戴的天龙盔甲增加25%对末影龙伤害，全套为2倍。可与提尔部件混穿计数；手持、背包里的盔甲不生效。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "刀刃与箭矢",
-      "text": "近战和可归属玩家的远程伤害均受益，龙的部位伤害规则仍保留。天龙剑或权杖另加100%，与盔甲相加，武器配全套合计3倍。"
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:draco_arcanus_helmet",
       "title": "天龙神秘头盔",
-      "text": "需2 级锻炉。配齐后续材料，用锻工锤启动。"
+      "main": "minecraft:netherite_helmet",
+      "result": "forbidden_arcanus:draco_arcanus_helmet",
+      "show_main": true,
+      "show_result": true,
+      "show_dynamic_result": false,
+      "result_summary": "动态产物",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 820,
+      "souls": 6,
+      "blood": 475,
+      "experience": 420,
+      "aureal_text": "辉光 820",
+      "souls_text": "灵魂 6",
+      "blood_text": "血液 475",
+      "experience_text": "经验 420",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "",
+      "input_1": "forbidden_arcanus:dragon_scale",
+      "input_2": "forbidden_arcanus:dragon_scale",
+      "input_3": "forbidden_arcanus:obsidiansteel_ingot",
+      "input_4": "forbidden_arcanus:obsidiansteel_ingot",
+      "input_5": "forbidden_arcanus:obsidiansteel_ingot",
+      "input_6": "minecraft:air",
+      "input_7": "minecraft:air",
+      "input_8": "minecraft:air",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": true,
+      "show_input_6": false,
+      "show_input_7": false,
+      "show_input_8": false,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "forbidden_arcanus:draco_arcanus_helmet",
+      "studio_ritual": {
+        "essences": {
+          "aureal": 820,
+          "blood": 475,
+          "experience": 420,
+          "souls": 6
+        },
+        "forge_tier": 2,
+        "inputs": [
+          {
+            "amount": 2,
+            "ingredient": {
+              "item": "forbidden_arcanus:dragon_scale"
+            }
+          },
+          {
+            "amount": 3,
+            "ingredient": {
+              "item": "forbidden_arcanus:obsidiansteel_ingot"
+            }
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:create_item",
+        "main_ingredient": {
+          "item": "minecraft:netherite_helmet"
+        },
+        "result": {
+          "type": "forbidden_arcanus:transmute_input",
+          "result_item": "forbidden_arcanus:draco_arcanus_helmet"
+        }
+      },
+      "studio_forge_warnings": []
     },
     {
-      "type": "patchouli:text",
-      "text": "中央：下界合金头盔×1。$(br)龙鳞×2$(br)黑曜钢锭×3$(br2)每份辅料各占一座基座，其余留空。",
-      "title": "放入法阵"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "辉光：820$(br)灵魂：6$(br)血液：475$(br)经验：420$(br2)无必需增强器。所列为基础消耗，增强器可改变实际需求。",
-      "title": "精华与增强器"
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:draco_arcanus_chestplate",
       "title": "天龙神秘胸甲",
-      "text": "需2 级锻炉。配齐后续材料，用锻工锤启动。"
+      "main": "minecraft:netherite_chestplate",
+      "result": "forbidden_arcanus:draco_arcanus_chestplate",
+      "show_main": true,
+      "show_result": true,
+      "show_dynamic_result": false,
+      "result_summary": "动态产物",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 1300,
+      "souls": 9,
+      "blood": 625,
+      "experience": 760,
+      "aureal_text": "辉光 1300",
+      "souls_text": "灵魂 9",
+      "blood_text": "血液 625",
+      "experience_text": "经验 760",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "",
+      "input_1": "forbidden_arcanus:dragon_scale",
+      "input_2": "forbidden_arcanus:dragon_scale",
+      "input_3": "forbidden_arcanus:dragon_scale",
+      "input_4": "forbidden_arcanus:dragon_scale",
+      "input_5": "forbidden_arcanus:obsidiansteel_ingot",
+      "input_6": "forbidden_arcanus:obsidiansteel_ingot",
+      "input_7": "forbidden_arcanus:obsidiansteel_ingot",
+      "input_8": "minecraft:air",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": true,
+      "show_input_6": true,
+      "show_input_7": true,
+      "show_input_8": false,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "forbidden_arcanus:draco_arcanus_chestplate",
+      "studio_ritual": {
+        "essences": {
+          "aureal": 1300,
+          "blood": 625,
+          "experience": 760,
+          "souls": 9
+        },
+        "forge_tier": 2,
+        "inputs": [
+          {
+            "amount": 4,
+            "ingredient": {
+              "item": "forbidden_arcanus:dragon_scale"
+            }
+          },
+          {
+            "amount": 3,
+            "ingredient": {
+              "item": "forbidden_arcanus:obsidiansteel_ingot"
+            }
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:create_item",
+        "main_ingredient": {
+          "item": "minecraft:netherite_chestplate"
+        },
+        "result": {
+          "type": "forbidden_arcanus:transmute_input",
+          "result_item": "forbidden_arcanus:draco_arcanus_chestplate"
+        }
+      },
+      "studio_forge_warnings": []
     },
     {
-      "type": "patchouli:text",
-      "text": "中央：下界合金胸甲×1。$(br)龙鳞×4$(br)黑曜钢锭×3$(br2)每份辅料各占一座基座，其余留空。",
-      "title": "放入法阵"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "辉光：1300$(br)灵魂：9$(br)血液：625$(br)经验：760$(br2)无必需增强器。所列为基础消耗，增强器可改变实际需求。",
-      "title": "精华与增强器"
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:draco_arcanus_leggings",
       "title": "天龙神秘护腿",
-      "text": "需2 级锻炉。配齐后续材料，用锻工锤启动。"
+      "main": "minecraft:netherite_leggings",
+      "result": "forbidden_arcanus:draco_arcanus_leggings",
+      "show_main": true,
+      "show_result": true,
+      "show_dynamic_result": false,
+      "result_summary": "动态产物",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 1000,
+      "souls": 7,
+      "blood": 565,
+      "experience": 540,
+      "aureal_text": "辉光 1000",
+      "souls_text": "灵魂 7",
+      "blood_text": "血液 565",
+      "experience_text": "经验 540",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "",
+      "input_1": "forbidden_arcanus:dragon_scale",
+      "input_2": "forbidden_arcanus:dragon_scale",
+      "input_3": "forbidden_arcanus:dragon_scale",
+      "input_4": "forbidden_arcanus:obsidiansteel_ingot",
+      "input_5": "forbidden_arcanus:obsidiansteel_ingot",
+      "input_6": "forbidden_arcanus:obsidiansteel_ingot",
+      "input_7": "minecraft:air",
+      "input_8": "minecraft:air",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": true,
+      "show_input_6": true,
+      "show_input_7": false,
+      "show_input_8": false,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "forbidden_arcanus:draco_arcanus_leggings",
+      "studio_ritual": {
+        "essences": {
+          "aureal": 1000,
+          "blood": 565,
+          "experience": 540,
+          "souls": 7
+        },
+        "forge_tier": 2,
+        "inputs": [
+          {
+            "amount": 3,
+            "ingredient": {
+              "item": "forbidden_arcanus:dragon_scale"
+            }
+          },
+          {
+            "amount": 3,
+            "ingredient": {
+              "item": "forbidden_arcanus:obsidiansteel_ingot"
+            }
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:create_item",
+        "main_ingredient": {
+          "item": "minecraft:netherite_leggings"
+        },
+        "result": {
+          "type": "forbidden_arcanus:transmute_input",
+          "result_item": "forbidden_arcanus:draco_arcanus_leggings"
+        }
+      },
+      "studio_forge_warnings": []
     },
     {
-      "type": "patchouli:text",
-      "text": "中央：下界合金护腿×1。$(br)龙鳞×3$(br)黑曜钢锭×3$(br2)每份辅料各占一座基座，其余留空。",
-      "title": "放入法阵"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "辉光：1000$(br)灵魂：7$(br)血液：565$(br)经验：540$(br2)无必需增强器。所列为基础消耗，增强器可改变实际需求。",
-      "title": "精华与增强器"
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:draco_arcanus_boots",
       "title": "天龙神秘靴子",
-      "text": "需2 级锻炉。配齐后续材料，用锻工锤启动。"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "中央：下界合金靴子×1。$(br)龙鳞×2$(br)黑曜钢锭×2$(br2)每份辅料各占一座基座，其余留空。",
-      "title": "放入法阵"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "辉光：700$(br)灵魂：5$(br)血液：405$(br)经验：370$(br2)无必需增强器。所列为基础消耗，增强器可改变实际需求。",
-      "title": "精华与增强器"
+      "main": "minecraft:netherite_boots",
+      "result": "forbidden_arcanus:draco_arcanus_boots",
+      "show_main": true,
+      "show_result": true,
+      "show_dynamic_result": false,
+      "result_summary": "动态产物",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 700,
+      "souls": 5,
+      "blood": 405,
+      "experience": 370,
+      "aureal_text": "辉光 700",
+      "souls_text": "灵魂 5",
+      "blood_text": "血液 405",
+      "experience_text": "经验 370",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "",
+      "input_1": "forbidden_arcanus:dragon_scale",
+      "input_2": "forbidden_arcanus:dragon_scale",
+      "input_3": "forbidden_arcanus:obsidiansteel_ingot",
+      "input_4": "forbidden_arcanus:obsidiansteel_ingot",
+      "input_5": "minecraft:air",
+      "input_6": "minecraft:air",
+      "input_7": "minecraft:air",
+      "input_8": "minecraft:air",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": false,
+      "show_input_6": false,
+      "show_input_7": false,
+      "show_input_8": false,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "forbidden_arcanus:draco_arcanus_boots",
+      "studio_ritual": {
+        "essences": {
+          "aureal": 700,
+          "blood": 405,
+          "experience": 370,
+          "souls": 5
+        },
+        "forge_tier": 2,
+        "inputs": [
+          {
+            "amount": 2,
+            "ingredient": {
+              "item": "forbidden_arcanus:dragon_scale"
+            }
+          },
+          {
+            "amount": 2,
+            "ingredient": {
+              "item": "forbidden_arcanus:obsidiansteel_ingot"
+            }
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:create_item",
+        "main_ingredient": {
+          "item": "minecraft:netherite_boots"
+        },
+        "result": {
+          "type": "forbidden_arcanus:transmute_input",
+          "result_item": "forbidden_arcanus:draco_arcanus_boots"
+        }
+      },
+      "studio_forge_warnings": []
     }
   ]
 }

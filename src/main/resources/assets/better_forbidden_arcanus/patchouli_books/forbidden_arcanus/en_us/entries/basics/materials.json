@@ -1,33 +1,56 @@
 {
-  "name": "从矿物开始",
+  "name": "埋在地下的残骸",
   "category": "better_forbidden_arcanus:basics",
   "icon": "forbidden_arcanus:arcane_crystal",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "探索地下，收集暗黑石、神秘水晶和符文。神秘水晶用于粉末、德欧鲁姆锭和多次升级；暗黑石加工成祭坛底座；符文用于神秘石材和四级升级。"
+      "text": "诸神黄昏之后，旧世界的一切被烈火焚尽，留下的灰烬历经时光流转，岩石运动，尽数被掩埋。"
     },
     {
       "type": "patchouli:spotlight",
       "item": "forbidden_arcanus:arcane_crystal",
       "title": "神秘水晶",
-      "text": "神秘水晶矿石的主要产物，也是制作本书的材料。"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "神秘水晶可以在熔炉加工成粉末。准备红石、骨粉、火药和金锭，可合成洁净粉末，用于激活入门设施。",
-      "title": "材料链"
+      "text": "未知的矿石，有人说这是诸神死去后的尸体所化的精华，也有人说是新世界崭新的馈赠，众说纷坛。$(br)但可以确定的是，此物大有用处。$(br)$(br)可以在-40～14层的位置找到。"
     },
     {
       "type": "patchouli:smelting",
       "recipe": "forbidden_arcanus:smelting/arcane_crystal_dust_from_smelting",
-      "text": "熔炼水晶得到粉末。熔炉和高炉均有对应配方。"
+      "text": "简单烧制而成，可用于更精密的加工"
     },
     {
-      "type": "patchouli:text",
-      "text": "先准备$(l:better_forbidden_arcanus:basics/darkstone)建筑石材$(/l)和$(l:better_forbidden_arcanus:basics/dust_and_deorum)洁净粉末与金属$(/l)。高级矿物用途见$(l:better_forbidden_arcanus:basics/advanced_materials)进阶材料$(/l)。",
-      "title": "下一步"
+      "type": "patchouli:spotlight",
+      "text": "过去诸神曾用此物来强化自身与武器。如今这种技术早已失传，符文自身的力量也大不如前了......$(br)$(br)$(br)它可以在 0 到 20 层找到。",
+      "item": "forbidden_arcanus:rune",
+      "title": "符文"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "better_forbidden_arcanus:dark_rune",
+      "text": "更为稀有的符文，沾染了些许暗黑的气息"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "text": "正宗的天外来物，其蕴含的能量之大，纵使从天空坠到世界之底，也未有半分减弱，在内部蓄势待发。$(br)总之，挖掘时最好离这东西远点。$(br)$(br)可以在 -44～42 层找到，是一种十分罕见的矿石。",
+      "item": "forbidden_arcanus:stella_arcanum",
+      "title": "奥术陨石"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "text": "挖掘奥术陨石后留下来的掉落物，具备着异常的硬度，现有的所有手段都无法磨损一丝一毫，简直像是\"永恒\"。$(br)$(br)",
+      "item": "forbidden_arcanus:stellarite_piece",
+      "title": "流星碎片"
+    },
+    {
+      "type": "patchouli:crafting",
+      "text": "理论上，一块奥术陨石的质量应该等于一块陨石块。",
+      "recipe": "forbidden_arcanus:stellarite_block_from_stellarite_piece"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:xpetrified_orb",
+      "text": "地下随处可见的经验凝固体。$(br)$(br)"
     }
   ]
 }

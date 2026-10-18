@@ -12,12 +12,12 @@
     {
       "type": "patchouli:text",
       "title": "让两种材料相遇",
-      "text": "将暗物质和腐化粉末抛在同一处附近。二者相遇且位置为空气时，各消耗一个，形成黑洞；这一步在世界中完成，无需工作台。"
+      "text": "将暗物质和腐化粉末抛在同一处附近。二者相遇且位置为空气时，各消耗一个，形成黑洞；"
     },
     {
-      "type": "patchouli:text",
-      "title": "把经验带回去",
-      "text": "收集石化经验球，投入锻炉经验槽。若不便安排经验球来源，也可改用$(l:better_forbidden_arcanus:practical/corrupted_obelisk)腐化方尖碑$(/l)持续供给。"
+      "type": "patchouli:smelting",
+      "recipe": "forbidden_arcanus:smelting/dark_matter",
+      "text": ""
     }
   ]
 }

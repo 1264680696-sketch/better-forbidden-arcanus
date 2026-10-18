@@ -7,35 +7,95 @@
     {
       "type": "patchouli:text",
       "title": "旋风棱晶",
-      "text": "对方块使用旋风棱晶，会留下短暂的上升气流。进入气流即可升高，顶部还会给予短暂缓降。若想把风带在手边，可将它用于$(l:better_forbidden_arcanus:practical/gale_mace)疾风重锤$(/l)。"
+      "text": "对方块使用旋风棱晶，会留下短暂的上升气流。进入气流即可升高，顶部还会给予短暂缓降。还可用于强化重锤，使重锤可以释放风弹；用于护腿时，可以二段跳。"
     },
     {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:whirlwind_prism",
-      "title": "旋风棱晶",
-      "text": "需3 级锻炉。配齐后续材料，用锻工锤启动。"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "中央：白色羊毛×1。$(br)蝙蝠翅膀×1$(br)羽毛×2$(br)幻翼膜×3$(br2)每份辅料各占一座基座，其余留空。",
-      "title": "放入法阵"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "辉光：1000$(br)灵魂：3$(br)血液：2250$(br)经验：0$(br2)必需增强器：基本元素。所列为基础消耗，增强器可改变实际需求。",
-      "title": "精华与增强器"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "再借一次风",
-      "text": "把旋风棱晶锻入护腿，离地后松开跳跃键，再按一次即可二段跳。每次落地重置。二段跳会重设摔落起点；落回起跳高度不会因额外跃升受伤，落到更低处仍计算高度差。水中、攀爬、滑翔和自由飞行时不触发。"
-    },
-    {
-      "type": "better_forbidden_arcanus:prism_smithing",
-      "base_id": "minecraft:diamond_leggings",
-      "recipe_id": "better_forbidden_arcanus:smithing/apply_gale_legs_modifier",
-      "title": "锻造台修饰",
-      "description": "模板＋护腿＋旋风棱晶。也可用于符文战斧；重锤仍使用原有疾风配方。"
+      "title": "whirlwind prism",
+      "main": "minecraft:white_wool",
+      "result": "forbidden_arcanus:whirlwind_prism",
+      "show_main": true,
+      "show_result": true,
+      "show_dynamic_result": false,
+      "result_summary": "动态产物",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 1000,
+      "souls": 3,
+      "blood": 2250,
+      "experience": 0,
+      "aureal_text": "辉光 1000",
+      "souls_text": "灵魂 3",
+      "blood_text": "血液 2250",
+      "experience_text": "经验 0",
+      "relic_1": "forbidden_arcanus:elementarium",
+      "show_relics": true,
+      "show_relic_1": true,
+      "text": "",
+      "input_1": "forbidden_arcanus:bat_wing",
+      "input_2": "minecraft:feather",
+      "input_3": "minecraft:feather",
+      "input_4": "minecraft:phantom_membrane",
+      "input_5": "minecraft:phantom_membrane",
+      "input_6": "minecraft:phantom_membrane",
+      "input_7": "minecraft:air",
+      "input_8": "minecraft:air",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": true,
+      "show_input_6": true,
+      "show_input_7": false,
+      "show_input_8": false,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "forbidden_arcanus:whirlwind_prism",
+      "studio_ritual": {
+        "enhancers": "forbidden_arcanus:elementarium",
+        "essences": {
+          "aureal": 1000,
+          "blood": 2250,
+          "souls": 3
+        },
+        "forge_tier": 3,
+        "inputs": [
+          {
+            "amount": 1,
+            "ingredient": {
+              "item": "forbidden_arcanus:bat_wing"
+            }
+          },
+          {
+            "amount": 2,
+            "ingredient": {
+              "item": "minecraft:feather"
+            }
+          },
+          {
+            "amount": 3,
+            "ingredient": {
+              "item": "minecraft:phantom_membrane"
+            }
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:create_item",
+        "main_ingredient": {
+          "item": "minecraft:white_wool"
+        },
+        "result": {
+          "type": "forbidden_arcanus:create_item",
+          "result_item": {
+            "count": 1,
+            "id": "forbidden_arcanus:whirlwind_prism"
+          }
+        }
+      },
+      "studio_forge_warnings": []
     }
   ]
 }

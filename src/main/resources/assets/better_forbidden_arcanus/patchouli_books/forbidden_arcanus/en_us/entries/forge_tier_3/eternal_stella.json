@@ -7,28 +7,88 @@
     {
       "type": "patchouli:text",
       "title": "永恒之石",
-      "text": "让工具停下的，往往不是矿脉，而是耐久。永恒之石是永恒修饰的材料，可让适用装备不再受耐久消耗；仍需模板与锻造台，且要先处理不兼容附魔。"
+      "text": "让工具停下的，往往不是矿脉，而是耐久。永恒之石是永恒修饰的材料，可让适用装备不再受耐久消耗；"
     },
     {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:eternal_stella",
       "title": "永恒之石",
-      "text": "需3 级锻炉。配齐后续材料，用锻工锤启动。"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "中央：钻石×1。$(br)石化经验球×3$(br)流星碎片×1$(br2)每份辅料各占一座基座，其余留空。",
-      "title": "放入法阵"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "辉光：82$(br)灵魂：1$(br)血液：1000$(br)经验：0$(br2)无必需增强器。所列为基础消耗，增强器可改变实际需求。",
-      "title": "精华与增强器"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "带上成品，按$(l:better_forbidden_arcanus:practical/modifiers)装备修饰$(/l)的步骤继续加工。",
-      "title": "完成之后"
+      "main": "minecraft:diamond",
+      "result": "forbidden_arcanus:eternal_stella",
+      "show_main": true,
+      "show_result": true,
+      "show_dynamic_result": false,
+      "result_summary": "动态产物",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 82,
+      "souls": 1,
+      "blood": 1000,
+      "experience": 0,
+      "aureal_text": "辉光 82",
+      "souls_text": "灵魂 1",
+      "blood_text": "血液 1000",
+      "experience_text": "经验 0",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "",
+      "input_1": "forbidden_arcanus:xpetrified_orb",
+      "input_2": "forbidden_arcanus:xpetrified_orb",
+      "input_3": "forbidden_arcanus:xpetrified_orb",
+      "input_4": "forbidden_arcanus:stellarite_piece",
+      "input_5": "minecraft:air",
+      "input_6": "minecraft:air",
+      "input_7": "minecraft:air",
+      "input_8": "minecraft:air",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": false,
+      "show_input_6": false,
+      "show_input_7": false,
+      "show_input_8": false,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "forbidden_arcanus:eternal_stella",
+      "studio_ritual": {
+        "essences": {
+          "aureal": 82,
+          "blood": 1000,
+          "souls": 1
+        },
+        "forge_tier": 3,
+        "inputs": [
+          {
+            "amount": 3,
+            "ingredient": {
+              "item": "forbidden_arcanus:xpetrified_orb"
+            }
+          },
+          {
+            "amount": 1,
+            "ingredient": {
+              "item": "forbidden_arcanus:stellarite_piece"
+            }
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:create_item",
+        "main_ingredient": {
+          "item": "minecraft:diamond"
+        },
+        "result": {
+          "type": "forbidden_arcanus:create_item",
+          "result_item": {
+            "count": 1,
+            "id": "forbidden_arcanus:eternal_stella"
+          }
+        }
+      },
+      "studio_forge_warnings": []
     }
   ]
 }

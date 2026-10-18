@@ -1,38 +1,108 @@
 {
   "name": "四种精华",
-  "category": "better_forbidden_arcanus:basics",
+  "category": "better_forbidden_arcanus:forge_setup",
   "icon": "forbidden_arcanus:xpetrified_orb",
-  "sortnum": 6,
+  "sortnum": 4,
   "pages": [
     {
       "type": "patchouli:text",
       "title": "锻炉的四种精华",
-      "text": "辉光、灵魂、血液与经验，是锻炉储存的四种精华。辉光也常被称作耀金。侧边供给槽负责补充库存，中央大槽留给仪式主材料；别把二者混淆。"
+      "text": "辉光、灵魂、血液与经验，是锻炉储存的四种精华。$()"
     },
     {
       "type": "patchouli:text",
-      "title": "辉光与灵魂",
-      "text": "辉光瓶能补给辉光，$(l:better_forbidden_arcanus:practical/obelisk)神秘水晶方尖碑$(/l)则能缓慢产出。普通与腐化灵魂各补1点灵魂精华，附魔灵魂补10点，投入的灵魂物品会消耗。"
+      "title": "辉光",
+      "text": "辉光瓶能补给辉光，神秘水晶方尖碑$(/l)则能缓慢产出。$(br)$(br)$(br)方尖碑下方必须有镀金錾制磨制暗黑石，才会工作。它可以立在锻炉外围的镀金供给位置"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:aureal_bottle",
+      "text": ""
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "辉光方尖碑建造前",
+      "multiblock": {
+        "pattern": [
+          [
+            "___",
+            "_X_",
+            "___"
+          ],
+          [
+            "___",
+            "_X_",
+            "___"
+          ],
+          [
+            "___",
+            "_0_",
+            "___"
+          ]
+        ],
+        "mapping": {
+          "0": "forbidden_arcanus:arcane_polished_darkstone",
+          "X": "forbidden_arcanus:arcane_crystal_block"
+        },
+        "symmetrical": true
+      },
+      "enable_visualize": true,
+      "text": "用洁净粉末完成转化。"
     },
     {
       "type": "patchouli:text",
       "title": "血液",
-      "text": "把锻炉安置在战斗场所附近，受伤的生物便能提供血液。副手持试管攻击也能采血，再把血液转移到锻炉。$(l:better_forbidden_arcanus:practical/crimson_stone)绯红之石$(/l)会增强这两种采血途径。"
+      "text": "把锻炉安置在战斗场所附近，受伤的生物便能提供血液。$(br)副手持试管攻击也能采血，再把血液转移到锻炉。$(br)$(br)"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:test_tube",
+      "text": ""
     },
     {
       "type": "patchouli:text",
       "title": "经验",
-      "text": "一颗石化经验球提供91点经验精华，一瓶附魔之瓶提供15点。经验供给槽也能剥离装备附魔来补充库存；操作前，请确认你愿意放弃那些附魔。"
+      "text": "一颗石化经验球提供91点经验精华。$(br)一瓶附魔之瓶提供15点。$(br)经验供给槽也能剥离装备附魔来补充库存$(br)腐化水晶方尖碑则能缓慢产出。$(br)$(br)$(br)"
     },
     {
-      "type": "patchouli:text",
-      "title": "别混用储量",
-      "text": "你自身的辉光、精华罐和锻炉库存分别储存。权杖与捕捉器消耗的是玩家辉光；即使身旁的锻炉存满精华，也不能直接替你支付。"
+      "type": "patchouli:multiblock",
+      "name": "腐化方尖碑建造前",
+      "multiblock": {
+        "pattern": [
+          [
+            "___",
+            "_X_",
+            "___"
+          ],
+          [
+            "___",
+            "_X_",
+            "___"
+          ],
+          [
+            "___",
+            "_0_",
+            "___"
+          ]
+        ],
+        "mapping": {
+          "0": "forbidden_arcanus:arcane_polished_darkstone",
+          "X": "forbidden_arcanus:corrupted_arcane_crystal_block"
+        },
+        "symmetrical": true
+      },
+      "enable_visualize": true,
+      "text": "用洁净粉末完成转化。"
     },
     {
-      "type": "patchouli:text",
-      "title": "让供给持续",
-      "text": "$(l:better_forbidden_arcanus:practical/corrupted_obelisk)腐化方尖碑$(/l)能不断补充经验；$(l:better_forbidden_arcanus:practical/containers)精华罐$(/l)负责储存。三级的$(l:better_forbidden_arcanus:forge_tier_3/quantum_injector)量子注入器$(/l)可将罐中精华自动送入锻炉。"
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:soul",
+      "text": "用灵魂提取器处理灵魂沙，或击败迷失灵魂，可以得到灵魂物品。灵魂掠夺附魔还会带来召出迷失灵魂的机会；"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:soul_extractor",
+      "text": "万恶之源"
     }
   ]
 }

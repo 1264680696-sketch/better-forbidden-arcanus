@@ -1,27 +1,17 @@
 {
-  "name": "暗黑石与建筑石材",
+  "name": "暗黑石",
   "category": "better_forbidden_arcanus:basics",
   "icon": "forbidden_arcanus:polished_darkstone",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "暗黑石是地下石材。祭坛主要用磨制暗黑石，中央与基座下方还会用到镀金錾制石和錾制神秘石。先规划材料数量，再集中加工。"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "切石机提供暗黑石和神秘磨制暗黑石系列的单向加工，每次消耗 1 个并产出 1 个。装饰变体不能反向还原，两大系列之间不互转。",
-      "title": "切石机加工"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "基座、符文暗黑石和镀金錾制石不在附属新增的切石范围。失魂沙系列沿用原配方。$(l:better_forbidden_arcanus:forge_setup/construction)祭坛搭建$(/l)会列出底座完整用量。",
-      "title": "加工范围"
+      "text": "深埋于地下，其度过的时间比深板岩还要长久的黑色石材。这种纯粹的黑色不仅是搭建赫菲斯托斯锻炉的基石，也是上好的建筑材料。$(br)可通过合成或$(l)$(l)切石机$()$()获取系列方块"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:polished_darkstone",
-      "text": "先把暗黑石加工为基础磨制石。"
+      "text": "$(br)"
     },
     {
       "type": "patchouli:crafting",
@@ -31,7 +21,7 @@
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:gilded_chiseled_polished_darkstone",
-      "text": "镀金石材使用德欧鲁姆锭。"
+      "text": "$(br)"
     },
     {
       "type": "patchouli:crafting",
@@ -41,7 +31,7 @@
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:chiseled_arcane_polished_darkstone",
-      "text": "这两步准备祭坛四处特殊底座的建材。"
+      "text": "$(br)"
     }
   ]
 }

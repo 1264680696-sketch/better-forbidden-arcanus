@@ -1,5 +1,5 @@
 {
-  "name": "神秘龙蛋与信标飞行",
+  "name": "神秘龙蛋",
   "category": "better_forbidden_arcanus:practical",
   "icon": "forbidden_arcanus:arcane_dragon_egg",
   "sortnum": 18,
@@ -7,43 +7,12 @@
     {
       "type": "patchouli:text",
       "title": "留住龙的馈赠",
-      "text": "神秘龙蛋有两种用途：在世界中放置，便会定期产出鳞片；紧贴有效信标顶面放置，还能让信标范围内的玩家自由飞行。"
+      "text": "神秘龙蛋有两种用途：在世界中放置，便会定期产出四种鳞片；紧贴有效信标顶面放置，还能让信标范围内的玩家自由飞行。"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:arcane_dragon_egg",
-      "text": "用龙蛋与金色龙鳞制作神秘龙蛋。",
-      "title": ""
-    },
-    {
-      "type": "patchouli:text",
-      "title": "信标须先醒来",
-      "text": "信标须有有效矿物底座、畅通光路，并已选择主效果。龙蛋必须紧贴信标正上方一格，放在旁边或更高的光柱中不会启用飞行。原有信标效果继续生效。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "在光柱旁起飞",
-      "text": "双击跳跃起飞，跳跃上升、潜行下降，使用通常的自由飞行速度。一至四级信标的水平范围分别20、30、40、50格，垂直范围沿用信标规则。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "不要飞出庇护",
-      "text": "离开范围、拆除龙蛋或信标，或信标失效，会立即失去此来源的飞行。没有延迟或额外缓降，越过边界前请准备落脚处。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "重叠的光",
-      "text": "多个有效结构重叠时，只要仍在其中一个范围内就能飞行。创造、旁观和其他来源的飞行权限不受影响；换维度或重登后按所在地重新判断。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "等待两分钟",
-      "text": "龙蛋每2分钟掉落1片鳞片：普通、金色、银色、水生各25%。不需信标与消耗材料，可用漏斗收集。区块卸载时暂停，不会在重载时补发多轮。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "把鳞片用起来",
-      "text": "特殊鳞片可经$(l:better_forbidden_arcanus:clibano/scale_recycling)炽炉$(/l)烧回普通龙鳞；金龙之鳞可用于$(l:better_forbidden_arcanus:practical/enchanted_golden_apple)附魔金苹果$(/l)。普通鳞片则可制作天龙装备，或复制鞘翅。"
+      "text": "$(br)"
     }
   ]
 }

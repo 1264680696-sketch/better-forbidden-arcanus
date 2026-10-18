@@ -1,5 +1,5 @@
 {
-  "name": "认识遗物",
+  "name": "认识增强遗物",
   "category": "better_forbidden_arcanus:relics",
   "icon": "forbidden_arcanus:elementarium",
   "sortnum": 4,
@@ -7,17 +7,7 @@
     {
       "type": "patchouli:text",
       "title": "遗物，放在何处？",
-      "text": "遗物的力量取决于位置。戴进饰品界面的遗物槽，它影响自身；放进锻炉或炽炉的增强器槽，它影响设施。只戴在身上，不能代替仪式要求的增强器。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "一个槽位的选择",
-      "text": "最初只有1个遗物槽，同种遗物不能重复装备。$(l:better_forbidden_arcanus:practical/elementarium)基本元素$(/l)会增加2个槽；卸下时，超出容量的遗物返还背包，放不下便掉落脚边。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "第三种用法",
-      "text": "$(l:better_forbidden_arcanus:practical/crescent_moon)待盈新月$(/l)和$(l:better_forbidden_arcanus:practical/crimson_stone)绯红之石$(/l)还能放在罐顶，缓慢生产辉光或血液。它们留在罐上便不能同时戴在身上，取舍由你。"
+      "text": "散落在世界各地的宝藏。$(br)$(br)增强遗物的力量取决于位置。戴进饰品界面的遗物槽，它影响自身；放进锻炉或炽炉的增强器槽，它影响设施。一些增强遗物也能用在其他地方。"
     }
   ]
 }

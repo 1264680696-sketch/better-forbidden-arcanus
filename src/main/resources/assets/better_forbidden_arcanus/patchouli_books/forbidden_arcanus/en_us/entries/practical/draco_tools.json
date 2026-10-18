@@ -7,7 +7,7 @@
     {
       "type": "patchouli:text",
       "title": "龙鳞作刃",
-      "text": "坚韧的龙鳞、黑曜钢与天龙杖柄，组成这套工具与武器。先制杖柄，再选需要的工具。$(l:better_forbidden_arcanus:practical/draco_scepter)天龙权杖$(/l)与$(l:better_forbidden_arcanus:practical/draco_arrow)天龙箭矢$(/l)另有专页。"
+      "text": "坚韧的龙鳞、黑曜钢与天龙杖柄，组成了这套工具与武器。"
     },
     {
       "type": "patchouli:crafting",
@@ -17,7 +17,7 @@
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:draco_arcanus_sword",
-      "text": ""
+      "text": "对末影龙额外增加100%伤害"
     },
     {
       "type": "patchouli:crafting",
@@ -27,7 +27,7 @@
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:draco_arcanus_axe",
-      "text": ""
+      "text": "持天龙斧击杀凋零骷髅，头颅概率增加30%"
     },
     {
       "type": "patchouli:crafting",
@@ -48,11 +48,6 @@
       "type": "patchouli:text",
       "title": "取下凋零头颅",
       "text": "主手持天龙斧近战击杀凋零骷髅，头颅概率额外增加30个百分点：未附魔时32.5%，抢夺III时35.5%。每次最多一颗；远程击杀不能借用手持斧的加成。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "屠龙之刃",
-      "text": "天龙剑对末影龙额外增加100%伤害，再与每件天龙或提尔盔甲的25%相加。剑与四件合格盔甲合计3倍；龙头与身体仍遵守各自的受伤规则。"
     }
   ]
 }

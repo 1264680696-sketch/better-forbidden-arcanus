@@ -7,76 +7,338 @@
     {
       "type": "patchouli:text",
       "title": "承接战神之名",
-      "text": "将对应的天龙神秘盔甲放在中央，以水生和金色龙鳞完成升华。四级锻炉可逐件制成提尔套装，并保留原装备组件。"
+      "text": "将天龙神秘盔甲放在中央，以水生和金色龙鳞完成升华，不仅继承了天龙神秘盔甲对末影龙的杀伤力，还重现了战神的荣光。"
     },
     {
-      "type": "patchouli:text",
-      "title": "先读誓约",
-      "text": "套装按正确穿戴件数唤醒英勇、公正与提尔化身。完整能力、保命与冷却见$(l:better_forbidden_arcanus:forge_tier_4/tyr_abilities)战神的誓约$(/l)；以下逐件列出制作材料。"
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:tyr_helmet",
       "title": "战神提尔之头盔",
-      "text": "需4 级锻炉。配齐后续材料，用锻工锤启动。"
+      "main": "forbidden_arcanus:draco_arcanus_helmet",
+      "result": "forbidden_arcanus:tyr_helmet",
+      "show_main": true,
+      "show_result": true,
+      "show_dynamic_result": false,
+      "result_summary": "动态产物",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 4820,
+      "souls": 40,
+      "blood": 5930,
+      "experience": 2450,
+      "aureal_text": "辉光 4820",
+      "souls_text": "灵魂 40",
+      "blood_text": "血液 5930",
+      "experience_text": "经验 2450",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "",
+      "input_1": "forbidden_arcanus:aquatic_dragon_scale",
+      "input_2": "forbidden_arcanus:aquatic_dragon_scale",
+      "input_3": "forbidden_arcanus:aquatic_dragon_scale",
+      "input_4": "forbidden_arcanus:aquatic_dragon_scale",
+      "input_5": "forbidden_arcanus:golden_dragon_scale",
+      "input_6": "minecraft:air",
+      "input_7": "minecraft:air",
+      "input_8": "minecraft:air",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": true,
+      "show_input_6": false,
+      "show_input_7": false,
+      "show_input_8": false,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "forbidden_arcanus:tyr_helmet",
+      "studio_ritual": {
+        "essences": {
+          "aureal": 4820,
+          "blood": 5930,
+          "experience": 2450,
+          "souls": 40
+        },
+        "forge_tier": 4,
+        "inputs": [
+          {
+            "amount": 4,
+            "ingredient": {
+              "item": "forbidden_arcanus:aquatic_dragon_scale"
+            }
+          },
+          {
+            "amount": 1,
+            "ingredient": {
+              "item": "forbidden_arcanus:golden_dragon_scale"
+            }
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:create_item",
+        "main_ingredient": {
+          "item": "forbidden_arcanus:draco_arcanus_helmet"
+        },
+        "result": {
+          "type": "forbidden_arcanus:transmute_input",
+          "result_item": "forbidden_arcanus:tyr_helmet"
+        }
+      },
+      "studio_forge_warnings": []
     },
     {
-      "type": "patchouli:text",
-      "text": "中央：天龙神秘头盔×1。$(br)水生龙鳞×4$(br)金色龙鳞×1$(br2)每份辅料各占一座基座，其余留空。",
-      "title": "放入法阵"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "辉光：4820$(br)灵魂：40$(br)血液：5930$(br)经验：2450$(br2)无必需增强器。所列为基础消耗，增强器可改变实际需求。",
-      "title": "精华与增强器"
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:tyr_chestplate",
       "title": "战神提尔之胸甲",
-      "text": "需4 级锻炉。配齐后续材料，用锻工锤启动。"
+      "main": "forbidden_arcanus:draco_arcanus_chestplate",
+      "result": "forbidden_arcanus:tyr_chestplate",
+      "show_main": true,
+      "show_result": true,
+      "show_dynamic_result": false,
+      "result_summary": "动态产物",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 6300,
+      "souls": 60,
+      "blood": 8080,
+      "experience": 3420,
+      "aureal_text": "辉光 6300",
+      "souls_text": "灵魂 60",
+      "blood_text": "血液 8080",
+      "experience_text": "经验 3420",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "",
+      "input_1": "forbidden_arcanus:aquatic_dragon_scale",
+      "input_2": "forbidden_arcanus:aquatic_dragon_scale",
+      "input_3": "forbidden_arcanus:aquatic_dragon_scale",
+      "input_4": "forbidden_arcanus:aquatic_dragon_scale",
+      "input_5": "forbidden_arcanus:golden_dragon_scale",
+      "input_6": "forbidden_arcanus:golden_dragon_scale",
+      "input_7": "forbidden_arcanus:golden_dragon_scale",
+      "input_8": "forbidden_arcanus:golden_dragon_scale",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": true,
+      "show_input_6": true,
+      "show_input_7": true,
+      "show_input_8": true,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "forbidden_arcanus:tyr_chestplate",
+      "studio_ritual": {
+        "essences": {
+          "aureal": 6300,
+          "blood": 8080,
+          "experience": 3420,
+          "souls": 60
+        },
+        "forge_tier": 4,
+        "inputs": [
+          {
+            "amount": 4,
+            "ingredient": {
+              "item": "forbidden_arcanus:aquatic_dragon_scale"
+            }
+          },
+          {
+            "amount": 4,
+            "ingredient": {
+              "item": "forbidden_arcanus:golden_dragon_scale"
+            }
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:create_item",
+        "main_ingredient": {
+          "item": "forbidden_arcanus:draco_arcanus_chestplate"
+        },
+        "result": {
+          "type": "forbidden_arcanus:transmute_input",
+          "result_item": "forbidden_arcanus:tyr_chestplate"
+        }
+      },
+      "studio_forge_warnings": []
     },
     {
-      "type": "patchouli:text",
-      "text": "中央：天龙神秘胸甲×1。$(br)水生龙鳞×4$(br)金色龙鳞×4$(br2)每份辅料各占一座基座，其余留空。",
-      "title": "放入法阵"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "辉光：6300$(br)灵魂：60$(br)血液：8080$(br)经验：3420$(br2)无必需增强器。所列为基础消耗，增强器可改变实际需求。",
-      "title": "精华与增强器"
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:tyr_leggings",
       "title": "战神提尔之护腿",
-      "text": "需4 级锻炉。配齐后续材料，用锻工锤启动。"
+      "main": "forbidden_arcanus:draco_arcanus_leggings",
+      "result": "forbidden_arcanus:tyr_leggings",
+      "show_main": true,
+      "show_result": true,
+      "show_dynamic_result": false,
+      "result_summary": "动态产物",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 5080,
+      "souls": 50,
+      "blood": 7620,
+      "experience": 3010,
+      "aureal_text": "辉光 5080",
+      "souls_text": "灵魂 50",
+      "blood_text": "血液 7620",
+      "experience_text": "经验 3010",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "",
+      "input_1": "forbidden_arcanus:aquatic_dragon_scale",
+      "input_2": "forbidden_arcanus:aquatic_dragon_scale",
+      "input_3": "forbidden_arcanus:aquatic_dragon_scale",
+      "input_4": "forbidden_arcanus:aquatic_dragon_scale",
+      "input_5": "forbidden_arcanus:golden_dragon_scale",
+      "input_6": "forbidden_arcanus:golden_dragon_scale",
+      "input_7": "forbidden_arcanus:golden_dragon_scale",
+      "input_8": "minecraft:air",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": true,
+      "show_input_6": true,
+      "show_input_7": true,
+      "show_input_8": false,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "forbidden_arcanus:tyr_leggings",
+      "studio_ritual": {
+        "essences": {
+          "aureal": 5080,
+          "blood": 7620,
+          "experience": 3010,
+          "souls": 50
+        },
+        "forge_tier": 4,
+        "inputs": [
+          {
+            "amount": 4,
+            "ingredient": {
+              "item": "forbidden_arcanus:aquatic_dragon_scale"
+            }
+          },
+          {
+            "amount": 3,
+            "ingredient": {
+              "item": "forbidden_arcanus:golden_dragon_scale"
+            }
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:create_item",
+        "main_ingredient": {
+          "item": "forbidden_arcanus:draco_arcanus_leggings"
+        },
+        "result": {
+          "type": "forbidden_arcanus:transmute_input",
+          "result_item": "forbidden_arcanus:tyr_leggings"
+        }
+      },
+      "studio_forge_warnings": []
     },
     {
-      "type": "patchouli:text",
-      "text": "中央：天龙神秘护腿×1。$(br)水生龙鳞×4$(br)金色龙鳞×3$(br2)每份辅料各占一座基座，其余留空。",
-      "title": "放入法阵"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "辉光：5080$(br)灵魂：50$(br)血液：7620$(br)经验：3010$(br2)无必需增强器。所列为基础消耗，增强器可改变实际需求。",
-      "title": "精华与增强器"
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:tyr_boots",
       "title": "战神提尔之靴子",
-      "text": "需4 级锻炉。配齐后续材料，用锻工锤启动。"
+      "main": "forbidden_arcanus:draco_arcanus_boots",
+      "result": "forbidden_arcanus:tyr_boots",
+      "show_main": true,
+      "show_result": true,
+      "show_dynamic_result": false,
+      "result_summary": "动态产物",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 4460,
+      "souls": 40,
+      "blood": 5620,
+      "experience": 2170,
+      "aureal_text": "辉光 4460",
+      "souls_text": "灵魂 40",
+      "blood_text": "血液 5620",
+      "experience_text": "经验 2170",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "",
+      "input_1": "forbidden_arcanus:aquatic_dragon_scale",
+      "input_2": "forbidden_arcanus:aquatic_dragon_scale",
+      "input_3": "forbidden_arcanus:aquatic_dragon_scale",
+      "input_4": "forbidden_arcanus:golden_dragon_scale",
+      "input_5": "forbidden_arcanus:golden_dragon_scale",
+      "input_6": "minecraft:air",
+      "input_7": "minecraft:air",
+      "input_8": "minecraft:air",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": true,
+      "show_input_6": false,
+      "show_input_7": false,
+      "show_input_8": false,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "forbidden_arcanus:tyr_boots",
+      "studio_ritual": {
+        "essences": {
+          "aureal": 4460,
+          "blood": 5620,
+          "experience": 2170,
+          "souls": 40
+        },
+        "forge_tier": 4,
+        "inputs": [
+          {
+            "amount": 3,
+            "ingredient": {
+              "item": "forbidden_arcanus:aquatic_dragon_scale"
+            }
+          },
+          {
+            "amount": 2,
+            "ingredient": {
+              "item": "forbidden_arcanus:golden_dragon_scale"
+            }
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:create_item",
+        "main_ingredient": {
+          "item": "forbidden_arcanus:draco_arcanus_boots"
+        },
+        "result": {
+          "type": "forbidden_arcanus:transmute_input",
+          "result_item": "forbidden_arcanus:tyr_boots"
+        }
+      },
+      "studio_forge_warnings": []
     },
     {
       "type": "patchouli:text",
-      "text": "中央：天龙神秘靴子×1。$(br)水生龙鳞×3$(br)金色龙鳞×2$(br2)每份辅料各占一座基座，其余留空。",
-      "title": "放入法阵"
+      "title": "提尔化身",
+      "text": "装备战神提尔盔甲时，你会获得如下增益$(br)$(br)纯金：猪灵将会对你保持中立$(br)水龙恩赐：每件盔甲提升游泳速度。$(br)$(br)当装备一件盔甲时$(br)英勇：当你每受到1种负面效果时，全方位提升属性，上限为5种；你的属性会随着你周围的敌人数量而上升。"
     },
     {
       "type": "patchouli:text",
-      "text": "辉光：4460$(br)灵魂：40$(br)血液：5620$(br)经验：2170$(br2)无必需增强器。所列为基础消耗，增强器可改变实际需求。",
-      "title": "精华与增强器"
+      "title": "提尔化身",
+      "text": "当装备两件盔甲时：$(br)公正：血量高于你的敌人会额外受到更多伤害，而血量低于你的敌人会受到更少的伤害。$(br)$(br)$(br)"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "提尔化身",
+      "text": "当装备全套盔甲时：$(br)断腕：你无法在副手装备盾牌$(br)减少弹射物伤害。$(br)$(br)$(br)不屈：当你收到致命伤害时，强制保留半颗心，且下一次攻击造成的伤害提升500%，冷却时长120s"
     }
   ]
 }

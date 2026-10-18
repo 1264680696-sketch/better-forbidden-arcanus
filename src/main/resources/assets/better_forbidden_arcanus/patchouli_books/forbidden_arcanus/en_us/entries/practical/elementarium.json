@@ -7,17 +7,13 @@
     {
       "type": "patchouli:text",
       "title": "多两个选择",
-      "text": "将基本元素戴进遗物槽，总槽数从1变为3。额外的两个席位，让你可以把战斗、回复或工具用途组合起来；同种遗物仍只能戴一个。"
+      "text": "丛林神庙、沙漠神殿和海底废墟的宝箱，是寻找基本元素的地方。$(br)"
     },
     {
-      "type": "patchouli:text",
-      "title": "元素的媒介",
-      "text": "放进锻炉增强器槽，它是制作熔炉、撼地、海洋和旋风棱晶的必要媒介。遗物栏与设施槽不能互相替代。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "寻觅",
-      "text": "丛林神庙、沙漠神殿和海底废墟的宝箱，是寻找基本元素的地方。"
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:elementarium",
+      "text": "饰品效果：增加两格遗物槽$(br)$(br)$(br)赫菲斯托斯锻炉效果：允许制作基本元素物品",
+      "title": "基本元素"
     }
   ]
 }

@@ -7,17 +7,13 @@
     {
       "type": "patchouli:text",
       "title": "与神圣立约",
-      "text": "戴上神圣契约，对亡灵造成的伤害增加25%。当生命严格低于最大生命的20%时，获得生命恢复I。它不会替你挡下致命一击，别把濒危当成安全。"
+      "text": "可以与牧师交易获得"
     },
     {
-      "type": "patchouli:text",
-      "title": "放入锻炉",
-      "text": "$(l:better_forbidden_arcanus:forge_tier_4/soul_binding_crystal)灵魂绑定水晶$(/l)的仪式需要神圣契约作为增强器，必须放在锻炉小槽。"
-    },
-    {
-      "type": "patchouli:text",
-      "title": "寻觅",
-      "text": "现有常规配方与附加宝箱表未提供确定的生存来源。是否另有途径，取决于世界所用的额外配方或战利品安排。"
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:divine_pact",
+      "text": "饰品效果：增加对亡灵生物的伤害，当生命值较低时，获得生命恢复。$(br)$(br)赫菲斯托斯锻炉效果：允许制作天界物品$(br)$(br)",
+      "title": "神圣契约"
     }
   ]
 }

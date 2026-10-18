@@ -1,5 +1,5 @@
 {
-  "name": "手臂与符文战斧",
+  "name": "神秘的手臂",
   "category": "better_forbidden_arcanus:practical",
   "icon": "better_forbidden_arcanus:zombie_arm",
   "sortnum": 33,
@@ -7,23 +7,17 @@
     {
       "type": "patchouli:text",
       "title": "借来一只手",
-      "text": "僵尸可能掉落僵尸手臂，溺尸则可能掉落闪光变体。基础概率0.2%，每级抢夺增加0.1个百分点。两种手臂都有5点总攻击伤害、1.7攻速，且不消耗耐久。"
+      "text": "从僵尸掉落的，腐烂到发臭的手臂，令人惊异的是，这手臂存在的时间比僵尸形成的时间还要长$(br)$(br)"
     },
     {
-      "type": "patchouli:text",
-      "title": "最后一击",
-      "text": "用手臂近战击杀马或村民，会把它们转为僵尸马或僵尸村民。村民的职业、类型、交易、流言和经验保留。它不是靠右击转化的工具，也不对其他生物起效。"
+      "type": "patchouli:spotlight",
+      "item": "better_forbidden_arcanus:zombie_arm",
+      "text": "僵尸可能掉落僵尸手臂，$(br)$(br)$(br)用手臂近战击杀马或村民，会把它们转为僵尸马或僵尸村民。"
     },
     {
-      "type": "patchouli:crafting",
-      "recipe": "better_forbidden_arcanus:runic_battleaxe",
-      "text": "符文战斧：总攻击伤害5，攻速1.2，耐久1561。可附魔，也能接受锻炉装备强化。",
-      "title": ""
-    },
-    {
-      "type": "patchouli:text",
-      "title": "不止一重修饰",
-      "text": "普通战斧能接受四种棱晶的专属改造。详见$(l:better_forbidden_arcanus:practical/runic_prisms)四棱之斧$(/l)：暴击附伤、攻击距离、投掷返回与护甲穿透可共存。"
+      "type": "patchouli:spotlight",
+      "item": "better_forbidden_arcanus:shiny_zombie_arm",
+      "text": "由溺尸掉落，只是被泡到发白了。"
     }
   ]
 }

@@ -10,25 +10,84 @@
       "text": "旅途中有些生物值得带回家。量子捕捉器能收纳并释放允许捕捉的生物，但捕捉会检查你自身的辉光；对被排除的目标，它不会回应。"
     },
     {
-      "type": "patchouli:spotlight",
-      "item": "forbidden_arcanus:quantum_catcher",
-      "title": "量子捕捉器",
-      "text": "需1 级锻炉。配齐后续材料，用锻工锤启动。"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "中央：量子核心×1。$(br)刷怪笼碎片×4$(br2)每份辅料各占一座基座，其余留空。",
-      "title": "放入法阵"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "辉光：200$(br)灵魂：5$(br)血液：1200$(br)经验：155$(br2)无必需增强器。所列为基础消耗，增强器可改变实际需求。",
-      "title": "精华与增强器"
-    },
-    {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:quantum_core",
-      "text": "先合成中央材料量子核心，再执行捕捉器仪式。"
+      "text": "$(br)"
+    },
+    {
+      "title": "量子捕捉器",
+      "main": "forbidden_arcanus:quantum_core",
+      "result": "forbidden_arcanus:quantum_catcher",
+      "show_main": true,
+      "show_result": true,
+      "show_dynamic_result": false,
+      "result_summary": "动态产物",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 200,
+      "souls": 5,
+      "blood": 1200,
+      "experience": 155,
+      "aureal_text": "辉光 200",
+      "souls_text": "灵魂 5",
+      "blood_text": "血液 1200",
+      "experience_text": "经验 155",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "",
+      "input_1": "forbidden_arcanus:spawner_scrap",
+      "input_2": "forbidden_arcanus:spawner_scrap",
+      "input_3": "forbidden_arcanus:spawner_scrap",
+      "input_4": "forbidden_arcanus:spawner_scrap",
+      "input_5": "minecraft:air",
+      "input_6": "minecraft:air",
+      "input_7": "minecraft:air",
+      "input_8": "minecraft:air",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": false,
+      "show_input_6": false,
+      "show_input_7": false,
+      "show_input_8": false,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "forbidden_arcanus:quantum_catcher",
+      "studio_ritual": {
+        "essences": {
+          "aureal": 200,
+          "blood": 1200,
+          "experience": 155,
+          "souls": 5
+        },
+        "inputs": [
+          {
+            "amount": 4,
+            "ingredient": {
+              "item": "forbidden_arcanus:spawner_scrap"
+            }
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:create_item",
+        "main_ingredient": {
+          "item": "forbidden_arcanus:quantum_core"
+        },
+        "result": {
+          "type": "forbidden_arcanus:create_item",
+          "result_item": {
+            "count": 1,
+            "id": "forbidden_arcanus:quantum_catcher"
+          }
+        }
+      },
+      "studio_forge_warnings": []
     }
   ]
 }
