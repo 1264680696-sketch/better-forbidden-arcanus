@@ -1,0 +1,79 @@
+{
+  "name": "辉光黑曜石头骨",
+  "category": "better_forbidden_arcanus:forge_tier_4",
+  "icon": "forbidden_arcanus:aurealic_obsidian_skull",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "将辉光注入进头骨之中，你的双眼将会变得通透，不仅可以夜视，并且在看清熔岩中的事物"
+    },
+    {
+      "title": "aurealic obsidian skull",
+      "main": "forbidden_arcanus:eternal_obsidian_skull",
+      "result": "forbidden_arcanus:aurealic_obsidian_skull",
+      "show_main": true,
+      "show_result": true,
+      "show_dynamic_result": false,
+      "result_summary": "动态产物",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 10000,
+      "souls": 0,
+      "blood": 0,
+      "experience": 0,
+      "aureal_text": "辉光 10000",
+      "souls_text": "灵魂 0",
+      "blood_text": "血液 0",
+      "experience_text": "经验 0",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "",
+      "input_1": "minecraft:air",
+      "input_2": "minecraft:air",
+      "input_3": "minecraft:air",
+      "input_4": "minecraft:air",
+      "input_5": "minecraft:air",
+      "input_6": "minecraft:air",
+      "input_7": "minecraft:air",
+      "input_8": "minecraft:air",
+      "show_input_1": false,
+      "show_input_2": false,
+      "show_input_3": false,
+      "show_input_4": false,
+      "show_input_5": false,
+      "show_input_6": false,
+      "show_input_7": false,
+      "show_input_8": false,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "better_forbidden_arcanus:aurealic_obsidian_skull",
+      "studio_ritual": {
+        "forge_tier": 4,
+        "duration": 500,
+        "essences": {
+          "aureal": 10000,
+          "souls": 0,
+          "blood": 0,
+          "experience": 0
+        },
+        "inputs": [],
+        "main_ingredient": {
+          "item": "forbidden_arcanus:eternal_obsidian_skull"
+        },
+        "magic_circle": "forbidden_arcanus:create_item",
+        "result": {
+          "type": "forbidden_arcanus:transmute_input",
+          "result_item": "forbidden_arcanus:aurealic_obsidian_skull"
+        }
+      },
+      "studio_forge_warnings": []
+    }
+  ]
+}

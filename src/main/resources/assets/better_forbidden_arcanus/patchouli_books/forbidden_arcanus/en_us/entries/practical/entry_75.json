@@ -1,7 +1,7 @@
 {
   "name": "瓶罐",
   "category": "better_forbidden_arcanus:practical",
-  "icon": "minecraft:book",
+  "icon": "forbidden_arcanus:utrem_jar",
   "sortnum": 23,
   "pages": [
     {
