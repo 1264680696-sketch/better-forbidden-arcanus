@@ -1,0 +1,57 @@
+{
+  "processor": "dev.betterforbiddenarcanus.client.PrismRecipeProcessor",
+  "components": [
+    {
+      "type": "patchouli:header",
+      "text": "#title",
+      "x": -1,
+      "y": 0
+    },
+    {
+      "type": "patchouli:separator",
+      "x": -1,
+      "y": 12
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#template",
+      "x": 8,
+      "y": 30,
+      "framed": true
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#base",
+      "x": 42,
+      "y": 30,
+      "framed": true
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#addition",
+      "x": 76,
+      "y": 30,
+      "framed": true
+    },
+    {
+      "type": "patchouli:text",
+      "text": "↓",
+      "x": 46,
+      "y": 56
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#result",
+      "x": 42,
+      "y": 76,
+      "framed": true
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#description",
+      "x": 0,
+      "y": 104,
+      "max_width": 116
+    }
+  ]
+}

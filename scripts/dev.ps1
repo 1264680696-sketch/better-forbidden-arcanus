@@ -11,11 +11,11 @@ $taskTemp = Join-Path (Resolve-Path "$taskProject/../..").Path '.bfa-tmp'
 New-Item -ItemType Directory -Path $taskTemp -Force | Out-Null
 $env:TEMP = $taskTemp
 $env:TMP = $taskTemp
-foreach ($taskClientRun in @('runClientSmoke', 'runClientGuide', 'runClientBook', 'runClientJarGuide')) {
+foreach ($taskClientRun in @('runClientSmoke', 'runClientGuide', 'runClientBook', 'runClientJarGuide', 'runClientPrismGuide')) {
     if ($Tasks -notcontains $taskClientRun) { continue }
     # A fresh client would otherwise wait indefinitely at its first-run
     # accessibility onboarding screen before reaching the title screen.
-    $taskSmokeDirectory = Join-Path $taskProject $(if ($taskClientRun -eq 'runClientGuide') { 'runs/client-guide' } elseif ($taskClientRun -eq 'runClientBook') { 'runs/client-book' } elseif ($taskClientRun -eq 'runClientJarGuide') { 'runs/client-jar-guide' } else { 'runs/client-smoke' })
+    $taskSmokeDirectory = Join-Path $taskProject $(if ($taskClientRun -eq 'runClientGuide') { 'runs/client-guide' } elseif ($taskClientRun -eq 'runClientBook') { 'runs/client-book' } elseif ($taskClientRun -eq 'runClientPrismGuide') { 'runs/client-prism-guide' } elseif ($taskClientRun -eq 'runClientJarGuide') { 'runs/client-jar-guide' } else { 'runs/client-smoke' })
     New-Item -ItemType Directory -Path $taskSmokeDirectory -Force | Out-Null
     $taskOptionsPath = Join-Path $taskSmokeDirectory 'options.txt'
     if (-not (Test-Path -LiteralPath $taskOptionsPath)) {
@@ -55,6 +55,12 @@ try {
             -not (Select-String -LiteralPath $taskGuideLog -SimpleMatch 'BFA_GUIDE_PASS' -Quiet)) {
             throw 'Guide check did not finish. Check runs/client-guide/logs/latest.log.'
         }
+    }
+    if ($Tasks -contains 'runPrismGameTestServer') {
+        if (-not (Select-String -LiteralPath (Join-Path $taskProject 'runs/prism-gametest/logs/latest.log') -Pattern 'All \d+ required tests passed' -Quiet)) { throw 'Prism tests did not finish.' }
+    }
+    if ($Tasks -contains 'runClientPrismGuide') {
+        if (-not (Select-String -LiteralPath (Join-Path $taskProject 'runs/client-prism-guide/logs/latest.log') -SimpleMatch 'BFA_PRISM_GUIDE_PASS' -Quiet)) { throw 'Prism client check did not finish.' }
     }
     if ($Tasks -contains 'runJarGameTestServer') {
         $taskJarLog = Join-Path $taskProject 'runs/jar-gametest/logs/latest.log'

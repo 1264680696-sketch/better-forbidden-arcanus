@@ -31,5 +31,8 @@
   "block.better_forbidden_arcanus.runic_tenebris_frame": "暗黑符文框架",
   "block.better_forbidden_arcanus.runic_tenebris_core": "暗黑符文核心",
   "block.better_forbidden_arcanus.runic_chiseled_polished_darkstone": "錾制磨制符文暗黑石",
-  "block.better_forbidden_arcanus.dark_runestone": "暗黑符文矿石"
+  "block.better_forbidden_arcanus.dark_runestone": "暗黑符文矿石",
+  "modifier.better_forbidden_arcanus.gale_legs": "旋风",
+  "death.attack.runic_void": "%1$s被符文战斧撕入虚空",
+  "death.attack.runic_void.player": "%1$s被%2$s的符文战斧撕入虚空"
 }

@@ -29,6 +29,25 @@
       "type": "patchouli:text",
       "text": "带上成品，按$(l:better_forbidden_arcanus:practical/modifiers)装备修饰$(/l)的步骤继续加工。",
       "title": "完成之后"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "剑与弓的代价",
+      "text": "撼地剑造成双倍攻击伤害，但实际攻击速度降低40%。撼地弓的箭矢伤害翻倍，蓄满时间则增加40%；装备强化的加速仍可相乘。$(br2)符文战斧使用专属效果，见$(l:better_forbidden_arcanus:practical/runic_prisms)四棱之斧$(/l)。"
+    },
+    {
+      "type": "better_forbidden_arcanus:prism_smithing",
+      "base_id": "minecraft:diamond_sword",
+      "recipe_id": "forbidden_arcanus:smithing/apply_demolishing_modifier",
+      "title": "锻造台修饰",
+      "description": "模板＋剑＋撼地棱晶。保留附魔、耐久和强化等级。"
+    },
+    {
+      "type": "better_forbidden_arcanus:prism_smithing",
+      "base_id": "minecraft:bow",
+      "recipe_id": "forbidden_arcanus:smithing/apply_demolishing_modifier",
+      "title": "锻造台修饰",
+      "description": "模板＋弓＋撼地棱晶。普通装备仍只能携带一种修饰。"
     }
   ]
 }

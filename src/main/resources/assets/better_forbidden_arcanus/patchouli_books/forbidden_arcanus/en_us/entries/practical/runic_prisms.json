@@ -1,0 +1,61 @@
+{
+  "name": "四棱之斧",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "better_forbidden_arcanus:runic_battleaxe",
+  "sortnum": 34,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "让符文记住四季",
+      "text": "符文战斧能依次容纳熔炉、海洋、旋风与撼地四种棱晶。每次使用应用修饰锻造模板，在锻造台加入一种未拥有的棱晶。顺序不限，同种不能重复；附魔、耐久和锻炉强化等级保留。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "火与海",
+      "text": "熔炉：近战暴击额外附加目标最大生命值6%的伤害，之后正常计算减伤。$(br2)海洋：主手持斧时，生物攻击距离增加2格。它不会增加方块交互距离。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "风的去与回",
+      "text": "旋风：实际攻击速度提高50%。长按右键像拉弓一样蓄力，松开投出战斧；命中敌人、撞到方块或飞行约1.5秒后返回。$(br2)投掷时原斧离手，返回背包；背包已满会落在脚边。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "撼动护甲",
+      "text": "撼地：伤害结算时忽略目标50%的护甲值；韧性及其他减伤保留。成功命中后，对目标中心3×3×3范围内的其他生物造成范围伤害。$(br2)范围伤害不会继续扩散，排除自己、友方和驯服宠物，并遵守玩家互相伤害规则。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "四棱合一",
+      "text": "集齐四种棱晶后，去掉叠加的名称前缀，符、文、战、斧四字分别呈火、海、风、地的颜色。$(br2)同时获得无法损坏，并在成功命中后额外造成10点忽略护甲的虚空伤害。范围伤害不会重复触发这份额外伤害。"
+    },
+    {
+      "type": "better_forbidden_arcanus:prism_smithing",
+      "base_id": "better_forbidden_arcanus:runic_battleaxe",
+      "recipe_id": "forbidden_arcanus:smithing/apply_fiery_modifier",
+      "title": "锻造台修饰",
+      "description": "按任意顺序逐个加入四种棱晶；每次需要一份模板与棱晶。"
+    },
+    {
+      "type": "better_forbidden_arcanus:prism_smithing",
+      "base_id": "better_forbidden_arcanus:runic_battleaxe",
+      "recipe_id": "forbidden_arcanus:smithing/apply_aquatic_modifier",
+      "title": "锻造台修饰",
+      "description": "按任意顺序逐个加入四种棱晶；每次需要一份模板与棱晶。"
+    },
+    {
+      "type": "better_forbidden_arcanus:prism_smithing",
+      "base_id": "better_forbidden_arcanus:runic_battleaxe",
+      "recipe_id": "better_forbidden_arcanus:smithing/apply_gale_legs_modifier",
+      "title": "锻造台修饰",
+      "description": "按任意顺序逐个加入四种棱晶；每次需要一份模板与棱晶。"
+    },
+    {
+      "type": "better_forbidden_arcanus:prism_smithing",
+      "base_id": "better_forbidden_arcanus:runic_battleaxe",
+      "recipe_id": "forbidden_arcanus:smithing/apply_demolishing_modifier",
+      "title": "锻造台修饰",
+      "description": "按任意顺序逐个加入四种棱晶；每次需要一份模板与棱晶。"
+    }
+  ]
+}

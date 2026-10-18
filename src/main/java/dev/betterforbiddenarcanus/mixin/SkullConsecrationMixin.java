@@ -28,17 +28,17 @@ public abstract class SkullConsecrationMixin {
     }
     @Inject(method = "canStartRitual", at = @At("HEAD"), cancellable = true)
     private void bfa$matchFullAureal(Ritual ritual, EssencesDefinition definition, CallbackInfoReturnable<Boolean> cir) {
-        if (ritual.result() instanceof AurealicSkulls.ConsecrateResult)
+        if (AurealicSkulls.consecration(ritual.result()))
             cir.setReturnValue(ritual.canStart(dataCache, forgeTier) && bfa$full(definition));
     }
     @Inject(method = "startRitual", at = @At("HEAD"), cancellable = true)
     private void bfa$recheck(ServerPlayer player, EssencesStorage storage, CallbackInfoReturnable<Boolean> cir) {
-        if (validRitual != null && validRitual.value().result() instanceof AurealicSkulls.ConsecrateResult
+        if (validRitual != null && AurealicSkulls.consecration(validRitual.value().result())
                 && (!bfa$full(storage.immutable()) || !validRitual.value().canStart(dataCache, forgeTier))) cir.setReturnValue(false);
     }
     @WrapOperation(method = "lambda$startRitual$5", at = @At(value = "INVOKE", target = "Lcom/stal111/forbidden_arcanus/common/block/entity/forge/essence/EssencesStorage;reduce(Lcom/stal111/forbidden_arcanus/common/block/entity/forge/essence/EssencesDefinition;)V"))
     private void bfa$spendAllAureal(EssencesStorage storage, EssencesDefinition definition, Operation<Void> original) {
-        if (activeRitualData != null && activeRitualData.getRitual().result() instanceof AurealicSkulls.ConsecrateResult)
+        if (activeRitualData != null && AurealicSkulls.consecration(activeRitualData.getRitual().result()))
             storage.put(EssenceType.AUREAL, 0);
         else original.call(storage, definition);
     }

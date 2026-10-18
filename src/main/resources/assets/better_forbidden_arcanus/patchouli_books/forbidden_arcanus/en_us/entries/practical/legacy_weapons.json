@@ -19,6 +19,11 @@
       "recipe": "better_forbidden_arcanus:runic_battleaxe",
       "text": "符文战斧：总攻击伤害5，攻速1.2，耐久1561。可附魔，也能接受锻炉装备强化。",
       "title": ""
+    },
+    {
+      "type": "patchouli:text",
+      "title": "不止一重修饰",
+      "text": "普通战斧能接受四种棱晶的专属改造。详见$(l:better_forbidden_arcanus:practical/runic_prisms)四棱之斧$(/l)：暴击附伤、攻击距离、投掷返回与护甲穿透可共存。"
     }
   ]
 }

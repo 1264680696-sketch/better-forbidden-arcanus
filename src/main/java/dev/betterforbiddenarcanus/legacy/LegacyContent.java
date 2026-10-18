@@ -19,8 +19,7 @@ public final class LegacyContent {
     public static final DeferredHolder<Block, Block> DARK_ORE = BLOCKS.register("dark_runestone", () -> new Block(Block.Properties.ofFullCopy(Blocks.IRON_ORE)));
     public static final DeferredHolder<Item, Item> ZOMBIE_ARM = SoulItems.ITEMS.register("zombie_arm", ZombieArmItem::new);
     public static final DeferredHolder<Item, Item> SHINY_ARM = SoulItems.ITEMS.register("shiny_zombie_arm", ZombieArmItem::new);
-    public static final DeferredHolder<Item, Item> AXE = SoulItems.ITEMS.register("runic_battleaxe", () -> new AxeItem(Tiers.DIAMOND,
-            new Item.Properties().attributes(AxeItem.createAttributes(Tiers.DIAMOND, 1, -2.8F))));
+    public static final DeferredHolder<Item, Item> AXE = SoulItems.ITEMS.register("runic_battleaxe", dev.betterforbiddenarcanus.RunicAxeItem::new);
     public static final DeferredHolder<Item, Item> DARK_RUNE = simple("dark_rune");
     public static final DeferredHolder<Item, Item> SKULL = simple("skull");
     public static final DeferredHolder<Item, Item> RUNE_BAG = simple("rune_bag");

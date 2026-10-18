@@ -8,6 +8,8 @@ public final class BetterForbiddenArcanus {
     public static final String MOD_ID = "better_forbidden_arcanus";
 
     public BetterForbiddenArcanus(IEventBus modBus) {
+        PrismEffects.init();
+        RunicAxeProjectile.init();
         AurealicSkulls.init();
         dev.betterforbiddenarcanus.legacy.LegacyContent.register(modBus);
         SoulItems.ITEMS.register(modBus);
@@ -24,5 +26,6 @@ public final class BetterForbiddenArcanus {
         modBus.addListener(RelicCurio::setup);
         modBus.addListener(TyrCooldown::register);
         modBus.addListener(MeteorScan::register);
+        modBus.addListener(PrismJump::register);
     }
 }

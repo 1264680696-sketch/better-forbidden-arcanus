@@ -2,7 +2,7 @@
   "forge_tier": 4,
   "duration": 500,
   "essences": {
-    "aureal": 0,
+    "aureal": 10000,
     "souls": 0,
     "blood": 0,
     "experience": 0
@@ -13,6 +13,7 @@
   },
   "magic_circle": "forbidden_arcanus:create_item",
   "result": {
-    "type": "better_forbidden_arcanus:consecrate_skull"
+    "type": "forbidden_arcanus:transmute_input",
+    "result_item": "forbidden_arcanus:aurealic_obsidian_skull"
   }
 }

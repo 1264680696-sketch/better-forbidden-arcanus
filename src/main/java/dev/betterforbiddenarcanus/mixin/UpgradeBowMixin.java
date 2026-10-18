@@ -11,6 +11,6 @@ import org.spongepowered.asm.mixin.injection.At;
 public abstract class UpgradeBowMixin {
     @WrapOperation(method = "releaseUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/BowItem;getPowerForTime(I)F"))
     private float bfa$draw(int time, Operation<Float> original, @Local(argsOnly = true) ItemStack stack) {
-        return original.call((int)Math.floor(time * ForgeUpgrades.multiplier(stack)));
+        return original.call((int)Math.floor(time * dev.betterforbiddenarcanus.PrismEffects.bowDraw(stack)));
     }
 }

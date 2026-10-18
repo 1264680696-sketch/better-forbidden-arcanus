@@ -38,7 +38,11 @@
     "SoulExtractorJarMixin",
     "SkullRitualMixin",
     "SkullConsecrationMixin",
-    "AurealicSkullCostMixin"
+    "AurealicSkullCostMixin",
+    "PrismSmithingMixin",
+    "PrismArmorPiercingMixin",
+    "SkullTransmuteMixin",
+    "PrismModifierMixin"
   ],
   "client": [
     "TyrCooldownRenderMixin",

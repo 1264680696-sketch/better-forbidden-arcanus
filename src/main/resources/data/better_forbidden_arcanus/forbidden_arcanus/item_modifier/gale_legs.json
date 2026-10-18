@@ -1,0 +1,15 @@
+{
+  "predicate": {
+    "items": "#minecraft:leg_armor"
+  },
+  "display": {
+    "name": {
+      "translate": "modifier.better_forbidden_arcanus.gale_legs"
+    },
+    "texture": "forbidden_arcanus:textures/gui/tooltip/aquatic.png",
+    "tooltip_color": {
+      "start": -10845453,
+      "end": -14463028
+    }
+  }
+}

@@ -59,7 +59,7 @@ public final class UpgradeEffects {
     }
     @SubscribeEvent(priority = EventPriority.LOWEST) public static void tooltip(ItemTooltipEvent event) {
         var stack = event.getItemStack(); int tier = ForgeUpgrades.tier(stack);
-        if (tier == 0) return;
+        if (tier == 0 || dev.betterforbiddenarcanus.PrismEffects.axe(stack) && dev.betterforbiddenarcanus.PrismEffects.bits(stack) == 15) return;
         if (!event.getToolTip().isEmpty()) event.getToolTip().set(0, event.getToolTip().getFirst().copy().withStyle(ForgeUpgrades.color(stack)));
     }
 }

@@ -68,6 +68,20 @@ neoForge {
             loadedMods = [mods."${mod_id}", mods.bfa_tests]
             systemProperty 'bfa.handbookTest', 'true'
         }
+        prismGameTestServer {
+            type = 'gameTestServer'
+            sourceSet = sourceSets.gametest
+            gameDirectory = project.file('runs/prism-gametest')
+            loadedMods = [mods."${mod_id}", mods.bfa_tests]
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'bfa_prism_tests'
+        }
+        clientPrismGuide {
+            client()
+            sourceSet = sourceSets.gametest
+            gameDirectory = project.file('runs/client-prism-guide')
+            loadedMods = [mods."${mod_id}", mods.bfa_tests]
+            systemProperty 'bfa.prismGuideTest', 'true'
+        }
         jarGameTestServer {
             type = 'gameTestServer'
             sourceSet = sourceSets.gametest

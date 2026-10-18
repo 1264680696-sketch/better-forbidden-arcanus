@@ -24,5 +24,8 @@
   "block.better_forbidden_arcanus.runic_tenebris_frame": "Runic Tenebris Frame",
   "block.better_forbidden_arcanus.runic_tenebris_core": "Runic Tenebris Core",
   "block.better_forbidden_arcanus.runic_chiseled_polished_darkstone": "Runic Chiseled Polished Darkstone",
-  "block.better_forbidden_arcanus.dark_runestone": "Dark Runestone"
+  "block.better_forbidden_arcanus.dark_runestone": "Dark Runestone",
+  "modifier.better_forbidden_arcanus.gale_legs": "Whirlwind",
+  "death.attack.runic_void": "%1$s was torn apart by a runic battleaxe",
+  "death.attack.runic_void.player": "%1$s was torn apart by %2$s's runic battleaxe"
 }

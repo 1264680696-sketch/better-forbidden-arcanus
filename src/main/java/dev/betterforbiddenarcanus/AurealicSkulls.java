@@ -18,6 +18,10 @@ public final class AurealicSkulls {
     public static final net.neoforged.neoforge.registries.DeferredHolder<RitualResultType<?>, RitualResultType<ConsecrateResult>> RESULT =
             ForgeUpgrades.RESULTS.register("consecrate_skull", () -> new RitualResultType<>(ConsecrateResult.CODEC));
     private AurealicSkulls() {}
+    public static boolean consecration(RitualResult result) {
+        return result instanceof ConsecrateResult || result instanceof TransmuteInputResult transmute
+                && transmute.result().is(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("forbidden_arcanus", "aurealic_obsidian_skull"));
+    }
     public static void init() { /* Register the result before the deferred register joins the mod bus. */ }
     public static boolean wearing(Player player) {
         return player.getItemBySlot(EquipmentSlot.HEAD).is(ModBlocks.AUREALIC_OBSIDIAN_SKULL.getSkull().asItem());

@@ -29,6 +29,18 @@
       "type": "patchouli:text",
       "text": "带上成品，按$(l:better_forbidden_arcanus:practical/modifiers)装备修饰$(/l)的步骤继续加工。",
       "title": "完成之后"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "抵御深海",
+      "text": "海洋棱晶现在也能用于胸甲。正确穿戴后，守卫者和远古守卫者造成的伤害减少30%，并免疫挖掘疲劳；已有的疲劳也会被清除。$(br2)头盔原有的水下能力仍保留。"
+    },
+    {
+      "type": "better_forbidden_arcanus:prism_smithing",
+      "base_id": "minecraft:diamond_chestplate",
+      "recipe_id": "forbidden_arcanus:smithing/apply_aquatic_modifier",
+      "title": "锻造台修饰",
+      "description": "模板＋胸甲＋海洋棱晶。效果只在胸甲槽中生效。"
     }
   ]
 }
