@@ -7,6 +7,12 @@ import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(AreaEffectCloud.class)
 public abstract class DracoCloudMixin {
+    @com.llamalad7.mixinextras.injector.ModifyExpressionValue(method="tick",at=@At(value="INVOKE",target="Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;"))
+    private java.util.List<LivingEntity> bfa$noPlayers(java.util.List<LivingEntity> targets) {
+        var cloud=(AreaEffectCloud)(Object)this;
+        return cloud.getPersistentData().getBoolean("bfa_draco_breath")?targets.stream().filter(e->!(e instanceof Player)).toList():targets;
+    }
+
     @Inject(method = "tick", at = @At("TAIL"))
     private void bfa$debuffs(CallbackInfo ci) {
         var cloud = (AreaEffectCloud)(Object)this;

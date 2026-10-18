@@ -83,20 +83,22 @@ public final class PrismEffects {
         return name.append(stack.getItem().getName(stack));
     }
     public static double bowDraw(ItemStack stack){return ForgeUpgrades.multiplier(stack)/(has(stack,EARTH)?1.4:1);}
-    @SubscribeEvent(priority=EventPriority.LOWEST)
+    @SubscribeEvent(priority=EventPriority.LOW)
     public static void attributes(ItemAttributeModifierEvent event){
         var stack=event.getItemStack();boolean axe=axe(stack);
         double speed=axe?(has(stack,WIND)?1.5:1):(extraBase(stack,EARTH)&&has(stack,EARTH)?.6:1);
         double damage=!axe&&extraBase(stack,EARTH)&&!(stack.getItem() instanceof BowItem)&&has(stack,EARTH)?2:1;
         var entries=List.copyOf(event.getModifiers());
         for(var attr:List.of(Attributes.ATTACK_DAMAGE,Attributes.ATTACK_SPEED)){
-            double factor=attr==Attributes.ATTACK_DAMAGE?damage:speed;if(factor==1)continue;
+            double factor=attr==Attributes.ATTACK_DAMAGE?damage:speed;
+            double flat=axe&&attr==Attributes.ATTACK_DAMAGE?3*Integer.bitCount(bits(stack)):0;
+            if(factor==1&&flat==0)continue;
             double base=attr==Attributes.ATTACK_DAMAGE?1:4;
             var matches=entries.stream().filter(e->e.attribute().equals(attr)&&e.slot()==EquipmentSlotGroup.MAINHAND&&e.modifier().operation()==AttributeModifier.Operation.ADD_VALUE).toList();
             if(matches.isEmpty())continue;
             double value=matches.stream().mapToDouble(e->e.modifier().amount()).sum();
             matches.forEach(e->event.removeModifier(attr,e.modifier().id()));
-            event.addModifier(attr,new AttributeModifier(attr==Attributes.ATTACK_DAMAGE?Item.BASE_ATTACK_DAMAGE_ID:Item.BASE_ATTACK_SPEED_ID,(base+value)*factor-base,AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND);
+            event.addModifier(attr,new AttributeModifier(attr==Attributes.ATTACK_DAMAGE?Item.BASE_ATTACK_DAMAGE_ID:Item.BASE_ATTACK_SPEED_ID,(base+value)*factor+flat-base,AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND);
         }
         if(axe&&has(stack,SEA))event.addModifier(Attributes.ENTITY_INTERACTION_RANGE,new AttributeModifier(SoulItems.id("runic_reach"),2,AttributeModifier.Operation.ADD_VALUE),EquipmentSlotGroup.MAINHAND);
     }

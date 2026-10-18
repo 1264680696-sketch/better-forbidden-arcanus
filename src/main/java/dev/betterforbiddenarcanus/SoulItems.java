@@ -17,7 +17,10 @@ public final class SoulItems {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB = TABS.register("main", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.better_forbidden_arcanus"))
             .icon(() -> new ItemStack(ModBlocks.HEPHAESTUS_FORGE_TIER_5.get()))
-            .displayItems((parameters, output) -> ITEMS.getEntries().forEach(item -> output.accept(item.get())))
+             .displayItems((parameters, output) -> {
+                ITEMS.getEntries().forEach(item -> output.accept(item.get()));
+                output.accept(PrismEffects.applyAxe(new ItemStack(dev.betterforbiddenarcanus.legacy.LegacyContent.AXE.get()),15));
+            })
             .build());
     public static final ResourceLocation SOUL_SAND_RECIPE = id("clibano_combustion/soul_from_soul_sand");
     public static final ResourceLocation GHAST_TEAR_RECIPE = id("clibano_combustion/ghast_tear_from_aureal_bottle");

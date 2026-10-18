@@ -9,6 +9,6 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 public final class ScepterRenderer {
     @SubscribeEvent public static void register(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ScepterStorm.BOLT.get(),LightningBoltRenderer::new);
-        event.registerEntityRenderer(RunicAxeProjectile.TYPE.get(), net.minecraft.client.renderer.entity.ThrownItemRenderer::new);
+        event.registerEntityRenderer(RunicAxeProjectile.TYPE.get(), RunicAxeRenderer::new);
     }
 }

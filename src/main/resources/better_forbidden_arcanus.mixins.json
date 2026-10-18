@@ -42,13 +42,17 @@
     "PrismSmithingMixin",
     "PrismArmorPiercingMixin",
     "SkullTransmuteMixin",
-    "PrismModifierMixin"
+    "PrismModifierMixin",
+    "SingleUseSoulboundMixin",
+    "SoulboundKeepInventoryMixin"
   ],
   "client": [
     "TyrCooldownRenderMixin",
     "SpectralRangeMixin",
     "JarRelicRenderMixin",
-    "HandbookTextureMixin"
+    "HandbookTextureMixin",
+    "BowHandAnimationMixin",
+    "BowFovMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -9,6 +9,8 @@ import net.neoforged.neoforge.network.PacketDistributor;
 @EventBusSubscriber(modid=BetterForbiddenArcanus.MOD_ID,value=Dist.CLIENT)
 public final class PrismJumpClient{
  private static boolean down,wasGround;
+ public static void confirm(net.minecraft.world.phys.Vec3 origin){var player=Minecraft.getInstance().player;if(player!=null)PrismJump.resetFallOrigin(player,origin);}
+
  @SubscribeEvent public static void tick(ClientTickEvent.Post event){
   var mc=Minecraft.getInstance();if(mc.player==null){down=false;wasGround=false;return;}
   boolean pressed=mc.options.keyJump.isDown();
