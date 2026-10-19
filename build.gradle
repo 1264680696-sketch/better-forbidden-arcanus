@@ -68,6 +68,13 @@ neoForge {
             loadedMods = [mods."${mod_id}", mods.bfa_tests]
             systemProperty 'bfa.handbookTest', 'true'
         }
+        upgradeTierGameTestServer {
+            type = 'gameTestServer'
+            sourceSet = sourceSets.gametest
+            gameDirectory = project.file('runs/upgrade-tier-gametest')
+            loadedMods = [mods."${mod_id}", mods.bfa_tests]
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'bfa_upgrade_tier_tests'
+        }
         relicAcquisitionGameTestServer {
             type = 'gameTestServer'
             sourceSet = sourceSets.gametest

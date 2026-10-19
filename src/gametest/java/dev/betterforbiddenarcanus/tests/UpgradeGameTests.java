@@ -37,7 +37,7 @@ import top.theillusivec4.curios.api.CuriosApi;
 @PrefixGameTestTemplate(false)
 public final class UpgradeGameTests {
     private static final BlockPos CENTER = new BlockPos(8, 1, 8);
-    private static final List<BlockPos> SIDES = List.of(CENTER.offset(-3,0,0), CENTER.offset(3,0,0), CENTER.offset(0,0,-3), CENTER.offset(0,0,3),
+    static final List<BlockPos> SIDES = List.of(CENTER.offset(-3,0,0), CENTER.offset(3,0,0), CENTER.offset(0,0,-3), CENTER.offset(0,0,3),
             CENTER.offset(-2,0,-2), CENTER.offset(2,0,-2), CENTER.offset(-2,0,2), CENTER.offset(2,0,2));
     private static ItemStack upgraded(Item item, int tier) { var s = new ItemStack(item); s.set(ForgeUpgrades.TIER, tier); return s; }
     private static void close(GameTestHelper h, double value, double expected, String why) { h.assertTrue(Math.abs(value - expected) < .003, why + ": " + value + " != " + expected); }
@@ -47,7 +47,7 @@ public final class UpgradeGameTests {
         if (artisan) CuriosApi.getCuriosInventory(p).orElseThrow().setEquippedCurio("relic", 0, new ItemStack(ModItems.ARTISAN_RELIC.get()));
         return p;
     }
-    private static ServerPlayer starter(GameTestHelper h) {
+    static ServerPlayer starter(GameTestHelper h) {
         return new ServerPlayer(h.getLevel().getServer(), h.getLevel(), new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(), "upgrade-test"), net.minecraft.server.level.ClientInformation.createDefault());
     }
     private static List<Item> materials(int tier) {
@@ -59,7 +59,7 @@ public final class UpgradeGameTests {
             default -> List.of(Items.NETHERITE_BLOCK,Items.NETHERITE_BLOCK,ModBlocks.STELLARITE_BLOCK.get().asItem(),ModBlocks.STELLARITE_BLOCK.get().asItem(),ModItems.DARK_NETHER_STAR.get(),ModItems.DARK_NETHER_STAR.get(),ModItems.ETERNAL_STELLA.get(),ModItems.ETERNAL_STELLA.get());
         };
     }
-    private static void fill(GameTestHelper h, HephaestusForgeBlockEntity forge, int tier) {
+    static void fill(GameTestHelper h, HephaestusForgeBlockEntity forge, int tier) {
         var materials = materials(tier);
         for (int i = 0; i < 8; i++) {
             h.setBlock(SIDES.get(i), ModBlocks.DARKSTONE_PEDESTAL.get());
@@ -68,7 +68,7 @@ public final class UpgradeGameTests {
             pedestal.setStack(s, null, PedestalEffectTrigger.RITUAL_FINISHED); forge.updatePedestalStack(pedestal.getBlockPos(), s);
         }
     }
-    private static HephaestusForgeBlockEntity forge(GameTestHelper h, int tier, ItemStack main) {
+    static HephaestusForgeBlockEntity forge(GameTestHelper h, int tier, ItemStack main) {
         h.setBlock(CENTER, Blocks.AIR);
         h.setBlock(CENTER, List.of(ModBlocks.HEPHAESTUS_FORGE_TIER_1.get(),ModBlocks.HEPHAESTUS_FORGE_TIER_2.get(),ModBlocks.HEPHAESTUS_FORGE_TIER_3.get(),ModBlocks.HEPHAESTUS_FORGE_TIER_4.get(),ModBlocks.HEPHAESTUS_FORGE_TIER_5.get()).get(tier-1));
         HephaestusForgeBlockEntity f = h.getBlockEntity(CENTER);
@@ -78,7 +78,7 @@ public final class UpgradeGameTests {
         f.setStack(HephaestusForgeMenu.ENHANCERS_SLOTS.getInt(0), new ItemStack(ModItems.ARTISAN_RELIC.get()));
         return f;
     }
-    private static void finish(HephaestusForgeBlockEntity f) {
+    static void finish(HephaestusForgeBlockEntity f) {
         for (int i = 0; i <= 500; i++) f.getRitualManager().tick().ifPresent(s -> f.setStack(HephaestusForgeBlockEntity.MAIN_SLOT,s));
     }
     @GameTest(template = "guide_area")

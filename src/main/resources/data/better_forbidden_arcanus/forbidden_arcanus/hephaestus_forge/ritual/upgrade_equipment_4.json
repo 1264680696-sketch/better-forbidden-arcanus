@@ -1,6 +1,6 @@
 {
   "forge_tier": 4,
-  "match_tier_exact": true,
+  "match_tier_exact": false,
   "duration": 500,
   "essences": {
     "aureal": 0,

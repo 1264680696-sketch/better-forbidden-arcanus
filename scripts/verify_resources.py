@@ -76,7 +76,7 @@ with zipfile.ZipFile(next((ROOT / 'libs').glob('*forbidden_arcanus-2.6.1.jar')))
         assert tag['values'] == ['forbidden_arcanus:' + name]
     for tier in range(1,6):
         ritual = json.loads((DATA / f'better_forbidden_arcanus/forbidden_arcanus/hephaestus_forge/ritual/upgrade_equipment_{tier}.json').read_text())
-        assert ritual['forge_tier'] == tier and ritual['match_tier_exact'] and ritual['duration'] == 500
+        assert ritual['forge_tier'] == tier and not ritual['match_tier_exact'] and ritual['duration'] == 500
         assert sum(i['amount'] for i in ritual['inputs']) == 8
         assert all(v == 0 for v in ritual['essences'].values())
         assert ritual['enhancers'] == ['forbidden_arcanus:artisan_relic']

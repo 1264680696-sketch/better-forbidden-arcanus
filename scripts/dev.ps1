@@ -56,6 +56,9 @@ try {
             throw 'Guide check did not finish. Check runs/client-guide/logs/latest.log.'
         }
     }
+    if ($Tasks -contains 'runUpgradeTierGameTestServer') {
+        if (-not (Select-String -LiteralPath (Join-Path $taskProject 'runs/upgrade-tier-gametest/logs/latest.log') -Pattern 'All \d+ required tests passed' -Quiet)) { throw 'Upgrade tier tests did not finish.' }
+    }
     if ($Tasks -contains 'runRelicAcquisitionGameTestServer') {
         if (-not (Select-String -LiteralPath (Join-Path $taskProject 'runs/relic-acquisition-gametest/logs/latest.log') -Pattern 'All \d+ required tests passed' -Quiet)) { throw 'Relic acquisition tests did not finish.' }
     }
