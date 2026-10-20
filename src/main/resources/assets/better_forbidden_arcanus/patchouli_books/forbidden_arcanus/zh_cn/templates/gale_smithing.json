@@ -1,0 +1,57 @@
+{
+  "processor": "dev.betterforbiddenarcanus.client.GaleRecipeProcessor",
+  "components": [
+    {
+      "type": "patchouli:header",
+      "text": "疾风重锤",
+      "x": -1,
+      "y": 0
+    },
+    {
+      "type": "patchouli:separator",
+      "x": -1,
+      "y": 12
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#template",
+      "x": 8,
+      "y": 30,
+      "framed": true
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#base",
+      "x": 42,
+      "y": 50,
+      "framed": true
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#addition",
+      "x": 76,
+      "y": 30,
+      "framed": true
+    },
+    {
+      "type": "patchouli:text",
+      "text": "↓",
+      "x": 45,
+      "y": 82
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#result",
+      "x": 9,
+      "y": 68,
+      "framed": true
+    },
+    {
+      "type": "patchouli:text",
+      "text": "起飞咯。",
+      "x": 0,
+      "y": 104,
+      "max_width": 116
+    }
+  ]
+}

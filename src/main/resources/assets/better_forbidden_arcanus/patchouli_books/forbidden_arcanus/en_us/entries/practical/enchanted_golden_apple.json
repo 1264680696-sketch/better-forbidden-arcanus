@@ -1,18 +1,18 @@
 {
-  "name": "人工附魔金苹果",
+  "name": "Crafting Enchanted Golden Apples",
   "category": "better_forbidden_arcanus:practical",
   "icon": "minecraft:enchanted_golden_apple",
   "sortnum": 22,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "准备金色鳞片",
-      "text": "终于，附魔金苹果不再是天生地养的了。"
+      "title": "Prepare Golden Scales",
+      "text": "At last, Enchanted Golden Apples can be made by hand."
     },
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:enchanted_golden_apple",
-      "text": "金上加金"
+      "text": "Gold upon gold."
     }
   ]
 }

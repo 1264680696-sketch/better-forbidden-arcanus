@@ -1,13 +1,13 @@
 {
-  "name": "灵魂绑定水晶",
+  "name": "Soul Binding Crystal",
   "category": "better_forbidden_arcanus:forge_tier_4",
   "icon": "forbidden_arcanus:soul_binding_crystal",
   "sortnum": 10,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "灵魂绑定水晶",
-      "text": "有时，死亡也是在所难免的。灵魂绑定水晶可以在你死亡时保留你的物品与经验，使你免于找回的困扰。当然，是一次性的。"
+      "title": "Soul Binding Crystal",
+      "text": "Death is sometimes unavoidable. A Soul Binding Crystal preserves your items and experience when you die, sparing you the search to recover them. Its protection is single-use."
     },
     {
       "title": "soul binding crystal",
@@ -16,17 +16,17 @@
       "show_main": true,
       "show_result": true,
       "show_dynamic_result": false,
-      "result_summary": "动态产物",
+      "result_summary": "Dynamic Result",
       "duration": 500,
-      "duration_text": "25 秒",
+      "duration_text": "25 seconds",
       "aureal": 1500,
       "souls": 20,
       "blood": 375,
       "experience": 220,
-      "aureal_text": "辉光 1500",
-      "souls_text": "灵魂 20",
-      "blood_text": "血液 375",
-      "experience_text": "经验 220",
+      "aureal_text": "Aureal 1500",
+      "souls_text": "Souls 20",
+      "blood_text": "Blood 375",
+      "experience_text": "Experience 220",
       "relic_1": "forbidden_arcanus:divine_pact",
       "show_relics": true,
       "show_relic_1": true,

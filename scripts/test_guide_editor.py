@@ -68,4 +68,29 @@ class GuideSaveTests(unittest.TestCase):
         self.assertEqual({p:p.read_bytes() for p in editor.files()},self.original)
         self.assertFalse(any(p.name.startswith('tmp') for p in editor.RESOURCES.rglob('*')))
 
+    def test_bilingual_edit_preserves_other_translation_and_metadata_keys(self):
+        import shutil
+        english = editor.CONTENT
+        chinese = english.with_name('zh_cn')
+        shutil.copytree(english, chinese)
+        editor.CONTENT = chinese
+        keys = {'name':'book.better_forbidden_arcanus.name','landing_text':'book.better_forbidden_arcanus.landing_text'}
+        editor.BOOK.write_bytes(editor.encoded({**self.data['book'], **keys}))
+        for locale, title in [('zh_cn','中文书名'),('en_us','English Book')]:
+            p = editor.locale_file(locale);p.parent.mkdir(parents=True,exist_ok=True)
+            p.write_bytes(editor.encoded({keys['name']:title,keys['landing_text']:'Introduction'}))
+        english_before = {p:p.read_bytes() for p in english.rglob('*.json')}
+        data = editor.load()['document'];self.assertEqual(data['book']['name'],'中文书名')
+        data['book']['name'] = '新中文书名';data['entries']['draft']['name'] = '中文条目'
+        data['entries']['new'] = copy.deepcopy(data['entries']['draft'])
+        editor.save(data, editor.revision())
+        self.assertEqual(json.loads(editor.BOOK.read_text())['name'], keys['name'])
+        self.assertEqual(json.loads(editor.locale_file('zh_cn').read_text(encoding='utf8'))[keys['name']],'新中文书名')
+        self.assertEqual(json.loads(editor.locale_file('en_us').read_text())[keys['name']],'English Book')
+        self.assertEqual({p:p.read_bytes() for p in english_before},english_before)
+        self.assertTrue((english/'entries/new.json').exists())
+        del data['entries']['new'];editor.save(data,editor.revision())
+        self.assertFalse((english/'entries/new.json').exists())
+        self.assertFalse((chinese/'entries/new.json').exists())
+
 if __name__=='__main__':unittest.main()

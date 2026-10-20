@@ -1,19 +1,19 @@
 {
-  "name": "诅咒契约",
+  "name": "Maledictus Pact",
   "category": "better_forbidden_arcanus:relics",
   "icon": "forbidden_arcanus:maledictus_pact",
   "sortnum": 8,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "力量的代价",
-      "text": "可以在堡垒遗迹的宝藏中寻找它。"
+      "title": "The Price of Power",
+      "text": "Search the treasure of Bastion Remnants."
     },
     {
       "type": "patchouli:spotlight",
       "item": "forbidden_arcanus:maledictus_pact",
-      "text": "饰品效果：最大生命减少20%，造成的伤害增加40%。$(br)$(br)$(br)赫菲斯托斯锻炉效果：允许制作诅咒物品。",
-      "title": "诅咒契约"
+      "text": "Worn: -20% maximum health; +40% damage dealt.$(br2)Forge: enables cursed crafting.",
+      "title": "Maledictus Pact"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "name": "唤醒锻炉",
-  "description": "石阵只是躯壳，精华才使它运转。按结构投影搭建，再学习放置材料与启动仪式。",
+  "name": "Awakening the Forge",
+  "description": "Stone provides the shell; essence brings it to life. Follow the projection, arrange your materials and learn to start a ritual.",
   "icon": "forbidden_arcanus:hephaestus_forge_tier_1",
   "sortnum": 2
 }

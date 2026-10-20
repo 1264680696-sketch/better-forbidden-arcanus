@@ -33,7 +33,7 @@ public final class PrismGameTests{
    h.assertTrue(!recipe(h,ids[i]).isBaseIngredient(stack),"Duplicate rejected");
    h.assertTrue(stack.getDamageValue()==123&&ForgeUpgrades.tier(stack)==5&&stack.get(DataComponents.CUSTOM_NAME).getString().equals("起始之斧"),"Components retained");
   }
-  h.assertTrue(stack.has(DataComponents.UNBREAKABLE)&&stack.getHoverName().getString().equals("符文战斧"),"Full set unbreakable and no prefixes");
+  h.assertTrue(stack.has(DataComponents.UNBREAKABLE)&&stack.getHoverName().getSiblings().size()==4,"Full set unbreakable and no prefixes");
   var colors=new java.util.HashSet<Integer>();for(var part:stack.getHoverName().getSiblings())colors.add(part.getStyle().getColor().getValue());h.assertTrue(colors.size()==4,"Four independent letter colors");
   var loaded=ItemStack.parse(h.getLevel().registryAccess(),stack.save(h.getLevel().registryAccess())).orElseThrow();h.assertTrue(ItemStack.matches(stack,loaded),"Stack and components survive saving");
   h.succeed();

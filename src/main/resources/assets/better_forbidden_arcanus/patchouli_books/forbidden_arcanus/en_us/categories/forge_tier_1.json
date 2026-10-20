@@ -1,6 +1,6 @@
 {
-  "name": "1级锻炉 · 初燃",
-  "description": "沿着锻炉升阶，查阅本级首次可制的仪式。较高等级仍能执行此前的普通制物仪式。",
+  "name": "Tier I - First Flame",
+  "description": "Follow the forge upgrades to discover rituals first available at each tier. Higher tiers can still perform earlier item-creation rituals.",
   "icon": "forbidden_arcanus:hephaestus_forge_tier_1",
   "sortnum": 3
 }

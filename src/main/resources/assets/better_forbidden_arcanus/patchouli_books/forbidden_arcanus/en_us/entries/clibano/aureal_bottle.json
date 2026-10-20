@@ -1,13 +1,13 @@
 {
-  "name": "耀金瓶加工",
+  "name": "Aureal Bottle Processing",
   "category": "better_forbidden_arcanus:clibano",
   "icon": "forbidden_arcanus:aureal_bottle",
   "sortnum": 4,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "泪的形状",
-      "text": "在炽炉灵魂槽放腐化或附魔灵魂，1瓶耀金瓶便能烧成1个恶魂之泪。"
+      "title": "The Shape of Tears",
+      "text": "With a Corrupt or Enchanted Soul in the Clibano soul slot, smelt one Aureal Bottle into one Ghast Tear."
     }
   ]
 }

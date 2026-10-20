@@ -1,12 +1,12 @@
 {
-  "name": "暗黑石",
+  "name": "Darkstone",
   "category": "better_forbidden_arcanus:basics",
   "icon": "forbidden_arcanus:polished_darkstone",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "深埋于地下，其度过的时间比深板岩还要长久的黑色石材。这种纯粹的黑色不仅是搭建赫菲斯托斯锻炉的基石，也是上好的建筑材料。$(br)可通过合成或$(l)$(l)切石机$()$()获取系列方块"
+      "text": "Buried deep underground, this black stone is older even than deepslate. It forms the foundation of the Hephaestus Forge and makes a fine building material.$(br)Craft or $(l)stonecut$() it into its many variants."
     },
     {
       "type": "patchouli:crafting",

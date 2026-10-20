@@ -1,0 +1,92 @@
+{
+  "name": "升级至四级",
+  "category": "better_forbidden_arcanus:forge_tier_3",
+  "icon": "forbidden_arcanus:hephaestus_forge_tier_4",
+  "sortnum": 99,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "让炉火更盛",
+      "text": "迈向神之境界"
+    },
+    {
+      "title": "升级锻炉",
+      "main": "forbidden_arcanus:chiseled_polished_darkstone",
+      "result": "",
+      "show_main": true,
+      "show_result": false,
+      "show_dynamic_result": true,
+      "result_summary": "升级锻炉",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 2000,
+      "souls": 100,
+      "blood": 12000,
+      "experience": 0,
+      "aureal_text": "辉光 2000",
+      "souls_text": "灵魂 100",
+      "blood_text": "血液 12000",
+      "experience_text": "经验 0",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "",
+      "input_1": "forbidden_arcanus:stellarite_piece",
+      "input_2": "forbidden_arcanus:stellarite_piece",
+      "input_3": "forbidden_arcanus:stellarite_piece",
+      "input_4": "forbidden_arcanus:stellarite_piece",
+      "input_5": "forbidden_arcanus:rune",
+      "input_6": "forbidden_arcanus:rune",
+      "input_7": "forbidden_arcanus:rune",
+      "input_8": "forbidden_arcanus:rune",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": true,
+      "show_input_6": true,
+      "show_input_7": true,
+      "show_input_8": true,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "forbidden_arcanus:upgrade_tier_4",
+      "studio_ritual": {
+        "essences": {
+          "aureal": 2000,
+          "blood": 12000,
+          "souls": 100
+        },
+        "forge_tier": 3,
+        "inputs": [
+          {
+            "amount": 4,
+            "ingredient": {
+              "item": "forbidden_arcanus:stellarite_piece"
+            }
+          },
+          {
+            "amount": 4,
+            "ingredient": {
+              "item": "forbidden_arcanus:rune"
+            }
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:upgrade_tier",
+        "main_ingredient": {
+          "item": "forbidden_arcanus:chiseled_polished_darkstone"
+        },
+        "match_tier_exact": true,
+        "result": {
+          "type": "forbidden_arcanus:upgrade_tier",
+          "result_tier": 4
+        }
+      },
+      "studio_forge_warnings": []
+    }
+  ]
+}

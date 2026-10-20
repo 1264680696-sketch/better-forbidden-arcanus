@@ -1,0 +1,13 @@
+{
+  "name": "合金与残留物",
+  "category": "better_forbidden_arcanus:clibano",
+  "icon": "forbidden_arcanus:obsidiansteel_ingot",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "把黑曜石锻成钢",
+      "text": "天龙盔甲和腐化粉末都离不开黑曜钢。将粗铁与黑曜石分别放入炽炉双输入槽，再把工匠遗物放在增强器槽，炉火才会认出这项合金配方。"
+    }
+  ]
+}

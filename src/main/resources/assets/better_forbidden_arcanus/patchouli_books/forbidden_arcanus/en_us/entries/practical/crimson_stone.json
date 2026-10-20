@@ -1,29 +1,29 @@
 {
-  "name": "绯红之石",
+  "name": "Crimson Stone",
   "category": "better_forbidden_arcanus:relics",
   "icon": "forbidden_arcanus:crimson_stone",
   "sortnum": 7,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "血色的回声",
-      "text": "在掠夺者前哨站的宝箱中寻找绯红之石。"
+      "title": "An Echo of Blood",
+      "text": "Search Pillager Outpost chests for a Crimson Stone."
     },
     {
       "type": "patchouli:spotlight",
       "item": "forbidden_arcanus:crimson_stone",
-      "text": "饰品效果：增加获取的鲜血，你造成的部分伤害会恢复生命$(br)$(br)$(br)赫菲斯托斯锻炉效果：大幅减少所需灵魂数量，可叠加。$(br)$(br)放在罐上：缓慢增加鲜血",
-      "title": "绯红之石"
+      "text": "Worn: increases Blood collection and heals you for part of the damage you deal.$(br2)Forge: greatly reduces Souls requirements; can stack.$(br2)On a jar: slowly produces Blood.",
+      "title": "Crimson Stone"
     },
     {
       "type": "patchouli:text",
-      "title": "采血与锻造",
-      "text": "副手试管采血，以及玩家攻击向锻炉供给的血液，增加50%。将遗物改放在锻炉，则使灵魂精华基础需求减半。"
+      "title": "Blood and Forging",
+      "text": "Offhand test-tube collection and Blood supplied to a forge by player attacks gain 50%. Placed in the forge instead, this relic halves base Souls requirements."
     },
     {
       "type": "patchouli:text",
-      "title": "一只缓慢充盈的罐",
-      "text": "手持绯红之石右击空罐或血液罐，放置后每5秒生成3点血液。满罐暂停，不消耗遗物。空手潜行右击取回；打碎罐子也会返还。"
+      "title": "A Slowly Filling Jar",
+      "text": "Use a Crimson Stone on an empty or Blood-filled jar. It produces 3 Blood every 5 seconds and pauses when full. Sneak-use an empty hand to retrieve the relic; breaking the jar also returns it."
     }
   ]
 }

@@ -1,13 +1,13 @@
 {
-  "name": "天龙工具与武器",
+  "name": "Draco Tools and Weapons",
   "category": "better_forbidden_arcanus:practical",
   "icon": "forbidden_arcanus:draco_arcanus_pickaxe",
   "sortnum": 20,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "龙鳞作刃",
-      "text": "坚韧的龙鳞、黑曜钢与天龙杖柄，组成了这套工具与武器。"
+      "title": "Dragon Scales as Blades",
+      "text": "Dragon Scales, Obsidiansteel and Draco Arcanus Staffs form this set of tools and weapons."
     },
     {
       "type": "patchouli:crafting",
@@ -17,7 +17,7 @@
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:draco_arcanus_sword",
-      "text": "对末影龙额外增加100%伤害"
+      "text": "+100% damage against the Ender Dragon."
     },
     {
       "type": "patchouli:crafting",
@@ -27,7 +27,7 @@
     {
       "type": "patchouli:crafting",
       "recipe": "better_forbidden_arcanus:draco_arcanus_axe",
-      "text": "持天龙斧击杀凋零骷髅，头颅概率增加30%"
+      "text": "Kill Wither Skeletons with the Draco axe for +30% skull drop chance."
     },
     {
       "type": "patchouli:crafting",
@@ -41,13 +41,13 @@
     },
     {
       "type": "patchouli:text",
-      "title": "近战属性",
-      "text": "伤害／攻击速度：$(br)剑：12／1.8$(br)镐：10／1.4$(br)斧：14／1.2$(br)锹：10.5／1.2$(br)锄：4／5$(br2)强化后的物品提示会直接显示最终属性。"
+      "title": "Melee Attributes",
+      "text": "Damage / Attack Speed:$(br)Sword: 12 / 1.8$(br)Pickaxe: 10 / 1.4$(br)Axe: 14 / 1.2$(br)Shovel: 10.5 / 1.2$(br)Hoe: 4 / 5$(br2)Upgraded tooltips show the final attributes directly."
     },
     {
       "type": "patchouli:text",
-      "title": "取下凋零头颅",
-      "text": "主手持天龙斧近战击杀凋零骷髅，头颅概率额外增加30个百分点：未附魔时32.5%，抢夺III时35.5%。每次最多一颗；远程击杀不能借用手持斧的加成。"
+      "title": "Take a Wither Skull",
+      "text": "A mainhand Draco axe melee kill adds 30 percentage points to a Wither Skeleton's skull chance: 32.5% without Looting, 35.5% with Looting III. At most one skull drops. Ranged kills cannot borrow this bonus."
     }
   ]
 }

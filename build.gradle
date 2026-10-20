@@ -68,6 +68,13 @@ neoForge {
             loadedMods = [mods."${mod_id}", mods.bfa_tests]
             systemProperty 'bfa.handbookTest', 'true'
         }
+        clientLocalization {
+            client()
+            sourceSet = sourceSets.gametest
+            gameDirectory = project.file('runs/client-localization')
+            loadedMods = [mods."${mod_id}", mods.bfa_tests]
+            systemProperty 'bfa.localizationTest', 'true'
+        }
         upgradeTierGameTestServer {
             type = 'gameTestServer'
             sourceSet = sourceSets.gametest

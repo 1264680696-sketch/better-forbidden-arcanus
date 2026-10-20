@@ -1,13 +1,13 @@
 {
-  "name": "旋风棱晶",
+  "name": "Whirlwind Prism",
   "category": "better_forbidden_arcanus:forge_tier_3",
   "icon": "forbidden_arcanus:whirlwind_prism",
   "sortnum": 10,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "旋风棱晶",
-      "text": "对方块使用旋风棱晶，会留下短暂的上升气流。进入气流即可升高，顶部还会给予短暂缓降。还可用于强化重锤，使重锤可以释放风弹；用于护腿时，可以二段跳。"
+      "title": "Whirlwind Prism",
+      "text": "Use the prism on a block to create a temporary updraft. It lifts you and briefly grants Slow Falling at the top.$(br2)It can also upgrade a Mace with wind power, or leggings with a double jump."
     },
     {
       "title": "whirlwind prism",
@@ -16,17 +16,17 @@
       "show_main": true,
       "show_result": true,
       "show_dynamic_result": false,
-      "result_summary": "动态产物",
+      "result_summary": "Dynamic Result",
       "duration": 500,
-      "duration_text": "25 秒",
+      "duration_text": "25 seconds",
       "aureal": 1000,
       "souls": 3,
       "blood": 2250,
       "experience": 0,
-      "aureal_text": "辉光 1000",
-      "souls_text": "灵魂 3",
-      "blood_text": "血液 2250",
-      "experience_text": "经验 0",
+      "aureal_text": "Aureal 1000",
+      "souls_text": "Souls 3",
+      "blood_text": "Blood 2250",
+      "experience_text": "Experience 0",
       "relic_1": "forbidden_arcanus:elementarium",
       "show_relics": true,
       "show_relic_1": true,

@@ -1,0 +1,17 @@
+{
+  "name": "腐化粉末",
+  "category": "better_forbidden_arcanus:basics",
+  "icon": "forbidden_arcanus:corrupti_dust",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "以神秘水晶粉为基底，所制成的不纯之物，用于唤醒远古的结构和物品加工。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:corrupti_dust",
+      "text": ""
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "name": "升级至五级",
+  "category": "better_forbidden_arcanus:forge_tier_4",
+  "icon": "forbidden_arcanus:hephaestus_forge_tier_5",
+  "sortnum": 99,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "让炉火更盛",
+      "text": "这就是终极形态了"
+    },
+    {
+      "title": "升级锻炉",
+      "main": "forbidden_arcanus:stellarite_block",
+      "result": "",
+      "show_main": true,
+      "show_result": false,
+      "show_dynamic_result": true,
+      "result_summary": "升级锻炉",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 5000,
+      "souls": 500,
+      "blood": 20000,
+      "experience": 0,
+      "aureal_text": "辉光 5000",
+      "souls_text": "灵魂 500",
+      "blood_text": "血液 20000",
+      "experience_text": "经验 0",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "",
+      "input_1": "minecraft:sculk_catalyst",
+      "input_2": "minecraft:sculk_catalyst",
+      "input_3": "minecraft:sculk_catalyst",
+      "input_4": "minecraft:sculk_catalyst",
+      "input_5": "forbidden_arcanus:dark_nether_star",
+      "input_6": "forbidden_arcanus:dark_nether_star",
+      "input_7": "forbidden_arcanus:dragon_scale",
+      "input_8": "forbidden_arcanus:dragon_scale",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": true,
+      "show_input_6": true,
+      "show_input_7": true,
+      "show_input_8": true,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "forbidden_arcanus:upgrade_tier_5",
+      "studio_ritual": {
+        "essences": {
+          "aureal": 5000,
+          "blood": 20000,
+          "souls": 500
+        },
+        "forge_tier": 4,
+        "inputs": [
+          {
+            "amount": 4,
+            "ingredient": {
+              "item": "minecraft:sculk_catalyst"
+            }
+          },
+          {
+            "amount": 2,
+            "ingredient": {
+              "item": "forbidden_arcanus:dark_nether_star"
+            }
+          },
+          {
+            "amount": 2,
+            "ingredient": {
+              "item": "forbidden_arcanus:dragon_scale"
+            }
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:upgrade_final_tier",
+        "main_ingredient": {
+          "item": "forbidden_arcanus:stellarite_block"
+        },
+        "match_tier_exact": true,
+        "result": {
+          "type": "forbidden_arcanus:upgrade_tier",
+          "result_tier": 5
+        }
+      },
+      "studio_forge_warnings": []
+    }
+  ]
+}

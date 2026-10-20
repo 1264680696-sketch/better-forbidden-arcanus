@@ -1,0 +1,17 @@
+{
+  "name": "瓶罐",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:utrem_jar",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "当锻炉容量达到上限时，你需要额外的存储来保存各种精华，那么瓶罐就能发挥它的用处了。$(br)你可以通过投入各类精华物品来存进瓶罐里，比如灵魂，耀金瓶等。当然，你也可以手持对应的容器将里面的精华再取出来，用于合成加工。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:utrem_jar",
+      "text": "不需要标签了"
+    }
+  ]
+}

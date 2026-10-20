@@ -1,0 +1,33 @@
+{
+  "name": "亡骨盔甲",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:mortem_chestplate",
+  "sortnum": 16,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "骨骼挡住飞矢",
+      "text": "事实证明，骨头对于远程攻击有着良好的防御效果。$(br)$(br)每件亡骨盔甲减少12.5%弹射物伤害，"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:mortem_helmet",
+      "text": "$(br)"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:mortem_chestplate",
+      "text": ""
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:mortem_leggings",
+      "text": ""
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:mortem_boots",
+      "text": ""
+    }
+  ]
+}

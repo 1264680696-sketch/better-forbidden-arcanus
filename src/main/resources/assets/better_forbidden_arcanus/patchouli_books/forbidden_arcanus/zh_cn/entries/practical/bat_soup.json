@@ -1,0 +1,18 @@
+{
+  "name": "蝙蝠翼与蝙蝠汤",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:bat_soup",
+  "sortnum": 16,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "夜行者的晚餐",
+      "text": "想要在洞穴里来去自如，就要学习洞穴里的王者——蝙蝠$(br)但正所谓学的好不如吃的好，遂得此汤$(br)$(br)饮用后获得速度，夜视与发光效果"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:bat_soup",
+      "text": "抓到你了"
+    }
+  ]
+}

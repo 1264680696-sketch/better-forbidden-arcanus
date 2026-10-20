@@ -1,0 +1,53 @@
+{
+  "name": "天龙工具与武器",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:draco_arcanus_pickaxe",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "龙鳞作刃",
+      "text": "坚韧的龙鳞、黑曜钢与天龙杖柄，组成了这套工具与武器。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:draco_arcanus_staff",
+      "text": ""
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:draco_arcanus_sword",
+      "text": "对末影龙额外增加100%伤害"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:draco_arcanus_pickaxe",
+      "text": ""
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:draco_arcanus_axe",
+      "text": "持天龙斧击杀凋零骷髅，头颅概率增加30%"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:draco_arcanus_shovel",
+      "text": ""
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:draco_arcanus_hoe",
+      "text": ""
+    },
+    {
+      "type": "patchouli:text",
+      "title": "近战属性",
+      "text": "伤害／攻击速度：$(br)剑：12／1.8$(br)镐：10／1.4$(br)斧：14／1.2$(br)锹：10.5／1.2$(br)锄：4／5$(br2)强化后的物品提示会直接显示最终属性。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "取下凋零头颅",
+      "text": "主手持天龙斧近战击杀凋零骷髅，头颅概率额外增加30个百分点：未附魔时32.5%，抢夺III时35.5%。每次最多一颗；远程击杀不能借用手持斧的加成。"
+    }
+  ]
+}

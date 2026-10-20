@@ -1,13 +1,13 @@
 {
-  "name": "神秘龙蛋",
+  "name": "Arcane Dragon Egg",
   "category": "better_forbidden_arcanus:practical",
   "icon": "forbidden_arcanus:arcane_dragon_egg",
   "sortnum": 18,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "留住龙的馈赠",
-      "text": "神秘龙蛋有两种用途：在世界中放置，便会定期产出四种鳞片；紧贴有效信标顶面放置，还能让信标范围内的玩家自由飞行。"
+      "title": "A Dragon's Gift",
+      "text": "Place an Arcane Dragon Egg in the world to produce four kinds of scales over time. Place it directly on top of an active Beacon to grant free flight within the Beacon's range."
     },
     {
       "type": "patchouli:crafting",

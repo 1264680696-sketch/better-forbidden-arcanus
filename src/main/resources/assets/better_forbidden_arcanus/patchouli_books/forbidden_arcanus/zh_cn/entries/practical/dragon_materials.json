@@ -1,0 +1,33 @@
+{
+  "name": "龙鳞的用途",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:dragon_scale",
+  "sortnum": 24,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "鳞片的去处",
+      "text": "普通龙鳞可制作天龙装备与复制鞘翅。金色、银色与水生鳞片各有用途，也都能在$(l:better_forbidden_arcanus:clibano/scale_recycling)炽炉$(/l)中烧回普通龙鳞。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:dragon_scale",
+      "text": "击杀末影龙后掉落"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:aquatic_dragon_scale",
+      "text": ""
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:golden_dragon_scale",
+      "text": ""
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:silver_dragon_scale",
+      "text": ""
+    }
+  ]
+}

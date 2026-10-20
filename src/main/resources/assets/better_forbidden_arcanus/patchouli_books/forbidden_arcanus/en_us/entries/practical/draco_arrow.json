@@ -1,18 +1,18 @@
 {
-  "name": "天龙箭矢",
+  "name": "Draco Arcanus Arrow",
   "category": "better_forbidden_arcanus:practical",
   "icon": "forbidden_arcanus:draco_arcanus_arrow",
   "sortnum": 19,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "箭落，龙息升起",
-      "text": "天龙箭矢命中生物会留下特殊的龙息。云内的生物会被持续伤害，并获得缓慢与虚弱效果。"
+      "title": "An Arrow, Then Dragon Breath",
+      "text": "A Draco Arcanus Arrow leaves special dragon breath when it hits a creature. Creatures in the cloud take ongoing damage and receive Slowness and Weakness."
     },
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:draco_arcanus_arrow",
-      "text": "如此粉嫩"
+      "text": "Pretty in pink."
     }
   ]
 }

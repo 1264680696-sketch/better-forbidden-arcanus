@@ -1,18 +1,18 @@
 {
-  "name": "启动一次仪式",
+  "name": "Starting a Ritual",
   "category": "better_forbidden_arcanus:forge_setup",
   "icon": "forbidden_arcanus:iron_blacksmith_gavel",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "敲下第一锤",
-      "text": "核对锻炉等级，把主材料放中央，辅料分放基座。随后放入必要增强器，补足精华，用锻工锤右击锻炉。通常等待25秒，法阵便会完成工作。"
+      "title": "The First Hammer Blow",
+      "text": "Check the forge tier. Place the main ingredient in the center and the other ingredients on pedestals. Add required enhancers and essences, then use a Blacksmith Gavel on the forge. Most rituals take 25 seconds."
     },
     {
       "type": "patchouli:text",
-      "title": "增强遗物",
-      "text": "锻炉的小槽用于放置增强遗物；增强遗物多种多样，且都会对锻炉产生不同的增益"
+      "title": "Enhancer Relics",
+      "text": "The forge's small slots hold enhancer relics. Different relics provide different benefits."
     },
     {
       "type": "patchouli:crafting",
@@ -23,7 +23,7 @@
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:iron_blacksmith_gavel",
-      "text": "用锻工锤启动仪式；其他材质的锤也可使用。",
+      "text": "Use a Blacksmith Gavel to start the ritual. Gavels made from other materials work too.",
       "title": ""
     }
   ]

@@ -1,17 +1,17 @@
 {
-  "name": "搭建第一座锻炉",
+  "name": "Your First Forge",
   "category": "better_forbidden_arcanus:forge_setup",
   "icon": "forbidden_arcanus:hephaestus_forge_tier_1",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "第一座锻炉",
-      "text": "赫菲斯托斯锻炉是一切仪式的中心。$(br)要获得赫菲斯托斯熔炉，需要 48 块磨制暗黑石、9 块神秘雕纹磨制暗黑石、4 块雕纹神秘磨制暗黑石，1 个锻造台，1个洁净粉末。将锻造台放在中央，然后通过洁净粉末潜行+右键单击锻造台，创建一级赫菲斯托斯熔炉。"
+      "title": "The First Forge",
+      "text": "The Hephaestus Forge is the heart of ritual crafting.$(br2)Gather 48 Polished Darkstone, 9 Gilded Chiseled Polished Darkstone, 4 Chiseled Arcane Polished Darkstone, a Smithing Table and Mundabitur Dust. Place the table in the center; sneak-use the dust on it to create a tier-I forge."
     },
     {
       "type": "patchouli:multiblock",
-      "name": "祭坛建造前",
+      "name": "Forge Blueprint",
       "multiblock": {
         "pattern": [
           [
@@ -47,12 +47,12 @@
         "symmetrical": true
       },
       "enable_visualize": true,
-      "text": "精密仪器，切勿移动$(br)$(br)"
+      "text": "Precision equipment. Handle with care."
     },
     {
       "type": "patchouli:text",
-      "title": "第一座锻炉",
-      "text": "中央大槽只容纳仪式主材料。其余材料交给四周的八个基座：它们立在外围镀金石上，每份辅料各占一个席位。"
+      "title": "The First Forge",
+      "text": "The central slot holds the ritual's main ingredient. Place the remaining materials on eight pedestals around it, above the outer gilded stones. Each ingredient occupies one pedestal."
     }
   ]
 }

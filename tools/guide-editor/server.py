@@ -20,7 +20,7 @@ RESOURCES = PROJECT / 'src/main/resources'
 NAMESPACE = 'better_forbidden_arcanus'
 BOOK_ID = NAMESPACE + ':forbidden_arcanus'
 BOOK = RESOURCES / 'data' / NAMESPACE / 'patchouli_books/forbidden_arcanus/book.json'
-CONTENT = RESOURCES / 'assets' / NAMESPACE / 'patchouli_books/forbidden_arcanus/en_us'
+CONTENT = RESOURCES / 'assets' / NAMESPACE / 'patchouli_books/forbidden_arcanus/zh_cn'
 SAFE_ID = re.compile(r'[a-z0-9_-]+(?:/[a-z0-9_-]+)*\Z')
 RESOURCE_ID = re.compile(r'[a-z0-9_.-]+:[a-z0-9_./-]+\Z')
 TOKEN = os.environ.get('BFA_GUIDE_EDITOR_TOKEN') or secrets.token_urlsafe(32)
@@ -219,7 +219,7 @@ def crafting_recipe(recipe_id):
     item = result.get('id', result.get('item', 'minecraft:air'))
     title = item_name(item)
     if result.get('components', {}).get('patchouli:book') == BOOK_ID:
-        title = json.loads(BOOK.read_text(encoding='utf-8-sig'))['name']
+        title = editor_book()['name']
     return {'grid': grid, 'output': item, 'count': result.get('count', 1), 'name': title,
             'shapeless': kind == 'minecraft:crafting_shapeless'}
 
@@ -266,9 +266,28 @@ def unicode_glyphs():
     return glyphs
 
 
+def locale_file(locale):
+    return RESOURCES / 'assets' / NAMESPACE / 'lang' / (locale + '.json')
+
+
+def editor_book():
+    book = json.loads(BOOK.read_text(encoding='utf-8-sig'))
+    path = locale_file(CONTENT.name)
+    translations = json.loads(path.read_text(encoding='utf-8-sig')) if path.exists() else {}
+    for field in ('name', 'landing_text'):
+        book[field] = translations.get(book.get(field), book.get(field))
+    return book
+
+
 def files():
-    return [BOOK] + [p for kind in ('categories', 'entries')
-                     for p in sorted((CONTENT / kind).rglob('*.json'))]
+    result = [BOOK]
+    for locale in ('en_us', 'zh_cn'):
+        path = locale_file(locale)
+        if path.exists():
+            result.append(path)
+        for kind in ('categories', 'entries'):
+            result.extend(sorted((CONTENT.parent / locale / kind).rglob('*.json')))
+    return result
 
 
 def revision():
@@ -281,7 +300,7 @@ def revision():
 
 
 def load():
-    data = {'book': json.loads(BOOK.read_text(encoding='utf-8-sig'))}
+    data = {'book': editor_book()}
     for kind in ('categories', 'entries'):
         data[kind] = {p.relative_to(CONTENT / kind).with_suffix('').as_posix():
                       json.loads(p.read_text(encoding='utf-8-sig'))
@@ -338,13 +357,32 @@ def encoded(value):
 
 
 def target_files(data):
-    targets = {BOOK: encoded(data['book'])}
+    # Preserve the other translation; canonical English IDs also index new Chinese entries.
+    targets = {p: p.read_bytes() for p in files() if p != BOOK and not p.is_relative_to(CONTENT)}
+    book = dict(data['book'])
+    raw = json.loads(BOOK.read_text(encoding='utf-8-sig')) if BOOK.exists() else data['book']
+    path = locale_file(CONTENT.name)
+    language = json.loads(path.read_text(encoding='utf-8-sig')) if path.exists() else {}
+    for field in ('name', 'landing_text'):
+        key = raw.get(field, '')
+        if key.startswith('book.' + NAMESPACE + '.'):
+            language[key] = book[field]
+            book[field] = key
+            targets[path] = encoded(language)
+    targets[BOOK] = encoded(book)
+    other = CONTENT.parent / ('en_us' if CONTENT.name == 'zh_cn' else 'zh_cn')
     for kind in ('categories', 'entries'):
         for key, value in data[kind].items():
             path = CONTENT / kind / (key + '.json')
             if not path.resolve().is_relative_to(CONTENT.resolve()):
                 raise ValueError('保存路径超出手册目录。')
             targets[path] = encoded(value)
+            counterpart = other / kind / (key + '.json')
+            if CONTENT.name == 'zh_cn' and not counterpart.exists():
+                targets[counterpart] = encoded(value)
+        for old in (CONTENT / kind).rglob('*.json'):
+            if old not in targets:
+                targets.pop(other / kind / old.relative_to(CONTENT / kind), None)
     return targets
 
 
@@ -473,7 +511,7 @@ class Handler(BaseHTTPRequestHandler):
                 with zipfile.ZipFile(output, 'w', zipfile.ZIP_DEFLATED) as archive:
                     archive.writestr('pack.mcmeta', encoded({'pack': {'pack_format': 34, 'description': '禁忌与奥秘 · 手册内容预览'}}))
                     for path in files():
-                        if path.is_relative_to(CONTENT):
+                        if path.is_relative_to(CONTENT.parent) or path.parent == locale_file(CONTENT.name).parent:
                             archive.writestr(path.relative_to(RESOURCES).as_posix(), path.read_bytes())
                 return self.send(output.getvalue(), mime='application/zip')
             if route.path == '/api/icon':
@@ -535,14 +573,16 @@ if __name__ == '__main__':
     parser.add_argument('--port', type=int, default=18741)
     parser.add_argument('--open', action='store_true')
     parser.add_argument('--content-root', type=Path, help='Use an isolated copy of the resource folder for authoring or verification.')
+    parser.add_argument('--lang', choices=('zh_cn', 'en_us'), default='zh_cn', help='Handbook language to edit (default: zh_cn).')
     args = parser.parse_args()
     if args.content_root:
         RESOURCES = args.content_root.resolve()
         BOOK = RESOURCES / 'data' / NAMESPACE / 'patchouli_books/forbidden_arcanus/book.json'
-        CONTENT = RESOURCES / 'assets' / NAMESPACE / 'patchouli_books/forbidden_arcanus/en_us'
+        CONTENT = RESOURCES / 'assets' / NAMESPACE / 'patchouli_books/forbidden_arcanus/zh_cn'
         BACKUPS = RESOURCES.parent / '.guide-backups'
         if not BOOK.is_file():
             raise SystemExit('The resource copy does not contain this guide book.')
+    CONTENT = CONTENT.parent / args.lang
     try:
         server = ThreadingHTTPServer(('127.0.0.1', args.port), Handler)
     except OSError:

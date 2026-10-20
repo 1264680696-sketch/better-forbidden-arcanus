@@ -1,12 +1,12 @@
 {
-  "name": "圣金锭",
+  "name": "Deorum Ingot",
   "category": "better_forbidden_arcanus:basics",
   "icon": "forbidden_arcanus:deorum_ingot",
   "sortnum": 5,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "神圣柔软的金属，不太适合锻造工具与盔甲，但与其他物品有绝佳的融合性。"
+      "text": "A sacred, soft metal. Poor for tools or armor, but remarkably compatible with other materials."
     },
     {
       "type": "patchouli:crafting",

@@ -1,0 +1,133 @@
+{
+  "name": "灵魂绯红之石",
+  "category": "better_forbidden_arcanus:relics",
+  "icon": "forbidden_arcanus:soul_crimson_stone",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "让精华沉默",
+      "text": "把灵魂绯红之石放进锻炉，四种精华的基础需求倍率变为0。"
+    },
+    {
+      "title": "灵魂绯红之石",
+      "main": "forbidden_arcanus:crimson_stone",
+      "result": "forbidden_arcanus:soul_crimson_stone",
+      "show_main": true,
+      "show_result": true,
+      "show_dynamic_result": false,
+      "result_summary": "动态产物",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 10000,
+      "souls": 500,
+      "blood": 50000,
+      "experience": 3750,
+      "aureal_text": "辉光 10000",
+      "souls_text": "灵魂 500",
+      "blood_text": "血液 50000",
+      "experience_text": "经验 3750",
+      "relic_1": "minecraft:air",
+      "show_relics": false,
+      "show_relic_1": false,
+      "text": "",
+      "input_1": "forbidden_arcanus:divine_pact",
+      "input_2": "forbidden_arcanus:maledictus_pact",
+      "input_3": "forbidden_arcanus:crescent_moon",
+      "input_4": "forbidden_arcanus:elementarium",
+      "input_5": "forbidden_arcanus:artisan_relic",
+      "input_6": "forbidden_arcanus:soul_binding_crystal",
+      "input_7": "forbidden_arcanus:dark_nether_star",
+      "input_8": "forbidden_arcanus:eternal_stella",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": true,
+      "show_input_6": true,
+      "show_input_7": true,
+      "show_input_8": true,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "better_forbidden_arcanus:soul_crimson_stone",
+      "studio_ritual": {
+        "forge_tier": 5,
+        "match_tier_exact": true,
+        "duration": 500,
+        "essences": {
+          "aureal": 10000,
+          "souls": 500,
+          "blood": 50000,
+          "experience": 3750
+        },
+        "main_ingredient": {
+          "item": "forbidden_arcanus:crimson_stone"
+        },
+        "inputs": [
+          {
+            "ingredient": {
+              "item": "forbidden_arcanus:divine_pact"
+            },
+            "amount": 1
+          },
+          {
+            "ingredient": {
+              "item": "forbidden_arcanus:maledictus_pact"
+            },
+            "amount": 1
+          },
+          {
+            "ingredient": {
+              "item": "forbidden_arcanus:crescent_moon"
+            },
+            "amount": 1
+          },
+          {
+            "ingredient": {
+              "item": "forbidden_arcanus:elementarium"
+            },
+            "amount": 1
+          },
+          {
+            "ingredient": {
+              "item": "forbidden_arcanus:artisan_relic"
+            },
+            "amount": 1
+          },
+          {
+            "ingredient": {
+              "item": "forbidden_arcanus:soul_binding_crystal"
+            },
+            "amount": 1
+          },
+          {
+            "ingredient": {
+              "item": "forbidden_arcanus:dark_nether_star"
+            },
+            "amount": 1
+          },
+          {
+            "ingredient": {
+              "item": "forbidden_arcanus:eternal_stella"
+            },
+            "amount": 1
+          }
+        ],
+        "magic_circle": "forbidden_arcanus:create_item",
+        "result": {
+          "type": "forbidden_arcanus:create_item",
+          "result_item": {
+            "id": "forbidden_arcanus:soul_crimson_stone",
+            "count": 1
+          }
+        }
+      },
+      "studio_forge_warnings": []
+    }
+  ]
+}

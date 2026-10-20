@@ -1,0 +1,18 @@
+{
+  "name": "魔杖与陨石探测",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:magic_wand",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:magic_wand",
+      "text": "水晶、埃德木棍与流星碎片，组成探索时的第一根魔杖。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "不只用来战斗",
+      "text": "右键蓄力发射耀金飞弹。潜行右键则向周围64格球形范围探测奥术陨石。"
+    }
+  ]
+}

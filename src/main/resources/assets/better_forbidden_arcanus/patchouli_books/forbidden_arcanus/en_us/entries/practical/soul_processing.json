@@ -1,18 +1,18 @@
 {
-  "name": "炽炉的灵魂加工",
+  "name": "Soul Processing in the Clibano",
   "category": "better_forbidden_arcanus:clibano",
   "icon": "minecraft:soul_sand",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "火焰记得灵魂",
-      "text": "普通、腐化与附魔灵魂放在炽炉灵魂槽中，都会保留而不消耗。速度分别为1.25、1.5与2.5倍；"
+      "title": "The Fire Remembers",
+      "text": "Ordinary, Corrupt and Enchanted Souls remain in the Clibano soul slot without being consumed. They grant processing speeds of 1.25x, 1.5x and 2.5x respectively."
     },
     {
       "type": "patchouli:text",
-      "title": "把沙中的灵魂烧出",
-      "text": "槽内有腐化或附魔灵魂时，每1份灵魂沙烧出1个普通灵魂，残留物为失魂沙。"
+      "title": "Burn the Soul out of Sand",
+      "text": "With a Corrupt or Enchanted Soul in the slot, each Soul Sand produces one ordinary Soul, with Soulless Sand as residue."
     }
   ]
 }

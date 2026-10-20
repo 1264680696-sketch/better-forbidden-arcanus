@@ -1,13 +1,13 @@
 {
-  "name": "附魔灵魂",
+  "name": "Enchanted Soul",
   "category": "better_forbidden_arcanus:forge_tier_3",
   "icon": "forbidden_arcanus:enchanted_soul",
   "sortnum": 10,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "附魔灵魂",
-      "text": "以附魔之瓶灌注腐化灵魂，得到更凝练的附魔灵魂。它一次可供给10点灵魂精华，或留在炽炉中，将加工速度提高至2.5倍。"
+      "title": "Enchanted Soul",
+      "text": "Infuse a Corrupt Soul with Bottles o' Enchanting for a more concentrated soul. It supplies 10 Souls essence, or accelerates the Clibano to 2.5 times normal speed."
     },
     {
       "title": "enchanted soul",
@@ -16,17 +16,17 @@
       "show_main": true,
       "show_result": true,
       "show_dynamic_result": false,
-      "result_summary": "动态产物",
+      "result_summary": "Dynamic Result",
       "duration": 500,
-      "duration_text": "25 秒",
+      "duration_text": "25 seconds",
       "aureal": 500,
       "souls": 20,
       "blood": 500,
       "experience": 0,
-      "aureal_text": "辉光 500",
-      "souls_text": "灵魂 20",
-      "blood_text": "血液 500",
-      "experience_text": "经验 0",
+      "aureal_text": "Aureal 500",
+      "souls_text": "Souls 20",
+      "blood_text": "Blood 500",
+      "experience_text": "Experience 0",
       "relic_1": "minecraft:air",
       "show_relics": false,
       "show_relic_1": false,

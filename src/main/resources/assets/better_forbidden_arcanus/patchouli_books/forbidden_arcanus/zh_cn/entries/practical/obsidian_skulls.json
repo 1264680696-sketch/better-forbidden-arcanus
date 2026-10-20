@@ -1,0 +1,38 @@
+{
+  "name": "黑曜石头骨",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:obsidian_skull",
+  "sortnum": 21,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "替你承受火焰",
+      "text": "用黑曜钢包住骷髅头颅，制成黑曜石头骨。戴在头部并着火时，它会逐渐裂纹、碎裂、消逝，最后留下普通骷髅头颅。$(br)$(br)$(br)每个阶段累计约8至13秒着火时间，可使用黑曜石钢来修复"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:obsidian_skull",
+      "text": "$(br)"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:fragmented_obsidian_skull",
+      "text": "$(br)"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:cracked_obsidian_skull",
+      "text": "$(br)"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:obsidian_skull_from_cracked_obsidian_skull",
+      "text": "$(br)"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:eternal_obsidian_skull",
+      "text": "使用永恒之石锻造而成"
+    }
+  ]
+}

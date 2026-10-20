@@ -3,7 +3,7 @@
   "components": [
     {
       "type": "patchouli:header",
-      "text": "疾风重锤",
+      "text": "Gale Mace",
       "x": -1,
       "y": 0
     },
@@ -48,7 +48,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "起飞咯。",
+      "text": "Up we go!",
       "x": 0,
       "y": 104,
       "max_width": 116

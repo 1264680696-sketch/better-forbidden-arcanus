@@ -1,19 +1,19 @@
 {
-  "name": "神圣契约",
+  "name": "Divine Pact",
   "category": "better_forbidden_arcanus:relics",
   "icon": "forbidden_arcanus:divine_pact",
   "sortnum": 9,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "与神圣立约",
-      "text": "牧师村民升至二级（学徒）后，可能提供16个绿宝石换取1份神圣契约的交易。"
+      "title": "A Sacred Agreement",
+      "text": "At level 2 (Apprentice), a Cleric may offer one Divine Pact for 16 Emeralds."
     },
     {
       "type": "patchouli:spotlight",
       "item": "forbidden_arcanus:divine_pact",
-      "text": "饰品效果：增加对亡灵生物的伤害，当生命值较低时，获得生命恢复。$(br)$(br)赫菲斯托斯锻炉效果：允许制作天界物品$(br)$(br)",
-      "title": "神圣契约"
+      "text": "Worn: increases damage against undead and grants Regeneration at low health.$(br2)Forge: enables celestial crafting.",
+      "title": "Divine Pact"
     }
   ]
 }

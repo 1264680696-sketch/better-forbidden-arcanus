@@ -1,5 +1,5 @@
 {
-  "name": "幽灵之眼护身符",
+  "name": "Spectral Eye Amulet",
   "category": "better_forbidden_arcanus:practical",
   "icon": "forbidden_arcanus:spectral_eye_amulet",
   "sortnum": 24,
@@ -7,13 +7,13 @@
     {
       "type": "patchouli:crafting",
       "recipe": "forbidden_arcanus:spectral_eye_amulet",
-      "text": "以附魔灵魂居中，配合线、神秘金锭与末影之眼制作护身符。",
+      "text": "Craft it with an Enchanted Soul in the center, String, Deorum Ingots and an Eye of Ender.",
       "title": ""
     },
     {
       "type": "patchouli:text",
-      "title": "看见隐蔽的生命",
-      "text": "右键开启或关闭幽灵视野，启用后留在背包中即可生效。高亮限定在以你为中心40格的球形范围，"
+      "title": "See Hidden Life",
+      "text": "Use to toggle spectral vision; keep it in your inventory while enabled. Highlights are limited to a 40-block spherical radius around you."
     }
   ]
 }

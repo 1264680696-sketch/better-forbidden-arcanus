@@ -1,12 +1,12 @@
 {
-  "name": "洁净粉末",
+  "name": "Mundabitur Dust",
   "category": "better_forbidden_arcanus:basics",
   "icon": "forbidden_arcanus:mundabitur_dust",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "以神秘水晶粉为基底，所制成的纯净之物，用于唤醒远古的结构和物品加工。"
+      "text": "A pure substance based on Arcane Crystal Dust. It awakens ancient structures and helps process materials."
     },
     {
       "type": "patchouli:crafting",

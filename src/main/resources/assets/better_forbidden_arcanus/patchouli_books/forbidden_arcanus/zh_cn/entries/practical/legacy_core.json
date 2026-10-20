@@ -1,0 +1,33 @@
+{
+  "name": "暗黑符文核心",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "better_forbidden_arcanus:runic_tenebris_core",
+  "sortnum": 32,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "better_forbidden_arcanus:runic_tenebris_core",
+      "text": "用暗黑下界之星右击框架，消耗一颗星后便成为暗黑符文核心。$(br)$(br)$(br)暗黑符文核心可将符文转化为暗黑符文"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:runic_tenebris_frame",
+      "text": "$(br)"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:dark_nether_star",
+      "text": ""
+    },
+    {
+      "type": "patchouli:text",
+      "title": "禁止生成",
+      "text": "用一颗神秘水晶右击錾制磨制符文暗黑石，激活后阻止25格球形范围内的怪物生成。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:runic_chiseled_polished_darkstone",
+      "text": "$(br)"
+    }
+  ]
+}

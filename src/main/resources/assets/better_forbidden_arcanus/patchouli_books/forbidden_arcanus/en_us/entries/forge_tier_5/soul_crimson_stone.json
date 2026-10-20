@@ -1,5 +1,5 @@
 {
-  "name": "灵魂绯红之石",
+  "name": "Soul Crimson Stone",
   "category": "better_forbidden_arcanus:forge_tier_5",
   "icon": "forbidden_arcanus:soul_crimson_stone",
   "sortnum": 10,
@@ -7,8 +7,13 @@
     {
       "type": "patchouli:spotlight",
       "item": "forbidden_arcanus:soul_crimson_stone",
-      "text": "以绯红之石为核心，辅以其余五种遗物、灵魂绑定水晶、暗黑下界之星与永恒之石，在终极的锻炉中凝成灵魂绯红之石。$(br)$(br)$(br)把灵魂绯红之石放进锻炉，四种精华的基础需求倍率变为0。",
-      "title": "集齐七件遗物"
+      "text": "With a Crimson Stone at the center, combine the other five relics, a Soul Binding Crystal, a Dark Nether Star and Eternal Stella in the ultimate forge.$(br2)A Soul Crimson Stone in the forge",
+      "title": "Gather Seven Relics"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Continued",
+      "text": "reduces all four base essence requirement multipliers to zero."
     },
     {
       "title": "soul crimson stone",
@@ -17,17 +22,17 @@
       "show_main": true,
       "show_result": true,
       "show_dynamic_result": false,
-      "result_summary": "动态产物",
+      "result_summary": "Dynamic Result",
       "duration": 500,
-      "duration_text": "25 秒",
+      "duration_text": "25 seconds",
       "aureal": 10000,
       "souls": 500,
       "blood": 50000,
       "experience": 3750,
-      "aureal_text": "辉光 10000",
-      "souls_text": "灵魂 500",
-      "blood_text": "血液 50000",
-      "experience_text": "经验 3750",
+      "aureal_text": "Aureal 10000",
+      "souls_text": "Souls 500",
+      "blood_text": "Blood 50000",
+      "experience_text": "Experience 3750",
       "relic_1": "minecraft:air",
       "show_relics": false,
       "show_relic_1": false,

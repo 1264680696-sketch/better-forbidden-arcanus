@@ -1,18 +1,18 @@
 {
-  "name": "黑洞与经验收集",
+  "name": "Black Holes and Experience",
   "category": "better_forbidden_arcanus:practical",
   "icon": "forbidden_arcanus:dark_matter",
   "sortnum": 15,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "收起散落的经验",
-      "text": "黑洞会吸收附近的经验球，积累后产出石化经验球。若你常在同一地点获得经验，可以让它替你收拢，再把经验转交锻炉。"
+      "title": "Gather Scattered Experience",
+      "text": "A Black Hole absorbs nearby experience orbs and eventually produces Petrified Orbs. Keep one near a regular experience source, then feed its output to the forge."
     },
     {
       "type": "patchouli:text",
-      "title": "让两种材料相遇",
-      "text": "将暗物质和腐化粉末抛在同一处附近。二者相遇且位置为空气时，各消耗一个，形成黑洞；"
+      "title": "Bring Two Materials Together",
+      "text": "Drop Dark Matter and Corrupti Dust close together. If they meet in an air block, one of each is consumed to form a Black Hole."
     },
     {
       "type": "patchouli:smelting",

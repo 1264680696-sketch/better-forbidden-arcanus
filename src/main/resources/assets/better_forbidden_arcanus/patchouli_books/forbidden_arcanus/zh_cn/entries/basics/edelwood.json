@@ -1,0 +1,28 @@
+{
+  "name": "埃德木",
+  "category": "better_forbidden_arcanus:basics",
+  "icon": "forbidden_arcanus:edelwood_planks",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "埃德木",
+      "text": "埃德木只会生长于$(#507345)黑森林$()中，摸起来非常滑。不仅如此，其中空的结构看上去深不见底，仿佛就要将人吸进去一般。在树干上生长的树枝相当坚固，是作为手柄的好材料。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:edelwood_bucket",
+      "text": "每次能装4桶水。但很明显，它装不了熔岩。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:edelwood_ladder",
+      "text": "爬的飞快！"
+    },
+    {
+      "type": "patchouli:smelting",
+      "recipe": "forbidden_arcanus:smelting/dark_matter",
+      "text": "真黑$(br)$(br)"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "name": "2 级装备强化",
+  "category": "better_forbidden_arcanus:forge_tier_2",
+  "icon": "minecraft:diamond_pickaxe",
+  "sortnum": 90,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "锻入新的力量",
+      "text": "使用2级的锻炉，把未强化或低阶装备提升至2级，属性增加10%。$(br)"
+    },
+    {
+      "title": "装备强化",
+      "main": "",
+      "result": "",
+      "show_main": false,
+      "show_result": false,
+      "show_dynamic_result": true,
+      "result_summary": "强化装备",
+      "duration": 500,
+      "duration_text": "25 秒",
+      "aureal": 0,
+      "souls": 0,
+      "blood": 0,
+      "experience": 0,
+      "aureal_text": "辉光 0",
+      "souls_text": "灵魂 0",
+      "blood_text": "血液 0",
+      "experience_text": "经验 0",
+      "relic_1": "forbidden_arcanus:artisan_relic",
+      "show_relics": true,
+      "show_relic_1": true,
+      "text": "",
+      "input_1": "forbidden_arcanus:deorum_ingot",
+      "input_2": "forbidden_arcanus:deorum_ingot",
+      "input_3": "forbidden_arcanus:deorum_ingot",
+      "input_4": "forbidden_arcanus:deorum_ingot",
+      "input_5": "minecraft:diamond",
+      "input_6": "minecraft:diamond",
+      "input_7": "forbidden_arcanus:arcane_crystal_block",
+      "input_8": "forbidden_arcanus:arcane_crystal_block",
+      "show_input_1": true,
+      "show_input_2": true,
+      "show_input_3": true,
+      "show_input_4": true,
+      "show_input_5": true,
+      "show_input_6": true,
+      "show_input_7": true,
+      "show_input_8": true,
+      "relic_2": "minecraft:air",
+      "show_relic_2": false,
+      "relic_3": "minecraft:air",
+      "show_relic_3": false,
+      "relic_4": "minecraft:air",
+      "show_relic_4": false,
+      "type": "better_forbidden_arcanus:studio/hephaestus_forge",
+      "studio_recipe": "better_forbidden_arcanus:upgrade_equipment_2",
+      "studio_ritual": {
+        "forge_tier": 2,
+        "match_tier_exact": true,
+        "duration": 500,
+        "essences": {
+          "aureal": 0,
+          "souls": 0,
+          "blood": 0,
+          "experience": 0
+        },
+        "enhancers": [
+          "forbidden_arcanus:artisan_relic"
+        ],
+        "inputs": [
+          {
+            "amount": 4,
+            "ingredient": {
+              "item": "forbidden_arcanus:deorum_ingot"
+            }
+          },
+          {
+            "amount": 2,
+            "ingredient": {
+              "item": "minecraft:diamond"
+            }
+          },
+          {
+            "amount": 2,
+            "ingredient": {
+              "item": "forbidden_arcanus:arcane_crystal_block"
+            }
+          }
+        ],
+        "main_ingredient": {
+          "type": "better_forbidden_arcanus:forgeable_equipment",
+          "target_tier": 2
+        },
+        "magic_circle": "forbidden_arcanus:create_item",
+        "result": {
+          "type": "better_forbidden_arcanus:upgrade_equipment",
+          "tier": 2
+        }
+      },
+      "studio_forge_warnings": [
+        "主材料为自定义匹配条件，完整条件见原配方。"
+      ]
+    }
+  ]
+}

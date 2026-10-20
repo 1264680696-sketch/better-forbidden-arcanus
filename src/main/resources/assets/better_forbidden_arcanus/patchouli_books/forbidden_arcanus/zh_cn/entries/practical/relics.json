@@ -1,0 +1,13 @@
+{
+  "name": "认识增强遗物",
+  "category": "better_forbidden_arcanus:relics",
+  "icon": "forbidden_arcanus:elementarium",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "遗物，放在何处？",
+      "text": "散落在世界各地的宝藏。$(br)$(br)增强遗物的力量取决于位置。戴进饰品界面的遗物槽，它影响自身；放进锻炉或炽炉的增强器槽，它影响设施。一些增强遗物也能用在其他地方。"
+    }
+  ]
+}

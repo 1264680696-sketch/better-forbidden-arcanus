@@ -1,19 +1,19 @@
 {
-  "name": "待盈新月",
+  "name": "Crescent Moon",
   "category": "better_forbidden_arcanus:relics",
   "icon": "forbidden_arcanus:crescent_moon",
   "sortnum": 10,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "把夜色戴在身边",
-      "text": "玩家击杀幻翼时，有10%概率掉落1个待盈新月；抢夺不增加此概率。$(br)$(br)"
+      "title": "Wear the Night",
+      "text": "Player-killed Phantoms have a 10% chance to drop one Crescent Moon. Looting does not increase this chance."
     },
     {
       "type": "patchouli:spotlight",
       "item": "forbidden_arcanus:crescent_moon",
-      "text": "饰品效果:夜晚时，给予夜视；速度与跳跃提升$(br)$(br)赫菲斯托斯锻炉效果：白天的辉光基础需求为90%，夜间为99%。$(br)$(br)$(br)放在瓶罐时:缓慢增加辉光",
-      "title": "待盈新月"
+      "text": "Worn: grants Night Vision, Speed and Jump Boost at night.$(br2)Forge: base Aureal requirements become 90% by day and 99% at night.$(br2)On a jar: slowly produces Aureal.",
+      "title": "Crescent Moon"
     }
   ]
 }

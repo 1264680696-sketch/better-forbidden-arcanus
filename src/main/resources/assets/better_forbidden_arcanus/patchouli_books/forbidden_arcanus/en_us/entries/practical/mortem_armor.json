@@ -1,13 +1,13 @@
 {
-  "name": "亡骨盔甲",
+  "name": "Mortem Armor",
   "category": "better_forbidden_arcanus:practical",
   "icon": "forbidden_arcanus:mortem_chestplate",
   "sortnum": 16,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "骨骼挡住飞矢",
-      "text": "事实证明，骨头对于远程攻击有着良好的防御效果。$(br)$(br)每件亡骨盔甲减少12.5%弹射物伤害，"
+      "title": "Bones Stop Arrows",
+      "text": "Bone proves surprisingly effective against ranged attacks.$(br2)Each Mortem armor piece reduces projectile damage by 12.5%."
     },
     {
       "type": "patchouli:crafting",

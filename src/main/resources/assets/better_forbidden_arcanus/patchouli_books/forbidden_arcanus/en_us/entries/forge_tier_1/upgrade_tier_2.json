@@ -1,37 +1,37 @@
 {
-  "name": "升级至二级",
+  "name": "Upgrade to Tier II",
   "category": "better_forbidden_arcanus:forge_tier_1",
   "icon": "forbidden_arcanus:hephaestus_forge_tier_2",
   "sortnum": 99,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "让炉火更盛",
-      "text": "现在无论是为了更高级的的装备强化，还是为了更强力的物品，目前的锻炉都已经无法满足你了。"
+      "title": "Feed the Flame",
+      "text": "Whether you seek better equipment upgrades or more powerful creations, your current forge can only take you so far."
     },
     {
       "type": "patchouli:spotlight",
       "item": "forbidden_arcanus:spawner_scrap",
-      "text": "挖掘刷怪笼后的残骸碎片，其散发的生机正适合将锻炉强化到新的境界。"
+      "text": "Spawner Scraps remain after breaking a spawner. Their lingering vitality can raise the forge to a new tier."
     },
     {
-      "title": "升级锻炉",
+      "title": "Forge Upgrade",
       "main": "forbidden_arcanus:edelwood_planks",
       "result": "",
       "show_main": true,
       "show_result": false,
       "show_dynamic_result": true,
-      "result_summary": "升级锻炉",
+      "result_summary": "Forge Upgrade",
       "duration": 500,
-      "duration_text": "25 秒",
+      "duration_text": "25 seconds",
       "aureal": 500,
       "souls": 10,
       "blood": 6000,
       "experience": 0,
-      "aureal_text": "辉光 500",
-      "souls_text": "灵魂 10",
-      "blood_text": "血液 6000",
-      "experience_text": "经验 0",
+      "aureal_text": "Aureal 500",
+      "souls_text": "Souls 10",
+      "blood_text": "Blood 6000",
+      "experience_text": "Experience 0",
       "relic_1": "minecraft:air",
       "show_relics": false,
       "show_relic_1": false,

@@ -1,0 +1,18 @@
+{
+  "name": "复制鞘翅",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "minecraft:elytra",
+  "sortnum": 17,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "留下一双翅膀",
+      "text": "用翅膀来复制翅膀，是一件再合理不过的事情了。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:elytra_duplication",
+      "text": "$(br)"
+    }
+  ]
+}

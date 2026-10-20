@@ -1,0 +1,30 @@
+{
+  "name": "启动一次仪式",
+  "category": "better_forbidden_arcanus:forge_setup",
+  "icon": "forbidden_arcanus:iron_blacksmith_gavel",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "敲下第一锤",
+      "text": "核对锻炉等级，把主材料放中央，辅料分放基座。随后放入必要增强器，补足精华，用锻工锤右击锻炉。通常等待25秒，法阵便会完成工作。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "增强遗物",
+      "text": "锻炉的小槽用于放置增强遗物；增强遗物多种多样，且都会对锻炉产生不同的增益"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:blacksmith_gavel_head",
+      "text": "",
+      "title": ""
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:iron_blacksmith_gavel",
+      "text": "用锻工锤启动仪式；其他材质的锤也可使用。",
+      "title": ""
+    }
+  ]
+}

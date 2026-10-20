@@ -1,0 +1,60 @@
+{
+  "name": "炽炉搭建与激活",
+  "category": "better_forbidden_arcanus:clibano",
+  "icon": "forbidden_arcanus:clibano_core",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "另一座炉火",
+      "text": "炽炉负责双输入加工、合金与残留物，，却会在黑曜钢与灵魂的持续生产中变得重要。先造外壳，再用洁净粉末唤醒核心。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "准备外壳",
+      "text": "磨制暗黑石8块、磨制暗黑石砖17块、炽炉核心1个，另备洁净粉末1份。外壳为3×3×3，内部中央留空，核心置于一侧正中央。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:clibano_core",
+      "text": ""
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "炽炉建造前",
+      "multiblock": {
+        "pattern": [
+          [
+            "PBP",
+            "BBB",
+            "PBP"
+          ],
+          [
+            "B0B",
+            "B B",
+            "BBB"
+          ],
+          [
+            "PBP",
+            "BBB",
+            "PBP"
+          ]
+        ],
+        "mapping": {
+          "0": "forbidden_arcanus:clibano_core",
+          "P": "forbidden_arcanus:polished_darkstone",
+          "B": "forbidden_arcanus:polished_darkstone_bricks"
+        },
+        "symmetrical": false
+      },
+      "enable_visualize": true,
+      "text": "用洁净粉末右击核心。内部中央须留空气。",
+      "title": ""
+    },
+    {
+      "type": "patchouli:text",
+      "title": "给火焰食物",
+      "text": "放入燃料与原料，清出产物和残留存储空间。灵魂槽控制加速与部分配方资格；增强器槽则用于合金等特殊条件。"
+    }
+  ]
+}

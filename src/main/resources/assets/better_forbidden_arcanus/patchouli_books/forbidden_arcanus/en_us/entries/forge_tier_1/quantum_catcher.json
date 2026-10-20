@@ -1,13 +1,13 @@
 {
-  "name": "量子捕捉器",
+  "name": "Quantum Catcher",
   "category": "better_forbidden_arcanus:forge_tier_1",
   "icon": "forbidden_arcanus:quantum_catcher",
   "sortnum": 10,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "量子捕捉器",
-      "text": "旅途中有些生物值得带回家。量子捕捉器能收纳并释放允许捕捉的生物，但捕捉会检查你自身的辉光；对被排除的目标，它不会回应。"
+      "title": "Quantum Catcher",
+      "text": "Some creatures are worth bringing home. The Quantum Catcher stores and releases eligible creatures. Capturing requires your own Aureal, and excluded targets cannot be captured."
     },
     {
       "type": "patchouli:crafting",
@@ -15,23 +15,23 @@
       "text": "$(br)"
     },
     {
-      "title": "量子捕捉器",
+      "title": "Quantum Catcher",
       "main": "forbidden_arcanus:quantum_core",
       "result": "forbidden_arcanus:quantum_catcher",
       "show_main": true,
       "show_result": true,
       "show_dynamic_result": false,
-      "result_summary": "动态产物",
+      "result_summary": "Dynamic Result",
       "duration": 500,
-      "duration_text": "25 秒",
+      "duration_text": "25 seconds",
       "aureal": 200,
       "souls": 5,
       "blood": 1200,
       "experience": 155,
-      "aureal_text": "辉光 200",
-      "souls_text": "灵魂 5",
-      "blood_text": "血液 1200",
-      "experience_text": "经验 155",
+      "aureal_text": "Aureal 200",
+      "souls_text": "Souls 5",
+      "blood_text": "Blood 1200",
+      "experience_text": "Experience 155",
       "relic_1": "minecraft:air",
       "show_relics": false,
       "show_relic_1": false,

@@ -1,6 +1,6 @@
 # 更好的禁忌与奥秘
 
-Minecraft 1.21.1 / NeoForge 21.1.251 / Forbidden and Arcanus 2.6.1 附属，版本 0.13.4。
+Minecraft 1.21.1 / NeoForge 21.1.251 / Forbidden and Arcanus 2.6.1 附属，版本 0.14.0。
 
 ## 帕秋莉指南与编辑器
 
@@ -264,3 +264,9 @@ Curios 新增“遗物”栏，初始 1 个槽位，接受原 Mod 的七种增�
 ## 0.13.4 高级锻炉执行低级强化
 
 装备强化改为最低锻炉等级要求：锻炉等级不低于配方等级即可执行。按所放材料匹配强化配方，产物强化等级由该配方决定，例如五级锻炉使用一级材料得到一级强化（5%），使用三级材料得到三级强化（20%）。仍要求工匠遗物与完整材料；装备同级强化和降级仍被拒绝。本次按用户要求不修改手册。
+
+## 0.14.0 中英文资源
+
+附属语言文件位于 `assets/better_forbidden_arcanus/lang/zh_cn.json` 和 `en_us.json`。手册正文按同一书籍ID分别放在 `patchouli_books/forbidden_arcanus/zh_cn/` 与 `en_us/`，随游戏语言自动选择，其他语言回退英文。书名为中文“火神手记”、英文“Hephaestus' Journal”。原中文分类、条目、模板逐字保留，英文长文分为续页，物品／配方／仪式ID保持不变。
+
+编辑器默认编辑中文，运行 `python tools/guide-editor/server.py --lang en_us` 可编辑英文。保存一种语言会保留另一种已有译文；中文新建条目会创建供Patchouli索引的英文占位副本，之后可单独翻译。修改中文书名与简介只更新中文语言文件。

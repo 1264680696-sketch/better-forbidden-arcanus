@@ -1,32 +1,32 @@
 {
-  "name": "1 级装备强化",
+  "name": "Tier-I Equipment Upgrade",
   "category": "better_forbidden_arcanus:forge_tier_1",
   "icon": "minecraft:diamond_pickaxe",
   "sortnum": 90,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "锻入新的力量",
-      "text": "毋庸置疑，炉子就是可以强化一些东西。$(br)凭借锻炉的神奇力量，你可以强化你的装备与工具，锻炉会根据你所强化的物品去强化对应的属性。$(br)1级锻炉会提升5%的属性"
+      "title": "Forging New Strength",
+      "text": "A remarkable forge can strengthen tools and armor. It improves the attributes suited to the equipment you place within it.$(br2)Tier-I upgrading grants a 5% bonus."
     },
     {
-      "title": "装备强化",
+      "title": "Equipment Upgrade",
       "main": "",
       "result": "",
       "show_main": false,
       "show_result": false,
       "show_dynamic_result": true,
-      "result_summary": "强化装备",
+      "result_summary": "Upgraded Equipment",
       "duration": 500,
-      "duration_text": "25 秒",
+      "duration_text": "25 seconds",
       "aureal": 0,
       "souls": 0,
       "blood": 0,
       "experience": 0,
-      "aureal_text": "辉光 0",
-      "souls_text": "灵魂 0",
-      "blood_text": "血液 0",
-      "experience_text": "经验 0",
+      "aureal_text": "Aureal 0",
+      "souls_text": "Souls 0",
+      "blood_text": "Blood 0",
+      "experience_text": "Experience 0",
       "relic_1": "forbidden_arcanus:artisan_relic",
       "show_relics": true,
       "show_relic_1": true,
@@ -99,7 +99,7 @@
         }
       },
       "studio_forge_warnings": [
-        "主材料为自定义匹配条件，完整条件见原配方。"
+        "The main ingredient uses a custom condition. Consult the original recipe for full requirements."
       ]
     }
   ]

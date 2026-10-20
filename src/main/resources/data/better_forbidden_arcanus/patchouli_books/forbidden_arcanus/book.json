@@ -1,6 +1,6 @@
 {
-  "name": "火神手记",
-  "landing_text": "感谢游玩禁忌与奥秘！$(br)$(br)禁忌与奥秘添加了全新的魔法主题的物品。$(br)$(br)$(br)",
+  "name": "book.better_forbidden_arcanus.name",
+  "landing_text": "book.better_forbidden_arcanus.landing_text",
   "version": "0.11.0",
   "use_resource_pack": true,
   "creative_tab": "better_forbidden_arcanus:main",

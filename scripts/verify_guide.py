@@ -7,7 +7,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 RESOURCES = ROOT / 'src/main/resources'
-BOOK = RESOURCES / 'assets/better_forbidden_arcanus/patchouli_books/forbidden_arcanus/en_us'
+BOOK = RESOURCES / 'assets/better_forbidden_arcanus/patchouli_books/forbidden_arcanus/zh_cn'
 NS = 'better_forbidden_arcanus:'
 
 

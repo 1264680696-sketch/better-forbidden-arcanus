@@ -1,0 +1,25 @@
+{
+  "components": [
+    {
+      "type": "patchouli:header",
+      "text": "提尔化身",
+      "x": -1,
+      "y": 0
+    },
+    {
+      "type": "patchouli:separator",
+      "x": -1,
+      "y": 12
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#text",
+      "x": 0,
+      "y": 24,
+      "max_width": 116
+    }
+  ],
+  "studio_defaults": {
+    "text": "装备战神提尔盔甲时，你会获得如下增益：$(br)$(br)$(br)纯金：猪灵将会对你保持中立$(br)龙灵"
+  }
+}

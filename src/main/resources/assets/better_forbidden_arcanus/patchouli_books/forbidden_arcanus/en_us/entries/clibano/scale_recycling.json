@@ -1,13 +1,13 @@
 {
-  "name": "鳞片回收",
+  "name": "Scale Recycling",
   "category": "better_forbidden_arcanus:clibano",
   "icon": "forbidden_arcanus:golden_dragon_scale",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "回到原初的鳞片",
-      "text": "金色、银色或水生龙鳞各可在炽炉中烧回普通龙鳞。$(br2)稳定的鳞片来源见$(l:better_forbidden_arcanus:practical/arcane_dragon_egg)神秘龙蛋$(/l)。"
+      "title": "Back to Dragon Scales",
+      "text": "Smelt Golden, Silver or Aquatic Dragon Scales in a Clibano to recover ordinary Dragon Scales.$(br2)See the $(l:better_forbidden_arcanus:practical/arcane_dragon_egg)Arcane Dragon Egg$(/l) for a renewable source."
     }
   ]
 }

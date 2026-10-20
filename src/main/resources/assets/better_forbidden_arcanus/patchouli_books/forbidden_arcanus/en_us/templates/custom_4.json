@@ -2,7 +2,7 @@
   "components": [
     {
       "type": "patchouli:header",
-      "text": "提尔化身",
+      "text": "Avatar of Tyr",
       "x": -1,
       "y": 0
     },
@@ -20,6 +20,6 @@
     }
   ],
   "studio_defaults": {
-    "text": "装备战神提尔盔甲时，你会获得如下增益：$(br)$(br)$(br)纯金：猪灵将会对你保持中立$(br)龙灵"
+    "text": "Tyr armor grants these benefits:$(br2)Pure Gold: Piglins remain neutral.$(br)Dragon Spirit"
   }
 }

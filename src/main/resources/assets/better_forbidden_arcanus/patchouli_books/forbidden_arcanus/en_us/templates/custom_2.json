@@ -2,7 +2,7 @@
   "components": [
     {
       "type": "patchouli:header",
-      "text": "锻炉配方",
+      "text": "Forge Recipe",
       "x": -1,
       "y": 0
     },
@@ -67,6 +67,6 @@
     }
   ],
   "studio_defaults": {
-    "text": "在书页中编辑文字，拖动小圆点调整位置。"
+    "text": "Edit the page text and drag the small handles to adjust their positions."
   }
 }

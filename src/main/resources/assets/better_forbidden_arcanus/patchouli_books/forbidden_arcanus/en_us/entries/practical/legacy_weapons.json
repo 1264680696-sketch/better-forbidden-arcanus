@@ -1,23 +1,23 @@
 {
-  "name": "神秘的手臂",
+  "name": "Mysterious Arms",
   "category": "better_forbidden_arcanus:practical",
   "icon": "better_forbidden_arcanus:zombie_arm",
   "sortnum": 33,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "借来一只手",
-      "text": "从僵尸掉落的，腐烂到发臭的手臂，令人惊异的是，这手臂存在的时间比僵尸形成的时间还要长$(br)$(br)"
+      "title": "Borrow a Hand",
+      "text": "A rotting, foul-smelling arm dropped by a zombie. Strangely, it seems older than the zombie itself."
     },
     {
       "type": "patchouli:spotlight",
       "item": "better_forbidden_arcanus:zombie_arm",
-      "text": "僵尸可能掉落僵尸手臂，$(br)$(br)$(br)用手臂近战击杀马或村民，会把它们转为僵尸马或僵尸村民。"
+      "text": "Zombies may drop Zombie Arms.$(br2)Melee-kill a Horse or Villager with one to transform it into a Zombie Horse or Zombie Villager."
     },
     {
       "type": "patchouli:spotlight",
       "item": "better_forbidden_arcanus:shiny_zombie_arm",
-      "text": "由溺尸掉落，只是被泡到发白了。"
+      "text": "Dropped by Drowned. It has simply been soaked pale."
     }
   ]
 }

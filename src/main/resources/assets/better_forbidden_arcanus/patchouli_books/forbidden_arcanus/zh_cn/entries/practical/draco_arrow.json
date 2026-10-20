@@ -1,0 +1,18 @@
+{
+  "name": "天龙箭矢",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:draco_arcanus_arrow",
+  "sortnum": 19,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "箭落，龙息升起",
+      "text": "天龙箭矢命中生物会留下特殊的龙息。云内的生物会被持续伤害，并获得缓慢与虚弱效果。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "forbidden_arcanus:draco_arcanus_arrow",
+      "text": "如此粉嫩"
+    }
+  ]
+}

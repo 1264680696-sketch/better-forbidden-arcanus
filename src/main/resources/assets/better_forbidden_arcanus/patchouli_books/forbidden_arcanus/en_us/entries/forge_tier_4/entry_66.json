@@ -1,12 +1,12 @@
 {
-  "name": "辉光黑曜石头骨",
+  "name": "Aurealic Obsidian Skull",
   "category": "better_forbidden_arcanus:forge_tier_4",
   "icon": "forbidden_arcanus:aurealic_obsidian_skull",
   "sortnum": 6,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "将辉光注入进头骨之中，你的双眼将会变得通透，不仅可以夜视，并且能看清熔岩中的事物。$(br)$(br)$(br)+2辉光再生"
+      "text": "Infuse the skull with Aureal to see through darkness and lava.$(br2)+2 Aureal regeneration."
     },
     {
       "title": "aurealic obsidian skull",
@@ -15,17 +15,17 @@
       "show_main": true,
       "show_result": true,
       "show_dynamic_result": false,
-      "result_summary": "动态产物",
+      "result_summary": "Dynamic Result",
       "duration": 500,
-      "duration_text": "25 秒",
+      "duration_text": "25 seconds",
       "aureal": 10000,
       "souls": 0,
       "blood": 0,
       "experience": 0,
-      "aureal_text": "辉光 10000",
-      "souls_text": "灵魂 0",
-      "blood_text": "血液 0",
-      "experience_text": "经验 0",
+      "aureal_text": "Aureal 10000",
+      "souls_text": "Souls 0",
+      "blood_text": "Blood 0",
+      "experience_text": "Experience 0",
       "relic_1": "minecraft:air",
       "show_relics": false,
       "show_relic_1": false,

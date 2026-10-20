@@ -73,13 +73,13 @@ public final class PrismEffects {
     public static Component axeName(ItemStack stack){
         if(!axe(stack)||bits(stack)==0)return null;
         if(bits(stack)==15){
-            var result=Component.empty();String[] chars={"符","文","战","斧"};int[] colors={0xFF8F00,0x5A82F3,0xBBD8D1,0x7C6E67};
-            for(int i=0;i<4;i++)result.append(Component.literal(chars[i]).withStyle(Style.EMPTY.withColor(colors[i])));
+            var result=Component.empty();int[] colors={0xFF8F00,0x5A82F3,0xBBD8D1,0x7C6E67};
+            for(int i=0;i<4;i++)result.append(Component.translatable("item.better_forbidden_arcanus.runic_battleaxe.rainbow_part_"+(i+1)).withStyle(Style.EMPTY.withColor(colors[i])));
             return result;
         }
         if(stack.has(DataComponents.CUSTOM_NAME))return null;
-        var name=Component.empty();String[] labels={"熔炉","海洋","旋风","撼地"};
-        for(int i=0;i<4;i++)if((bits(stack)&(1<<i))!=0)name.append(labels[i]+" ");
+        var name=Component.empty();String[] labels={"fire","sea","wind","earth"};
+        for(int i=0;i<4;i++)if((bits(stack)&(1<<i))!=0)name.append(Component.translatable("modifier.better_forbidden_arcanus.runic_prism."+labels[i])).append(" ");
         return name.append(stack.getItem().getName(stack));
     }
     public static double bowDraw(ItemStack stack){return ForgeUpgrades.multiplier(stack)/(has(stack,EARTH)?1.4:1);}

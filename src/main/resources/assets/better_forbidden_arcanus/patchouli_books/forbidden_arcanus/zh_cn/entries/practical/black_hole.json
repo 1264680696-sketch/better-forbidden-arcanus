@@ -1,0 +1,23 @@
+{
+  "name": "黑洞与经验收集",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "forbidden_arcanus:dark_matter",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "收起散落的经验",
+      "text": "黑洞会吸收附近的经验球，积累后产出石化经验球。若你常在同一地点获得经验，可以让它替你收拢，再把经验转交锻炉。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "让两种材料相遇",
+      "text": "将暗物质和腐化粉末抛在同一处附近。二者相遇且位置为空气时，各消耗一个，形成黑洞；"
+    },
+    {
+      "type": "patchouli:smelting",
+      "recipe": "forbidden_arcanus:smelting/dark_matter",
+      "text": ""
+    }
+  ]
+}

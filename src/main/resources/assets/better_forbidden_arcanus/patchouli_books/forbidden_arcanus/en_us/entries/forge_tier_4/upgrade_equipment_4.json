@@ -1,32 +1,32 @@
 {
-  "name": "4 级装备强化",
+  "name": "Tier-IV Equipment Upgrade",
   "category": "better_forbidden_arcanus:forge_tier_4",
   "icon": "minecraft:diamond_pickaxe",
   "sortnum": 90,
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "锻入新的力量",
-      "text": "使用4级的锻炉，把未强化或低阶装备提升至4级，属性增加30%。名称与物品格外框变为紫色；"
+      "title": "Forging New Strength",
+      "text": "Use a tier-IV forge to raise unupgraded or lower-grade equipment to grade IV, granting a 30% attribute bonus. Its name and inventory-slot border turn purple."
     },
     {
-      "title": "装备强化",
+      "title": "Equipment Upgrade",
       "main": "",
       "result": "",
       "show_main": false,
       "show_result": false,
       "show_dynamic_result": true,
-      "result_summary": "强化装备",
+      "result_summary": "Upgraded Equipment",
       "duration": 500,
-      "duration_text": "25 秒",
+      "duration_text": "25 seconds",
       "aureal": 0,
       "souls": 0,
       "blood": 0,
       "experience": 0,
-      "aureal_text": "辉光 0",
-      "souls_text": "灵魂 0",
-      "blood_text": "血液 0",
-      "experience_text": "经验 0",
+      "aureal_text": "Aureal 0",
+      "souls_text": "Souls 0",
+      "blood_text": "Blood 0",
+      "experience_text": "Experience 0",
       "relic_1": "forbidden_arcanus:artisan_relic",
       "show_relics": true,
       "show_relic_1": true,
@@ -99,7 +99,7 @@
         }
       },
       "studio_forge_warnings": [
-        "主材料为自定义匹配条件，完整条件见原配方。"
+        "The main ingredient uses a custom condition. Consult the original recipe for full requirements."
       ]
     }
   ]

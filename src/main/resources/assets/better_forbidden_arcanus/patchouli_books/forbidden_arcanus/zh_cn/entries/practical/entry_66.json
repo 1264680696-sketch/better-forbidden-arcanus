@@ -1,0 +1,46 @@
+{
+  "name": "符文战斧",
+  "category": "better_forbidden_arcanus:practical",
+  "icon": "better_forbidden_arcanus:runic_battleaxe",
+  "sortnum": 16,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "现在辛辛苦苦挖掘的符文终于有用武之力了，由符文铸造而成的斧头虽然不如寻常武器那般锋锐，但却有着超常的元素亲和力。可以叠加多种棱晶，且每种棱晶都会增加其伤害并赋予独特效果。$(br)$(br)当集齐四种棱晶之后......?",
+      "recipe": "better_forbidden_arcanus:runic_battleaxe"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:skull",
+      "text": ""
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "better_forbidden_arcanus:runic_battleaxe",
+      "text": ""
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:smelter_prism",
+      "text": "暴击时附带敌人6%最大生命值伤害"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:sea_prism",
+      "text": "+2攻击距离",
+      "title": "海洋棱晶"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:terrastomp_prism",
+      "text": "增加50%护甲穿透，且攻击变为范围伤害",
+      "title": "撼地棱晶"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "forbidden_arcanus:whirlwind_prism",
+      "text": "增加50%攻击速度，你现在可以把斧头丢出去了",
+      "title": "旋风棱晶"
+    }
+  ]
+}

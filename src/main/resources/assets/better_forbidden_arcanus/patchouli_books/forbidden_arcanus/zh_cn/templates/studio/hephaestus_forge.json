@@ -1,0 +1,238 @@
+{
+  "studio_template": "hephaestus_forge_v1",
+  "studio_defaults": {
+    "title": "赫菲斯托斯锻炉",
+    "main": "minecraft:diamond_block",
+    "result": "forbidden_arcanus:terrastomp_prism",
+    "show_main": true,
+    "show_result": true,
+    "show_dynamic_result": false,
+    "result_summary": "",
+    "duration": 500,
+    "duration_text": "25 秒",
+    "aureal": 300,
+    "souls": 9,
+    "blood": 1500,
+    "experience": 0,
+    "aureal_text": "辉光 300",
+    "souls_text": "灵魂 9",
+    "blood_text": "血液 1500",
+    "experience_text": "经验 0",
+    "relic_1": "forbidden_arcanus:elementarium",
+    "show_relics": true,
+    "show_relic_1": true,
+    "text": "在书页中编辑文字，拖动小圆点调整位置。",
+    "input_1": "minecraft:flint",
+    "input_2": "minecraft:flint",
+    "input_3": "minecraft:dripstone_block",
+    "input_4": "minecraft:dripstone_block",
+    "input_5": "minecraft:pointed_dripstone",
+    "input_6": "minecraft:pointed_dripstone",
+    "input_7": "minecraft:air",
+    "input_8": "minecraft:air",
+    "show_input_1": true,
+    "show_input_2": true,
+    "show_input_3": true,
+    "show_input_4": true,
+    "show_input_5": true,
+    "show_input_6": true,
+    "show_input_7": false,
+    "show_input_8": false,
+    "relic_2": "minecraft:air",
+    "show_relic_2": false,
+    "relic_3": "minecraft:air",
+    "show_relic_3": false,
+    "relic_4": "minecraft:air",
+    "show_relic_4": false
+  },
+  "components": [
+    {
+      "type": "patchouli:header",
+      "text": "#title",
+      "x": -1,
+      "y": 0
+    },
+    {
+      "type": "patchouli:separator",
+      "x": -1,
+      "y": 12
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#input_1",
+      "x": 28,
+      "y": 32,
+      "framed": true,
+      "guard": "#show_input_1"
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#input_2",
+      "x": 48,
+      "y": 32,
+      "framed": true,
+      "guard": "#show_input_2"
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#input_3",
+      "x": 48,
+      "y": 52,
+      "framed": true,
+      "guard": "#show_input_3"
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#input_4",
+      "x": 48,
+      "y": 72,
+      "framed": true,
+      "guard": "#show_input_4"
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#input_5",
+      "x": 28,
+      "y": 72,
+      "framed": true,
+      "guard": "#show_input_5"
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#input_6",
+      "x": 8,
+      "y": 72,
+      "framed": true,
+      "guard": "#show_input_6"
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#input_7",
+      "x": 8,
+      "y": 52,
+      "framed": true,
+      "guard": "#show_input_7"
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#input_8",
+      "x": 8,
+      "y": 32,
+      "framed": true,
+      "guard": "#show_input_8"
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#main",
+      "x": 28,
+      "y": 52,
+      "framed": true,
+      "guard": "#show_main",
+      "studio_role": "forge-main"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "→",
+      "x": 74,
+      "y": 56,
+      "max_width": 14
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(br)",
+      "x": 88,
+      "y": 37,
+      "max_width": 28
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#result",
+      "x": 94,
+      "y": 52,
+      "framed": true,
+      "guard": "#show_result"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#result_summary",
+      "x": 75,
+      "y": 49,
+      "max_width": 41,
+      "guard": "#show_dynamic_result"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#duration_text",
+      "x": 75,
+      "y": 77,
+      "max_width": 41
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#aureal_text",
+      "x": 0,
+      "y": 95,
+      "max_width": 60
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#souls_text",
+      "x": 65,
+      "y": 95,
+      "max_width": 51
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#blood_text",
+      "x": 0,
+      "y": 105,
+      "max_width": 60
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#experience_text",
+      "x": 65,
+      "y": 105,
+      "max_width": 51
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#relic_1",
+      "x": 3,
+      "y": 121,
+      "framed": true,
+      "guard": "#show_relic_1"
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#relic_2",
+      "x": 50,
+      "y": 121,
+      "framed": true,
+      "guard": "#show_relic_2"
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#relic_3",
+      "x": 72,
+      "y": 121,
+      "framed": true,
+      "guard": "#show_relic_3"
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#relic_4",
+      "x": 94,
+      "y": 121,
+      "framed": true,
+      "guard": "#show_relic_4"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#text",
+      "x": 0,
+      "y": 142,
+      "max_width": 116
+    }
+  ]
+}

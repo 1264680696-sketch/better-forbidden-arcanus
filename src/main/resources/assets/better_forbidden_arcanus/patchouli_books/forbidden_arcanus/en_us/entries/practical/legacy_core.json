@@ -1,5 +1,5 @@
 {
-  "name": "暗黑符文核心",
+  "name": "Runic Tenebris Core",
   "category": "better_forbidden_arcanus:practical",
   "icon": "better_forbidden_arcanus:runic_tenebris_core",
   "sortnum": 32,
@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "better_forbidden_arcanus:runic_tenebris_core",
-      "text": "用暗黑下界之星右击框架，消耗一颗星后便成为暗黑符文核心。$(br)$(br)$(br)暗黑符文核心可将符文转化为暗黑符文"
+      "text": "Use a Dark Nether Star on the frame to consume the star and activate a Runic Tenebris Core.$(br2)The core converts Runes into Dark Runes."
     },
     {
       "type": "patchouli:crafting",
@@ -21,8 +21,8 @@
     },
     {
       "type": "patchouli:text",
-      "title": "禁止生成",
-      "text": "用一颗神秘水晶右击錾制磨制符文暗黑石，激活后阻止25格球形范围内的怪物生成。"
+      "title": "No Spawning",
+      "text": "Use one Arcane Crystal on Runic Chiseled Polished Darkstone to activate it. It prevents monster spawning within a 25-block spherical radius."
     },
     {
       "type": "patchouli:crafting",
