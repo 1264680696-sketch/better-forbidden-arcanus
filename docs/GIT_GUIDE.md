@@ -36,7 +36,7 @@ git commit -m "feat: 简洁说明本次完成的功能"
 3. 复制 GitHub 给出的仓库 HTTPS 地址，用真实地址替换下面的占位值。
 
 ```powershell
-git remote add origin https://github.com/YOUR_ACCOUNT/better-forbidden-arcanus.git
+git remote add origin https://github.com/1264680696-sketch/better-forbidden-arcanus.git
 git remote -v
 git push -u origin main
 ```
@@ -60,7 +60,12 @@ git push origin v0.10.0
 
 在 GitHub Releases 中选择这个标签，填写更新内容与游戏/前置版本，上传 `build/libs` 中对应版本的附属 JAR。源码提交、版本标签、Release 和安装 JAR 是不同对象。
 
-首版未自动创建远程仓库或上传；待用户提供真实 GitHub 仓库地址后再完成远程配置与推送。
+2026-10-20 已创建并上传私有仓库：
+[1264680696-sketch/better-forbidden-arcanus](https://github.com/1264680696-sketch/better-forbidden-arcanus)。
+
+本地 `main` 跟踪 `origin/main`，0.14.0 安装包通过该仓库的 Releases 下载。私有仓库只有你和获邀协作者可以访问；分享链接不会自动授予权限。旧版本标签目前仅保留在本地，首次上传的是 `v0.14.0`。
+
+GitHub 主页显示名称为 `OriginBlue`，登录用户名与仓库地址仍使用 `1264680696-sketch`。移植内容的权利说明见根目录 `THIRD_PARTY_NOTICES.md`；确认发布权限后再决定公开。
 
 0.2.0 的功能代码、配方、贴图、测试代码和文档属于同一次本地版本快照。版本标签指向对应提交；不会自动上传 GitHub。之后先运行 `git status` 查看分支和改动，再用 `git log --oneline -5` 查看提交、`git tag --list` 查看版本标签。
 
